@@ -1,0 +1,31 @@
+/**
+ * MDS (Master Design System) — FocusRing Primitive & Interactive Base
+ * Architecture Layer: Layer 03 (Primitives / Interaction)
+ * Cascade Layer: @layer mds.primitives
+ * Rule: 2px visible keyboard focus indicator (:focus-visible)
+ */
+
+/* 1. Visible Keyboard Focus Ring */
+.mds-focus-ring:focus-visible {
+  outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Suppress redundant outline on mouse click */
+.mds-focus-ring:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 2. Interactive Base Behavior */
+.mds-interactive {
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+}
+
+.mds-interactive:disabled,
+.mds-interactive[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: var(--mds-opacity-disabled);
+  pointer-events: none;
+}

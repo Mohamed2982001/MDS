@@ -1,0 +1,115 @@
+/**
+ * MDS (Master Design System) — Typography Primitives
+ * Architecture Layer: Layer 03 (Primitives / Typography)
+ * Cascade Layer: @layer mds.primitives
+ * Fonts: Cairo (Multilingual Primary), JetBrains Mono (Code/Telemetry)
+ */
+
+/* 1. Body Text Primitive */
+.mds-text {
+  margin: 0;
+  font-family: inherit;
+  font-size: var(--mds-font-size-base);
+  font-weight: var(--mds-font-weight-regular);
+  line-height: var(--mds-font-line-height-normal);
+  color: var(--mds-color-text-primary);
+  overflow-wrap: break-word;
+}
+
+/* Size Modifiers */
+.mds-text--size-xs   { font-size: var(--mds-font-size-xs); }
+.mds-text--size-sm   { font-size: var(--mds-font-size-sm); }
+.mds-text--size-base { font-size: var(--mds-font-size-base); }
+.mds-text--size-lg   { font-size: var(--mds-font-size-lg); }
+.mds-text--size-xl   { font-size: var(--mds-font-size-xl); }
+.mds-text--size-2xl  { font-size: var(--mds-font-size-2xl); }
+.mds-text--size-3xl  { font-size: var(--mds-font-size-3xl); }
+.mds-text--size-4xl  { font-size: var(--mds-font-size-4xl); }
+
+/* Weight Modifiers */
+.mds-text--weight-regular  { font-weight: var(--mds-font-weight-regular); }
+.mds-text--weight-medium   { font-weight: var(--mds-font-weight-medium); }
+.mds-text--weight-semibold { font-weight: var(--mds-font-weight-semibold); }
+.mds-text--weight-bold     { font-weight: var(--mds-font-weight-bold); }
+
+/* Semantic Color Modifiers */
+.mds-text--color-primary   { color: var(--mds-color-text-primary); }
+.mds-text--color-secondary { color: var(--mds-color-text-secondary); }
+.mds-text--color-inverse   { color: var(--mds-color-text-inverse); }
+.mds-text--color-brand     { color: var(--mds-color-action-primary-default); }
+
+/* Alignment Modifiers */
+.mds-text--align-start   { text-align: start; }
+.mds-text--align-center  { text-align: center; }
+.mds-text--align-end     { text-align: end; }
+.mds-text--align-justify { text-align: justify; }
+
+/* Soft-Wrap Invariant: No ellipsis truncation on descriptive text */
+.mds-text--soft-wrap {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* 2. Heading Primitive (H1 - H6) */
+.mds-heading {
+  margin: 0;
+  font-family: inherit;
+  font-weight: var(--mds-font-weight-bold);
+  line-height: var(--mds-font-line-height-tight);
+  color: var(--mds-color-text-primary);
+  overflow-wrap: break-word;
+}
+
+.mds-heading--1 { font-size: var(--mds-font-size-4xl); font-weight: var(--mds-font-weight-bold); }
+.mds-heading--2 { font-size: var(--mds-font-size-3xl); font-weight: var(--mds-font-weight-bold); }
+.mds-heading--3 { font-size: var(--mds-font-size-2xl); font-weight: var(--mds-font-weight-semibold); }
+.mds-heading--4 { font-size: var(--mds-font-size-xl);  font-weight: var(--mds-font-weight-semibold); }
+.mds-heading--5 { font-size: var(--mds-font-size-lg);  font-weight: var(--mds-font-weight-semibold); }
+.mds-heading--6 { font-size: var(--mds-font-size-base);font-weight: var(--mds-font-weight-semibold); }
+
+/* 3. Label Primitive */
+.mds-label {
+  display: inline-block;
+  margin: 0;
+  font-size: var(--mds-font-size-sm);
+  font-weight: var(--mds-font-weight-medium);
+  line-height: var(--mds-font-line-height-normal);
+  color: var(--mds-color-text-primary);
+}
+
+/* 4. Caption Primitive */
+.mds-caption {
+  margin: 0;
+  font-size: var(--mds-font-size-xs);
+  font-weight: var(--mds-font-weight-regular);
+  line-height: var(--mds-font-line-height-normal);
+  color: var(--mds-color-text-secondary);
+}
+
+/* 5. HelperText Primitive */
+.mds-helper-text {
+  margin: 0;
+  font-size: var(--mds-font-size-xs);
+  line-height: var(--mds-font-line-height-normal);
+  color: var(--mds-color-text-secondary);
+}
+.mds-helper-text--error   { color: var(--mds-color-feedback-danger); }
+.mds-helper-text--success { color: var(--mds-color-feedback-success); }
+
+/* 6. Numeric Tabular Primitive */
+.mds-numeric {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* 7. Code Monospace Primitive */
+.mds-code {
+  font-family: var(--mds-font-family-mono);
+  font-size: var(--mds-font-size-sm);
+  padding-inline: var(--mds-space-scale-1);
+  padding-block: var(--mds-space-scale-0);
+  background-color: var(--mds-color-neutral-100);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+  border-radius: var(--mds-radius-xs);
+}

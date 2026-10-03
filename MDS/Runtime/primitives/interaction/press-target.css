@@ -1,0 +1,29 @@
+/**
+ * MDS (Master Design System) — PressTarget Primitive
+ * Architecture Layer: Layer 03 (Primitives / Interaction)
+ * Cascade Layer: @layer mds.primitives
+ * Rule: 44×44px Canonical MDS Interaction Touch Target (Internal Design System Rule)
+ */
+
+.mds-press-target {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Expand physical hit area to 44×44px minimum on touch viewports */
+@media (pointer: coarse) {
+  .mds-press-target::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+    min-width: var(--mds-size-touch-target-min, 44px);
+    min-height: var(--mds-size-touch-target-min, 44px);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}

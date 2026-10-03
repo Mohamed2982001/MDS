@@ -1,0 +1,154 @@
+/**
+ * MDS (Master Design System) — Tabs Component
+ * Architecture Layer: Layer 04 (Components / Navigation)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. WAI-ARIA APG Tabs Pattern (role="tablist", role="tab", role="tabpanel")
+ * 3. 2px Active Indicator Line (var(--mds-color-action-primary-default))
+ * 4. Canonical Touch Target: >= 44x44px on coarse pointers via PressTarget
+ * 5. RTL Directionality: Arrow navigation respects inline reading vector
+ * 6. 100% CSS Logical Properties
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. TABS CONTAINER
+     ======================================================================== */
+
+  .mds-tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+  }
+
+  /* ========================================================================
+     2. TABLIST
+     ======================================================================== */
+
+  .mds-tabs__list {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-md);
+    border-block-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+  }
+
+  /* ========================================================================
+     3. TAB BUTTON
+     ======================================================================== */
+
+  .mds-tabs__tab {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--mds-space-inline-xs);
+    block-size: var(--mds-size-control-md);
+    padding-block: 0;
+    padding-inline: var(--mds-space-scale-3);
+    border: none;
+    background-color: transparent;
+    color: var(--mds-color-text-secondary);
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-sm);
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+    outline: none;
+    box-sizing: border-box;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+
+    /* Motion Transitions */
+    transition:
+      color var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* 3.1 Hover State */
+  .mds-tabs__tab:hover:not([aria-selected="true"]):not(:disabled) {
+    color: var(--mds-color-text-primary);
+  }
+
+  /* 3.2 Active / Selected State */
+  .mds-tabs__tab[aria-selected="true"],
+  .mds-tabs__tab--active {
+    color: var(--mds-color-brand-600);
+    font-weight: 600;
+  }
+
+  /* 3.3 Active Indicator Line */
+  .mds-tabs__tab[aria-selected="true"]::after,
+  .mds-tabs__tab--active::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    inset-block-end: -1px;
+    block-size: var(--mds-border-width-thick);
+    background-color: var(--mds-color-action-primary-default);
+  }
+
+  /* 3.4 Keyboard Focus Indicator */
+  .mds-tabs__tab:focus-visible {
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* 3.5 Disabled State */
+  .mds-tabs__tab:disabled,
+  .mds-tabs__tab[aria-disabled="true"] {
+    color: var(--mds-color-action-disabled-foreground);
+    cursor: not-allowed;
+    opacity: var(--mds-opacity-disabled);
+  }
+
+  /* 3.6 Canonical Touch Target (PressTarget 44px) */
+  @media (pointer: coarse) {
+    .mds-tabs__tab::before {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+      min-inline-size: var(--mds-size-touch-target);
+      min-block-size: var(--mds-size-touch-target);
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  /* ========================================================================
+     4. TABPANEL
+     ======================================================================== */
+
+  .mds-tabs__panel {
+    padding-block: var(--mds-space-block-md);
+    margin: 0;
+    outline: none;
+    box-sizing: border-box;
+  }
+
+  .mds-tabs__panel[hidden] {
+    display: none;
+  }
+
+  /* 4.1 Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-tabs__tab {
+      transition: none;
+    }
+  }
+}

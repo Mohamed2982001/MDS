@@ -1,0 +1,125 @@
+/**
+ * MDS (Master Design System) — Table Component
+ * Architecture Layer: Layer 04 (Components / Data Display)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. Accessibility Finding AF-002: Focusable horizontal scroll container (tabindex="0", role="region")
+ * 3. Numeric Column Alignment: Strictly right-aligned (text-align: end) with tabular-nums
+ * 4. Soft-Wrap & Recomposition: No premature text-overflow ellipsis clipping
+ * 5. 100% CSS Logical Properties
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. RESPONSIVE SCROLL CONTAINER (AF-002 Keyboard Focusable Region)
+     ======================================================================== */
+
+  .mds-table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-style: solid;
+    border-width: var(--mds-border-width-thin);
+    border-color: var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-md);
+    background-color: var(--mds-color-surface-default);
+    box-sizing: border-box;
+    outline: none;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+  }
+
+  /* Keyboard Focus Boundary for Scrollable Container */
+  .mds-table-container:focus-visible {
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* ========================================================================
+     2. BASE TABLE ELEMENT
+     ======================================================================== */
+
+  .mds-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    text-align: start;
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-sm);
+    line-height: var(--mds-font-line-height-normal);
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+  }
+
+  /* ========================================================================
+     3. TABLE HEADERS & CELLS
+     ======================================================================== */
+
+  /* 3.1 Column Headers */
+  .mds-table th {
+    background-color: var(--mds-color-surface-raised);
+    color: var(--mds-color-text-secondary);
+    font-weight: 600;
+    text-align: start;
+    padding-block: var(--mds-space-scale-3);
+    padding-inline: var(--mds-space-scale-4);
+    border-block-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  /* 3.2 Data Cells */
+  .mds-table td {
+    color: var(--mds-color-text-primary);
+    padding-block: var(--mds-space-scale-3);
+    padding-inline: var(--mds-space-scale-4);
+    border-block-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    white-space: normal;
+    word-break: break-word;
+  }
+
+  .mds-table tbody tr:last-child td {
+    border-block-end: none;
+  }
+
+  /* 3.3 Numeric Columns Alignment (Right aligned with tabular nums) */
+  .mds-table th[data-align="numeric"],
+  .mds-table td[data-align="numeric"],
+  .mds-table th.mds-table__cell--numeric,
+  .mds-table td.mds-table__cell--numeric {
+    text-align: end;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ========================================================================
+     4. VARIANTS
+     ======================================================================== */
+
+  /* 4.1 Striped (Zebra Row Shading) */
+  .mds-table--striped tbody tr:nth-child(even) {
+    background-color: var(--mds-color-surface-canvas);
+  }
+
+  /* 4.2 Bordered (Vertical Column Dividers) */
+  .mds-table--bordered th:not(:last-child),
+  .mds-table--bordered td:not(:last-child) {
+    border-inline-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+  }
+
+  /* 4.3 Compact Density (8px padding block) */
+  .mds-table--compact th,
+  .mds-table--compact td {
+    padding-block: var(--mds-space-scale-2);
+    padding-inline: var(--mds-space-scale-3);
+  }
+
+  /* 4.4 Hover Highlight */
+  .mds-table tbody tr:hover {
+    background-color: var(--mds-color-surface-raised);
+  }
+}

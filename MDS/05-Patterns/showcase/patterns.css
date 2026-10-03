@@ -1,0 +1,207 @@
+/**
+ * MDS Patterns Showcase Stylesheet (patterns.css)
+ * Layer 05 Patterns Composition Sandbox
+ * 
+ * STRICT INVARIANT: 100% token-driven via CSS custom properties.
+ * EXACTLY 0 raw hex colors or arbitrary pixel values.
+ */
+
+/* ==========================================================================
+   1. Pattern Container & Layout Scaffolding
+   ========================================================================== */
+.mds-pattern-sandbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-8);
+  padding-block: var(--mds-space-6);
+}
+
+.mds-pattern-card {
+  background-color: var(--mds-color-surface-raised);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+  border-radius: var(--mds-radius-lg);
+  padding: var(--mds-space-6);
+  box-shadow: var(--mds-elevation-level1);
+  transition: box-shadow var(--mds-motion-fast) var(--mds-ease-standard);
+}
+
+.mds-pattern-card:hover {
+  box-shadow: var(--mds-elevation-level2);
+}
+
+/* ==========================================================================
+   2. Search & Filter Bar Pattern
+   ========================================================================== */
+.mds-search-filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-3);
+  width: 100%;
+}
+
+.mds-search-input-wrapper {
+  position: relative;
+  flex: 1;
+  min-width: 200px;
+}
+
+.mds-search-icon {
+  position: absolute;
+  inset-inline-start: var(--mds-space-3);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--mds-color-text-secondary);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.mds-search-input {
+  padding-inline-start: var(--mds-space-8);
+}
+
+/* ==========================================================================
+   3. Data List Card Pattern
+   ========================================================================== */
+.mds-data-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--mds-space-4);
+  width: 100%;
+}
+
+.mds-entity-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--mds-space-4);
+  background-color: var(--mds-color-surface-raised);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+  border-radius: var(--mds-radius-md);
+  padding: var(--mds-space-4);
+  box-shadow: var(--mds-elevation-level1);
+  transition: transform var(--mds-motion-fast) var(--mds-ease-standard),
+              box-shadow var(--mds-motion-fast) var(--mds-ease-standard);
+}
+
+.mds-entity-card:hover {
+  box-shadow: var(--mds-elevation-level2);
+}
+
+.mds-meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--mds-space-2);
+}
+
+/* ==========================================================================
+   4. Empty State Pattern
+   ========================================================================== */
+.mds-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--mds-space-8) var(--mds-space-4);
+  border: var(--mds-border-width-thin) dashed var(--mds-color-border-default);
+  border-radius: var(--mds-radius-lg);
+  background-color: var(--mds-color-surface-default);
+}
+
+.mds-empty-state__icon {
+  font-size: 48px;
+  color: var(--mds-color-text-secondary);
+  margin-bottom: var(--mds-space-3);
+}
+
+/* ==========================================================================
+   5. Confirmation Dialog Pattern
+   ========================================================================== */
+.mds-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--mds-color-surface-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--mds-space-4);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--mds-motion-normal) var(--mds-ease-standard);
+}
+
+.mds-dialog-backdrop--active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mds-dialog-surface {
+  background-color: var(--mds-color-surface-raised);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+  border-radius: var(--mds-radius-lg);
+  box-shadow: var(--mds-elevation-level3);
+  max-width: 480px;
+  width: 100%;
+  padding: var(--mds-space-6);
+  transform: scale(0.95);
+  transition: transform var(--mds-motion-normal) var(--mds-ease-standard);
+}
+
+.mds-dialog-backdrop--active .mds-dialog-surface {
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   6. AI Interaction Patterns
+   ========================================================================== */
+.mds-ai-console {
+  background-color: var(--mds-color-surface-raised);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+  border-radius: var(--mds-radius-lg);
+  box-shadow: var(--mds-elevation-level2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mds-ai-console:focus-within {
+  border-color: var(--mds-input-border-focus);
+}
+
+.mds-ai-textarea {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--mds-color-text-primary);
+  font-family: var(--mds-font-family-primary);
+  font-size: var(--mds-font-size-base);
+  padding: var(--mds-space-4);
+  min-height: 80px;
+  resize: vertical;
+}
+
+.mds-ai-result-panel {
+  background-color: var(--mds-color-surface-raised);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+  border-radius: var(--mds-radius-lg);
+  padding: var(--mds-space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-4);
+}
+
+/* ==========================================================================
+   7. Reduced Motion Override
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .mds-dialog-backdrop,
+  .mds-dialog-surface,
+  .mds-pattern-card,
+  .mds-entity-card {
+    transition: none !important;
+    transform: none !important;
+  }
+}

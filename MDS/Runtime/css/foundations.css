@@ -1,0 +1,47 @@
+/**
+ * MDS (Master Design System) — Foundations Runtime
+ * Architecture Layer: Layer 13 (Implementation / Foundations)
+ * Cascade Layer: @layer mds.foundations
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ */
+
+@layer mds.foundations {
+  :root {
+    color-scheme: light dark;
+  }
+
+  /* 1. Global Baseline Typography & Canvas */
+  body {
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-base);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+    background-color: var(--mds-color-surface-canvas);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 2. Arabic & RTL Foundation: Context-Aware Leading Boost (+0.15) */
+  :lang(ar),
+  [dir="rtl"] {
+    line-height: calc(var(--mds-font-line-height-normal) + var(--mds-arabic-leading-boost));
+  }
+
+  /* 3. Text Selection Highlights */
+  ::selection {
+    background-color: var(--mds-color-brand-100);
+    color: var(--mds-color-brand-900);
+  }
+
+  /* 4. Universal Reduced-Motion Safety Foundation */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}

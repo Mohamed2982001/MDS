@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0.0",
+  "guard_version": "1.0.0",
+  "phase_id": "Phase-9.5",
+  "phase_name": "Reference Runtime Laboratory (Interactive Playground) Implementation",
+  "locked_at": "2026-09-21T21:40:00.000Z",
+  "authorized_by": "Mohamed Khalid",
+  "authorizing_adr": "IDR-007",
+  "prev_manifest_digest": "605b095099cfa7c46308992158b8e1a4a6b7a709aa241078ad1fc086d8b5d70b",
+  "manifest_digest": "9dea67e3eb91bee84393b9f5155ddf957b7d60c2ce8d045276c9dbd93713084f",
+  "total_documents": 2,
+  "documents": [
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.5-Execution-Report.md",
+      "canonical_sha256": "b63e164560a438193a08f491a339fc9fec5183fc727491495559d23c7e0a346c",
+      "byte_size": 10179,
+      "line_count": 121,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.5"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.5-Final-Audit.md",
+      "canonical_sha256": "135b8b472e7a8fd3d3258d9c84b81a671b857adcb18fb74357dd8c2cd45fc5ba",
+      "byte_size": 30018,
+      "line_count": 559,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.5"
+    }
+  ],
+  "history_blocks": [
+    {
+      "block_id": "BLOCK:2026-09-21:phase-9.5-reference-runtime-laboratory-interactive-playground-implementation",
+      "date": "2026-09-21",
+      "phase_slug": "phase-9.5-reference-runtime-laboratory-interactive-playground-implementation",
+      "title": "Phase 9.5: Reference Runtime Laboratory (Interactive Playground) Implementation",
+      "canonical_sha256": "68aed91a36488990dc7727f9fcaa74cee37f84da24c511281571dee093d0b897",
+      "byte_size": 4053,
+      "line_count": 43
+    }
+  ]
+}

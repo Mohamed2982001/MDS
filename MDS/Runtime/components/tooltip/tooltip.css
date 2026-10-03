@@ -1,0 +1,130 @@
+/**
+ * MDS (Master Design System) — Tooltip Component
+ * Architecture Layer: Layer 04 (Components / Overlays)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. Composed from Surface.floating + Elevation Level 2
+ * 3. 300ms Intentional Display Delay (prevents flashing on mouse traversal)
+ * 4. Dismissal on Escape Key & Trigger Blur
+ * 5. 100% CSS Logical Properties (inline-start, inline-end, etc.)
+ * 6. Non-Essential Status: aria-describedby relationship
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. TOOLTIP WRAPPER & TRIGGER
+     ======================================================================== */
+
+  .mds-tooltip {
+    display: inline-flex;
+    position: relative;
+    box-sizing: border-box;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+    padding: 0;
+  }
+
+  /* ========================================================================
+     2. TOOLTIP BUBBLE (Surface.floating)
+     ======================================================================== */
+
+  .mds-tooltip__bubble {
+    position: absolute;
+    z-index: var(--mds-layer-dropdown, 100);
+    background-color: var(--mds-color-neutral-900);
+    color: var(--mds-color-text-inverse);
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-xs);
+    line-height: var(--mds-font-line-height-tight);
+    padding-block: var(--mds-space-scale-1);
+    padding-inline: var(--mds-space-scale-2);
+    border-radius: var(--mds-radius-xs);
+    box-shadow: var(--mds-elevation-level2);
+    pointer-events: none;
+    white-space: nowrap;
+    user-select: none;
+    box-sizing: border-box;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+
+    /* Motion Transitions */
+    transition:
+      opacity var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      transform var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* ========================================================================
+     3. PLACEMENTS
+     ======================================================================== */
+
+  /* 3.1 Top (Default) */
+  .mds-tooltip__bubble--top,
+  .mds-tooltip:not([data-placement]) .mds-tooltip__bubble {
+    inset-block-end: calc(100% + var(--mds-space-scale-1));
+    inset-inline-start: 50%;
+    transform: translateX(-50%) translateY(4px);
+  }
+
+  /* 3.2 Bottom */
+  .mds-tooltip__bubble--bottom,
+  .mds-tooltip[data-placement="bottom"] .mds-tooltip__bubble {
+    inset-block-start: calc(100% + var(--mds-space-scale-1));
+    inset-inline-start: 50%;
+    transform: translateX(-50%) translateY(-4px);
+  }
+
+  /* 3.3 Logical Inline-Start */
+  .mds-tooltip__bubble--start,
+  .mds-tooltip[data-placement="start"] .mds-tooltip__bubble {
+    inset-inline-end: calc(100% + var(--mds-space-scale-1));
+    inset-block-start: 50%;
+    transform: translateY(-50%) translateX(4px);
+  }
+
+  /* 3.4 Logical Inline-End */
+  .mds-tooltip__bubble--end,
+  .mds-tooltip[data-placement="end"] .mds-tooltip__bubble {
+    inset-inline-start: calc(100% + var(--mds-space-scale-1));
+    inset-block-start: 50%;
+    transform: translateY(-50%) translateX(-4px);
+  }
+
+  /* ========================================================================
+     4. ACTIVE / VISIBLE STATES
+     ======================================================================== */
+
+  .mds-tooltip__bubble[data-visible="true"],
+  .mds-tooltip:hover:not([data-disabled="true"]) .mds-tooltip__bubble,
+  .mds-tooltip:focus-within:not([data-disabled="true"]) .mds-tooltip__bubble {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mds-tooltip__bubble--top[data-visible="true"],
+  .mds-tooltip:not([data-placement]):hover .mds-tooltip__bubble,
+  .mds-tooltip:not([data-placement]):focus-within .mds-tooltip__bubble {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  .mds-tooltip__bubble--bottom[data-visible="true"],
+  .mds-tooltip[data-placement="bottom"]:hover .mds-tooltip__bubble,
+  .mds-tooltip[data-placement="bottom"]:focus-within .mds-tooltip__bubble {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  /* 4.1 Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-tooltip__bubble {
+      transition: none;
+    }
+  }
+}

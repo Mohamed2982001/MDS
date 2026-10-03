@@ -1,0 +1,32 @@
+/**
+ * MDS (Master Design System) — Stack Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Responsibility: 1D Vertical composition & parent-owned spacing
+ */
+
+.mds-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* Token-Driven Gap Modifiers */
+.mds-stack--gap-xs { gap: var(--mds-space-block-xs); }
+.mds-stack--gap-sm { gap: var(--mds-space-block-sm); }
+.mds-stack--gap-md { gap: var(--mds-space-block-md); }
+.mds-stack--gap-lg { gap: var(--mds-space-block-lg); }
+.mds-stack--gap-xl { gap: var(--mds-space-scale-12); }
+
+/* Alignment Modifiers */
+.mds-stack--align-start    { align-items: flex-start; }
+.mds-stack--align-center   { align-items: center; }
+.mds-stack--align-end      { align-items: flex-end; }
+.mds-stack--justify-center { justify-content: center; }
+
+/* Structural Content Dividers */
+.mds-stack--dividers > * + * {
+  border-block-start: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+  padding-block-start: inherit;
+}

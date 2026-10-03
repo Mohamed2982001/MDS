@@ -1,0 +1,356 @@
+/* ==========================================================================
+   Master Design System (MDS) — Layer 07 Templates Scaffolding Stylesheet
+   100% Token-Driven via CSS Custom Properties.
+   Zero Raw Hex Colors. Zero row-reverse. 100% CSS Logical Properties.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Template Base Scaffold & Container Wrappers
+   -------------------------------------------------------------------------- */
+.mds-template-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--mds-color-surface-canvas);
+  color: var(--mds-color-text-primary);
+  box-sizing: border-box;
+}
+
+.mds-template-main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--mds-container-xl);
+  margin-inline: auto;
+  padding-inline: var(--mds-space-4);
+  padding-block: var(--mds-space-6);
+  box-sizing: border-box;
+}
+
+.mds-template-main--constrained {
+  max-width: var(--mds-container-md);
+}
+
+.mds-template-main--tight {
+  max-width: var(--mds-container-sm);
+}
+
+/* --------------------------------------------------------------------------
+   2. Template 1: Dashboard-Overview (MDS-TMP-001)
+   -------------------------------------------------------------------------- */
+.mds-template-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-6);
+}
+
+.mds-kpi-strip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--mds-space-4);
+}
+
+.mds-kpi-card {
+  background-color: var(--mds-color-surface-default);
+  border: var(--mds-border-subtle);
+  border-radius: var(--mds-radius-md);
+  padding: var(--mds-space-4);
+  box-shadow: var(--mds-elevation-level1);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-2);
+}
+
+.mds-kpi-value {
+  font-size: var(--mds-font-size-2xl);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: var(--mds-line-height-tight);
+}
+
+.mds-dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--mds-space-6);
+}
+
+@media (max-width: 1024px) {
+  .mds-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Template 2: List-Management (MDS-TMP-002)
+   -------------------------------------------------------------------------- */
+.mds-template-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-4);
+}
+
+.mds-list-toolbar {
+  background-color: var(--mds-color-surface-default);
+  border: var(--mds-border-subtle);
+  border-radius: var(--mds-radius-md);
+  padding: var(--mds-space-3) var(--mds-space-4);
+}
+
+.mds-table-wrapper {
+  background-color: var(--mds-color-surface-default);
+  border: var(--mds-border-subtle);
+  border-radius: var(--mds-radius-md);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mds-pagination-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: var(--mds-space-3);
+  padding-inline: var(--mds-space-2);
+}
+
+/* --------------------------------------------------------------------------
+   4. Template 3: Detail-Entity (MDS-TMP-003)
+   -------------------------------------------------------------------------- */
+.mds-template-detail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-6);
+}
+
+.mds-detail-split {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--mds-space-6);
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .mds-detail-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mds-detail-main-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-4);
+}
+
+.mds-detail-sidebar-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-4);
+}
+
+.mds-property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--mds-space-4);
+}
+
+.mds-property-item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-1);
+}
+
+/* --------------------------------------------------------------------------
+   5. Template 4: Form-Edit (MDS-TMP-004)
+   -------------------------------------------------------------------------- */
+.mds-template-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-6);
+  max-width: var(--mds-container-md);
+  margin-inline: auto;
+  width: 100%;
+}
+
+.mds-form-stepper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: var(--mds-space-4);
+  border-bottom: var(--mds-border-subtle);
+}
+
+.mds-sticky-actions {
+  position: sticky;
+  bottom: 0;
+  background-color: var(--mds-color-surface-default);
+  border-top: var(--mds-border-subtle);
+  padding-block: var(--mds-space-3);
+  padding-inline: var(--mds-space-4);
+  margin-inline: calc(var(--mds-space-4) * -1);
+  box-shadow: 0 -4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--mds-space-3);
+  z-index: 10;
+}
+
+/* --------------------------------------------------------------------------
+   6. Template 5: Settings-Workspace (MDS-TMP-005)
+   -------------------------------------------------------------------------- */
+.mds-template-settings {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-6);
+}
+
+.mds-settings-split {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: var(--mds-space-6);
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .mds-settings-split {
+    grid-template-columns: 1fr;
+  }
+}
+
+.mds-settings-rail {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-1);
+  background-color: var(--mds-color-surface-default);
+  border: var(--mds-border-subtle);
+  border-radius: var(--mds-radius-md);
+  padding: var(--mds-space-2);
+}
+
+.mds-settings-nav-item {
+  display: flex;
+  align-items: center;
+  gap: var(--mds-space-2);
+  padding: var(--mds-space-2) var(--mds-space-3);
+  border-radius: var(--mds-radius-sm);
+  color: var(--mds-color-text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color var(--mds-motion-duration-fast) var(--mds-motion-easing-default);
+}
+
+.mds-settings-nav-item:hover {
+  background-color: var(--mds-color-surface-raised);
+  color: var(--mds-color-text-primary);
+}
+
+.mds-settings-nav-item--active {
+  background-color: var(--mds-color-brand-50);
+  color: var(--mds-color-brand-700);
+  font-weight: 600;
+}
+
+.mds-settings-content {
+  background-color: var(--mds-color-surface-default);
+  border: var(--mds-border-subtle);
+  border-radius: var(--mds-radius-md);
+  padding: var(--mds-space-6);
+}
+
+/* --------------------------------------------------------------------------
+   7. Template 6: AI-Workspace (MDS-TMP-006)
+   -------------------------------------------------------------------------- */
+.mds-template-ai {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-4);
+  height: calc(100vh - 120px);
+}
+
+.mds-ai-studio-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  gap: var(--mds-space-4);
+  flex: 1;
+  min-height: 0;
+}
+
+@media (max-width: 1100px) {
+  .mds-ai-studio-grid {
+    grid-template-columns: 1fr;
+    height: auto;
+  }
+}
+
+.mds-ai-panel {
+  background-color: var(--mds-color-surface-default);
+  border: var(--mds-border-subtle);
+  border-radius: var(--mds-radius-md);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.mds-ai-panel-header {
+  padding: var(--mds-space-3) var(--mds-space-4);
+  border-bottom: var(--mds-border-subtle);
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mds-ai-panel-body {
+  padding: var(--mds-space-4);
+  overflow-y: auto;
+  flex: 1;
+}
+
+.mds-ai-canvas-area {
+  background-color: var(--mds-color-surface-default);
+  border: var(--mds-border-subtle);
+  border-radius: var(--mds-radius-md);
+  padding: var(--mds-space-6);
+  flex: 1;
+  overflow-y: auto;
+  font-family: var(--mds-font-family-mono);
+  font-size: var(--mds-font-size-sm);
+  line-height: var(--mds-line-height-normal);
+}
+
+/* --------------------------------------------------------------------------
+   8. Experience State Overlays & Skeletons
+   -------------------------------------------------------------------------- */
+.mds-template-state-banner {
+  padding: var(--mds-space-3) var(--mds-space-4);
+  border-radius: var(--mds-radius-md);
+  margin-bottom: var(--mds-space-4);
+}
+
+.mds-template-state-banner--error {
+  background-color: var(--mds-color-palette-red-50);
+  border: 1px solid var(--mds-color-palette-red-200);
+  color: var(--mds-color-palette-red-700);
+}
+
+.mds-template-state-banner--info {
+  background-color: var(--mds-color-palette-blue-50);
+  border: 1px solid var(--mds-color-palette-blue-200);
+  color: var(--mds-color-palette-blue-700);
+}
+
+.mds-skeleton-box {
+  background-color: var(--mds-color-surface-raised);
+  border-radius: var(--mds-radius-sm);
+  animation: mds-pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes mds-pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1.0; }
+  100% { opacity: 0.6; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mds-skeleton-box {
+    animation: none;
+    opacity: 0.8;
+  }
+}

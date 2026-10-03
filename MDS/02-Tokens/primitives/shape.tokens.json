@@ -1,0 +1,69 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "radius": {
+    "none": {
+      "$type": "dimension",
+      "$value": "0px",
+      "$description": "0px sharp corners for seamless full-bleed containers and tables",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "xs": {
+      "$type": "dimension",
+      "$value": "4px",
+      "$description": "4px micro radius for tags, status indicators, and inner nested items",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "sm": {
+      "$type": "dimension",
+      "$value": "6px",
+      "$description": "6px compact radius for badges, small chips, and Refined Minimal preset controls",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "md": {
+      "$type": "dimension",
+      "$value": "10px",
+      "$description": "10px signature MDS Soft Modern radius for standard buttons, inputs, and cards",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "lg": {
+      "$type": "dimension",
+      "$value": "14px",
+      "$description": "14px large radius for elevated cards, floating panels, and dropdown menus",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "xl": {
+      "$type": "dimension",
+      "$value": "20px",
+      "$description": "20px extra-large radius for modal dialogs, bottom sheets, and hero banners",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "full": {
+      "$type": "dimension",
+      "$value": "9999px",
+      "$description": "Fully rounded pill radius for tags, status badges, and circular avatar containers",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    }
+  },
+  "border": {
+    "width": {
+      "thin": {
+        "$type": "dimension",
+        "$value": "1px",
+        "$description": "1px hairline border for subtle dividers, table rows, and resting card perimeters",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "regular": {
+        "$type": "dimension",
+        "$value": "1.5px",
+        "$description": "1.5px standard interactive border for form inputs, active controls, and vector icon stroke",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "thick": {
+        "$type": "dimension",
+        "$value": "2px",
+        "$description": "2px prominent border for accessibility focus rings and active selection outlines",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    }
+  }
+}

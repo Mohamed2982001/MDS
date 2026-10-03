@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS Layer 07 — Templates Interactive Validation Testbed</title>
+  
+  <!-- Google Fonts: Cairo (MDS Canonical Typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Canonical Token, Primitives, Patterns, and Templates Stylesheets -->
+  <link rel="stylesheet" href="../../03-Primitives/showcase/tokens.css">
+  <link rel="stylesheet" href="../../03-Primitives/showcase/primitives.css">
+  <link rel="stylesheet" href="../../05-Patterns/showcase/patterns.css">
+  <link rel="stylesheet" href="../../06-Workflows/showcase/workflows.css">
+  <link rel="stylesheet" href="templates.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--mds-color-surface-canvas);
+      color: var(--mds-color-text-primary);
+      font-family: var(--mds-font-family-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Notice Banner: Canonical Sandbox Invariant -->
+  <header style="background: var(--mds-color-brand-900); color: var(--mds-color-text-inverse); padding: var(--mds-space-3) var(--mds-space-4); border-bottom: 1px solid var(--mds-color-brand-700);">
+    <div class="mds-container mds-container--xl">
+      <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+        <div class="mds-inline mds-inline--gap-xs mds-inline--align-center">
+          <span style="font-size: 18px;">📐</span>
+          <span class="mds-text mds-text--size-sm" style="font-weight: 600;">
+            MDS Layer 07 Templates Testbed • 6 Canonical Archetypes • 100% Token-Driven • 0 Raw Hex
+          </span>
+        </div>
+        <div class="mds-inline mds-inline--gap-sm">
+          <button class="mds-button mds-button--ghost mds-button--sm mds-focus-ring" onclick="toggleTheme()" style="color: var(--mds-color-text-inverse);">
+            🌓 تبديل المظهر (Theme)
+          </button>
+          <button class="mds-button mds-button--ghost mds-button--sm mds-focus-ring" onclick="toggleDir()" style="color: var(--mds-color-text-inverse);">
+            🌐 LTR / RTL
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sandbox Controller Bar -->
+  <div style="background: var(--mds-color-surface-default); border-bottom: var(--mds-border-subtle); padding: var(--mds-space-3) var(--mds-space-4);">
+    <div class="mds-container mds-container--xl">
+      <div class="mds-inline mds-inline--justify-between mds-inline--align-center" style="flex-wrap: wrap; gap: var(--mds-space-3);">
+        <div class="mds-inline mds-inline--gap-xs" style="flex-wrap: wrap;" id="template-buttons">
+          <button class="mds-button mds-button--primary mds-button--sm" onclick="selectTemplate('dashboard')">1. Dashboard Overview</button>
+          <button class="mds-button mds-button--secondary mds-button--sm" onclick="selectTemplate('list')">2. List Management</button>
+          <button class="mds-button mds-button--secondary mds-button--sm" onclick="selectTemplate('detail')">3. Detail Entity</button>
+          <button class="mds-button mds-button--secondary mds-button--sm" onclick="selectTemplate('form')">4. Form Edit</button>
+          <button class="mds-button mds-button--secondary mds-button--sm" onclick="selectTemplate('settings')">5. Settings Workspace</button>
+          <button class="mds-button mds-button--secondary mds-button--sm" onclick="selectTemplate('ai')">6. AI Workspace</button>
+        </div>
+        <div class="mds-inline mds-inline--gap-xs mds-inline--align-center">
+          <span class="mds-text mds-text--size-xs" style="font-weight: 600;">الحالة (State):</span>
+          <button class="mds-button mds-button--ghost mds-button--sm" onclick="setState('populated')">Populated</button>
+          <button class="mds-button mds-button--ghost mds-button--sm" onclick="setState('loading')">Skeleton Loading</button>
+          <button class="mds-button mds-button--ghost mds-button--sm" onclick="setState('empty')">Empty State</button>
+          <button class="mds-button mds-button--ghost mds-button--sm" onclick="setState('error')">Error Banner</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Template Render Canvas -->
+  <main class="mds-template-main" id="template-canvas">
+
+    <!-- ====================================================================
+         1. Template: Dashboard-Overview (MDS-TMP-001)
+         ==================================================================== -->
+    <section id="view-dashboard" class="mds-template-dashboard">
+      <!-- Page Header Pattern -->
+      <div class="mds-page-header">
+        <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+          <div class="mds-stack mds-stack--gap-xs">
+            <nav aria-label="Breadcrumb" class="mds-breadcrumb">
+              <span>الرئيسية</span> <span>/</span> <span aria-current="page">لوحة التحكم والمؤشرات</span>
+            </nav>
+            <h1 class="mds-heading mds-heading--3">نظرة عامة على النظام والمؤشرات</h1>
+          </div>
+          <div class="mds-inline mds-inline--gap-sm">
+            <button class="mds-button mds-button--secondary mds-button--md">تصدير تقرير</button>
+            <button class="mds-button mds-button--primary mds-button--md">+ مشروع جديد</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- State Banner Slot (Hidden by default) -->
+      <div id="dashboard-state-banner" style="display: none;"></div>
+
+      <!-- Metric KPI Strip (4 Cards) -->
+      <div class="mds-kpi-strip" id="dashboard-kpi-strip">
+        <div class="mds-kpi-card">
+          <span class="mds-text mds-text--size-xs mds-text--muted">إجمالي العمليات النشطة</span>
+          <span class="mds-kpi-value">14,250</span>
+          <span class="mds-badge mds-badge--success mds-badge--sm" style="width: fit-content;">↑ 12.5% نمو أسبوعي</span>
+        </div>
+        <div class="mds-kpi-card">
+          <span class="mds-text mds-text--size-xs mds-text--muted">معدل التحويل الناجح</span>
+          <span class="mds-kpi-value">98.4%</span>
+          <span class="mds-badge mds-badge--brand mds-badge--sm" style="width: fit-content;">مستقر ومثالي</span>
+        </div>
+        <div class="mds-kpi-card">
+          <span class="mds-text mds-text--size-xs mds-text--muted">زمن الاستجابة للنظام</span>
+          <span class="mds-kpi-value">42ms</span>
+          <span class="mds-badge mds-badge--success mds-badge--sm" style="width: fit-content;">↓ 6ms تحسن</span>
+        </div>
+        <div class="mds-kpi-card">
+          <span class="mds-text mds-text--size-xs mds-text--muted">تنبيهات حرجة</span>
+          <span class="mds-kpi-value">0</span>
+          <span class="mds-badge mds-badge--neutral mds-badge--sm" style="width: fit-content;">كافة الأنظمة تعمل</span>
+        </div>
+      </div>
+
+      <!-- Primary Content Grid (2:1 Layout) -->
+      <div class="mds-dashboard-grid" id="dashboard-content-grid">
+        <!-- Main Activity Column -->
+        <div class="mds-surface mds-surface--default" style="padding: var(--mds-space-4); border-radius: var(--mds-radius-md); border: var(--mds-border-subtle);">
+          <div class="mds-inline mds-inline--justify-between mds-inline--align-center" style="margin-bottom: var(--mds-space-4);">
+            <h2 class="mds-heading mds-heading--4">آخر النشاطات المسجلة</h2>
+            <button class="mds-button mds-button--ghost mds-button--sm">عرض السجل الكامل</button>
+          </div>
+          <div class="mds-stack mds-stack--gap-sm">
+            <div class="mds-card mds-card--outline" style="padding: var(--mds-space-3);">
+              <div class="mds-inline mds-inline--justify-between">
+                <strong>اعتماد الترقية البرمجية للطبقة السابعة</strong>
+                <span class="mds-badge mds-badge--success">ناجح</span>
+              </div>
+              <p class="mds-text mds-text--size-sm mds-text--muted" style="margin: 4px 0 0 0;">تم توثيق كافة المعايير الهندسية لـ 6 Templates قياسية.</p>
+            </div>
+            <div class="mds-card mds-card--outline" style="padding: var(--mds-space-3);">
+              <div class="mds-inline mds-inline--justify-between">
+                <strong>تحديث مفاتيح الأمان السحابية</strong>
+                <span class="mds-badge mds-badge--brand">مكتمل</span>
+              </div>
+              <p class="mds-text mds-text--size-sm mds-text--muted" style="margin: 4px 0 0 0;">تم تدوير المفاتيح الأمنية بنجاح عبر خوادم الإنتاج.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Secondary Insights Column -->
+        <div class="mds-surface mds-surface--default" style="padding: var(--mds-space-4); border-radius: var(--mds-radius-md); border: var(--mds-border-subtle);">
+          <h2 class="mds-heading mds-heading--4" style="margin-bottom: var(--mds-space-4);">حالة الموارد والخوادم</h2>
+          <div class="mds-stack mds-stack--gap-sm">
+            <div>
+              <div class="mds-inline mds-inline--justify-between mds-text--size-xs">
+                <span>استهلاك الذاكرة (RAM)</span>
+                <span>42%</span>
+              </div>
+              <div style="height: 6px; background: var(--mds-color-surface-raised); border-radius: 3px; margin-top: 4px; overflow: hidden;">
+                <div style="width: 42%; height: 100%; background: var(--mds-color-brand-600);"></div>
+              </div>
+            </div>
+            <div>
+              <div class="mds-inline mds-inline--justify-between mds-text--size-xs">
+                <span>جاهزية الشبكة والـ CDN</span>
+                <span>99.9%</span>
+              </div>
+              <div style="height: 6px; background: var(--mds-color-surface-raised); border-radius: 3px; margin-top: 4px; overflow: hidden;">
+                <div style="width: 99.9%; height: 100%; background: var(--mds-color-palette-green-600);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         2. Template: List-Management (MDS-TMP-002)
+         ==================================================================== -->
+    <section id="view-list" class="mds-template-list" style="display: none;">
+      <!-- Page Header -->
+      <div class="mds-page-header">
+        <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+          <div class="mds-stack mds-stack--gap-xs">
+            <h1 class="mds-heading mds-heading--3">إدارة المشروعات والوحدات</h1>
+            <p class="mds-text mds-text--size-sm mds-text--muted">عرض وتصفية كافة المشروعات النشطة والمؤرشفة في النظام.</p>
+          </div>
+          <button class="mds-button mds-button--primary mds-button--md">+ إضافة مشروع</button>
+        </div>
+      </div>
+
+      <!-- Search & Filter Toolbar Pattern -->
+      <div class="mds-list-toolbar">
+        <div class="mds-inline mds-inline--justify-between mds-inline--align-center" style="gap: var(--mds-space-3); flex-wrap: wrap;">
+          <input type="text" class="mds-input" placeholder="🔍 بحث في المشروعات..." style="max-width: 320px; flex: 1;">
+          <div class="mds-inline mds-inline--gap-xs">
+            <button class="mds-button mds-button--secondary mds-button--sm">الحالة: الكل ▾</button>
+            <button class="mds-button mds-button--secondary mds-button--sm">القسم ▾</button>
+            <button class="mds-button mds-button--ghost mds-button--sm">مسح الفلاتر</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table Component Canvas -->
+      <div class="mds-table-wrapper" id="list-table-canvas">
+        <table class="mds-table" style="width: 100%; text-align: start;">
+          <thead>
+            <tr>
+              <th style="width: 40px;"><input type="checkbox"></th>
+              <th>اسم المشروع</th>
+              <th>المالك</th>
+              <th>الحالة</th>
+              <th>تاريخ التحديث</th>
+              <th style="text-align: end;">إجراءات</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td><strong>نظام إدارة الهوية الرقمية</strong></td>
+              <td>محمد خالد</td>
+              <td><span class="mds-badge mds-badge--success">نشط</span></td>
+              <td style="font-variant-numeric: tabular-nums;">2026-09-17</td>
+              <td style="text-align: end;"><button class="mds-button mds-button--ghost mds-button--sm">تعديل</button></td>
+            </tr>
+            <tr>
+              <td><input type="checkbox"></td>
+              <td><strong>بوابة خدمات المرضى والعيادات</strong></td>
+              <td>فريق التطوير</td>
+              <td><span class="mds-badge mds-badge--brand">قيد التنفيذ</span></td>
+              <td style="font-variant-numeric: tabular-nums;">2026-09-16</td>
+              <td style="text-align: end;"><button class="mds-button mds-button--ghost mds-button--sm">تعديل</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination Footer -->
+      <div class="mds-pagination-bar">
+        <span class="mds-text mds-text--size-sm mds-text--muted">عرض 1-2 من إجمالي 48 مشروعاً</span>
+        <div class="mds-inline mds-inline--gap-xs">
+          <button class="mds-button mds-button--secondary mds-button--sm" disabled>السابق</button>
+          <button class="mds-button mds-button--secondary mds-button--sm">التالي</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         3. Template: Detail-Entity (MDS-TMP-003)
+         ==================================================================== -->
+    <section id="view-detail" class="mds-template-detail" style="display: none;">
+      <div class="mds-page-header">
+        <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+          <div class="mds-stack mds-stack--gap-xs">
+            <a href="#" class="mds-link" onclick="selectTemplate('list')">← العودة إلى قائمة المشروعات</a>
+            <div class="mds-inline mds-inline--gap-sm mds-inline--align-center">
+              <h1 class="mds-heading mds-heading--3">مشروع: نظام إدارة الهوية الرقمية</h1>
+              <span class="mds-badge mds-badge--success">نشط بالإنتاج</span>
+            </div>
+          </div>
+          <div class="mds-inline mds-inline--gap-sm">
+            <button class="mds-button mds-button--secondary mds-button--md">مشاركة الرابط</button>
+            <button class="mds-button mds-button--primary mds-button--md">حفظ التغييرات</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="mds-detail-split">
+        <!-- Main Detail Content -->
+        <div class="mds-detail-main-col">
+          <div class="mds-surface mds-surface--default" style="padding: var(--mds-space-4); border-radius: var(--mds-radius-md); border: var(--mds-border-subtle);">
+            <h2 class="mds-heading mds-heading--4" style="margin-bottom: var(--mds-space-3);">الخصائص والمواصفات الأساسية</h2>
+            <div class="mds-property-grid">
+              <div class="mds-property-item">
+                <span class="mds-text mds-text--size-xs mds-text--muted">رمز التعريف (ID)</span>
+                <span style="font-family: var(--mds-font-family-mono);">PRJ-8842</span>
+              </div>
+              <div class="mds-property-item">
+                <span class="mds-text mds-text--size-xs mds-text--muted">المسؤول التقني</span>
+                <span>محمد خالد</span>
+              </div>
+              <div class="mds-property-item">
+                <span class="mds-text mds-text--size-xs mds-text--muted">مستوى الحماية</span>
+                <span>مشدد (MFA Required)</span>
+              </div>
+              <div class="mds-property-item">
+                <span class="mds-text mds-text--size-xs mds-text--muted">تاريخ الإنشاء</span>
+                <span style="font-variant-numeric: tabular-nums;">2026-08-01</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Metadata -->
+        <div class="mds-detail-sidebar-col">
+          <div class="mds-surface mds-surface--default" style="padding: var(--mds-space-4); border-radius: var(--mds-radius-md); border: var(--mds-border-subtle);">
+            <h3 class="mds-heading mds-heading--5" style="margin-bottom: var(--mds-space-2);">سجل العمليات والتدقيق</h3>
+            <p class="mds-text mds-text--size-xs mds-text--muted">آخر تعديل بواسطة محمد خالد منذ 10 دقائق.</p>
+            <hr style="border: 0; border-top: var(--mds-border-subtle); margin: var(--mds-space-3) 0;">
+            <button class="mds-button mds-button--danger mds-button--sm" style="width: 100%;">أرشفة المشروع</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         4. Template: Form-Edit (MDS-TMP-004)
+         ==================================================================== -->
+    <section id="view-form" class="mds-template-form" style="display: none;">
+      <div class="mds-page-header">
+        <h1 class="mds-heading mds-heading--3">إنشاء كيان مشروع جديد</h1>
+        <p class="mds-text mds-text--size-sm mds-text--muted">يرجى تعبئة الحقول المطلوبة لتدشين مساحة العمل.</p>
+      </div>
+
+      <div class="mds-surface mds-surface--default" style="padding: var(--mds-space-6); border-radius: var(--mds-radius-md); border: var(--mds-border-subtle);">
+        <form class="mds-stack mds-stack--gap-4" onsubmit="event.preventDefault();">
+          <div class="mds-stack mds-stack--gap-xs">
+            <label class="mds-label" style="font-weight: 600;">اسم المشروع *</label>
+            <input type="text" class="mds-input" value="مشروع تحسين الأداء 2026">
+          </div>
+          <div class="mds-stack mds-stack--gap-xs">
+            <label class="mds-label" style="font-weight: 600;">القسم التابع له</label>
+            <select class="mds-select">
+              <option>الهندسة والتطوير (Engineering)</option>
+              <option>أمن المعلومات (Security)</option>
+            </select>
+          </div>
+          <div class="mds-stack mds-stack--gap-xs">
+            <label class="mds-label" style="font-weight: 600;">الوصف التقني والملاحظات</label>
+            <textarea class="mds-textarea" rows="3">تحديث المنظومة المعمارية لضمان التوافق مع WCAG 2.2.</textarea>
+          </div>
+          <div class="mds-sticky-actions">
+            <button type="button" class="mds-button mds-button--ghost mds-button--md">إلغاء</button>
+            <button type="submit" class="mds-button mds-button--primary mds-button--md">حفظ ونشر المشروع</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         5. Template: Settings-Workspace (MDS-TMP-005)
+         ==================================================================== -->
+    <section id="view-settings" class="mds-template-settings" style="display: none;">
+      <div class="mds-page-header">
+        <h1 class="mds-heading mds-heading--3">إعدادات النظام والحساب</h1>
+        <p class="mds-text mds-text--size-sm mds-text--muted">إدارة خيارات الأمان، التنبيهات، ومفاتيح الربط البرمجي.</p>
+      </div>
+
+      <div class="mds-settings-split">
+        <!-- Navigation Rail -->
+        <nav class="mds-settings-rail" aria-label="Settings Categories">
+          <a href="#" class="mds-settings-nav-item mds-settings-nav-item--active">👤 الملف الشخصي والحساب</a>
+          <a href="#" class="mds-settings-nav-item">🔒 الأمان والمصادقة</a>
+          <a href="#" class="mds-settings-nav-item">🔔 التنبيهات والإشعارات</a>
+          <a href="#" class="mds-settings-nav-item">💳 الاشتراكات والفوترة</a>
+        </nav>
+
+        <!-- Section Workspace -->
+        <div class="mds-settings-content">
+          <h2 class="mds-heading mds-heading--4" style="margin-bottom: var(--mds-space-4);">الملف الشخصي والحساب</h2>
+          <div class="mds-stack mds-stack--gap-4">
+            <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+              <div>
+                <strong>التوثيق الثنائي (2FA)</strong>
+                <p class="mds-text mds-text--size-xs mds-text--muted" style="margin: 2px 0 0 0;">إلزام الحساب برمز تحقق إضافي عند تسجيل الدخول.</p>
+              </div>
+              <input type="checkbox" checked style="width: 20px; height: 20px;">
+            </div>
+            <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+              <div>
+                <strong>الإشعارات البريدية الفورية</strong>
+                <p class="mds-text mds-text--size-xs mds-text--muted" style="margin: 2px 0 0 0;">استلام تقارير دورية بالأخطاء الحرجة.</p>
+              </div>
+              <input type="checkbox" checked style="width: 20px; height: 20px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         6. Template: AI-Workspace (MDS-TMP-006)
+         ==================================================================== -->
+    <section id="view-ai" class="mds-template-ai" style="display: none;">
+      <div class="mds-page-header">
+        <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+          <div class="mds-inline mds-inline--gap-sm mds-inline--align-center">
+            <span style="font-size: 20px;">✨</span>
+            <h1 class="mds-heading mds-heading--3">استوديو الذكاء الاصطناعي التوليدي</h1>
+            <span class="mds-badge mds-badge--brand">Gemini Pro 1.5</span>
+          </div>
+          <button class="mds-button mds-button--ghost mds-button--sm">جلسة جديدة</button>
+        </div>
+      </div>
+
+      <div class="mds-ai-studio-grid">
+        <!-- Prompt Panel -->
+        <div class="mds-ai-panel">
+          <div class="mds-ai-panel-header">صياغة الأوامر (Prompt)</div>
+          <div class="mds-ai-panel-body mds-stack mds-stack--gap-sm">
+            <textarea class="mds-textarea" rows="5" placeholder="اكتب طلبك الهندسي هنا..."></textarea>
+            <button class="mds-button mds-button--primary mds-button--sm" style="width: 100%;">توليد الاستجابة ✨</button>
+          </div>
+        </div>
+
+        <!-- Canvas Area -->
+        <div class="mds-ai-canvas-area">
+          <span class="mds-text--muted">// الناتج التوليدي للمحرر البرمجي</span><br><br>
+          <span style="color: var(--mds-color-palette-blue-600);">class</span> <strong style="color: var(--mds-color-brand-600);">MDSThemeEngine</strong> {<br>
+          &nbsp;&nbsp;<span style="color: var(--mds-color-palette-green-600);">// Guaranteed Zero Raw Hex Colors</span><br>
+          &nbsp;&nbsp;<span style="color: var(--mds-color-palette-blue-600);">const</span> primary = <span style="color: var(--mds-color-palette-amber-600);">"var(--mds-color-brand-600)"</span>;<br>
+          }
+        </div>
+
+        <!-- Citations / Human Review Panel -->
+        <div class="mds-ai-panel">
+          <div class="mds-ai-panel-header">المصادر والتحقق البشري</div>
+          <div class="mds-ai-panel-body mds-stack mds-stack--gap-sm">
+            <div class="mds-card mds-card--outline" style="padding: var(--mds-space-2);">
+              <span class="mds-badge mds-badge--success mds-badge--sm">موثوق 99%</span>
+              <p class="mds-text mds-text--size-xs" style="margin: 4px 0 0 0;">مطابق للمواصفة W3C DTCG.</p>
+            </div>
+            <button class="mds-button mds-button--secondary mds-button--sm" style="width: 100%;">اعتماد وتطبيق في النظام</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // Navigation & Template Switching
+    const templates = ['dashboard', 'list', 'detail', 'form', 'settings', 'ai'];
+    function selectTemplate(name) {
+      templates.forEach(t => {
+        const el = document.getElementById('view-' + t);
+        if (el) el.style.display = (t === name) ? 'flex' : 'none';
+      });
+      // Update active button state
+      const buttons = document.querySelectorAll('#template-buttons button');
+      buttons.forEach((btn, idx) => {
+        if (templates[idx] === name) {
+          btn.className = 'mds-button mds-button--primary mds-button--sm';
+        } else {
+          btn.className = 'mds-button mds-button--secondary mds-button--sm';
+        }
+      });
+    }
+
+    // State Switcher (Populated, Loading, Empty, Error)
+    function setState(state) {
+      const banner = document.getElementById('dashboard-state-banner');
+      const kpis = document.getElementById('dashboard-kpi-strip');
+      const grid = document.getElementById('dashboard-content-grid');
+
+      if (state === 'error') {
+        banner.style.display = 'block';
+        banner.className = 'mds-template-state-banner mds-template-state-banner--error';
+        banner.innerHTML = '<strong>⚠️ حدث خطأ في الاتصال:</strong> تعذر تحديث بيانات الخوادم المباشرة. <button class="mds-button mds-button--ghost mds-button--sm" onclick="setState(\'populated\')">إعادة المحاولة</button>';
+        kpis.style.display = 'grid';
+        grid.style.display = 'grid';
+      } else if (state === 'loading') {
+        banner.style.display = 'none';
+        kpis.innerHTML = `
+          <div class="mds-kpi-card"><div class="mds-skeleton-box" style="height: 16px; width: 60%;"></div><div class="mds-skeleton-box" style="height: 32px; width: 40%; margin-top: 8px;"></div></div>
+          <div class="mds-kpi-card"><div class="mds-skeleton-box" style="height: 16px; width: 60%;"></div><div class="mds-skeleton-box" style="height: 32px; width: 40%; margin-top: 8px;"></div></div>
+          <div class="mds-kpi-card"><div class="mds-skeleton-box" style="height: 16px; width: 60%;"></div><div class="mds-skeleton-box" style="height: 32px; width: 40%; margin-top: 8px;"></div></div>
+          <div class="mds-kpi-card"><div class="mds-skeleton-box" style="height: 16px; width: 60%;"></div><div class="mds-skeleton-box" style="height: 32px; width: 40%; margin-top: 8px;"></div></div>
+        `;
+      } else if (state === 'empty') {
+        banner.style.display = 'none';
+        grid.innerHTML = `
+          <div style="grid-column: 1 / -1; padding: 48px; text-align: center; background: var(--mds-color-surface-default); border-radius: var(--mds-radius-md); border: var(--mds-border-subtle);">
+            <div style="font-size: 32px; margin-bottom: 12px;">📭</div>
+            <h3 class="mds-heading mds-heading--4">لا توجد بيانات مسجلة حالياً</h3>
+            <p class="mds-text mds-text--size-sm mds-text--muted">ابدأ بإضافة أول مشروع أو ربط واجهات برمجة التطبيقات.</p>
+            <button class="mds-button mds-button--primary mds-button--md" onclick="setState('populated')" style="margin-top: 16px;">+ تدشين مشروع جديد</button>
+          </div>
+        `;
+      } else {
+        // Populated reset
+        window.location.reload();
+      }
+    }
+
+    // Direction Toggle (RTL / LTR)
+    function toggleDir() {
+      const current = document.documentElement.getAttribute('dir');
+      document.documentElement.setAttribute('dir', current === 'rtl' ? 'ltr' : 'rtl');
+    }
+
+    // Theme Toggle (Light / Dark)
+    function toggleTheme() {
+      const isDark = document.body.style.backgroundColor === 'rgb(2, 6, 23)' || document.body.classList.contains('mds-theme-dark');
+      if (isDark) {
+        document.body.classList.remove('mds-theme-dark');
+        document.body.style.backgroundColor = 'var(--mds-color-surface-canvas)';
+        document.body.style.color = 'var(--mds-color-text-primary)';
+      } else {
+        document.body.classList.add('mds-theme-dark');
+        document.body.style.backgroundColor = 'var(--mds-color-neutral-950)';
+        document.body.style.color = 'var(--mds-color-neutral-50)';
+      }
+    }
+  </script>
+</body>
+</html>

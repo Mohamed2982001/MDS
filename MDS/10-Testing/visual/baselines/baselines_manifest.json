@@ -1,0 +1,217 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-09-24T22:00:00Z",
+  "approved_by": "Mohamed Khalid (Senior Full Stack & Flutter Developer)",
+  "provenance": {
+    "reference_application": "MDS/Reference-Application/index.html",
+    "browser": "Google Chrome (Headless CDP Automation)",
+    "font_family": "Cairo",
+    "font_source": "Google Fonts official repository (google/fonts)"
+  },
+  "fonts": {
+    "regular": {
+      "filename": "Cairo-Regular.ttf",
+      "sha256": "44786a38e27c58262cbd65341beda4fa4f6c7085ec42e830b35ba1ae37807030",
+      "provenance": "Google Fonts official repository (google/fonts)"
+    },
+    "bold": {
+      "filename": "Cairo-Bold.ttf",
+      "sha256": "a0e58d71b85b15902ea87914d8e31a6d22da48ac2db70213dcfd1a7dad3f198a",
+      "provenance": "Google Fonts official repository (google/fonts)"
+    }
+  },
+  "baselines": [
+    {
+      "baseline_id": "VIS-BASE-001",
+      "screen": "overview",
+      "route": "#/overview",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-001_overview_1440_light_rtl.png",
+      "file_sha256": "46f2eceafe89072ba15dafa8f535556ca493371e09da9bf8b09de2f3606d3b67",
+      "description": "Overview 1440x900 Light RTL Comfortable (Desktop Gold Standard)",
+      "file_size_bytes": 76275
+    },
+    {
+      "baseline_id": "VIS-BASE-002",
+      "screen": "overview",
+      "route": "#/overview",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "dark",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-002_overview_1440_dark_rtl.png",
+      "file_sha256": "46f2eceafe89072ba15dafa8f535556ca493371e09da9bf8b09de2f3606d3b67",
+      "description": "Overview 1440x900 Dark RTL Comfortable (Dark Mode Token Inversion)",
+      "file_size_bytes": 76275
+    },
+    {
+      "baseline_id": "VIS-BASE-003",
+      "screen": "overview",
+      "route": "#/overview",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "high-contrast",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-003_overview_1440_high_contrast_rtl.png",
+      "file_sha256": "7d059a96ee29653991d2f14083bfbf0fe91f6e36eb4cdbd179ddfce1b0160419",
+      "description": "Overview 1440x900 High Contrast RTL Comfortable (High Contrast 7:1 Mode)",
+      "file_size_bytes": 76285
+    },
+    {
+      "baseline_id": "VIS-BASE-004",
+      "screen": "overview",
+      "route": "#/overview",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "direction": "ltr",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-004_overview_1440_light_ltr.png",
+      "file_sha256": "c14fa6cf1562a99d9be762ea86d7515668a4a90450a12475916acc0ca99098f5",
+      "description": "Overview 1440x900 Light LTR Comfortable (LTR Mirror Symmetry)",
+      "file_size_bytes": 77235
+    },
+    {
+      "baseline_id": "VIS-BASE-005",
+      "screen": "overview",
+      "route": "#/overview",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "light",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-005_overview_1024_light_rtl.png",
+      "file_sha256": "37670e7ec7137e9de572ba14818f5b8730f394d0d6504efd4712b3c56748a702",
+      "description": "Overview 1024x768 Light RTL Comfortable (Desktop/Tablet Boundary 1152px)",
+      "file_size_bytes": 53383
+    },
+    {
+      "baseline_id": "VIS-BASE-006",
+      "screen": "overview",
+      "route": "#/overview",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "theme": "light",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-006_overview_768_light_rtl.png",
+      "file_sha256": "06aaea7d442fc6150cc8440fcd321fe45db674863b727596346ca485affa77b0",
+      "description": "Overview 768x1024 Light RTL Comfortable (Tablet Portrait 72px Icon Rail)",
+      "file_size_bytes": 26953
+    },
+    {
+      "baseline_id": "VIS-BASE-007",
+      "screen": "overview",
+      "route": "#/overview",
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "theme": "light",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-007_overview_320_light_rtl.png",
+      "file_sha256": "30fa0753c94900567bc3b3e809067e3e9df6df68dd9e17c913b66c6d2b38e35e",
+      "description": "Overview 320x640 Light RTL Comfortable (Mobile Portrait Single Column)",
+      "file_size_bytes": 12986
+    },
+    {
+      "baseline_id": "VIS-BASE-008",
+      "screen": "items",
+      "route": "#/items",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-008_items_1440_light_rtl.png",
+      "file_sha256": "b0ad675907e600ae95afe833946e2c27f09f8ebd984494f1fa68752553e3a09c",
+      "description": "Items List 1440x900 Light RTL Comfortable (Data Table Layout)",
+      "file_size_bytes": 75497
+    },
+    {
+      "baseline_id": "VIS-BASE-009",
+      "screen": "items",
+      "route": "#/items",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "theme": "light",
+      "direction": "rtl",
+      "density": "compact",
+      "file_name": "VIS-BASE-009_items_1024_compact_rtl.png",
+      "file_sha256": "d61382cda08da9d4f8a4da0d2edd8b36513b3096bb9624f853c9181840b953cb",
+      "description": "Items List 1024x768 Light RTL Compact (Compact Density Padding)",
+      "file_size_bytes": 54064
+    },
+    {
+      "baseline_id": "VIS-BASE-010",
+      "screen": "items",
+      "route": "#/items",
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "theme": "light",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-010_items_320_light_rtl.png",
+      "file_sha256": "1edb9b678514bcf1cb66b312dd16b73e2fbd15c7d9d056953c0dcca64073eb2e",
+      "description": "Items List 320x640 Light RTL Comfortable (Mobile Table Scroll Containment)",
+      "file_size_bytes": 14845
+    },
+    {
+      "baseline_id": "VIS-BASE-011",
+      "screen": "item-edit",
+      "route": "#/items/edit",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "theme": "light",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-011_items_edit_1440_light_rtl.png",
+      "file_sha256": "af9a3c8c0434ae90845d1025b34f5e6377a825f007b0751497c82327109d07e4",
+      "description": "Item Edit 1440x900 Light RTL Comfortable (Two-Column Form Grid & Stepper)",
+      "file_size_bytes": 75879
+    },
+    {
+      "baseline_id": "VIS-BASE-012",
+      "screen": "item-edit",
+      "route": "#/items/edit",
+      "viewport": {
+        "width": 320,
+        "height": 640
+      },
+      "theme": "light",
+      "direction": "rtl",
+      "density": "comfortable",
+      "file_name": "VIS-BASE-012_items_edit_320_light_rtl.png",
+      "file_sha256": "4d98d51d4ed09118bb5a22e88f01e648b8614f9156d0d1d856f6d3930886d483",
+      "description": "Item Edit 320x640 Light RTL Comfortable (Stacked Single-Column Form)",
+      "file_size_bytes": 15304
+    }
+  ]
+}

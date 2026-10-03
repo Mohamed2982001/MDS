@@ -1,0 +1,115 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "font": {
+    "family": {
+      "primary": {
+        "$type": "fontFamily",
+        "$value": "Cairo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        "$description": "Primary multilingual font family for Arabic and Latin. Unified Arabic/Latin typography via Cairo.",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "mono": {
+        "$type": "fontFamily",
+        "$value": "JetBrains Mono, SFMono-Regular, Menlo, Monaco, Consolas, monospace",
+        "$description": "Monospace font family for code snippets, JSON schemas, and tabular telemetry data",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    },
+    "weight": {
+      "regular": {
+        "$type": "fontWeight",
+        "$value": 400,
+        "$description": "Regular weight for body copy, paragraphs, and descriptive text",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "medium": {
+        "$type": "fontWeight",
+        "$value": 500,
+        "$description": "Medium weight for interactive controls, labels, and table headers",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "semibold": {
+        "$type": "fontWeight",
+        "$value": 600,
+        "$description": "Semibold weight for section headings and emphasized UI components",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "bold": {
+        "$type": "fontWeight",
+        "$value": 700,
+        "$description": "Bold weight for primary page titles and high-impact hero headings",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    },
+    "size": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "12px extra-small text for captions, timestamps, and helper annotations",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "14px",
+        "$description": "14px small text for form input labels, table cells, and secondary metadata",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "base": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "16px baseline body text size for all standard reading passages",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "20px",
+        "$description": "20px large text for subheadings and card titles",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "24px extra-large text for section headings and modal dialog titles",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "2xl": {
+        "$type": "dimension",
+        "$value": "30px",
+        "$description": "30px heading for major view headers and dashboard titles",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "3xl": {
+        "$type": "dimension",
+        "$value": "36px",
+        "$description": "36px display heading for marketing titles and featured metrics",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "4xl": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": "48px hero display heading for landing pages and high-impact showcases",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    },
+    "lineHeight": {
+      "tight": {
+        "$type": "number",
+        "$value": 1.25,
+        "$description": "1.25 tight line height for headings and short-form callouts (Arabic baseline: 1.35)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "normal": {
+        "$type": "number",
+        "$value": 1.5,
+        "$description": "1.50 normal line height for standard body copy (Arabic baseline: 1.65)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "relaxed": {
+        "$type": "number",
+        "$value": 1.75,
+        "$description": "1.75 relaxed line height for long-form reading passages (Arabic baseline: 1.85)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    }
+  }
+}

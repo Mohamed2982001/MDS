@@ -1,0 +1,165 @@
+/**
+ * MDS (Master Design System) — Radio & RadioGroup Component
+ * Architecture Layer: Layer 04 (Components / Inputs)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. Canonical Touch Target: >= 44x44px hit-box on coarse pointers via PressTarget
+ * 3. Mutually Exclusive Single Selection Semantics
+ * 4. High-Visibility Focus Ring: 2px solid var(--mds-color-focus-ring)
+ * 5. 100% CSS Logical Properties
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. RADIOGROUP CONTAINER
+     ======================================================================== */
+
+  .mds-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-sm);
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+  }
+
+  /* ========================================================================
+     2. RADIO ITEM CONTAINER
+     ======================================================================== */
+
+  .mds-radio {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+    padding: 0;
+
+    /* Typography */
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-sm);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+  }
+
+  /* ========================================================================
+     3. ACCESSIBLE HIDDEN INPUT
+     ======================================================================== */
+
+  .mds-radio__input {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* ========================================================================
+     4. VISUAL CIRCLE (20x20px, 8px dot)
+     ======================================================================== */
+
+  .mds-radio__circle {
+    inline-size: var(--mds-size-icon-md);
+    block-size: var(--mds-size-icon-md);
+    border-style: solid;
+    border-width: var(--mds-border-width-regular);
+    border-color: var(--mds-color-border-default);
+    border-radius: var(--mds-radius-full);
+    background-color: var(--mds-color-surface-default);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    position: relative;
+
+    /* Motion Transitions */
+    transition:
+      border-color var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      box-shadow var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* Inner Dot (8px) */
+  .mds-radio__circle::after {
+    content: "";
+    inline-size: 8px;
+    block-size: 8px;
+    border-radius: var(--mds-radius-full);
+    background-color: var(--mds-color-action-primary-default);
+    opacity: 0;
+    transform: scale(0);
+    transition:
+      transform var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      opacity var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* 4.1 Checked State */
+  .mds-radio__input:checked + .mds-radio__circle {
+    border-color: var(--mds-color-action-primary-default);
+  }
+
+  .mds-radio__input:checked + .mds-radio__circle::after {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* 4.2 Hover State */
+  .mds-radio:hover .mds-radio__input:not(:disabled) + .mds-radio__circle {
+    border-color: var(--mds-color-brand-600);
+  }
+
+  /* 4.3 Keyboard Focus Indicator */
+  .mds-radio__input:focus-visible + .mds-radio__circle {
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* 4.4 Disabled State */
+  .mds-radio__input:disabled + .mds-radio__circle {
+    background-color: var(--mds-color-action-disabled-background);
+    border-color: var(--mds-color-border-subtle);
+    cursor: not-allowed;
+  }
+
+  .mds-radio:has(.mds-radio__input:disabled) {
+    cursor: not-allowed;
+    color: var(--mds-color-action-disabled-foreground);
+    opacity: var(--mds-opacity-disabled);
+  }
+
+  /* 4.5 Canonical Touch Target (PressTarget 44px) */
+  @media (pointer: coarse) {
+    .mds-radio::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+      min-inline-size: var(--mds-size-touch-target);
+      min-block-size: var(--mds-size-touch-target);
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  /* 4.6 Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-radio__circle,
+    .mds-radio__circle::after {
+      transition: none;
+    }
+  }
+}

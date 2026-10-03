@@ -1,0 +1,39 @@
+/**
+ * MDS (Master Design System) — Container Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Canonical Constraints: Standard = 1152px, Wide = 1440px
+ */
+
+.mds-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--mds-space-scale-4); /* Mobile gutter: 16px */
+}
+
+/* Tablet Gutter (768px+) */
+@media (min-width: 768px) {
+  .mds-container {
+    padding-inline: var(--mds-space-scale-6); /* Tablet gutter: 24px */
+  }
+}
+
+/* Desktop Gutter (1024px+) */
+@media (min-width: 1024px) {
+  .mds-container {
+    padding-inline: var(--mds-space-scale-8); /* Desktop gutter: 32px */
+  }
+}
+
+/* Width Constraints */
+.mds-container--standard {
+  max-width: var(--mds-container-standard, 1152px); /* Canonical Standard: 1152px */
+}
+
+.mds-container--wide {
+  max-width: var(--mds-container-wide, 1440px); /* Canonical Wide: 1440px */
+}
+
+.mds-container--fluid {
+  max-width: 100%;
+}

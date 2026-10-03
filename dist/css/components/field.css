@@ -1,0 +1,130 @@
+/**
+ * MDS (Master Design System) — Field Component
+ * Architecture Layer: Layer 04 (Components / Inputs)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Centralized Form Architecture Invariants:
+ * 1. Parent-Owned Spacing Law: margin: 0 (spacing managed by parent Stack)
+ * 2. WCAG SC 1.3.1 (Info and Relationships): Label <-> Control association
+ * 3. WCAG SC 3.3.1 (Error Identification): role="alert" error container
+ * 4. Responsive Recomposition: Horizontal collapses to vertical on < 768px
+ * 5. 100% CSS Logical Properties
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. FIELD CONTAINER & LAYOUTS
+     ======================================================================== */
+
+  .mds-field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-xs);
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: none;
+    box-sizing: border-box;
+  }
+
+  /* 1.1 Vertical Layout (Default) */
+  .mds-field--vertical {
+    flex-direction: column;
+  }
+
+  /* 1.2 Horizontal Layout (Desktop settings dashboards) */
+  @media (min-width: 768px) {
+    .mds-field--horizontal {
+      display: grid;
+      grid-template-columns: minmax(120px, auto) 1fr;
+      align-items: center;
+      gap: var(--mds-space-inline-md);
+    }
+
+    .mds-field--horizontal .mds-field__helper,
+    .mds-field--horizontal .mds-field__error {
+      grid-column: 2 / -1;
+    }
+  }
+
+  /* 1.3 Inline Control-First Layout (Checkbox & Switch layouts) */
+  .mds-field--inline-reverse,
+  .mds-field--inline {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+  }
+
+  /* ========================================================================
+     2. SUB-ELEMENTS
+     ======================================================================== */
+
+  /* 2.1 Label */
+  .mds-field__label {
+    display: inline-flex;
+    align-items: center;
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-sm);
+    font-weight: 500;
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+    user-select: none;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  /* 2.2 Required Marker */
+  .mds-field__required {
+    color: var(--mds-color-feedback-danger);
+    margin-inline-start: var(--mds-space-inline-xs);
+    font-weight: 600;
+  }
+
+  /* 2.3 Control Slot */
+  .mds-field__control {
+    width: 100%;
+    margin: 0;
+    position: relative;
+  }
+
+  /* 2.4 Helper Text */
+  .mds-field__helper {
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-xs);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-secondary);
+    margin: 0;
+  }
+
+  /* 2.5 Error Alert Message */
+  .mds-field__error {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-xs);
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-xs);
+    font-weight: 500;
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-feedback-danger);
+    margin: 0;
+    transition: opacity var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* ========================================================================
+     3. FIELD STATES
+     ======================================================================== */
+
+  /* 3.1 Disabled Field */
+  .mds-field--disabled .mds-field__label,
+  .mds-field--disabled .mds-field__helper {
+    opacity: var(--mds-opacity-disabled);
+    cursor: not-allowed;
+  }
+
+  /* 3.2 Invalid Field */
+  .mds-field--invalid .mds-field__label {
+    color: var(--mds-color-feedback-danger);
+  }
+}
+

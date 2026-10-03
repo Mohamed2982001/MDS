@@ -1,0 +1,118 @@
+/**
+ * MDS (Master Design System) — Spinner Component
+ * Architecture Layer: Layer 04 (Components / Feedback)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. Vestibular Reduced Motion Safety: Halts 360° rotation under prefers-reduced-motion
+ * 3. 5 Canonical Sizes (xs: 14px, sm: 16px, md: 20px, lg: 32px, xl: 48px)
+ * 4. 100% CSS Logical Properties
+ * 5. Screen Reader Accessibility: aria-busy="true" with VisuallyHidden announcement
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. BASE SPINNER
+     ======================================================================== */
+
+  .mds-spinner {
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: var(--mds-radius-full);
+    border-style: solid;
+    border-color: var(--mds-color-neutral-200);
+    border-inline-start-color: var(--mds-color-brand-600);
+    box-sizing: border-box;
+    flex-shrink: 0;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+
+    /* Rotation Animation */
+    animation: mds-spinner-spin 800ms linear infinite;
+  }
+
+  @keyframes mds-spinner-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  /* ========================================================================
+     2. CONTROL SIZES
+     ======================================================================== */
+
+  /* 2.1 Extra Small (14px) */
+  .mds-spinner--xs {
+    inline-size: var(--mds-size-icon-xs);
+    block-size: var(--mds-size-icon-xs);
+    border-width: var(--mds-border-width-regular);
+  }
+
+  /* 2.2 Small (16px) */
+  .mds-spinner--sm {
+    inline-size: var(--mds-size-icon-sm);
+    block-size: var(--mds-size-icon-sm);
+    border-width: var(--mds-border-width-thick);
+  }
+
+  /* 2.3 Medium (20px Default) */
+  .mds-spinner--md {
+    inline-size: var(--mds-size-icon-md);
+    block-size: var(--mds-size-icon-md);
+    border-width: var(--mds-border-width-thick);
+  }
+
+  /* 2.4 Large (32px) */
+  .mds-spinner--lg {
+    inline-size: var(--mds-size-icon-xl);
+    block-size: var(--mds-size-icon-xl);
+    border-width: 3px;
+  }
+
+  /* 2.5 Extra Large (48px) */
+  .mds-spinner--xl {
+    inline-size: 48px;
+    block-size: 48px;
+    border-width: 4px;
+  }
+
+  /* ========================================================================
+     3. COLOR VARIANTS
+     ======================================================================== */
+
+  /* 3.1 Brand (Default) */
+  .mds-spinner--brand {
+    border-color: var(--mds-color-brand-100);
+    border-inline-start-color: var(--mds-color-brand-600);
+  }
+
+  /* 3.2 Inverse (For primary/destructive button fills) */
+  .mds-spinner--inverse {
+    border-color: rgba(255, 255, 255, 0.25);
+    border-inline-start-color: var(--mds-color-text-inverse);
+  }
+
+  /* 3.3 Neutral (Muted surface loaders) */
+  .mds-spinner--neutral {
+    border-color: var(--mds-color-neutral-200);
+    border-inline-start-color: var(--mds-color-neutral-600);
+  }
+
+  /* ========================================================================
+     4. VESTIBULAR REDUCED MOTION SAFETY
+     ======================================================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+    .mds-spinner {
+      animation: none;
+      opacity: 0.7;
+    }
+  }
+}
+

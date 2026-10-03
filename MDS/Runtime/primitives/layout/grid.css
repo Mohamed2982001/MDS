@@ -1,0 +1,55 @@
+/**
+ * MDS (Master Design System) — Grid Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Responsibility: 12-column responsive fluid layout & auto-fit tiles
+ */
+
+.mds-grid {
+  display: grid;
+  column-gap: var(--mds-space-scale-4);
+  row-gap: var(--mds-space-block-md);
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* Mobile baseline: 4 columns */
+}
+
+/* Tablet Scale (768px+) */
+@media (min-width: 768px) {
+  .mds-grid {
+    column-gap: var(--mds-space-scale-6);
+    grid-template-columns: repeat(8, minmax(0, 1fr)); /* Tablet: 8 columns */
+  }
+}
+
+/* Desktop Scale (1024px+) */
+@media (min-width: 1024px) {
+  .mds-grid {
+    column-gap: var(--mds-space-scale-6);
+    grid-template-columns: repeat(12, minmax(0, 1fr)); /* Desktop: 12 columns */
+  }
+}
+
+/* Wide Desktop Scale (1440px+) */
+@media (min-width: 1440px) {
+  .mds-grid {
+    column-gap: var(--mds-space-scale-8); /* Wide: 32px gutter */
+  }
+}
+
+/* Auto-Fitting Fluid Tile Grid */
+.mds-grid--auto-tiles {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Column Span Modifiers (1 to 12) */
+.mds-grid__col--1  { grid-column: span 1 / span 1; }
+.mds-grid__col--2  { grid-column: span 2 / span 2; }
+.mds-grid__col--3  { grid-column: span 3 / span 3; }
+.mds-grid__col--4  { grid-column: span 4 / span 4; }
+.mds-grid__col--5  { grid-column: span 5 / span 5; }
+.mds-grid__col--6  { grid-column: span 6 / span 6; }
+.mds-grid__col--7  { grid-column: span 7 / span 7; }
+.mds-grid__col--8  { grid-column: span 8 / span 8; }
+.mds-grid__col--9  { grid-column: span 9 / span 9; }
+.mds-grid__col--10 { grid-column: span 10 / span 10; }
+.mds-grid__col--11 { grid-column: span 11 / span 11; }
+.mds-grid__col--12 { grid-column: span 12 / span 12; }

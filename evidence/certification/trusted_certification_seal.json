@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "seal_id": "MDS-SEAL-v1.0.0-PROD",
+  "certificate_id": "MDS-CERT-v1.0.0-426b8bf473112cf5",
+  "release_identity": "MDS-v1.0.0-RELEASE",
+  "build_identity": "426b8bf473112cf5a46f7535e85d821efab7a5b2b6603b39ec7f52840fb9f526",
+  "evidence_manifest_sha256": "d82a97570c78dd9ec5afd1ed8cbe8ac72e0fddf2e4de52b8602c2d41db913ddf",
+  "certificate_integrity_digest": "6079d9b24288d5d90c0269369ee15bc5a31f4aa62ed9efad066999457c422f6d",
+  "authorized_by": "Mohamed Khalid",
+  "architect_title": "Senior Full Stack & Flutter Developer",
+  "authorized_at": "2026-10-03T14:14:01Z",
+  "seal_status": "SEALED_APPROVED",
+  "governance_classification": "GOVERNANCE_AUTHORIZATION_RECORD",
+  "cryptographic_signer_authenticity_claimed": false
+}

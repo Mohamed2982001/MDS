@@ -1,0 +1,169 @@
+/**
+ * MDS (Master Design System) — Switch Component
+ * Architecture Layer: Layer 04 (Components / Inputs)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. Canonical Touch Target: >= 44x44px hit-box on coarse pointers via PressTarget
+ * 3. High-Visibility Focus Ring: 2px solid var(--mds-color-focus-ring)
+ * 4. Token-Driven Motion: var(--mds-motion-normal) (250ms) standard curve
+ * 5. Logical Directionality: RTL translation inverts along reading vector
+ * 6. Semantic Role: role="switch" with aria-checked
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. SWITCH CONTAINER
+     ======================================================================== */
+
+  .mds-switch {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+    padding: 0;
+
+    /* Typography */
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-sm);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+  }
+
+  /* ========================================================================
+     2. ACCESSIBLE HIDDEN INPUT
+     ======================================================================== */
+
+  .mds-switch__input {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* ========================================================================
+     3. PILL TRACK (40x24px)
+     ======================================================================== */
+
+  .mds-switch__track {
+    inline-size: 40px;
+    block-size: 24px;
+    border-radius: var(--mds-radius-full);
+    background-color: var(--mds-color-neutral-300);
+    position: relative;
+    padding-block: 3px;
+    padding-inline: 3px;
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+
+    /* Motion Transitions */
+    transition:
+      background-color var(--mds-motion-normal) var(--mds-motion-ease-standard),
+      box-shadow var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* ========================================================================
+     4. THUMB CIRCLE (18x18px)
+     ======================================================================== */
+
+  .mds-switch__thumb {
+    inline-size: 18px;
+    block-size: 18px;
+    border-radius: var(--mds-radius-full);
+    background-color: var(--mds-color-neutral-0);
+    box-shadow: var(--mds-elevation-level1);
+    transform: translateX(0);
+
+    /* Motion Transitions */
+    transition: transform var(--mds-motion-normal) var(--mds-motion-ease-standard);
+  }
+
+  /* 4.1 Checked State (LTR Translation: +16px) */
+  .mds-switch__input:checked + .mds-switch__track,
+  .mds-switch[aria-checked="true"] .mds-switch__track {
+    background-color: var(--mds-color-action-primary-default);
+  }
+
+  .mds-switch__input:checked + .mds-switch__track .mds-switch__thumb,
+  .mds-switch[aria-checked="true"] .mds-switch__thumb {
+    transform: translateX(16px);
+  }
+
+  /* 4.2 Checked State (RTL Translation: -16px along logical inline axis) */
+  [dir="rtl"] .mds-switch__input:checked + .mds-switch__track .mds-switch__thumb,
+  [dir="rtl"] .mds-switch[aria-checked="true"] .mds-switch__thumb,
+  .mds-switch:dir(rtl) .mds-switch__input:checked + .mds-switch__track .mds-switch__thumb,
+  .mds-switch:dir(rtl)[aria-checked="true"] .mds-switch__thumb {
+    transform: translateX(-16px);
+  }
+
+  /* 4.3 Hover State */
+  .mds-switch:hover .mds-switch__input:not(:disabled) + .mds-switch__track {
+    background-color: var(--mds-color-neutral-400);
+  }
+
+  .mds-switch:hover .mds-switch__input:checked:not(:disabled) + .mds-switch__track,
+  .mds-switch:hover[aria-checked="true"]:not([aria-disabled="true"]) .mds-switch__track {
+    background-color: var(--mds-color-action-primary-hover);
+  }
+
+  /* 4.4 Keyboard Focus Indicator */
+  .mds-switch__input:focus-visible + .mds-switch__track,
+  .mds-switch:focus-visible .mds-switch__track {
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* 4.5 Disabled State */
+  .mds-switch__input:disabled + .mds-switch__track,
+  .mds-switch[aria-disabled="true"] .mds-switch__track {
+    background-color: var(--mds-color-neutral-200);
+    cursor: not-allowed;
+  }
+
+  .mds-switch:has(.mds-switch__input:disabled),
+  .mds-switch[aria-disabled="true"] {
+    cursor: not-allowed;
+    color: var(--mds-color-action-disabled-foreground);
+    opacity: var(--mds-opacity-disabled);
+  }
+
+  /* 4.6 Canonical Touch Target (PressTarget 44px) */
+  @media (pointer: coarse) {
+    .mds-switch::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+      min-inline-size: var(--mds-size-touch-target);
+      min-block-size: var(--mds-size-touch-target);
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  /* 4.7 Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-switch__track,
+    .mds-switch__thumb {
+      transition: none;
+    }
+  }
+}
+

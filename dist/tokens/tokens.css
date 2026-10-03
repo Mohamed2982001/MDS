@@ -1,0 +1,224 @@
+/**
+ * Master Design System (MDS) — Compiled Design Tokens
+ * Layer: @layer mds.tokens
+ * Zero-NPM Distribution
+ */
+@layer mds.tokens {
+  :root {
+    --mds-border-width-regular: 1.5px;
+    --mds-border-width-thick: 2px;
+    --mds-border-width-thin: 1px;
+    --mds-color-action-destructive-default: #DC2626;
+    --mds-color-action-destructive-hover: #B91C1C;
+    --mds-color-action-disabled-background: #F1F5F9;
+    --mds-color-action-disabled-foreground: #94A3B8;
+    --mds-color-action-primary-default: #2563EB;
+    --mds-color-action-primary-hover: #1D4ED8;
+    --mds-color-action-primary-pressed: #1E40AF;
+    --mds-color-border-default: #CBD5E1;
+    --mds-color-border-subtle: #E2E8F0;
+    --mds-color-brand-100: #DBEAFE;
+    --mds-color-brand-200: #BFDBFE;
+    --mds-color-brand-300: #93C5FD;
+    --mds-color-brand-400: #60A5FA;
+    --mds-color-brand-50: #EFF6FF;
+    --mds-color-brand-500: #3B82F6;
+    --mds-color-brand-600: #2563EB;
+    --mds-color-brand-700: #1D4ED8;
+    --mds-color-brand-800: #1E40AF;
+    --mds-color-brand-900: #1E3A8A;
+    --mds-color-brand-950: #172554;
+    --mds-color-feedback-danger: #DC2626;
+    --mds-color-feedback-info: #0284C7;
+    --mds-color-feedback-success: #059669;
+    --mds-color-feedback-warning: #D97706;
+    --mds-color-focus-ring: #2563EB;
+    --mds-color-neutral-0: #FFFFFF;
+    --mds-color-neutral-100: #F1F5F9;
+    --mds-color-neutral-1000: #000000;
+    --mds-color-neutral-200: #E2E8F0;
+    --mds-color-neutral-300: #CBD5E1;
+    --mds-color-neutral-400: #94A3B8;
+    --mds-color-neutral-50: #F8FAFC;
+    --mds-color-neutral-500: #64748B;
+    --mds-color-neutral-600: #475569;
+    --mds-color-neutral-700: #334155;
+    --mds-color-neutral-800: #1E293B;
+    --mds-color-neutral-900: #0F172A;
+    --mds-color-neutral-950: #090D16;
+    --mds-color-palette-amber-200: #FDE68A;
+    --mds-color-palette-amber-50: #FFFBEB;
+    --mds-color-palette-amber-500: #F59E0B;
+    --mds-color-palette-amber-600: #D97706;
+    --mds-color-palette-blue-200: #BAE6FD;
+    --mds-color-palette-blue-50: #F0F9FF;
+    --mds-color-palette-blue-500: #0EA5E9;
+    --mds-color-palette-blue-600: #0284C7;
+    --mds-color-palette-green-200: #A7F3D0;
+    --mds-color-palette-green-50: #ECFDF5;
+    --mds-color-palette-green-500: #10B981;
+    --mds-color-palette-green-600: #059669;
+    --mds-color-palette-red-200: #FECACA;
+    --mds-color-palette-red-50: #FEF2F2;
+    --mds-color-palette-red-500: #EF4444;
+    --mds-color-palette-red-600: #DC2626;
+    --mds-color-palette-red-700: #B91C1C;
+    --mds-color-surface-canvas: #F8FAFC;
+    --mds-color-surface-default: #FFFFFF;
+    --mds-color-surface-overlay: #FFFFFF;
+    --mds-color-surface-raised: #F1F5F9;
+    --mds-color-text-inverse: #FFFFFF;
+    --mds-color-text-primary: #0F172A;
+    --mds-color-text-secondary: #64748B;
+    --mds-component-badge-brand-background: #EFF6FF;
+    --mds-component-badge-brand-border: #BFDBFE;
+    --mds-component-badge-brand-foreground: #1D4ED8;
+    --mds-component-badge-danger-background: #FEF2F2;
+    --mds-component-badge-danger-border: #FECACA;
+    --mds-component-badge-danger-foreground: #DC2626;
+    --mds-component-badge-neutral-background: #F1F5F9;
+    --mds-component-badge-neutral-border: #E2E8F0;
+    --mds-component-badge-neutral-foreground: #334155;
+    --mds-component-badge-radius: 9999px;
+    --mds-component-badge-success-background: #ECFDF5;
+    --mds-component-badge-success-border: #A7F3D0;
+    --mds-component-badge-success-foreground: #059669;
+    --mds-component-button-destructive-background-default: #DC2626;
+    --mds-component-button-destructive-background-disabled: #F1F5F9;
+    --mds-component-button-destructive-background-hover: #B91C1C;
+    --mds-component-button-destructive-foreground-default: #FFFFFF;
+    --mds-component-button-ghost-background-default: #FFFFFF;
+    --mds-component-button-ghost-background-disabled: #FFFFFF;
+    --mds-component-button-ghost-background-hover: #F1F5F9;
+    --mds-component-button-ghost-foreground-default: #0F172A;
+    --mds-component-button-ghost-foreground-disabled: #94A3B8;
+    --mds-component-button-primary-background-default: #2563EB;
+    --mds-component-button-primary-background-disabled: #F1F5F9;
+    --mds-component-button-primary-background-hover: #1D4ED8;
+    --mds-component-button-primary-background-pressed: #1E40AF;
+    --mds-component-button-primary-focus-ring: #2563EB;
+    --mds-component-button-primary-foreground-default: #FFFFFF;
+    --mds-component-button-primary-foreground-disabled: #94A3B8;
+    --mds-component-button-primary-radius: 10px;
+    --mds-component-button-secondary-background-default: #FFFFFF;
+    --mds-component-button-secondary-background-disabled: #F1F5F9;
+    --mds-component-button-secondary-background-hover: #F1F5F9;
+    --mds-component-button-secondary-border-default: #CBD5E1;
+    --mds-component-button-secondary-border-disabled: #E2E8F0;
+    --mds-component-button-secondary-foreground-default: #0F172A;
+    --mds-component-button-secondary-foreground-disabled: #94A3B8;
+    --mds-component-input-background-default: #FFFFFF;
+    --mds-component-input-background-disabled: #F1F5F9;
+    --mds-component-input-border-default: #CBD5E1;
+    --mds-component-input-border-disabled: #E2E8F0;
+    --mds-component-input-border-focus: #2563EB;
+    --mds-component-input-border-invalid: #DC2626;
+    --mds-component-input-radius: 10px;
+    --mds-component-input-text-default: #0F172A;
+    --mds-component-input-text-disabled: #94A3B8;
+    --mds-component-input-text-placeholder: #64748B;
+    --mds-elevation-level0: none;
+    --mds-elevation-level1: 0px 1px 3px 0px rgba(15, 23, 42, 0.06), 0px 1px 2px -1px rgba(15, 23, 42, 0.04);
+    --mds-elevation-level2: 0px 4px 6px -1px rgba(15, 23, 42, 0.08), 0px 2px 4px -2px rgba(15, 23, 42, 0.04);
+    --mds-elevation-level3: 0px 12px 16px -4px rgba(15, 23, 42, 0.12), 0px 4px 6px -2px rgba(15, 23, 42, 0.05);
+    --mds-font-family-mono: JetBrains Mono, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --mds-font-family-primary: Cairo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --mds-font-line-height-normal: 1.5;
+    --mds-font-line-height-relaxed: 1.75;
+    --mds-font-line-height-tight: 1.25;
+    --mds-font-size-2xl: 30px;
+    --mds-font-size-3xl: 36px;
+    --mds-font-size-4xl: 48px;
+    --mds-font-size-base: 16px;
+    --mds-font-size-lg: 20px;
+    --mds-font-size-sm: 14px;
+    --mds-font-size-xl: 24px;
+    --mds-font-size-xs: 12px;
+    --mds-font-weight-bold: 700;
+    --mds-font-weight-medium: 500;
+    --mds-font-weight-regular: 400;
+    --mds-font-weight-semibold: 600;
+    --mds-layer-base: 0;
+    --mds-layer-dropdown: 100;
+    --mds-layer-overlay: 1000;
+    --mds-layer-raised: 10;
+    --mds-layer-toast: 2000;
+    --mds-motion-duration-fast: 150ms;
+    --mds-motion-duration-instant: 0ms;
+    --mds-motion-duration-normal: 250ms;
+    --mds-motion-duration-slow: 350ms;
+    --mds-motion-easing-enter: cubic-bezier(0, 0, 0.2, 1);
+    --mds-motion-easing-exit: cubic-bezier(0.4, 0, 1, 1);
+    --mds-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1);
+    --mds-opacity-disabled: 0.48;
+    --mds-opacity-muted: 0.38;
+    --mds-opacity-scrim: 0.64;
+    --mds-opacity-solid: 1;
+    --mds-opacity-subtle: 0.08;
+    --mds-opacity-transparent: 0;
+    --mds-radius-full: 9999px;
+    --mds-radius-lg: 14px;
+    --mds-radius-md: 10px;
+    --mds-radius-none: 0px;
+    --mds-radius-sm: 6px;
+    --mds-radius-xl: 20px;
+    --mds-radius-xs: 4px;
+    --mds-size-control-lg: 48px;
+    --mds-size-control-md: 40px;
+    --mds-size-control-sm: 32px;
+    --mds-size-icon-lg: 24px;
+    --mds-size-icon-md: 20px;
+    --mds-size-icon-sm: 16px;
+    --mds-size-icon-xl: 32px;
+    --mds-size-icon-xs: 14px;
+    --mds-space-block-lg: 32px;
+    --mds-space-block-md: 16px;
+    --mds-space-block-sm: 8px;
+    --mds-space-block-xs: 4px;
+    --mds-space-inline-lg: 24px;
+    --mds-space-inline-md: 16px;
+    --mds-space-inline-sm: 8px;
+    --mds-space-inline-xs: 4px;
+    --mds-space-scale-0: 0px;
+    --mds-space-scale-1: 4px;
+    --mds-space-scale-10: 40px;
+    --mds-space-scale-12: 48px;
+    --mds-space-scale-16: 64px;
+    --mds-space-scale-2: 8px;
+    --mds-space-scale-3: 12px;
+    --mds-space-scale-4: 16px;
+    --mds-space-scale-5: 20px;
+    --mds-space-scale-6: 24px;
+    --mds-space-scale-8: 32px;
+  }
+
+  [data-density="compact"] {
+    --mds-size-control-md: 32px;
+    --mds-space-block-md: 12px;
+    --mds-space-block-sm: 4px;
+  }
+
+  [data-theme="dark"] {
+    --mds-color-border-default: #334155;
+    --mds-color-border-subtle: #1E293B;
+    --mds-color-surface-canvas: #090D16;
+    --mds-color-surface-default: #0F172A;
+    --mds-color-surface-overlay: #334155;
+    --mds-color-surface-raised: #1E293B;
+    --mds-color-text-inverse: #0F172A;
+    --mds-color-text-primary: #FFFFFF;
+    --mds-color-text-secondary: #94A3B8;
+  }
+
+  [data-contrast="high"] {
+    --mds-border-width-default: 2px;
+    --mds-color-border-default: #000000;
+    --mds-color-focus-ring: #000000;
+  }
+
+  [data-preset="refined"] {
+    --mds-component-button-primary-radius: 6px;
+    --mds-component-card-elevation: none;
+    --mds-component-card-radius: 6px;
+  }
+}

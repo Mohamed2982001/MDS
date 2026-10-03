@@ -1,0 +1,334 @@
+{
+  "capability_id": "MDS-VIS-001",
+  "status": "PASS",
+  "total_baselines": 12,
+  "passed_baselines": 12,
+  "failed_baselines": 0,
+  "deferred_baselines": 0,
+  "total_duration_ms": 59664.25,
+  "error_message": null,
+  "evidence_file": null,
+  "runs": [
+    {
+      "baseline_id": "VIS-BASE-001",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 1296000,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 3385.08,
+        "dimensions": "1440x900"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 3385.0760999921476,
+        "theme": "light",
+        "viewport": "1440x900",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-002",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 1296000,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 5012.51,
+        "dimensions": "1440x900"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 5012.506700004451,
+        "theme": "dark",
+        "viewport": "1440x900",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-003",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 1296000,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 3628.4,
+        "dimensions": "1440x900"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 3628.3988999930443,
+        "theme": "high-contrast",
+        "viewport": "1440x900",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-004",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 1296000,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 3307.38,
+        "dimensions": "1440x900"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 3307.377000004635,
+        "theme": "light",
+        "viewport": "1440x900",
+        "direction": "ltr",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-005",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 786432,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 1922.69,
+        "dimensions": "1024x768"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 1922.6943999965442,
+        "theme": "light",
+        "viewport": "1024x768",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-006",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 786432,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 1948.36,
+        "dimensions": "768x1024"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 1948.3567999996012,
+        "theme": "light",
+        "viewport": "768x1024",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-007",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 204800,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 502.44,
+        "dimensions": "320x640"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 502.43659999978263,
+        "theme": "light",
+        "viewport": "320x640",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-008",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 1296000,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 3121.25,
+        "dimensions": "1440x900"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 3121.246099995915,
+        "theme": "light",
+        "viewport": "1440x900",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-009",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 786432,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 1903.85,
+        "dimensions": "1024x768"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 1903.8457999995444,
+        "theme": "light",
+        "viewport": "1024x768",
+        "direction": "rtl",
+        "density": "compact"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-010",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 204800,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 490.06,
+        "dimensions": "320x640"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 490.05530000431463,
+        "theme": "light",
+        "viewport": "320x640",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-011",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 1296000,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 3251.24,
+        "dimensions": "1440x900"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 3251.244200000656,
+        "theme": "light",
+        "viewport": "1440x900",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    },
+    {
+      "baseline_id": "VIS-BASE-012",
+      "status": "PASS",
+      "metrics": {
+        "total_pixels": 204800,
+        "mismatched_pixels": 0,
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "pixel_threshold": 0.05,
+        "image_threshold": 0.001,
+        "duration_ms": 552.64,
+        "dimensions": "320x640"
+      },
+      "diff_image": null,
+      "error_message": null,
+      "evidence": {
+        "diff_ratio": 0.0,
+        "diff_percent": 0.0,
+        "mismatched_pixels": 0,
+        "duration_ms": 552.6428000011947,
+        "theme": "light",
+        "viewport": "320x640",
+        "direction": "rtl",
+        "density": "comfortable"
+      }
+    }
+  ],
+  "metadata": {
+    "engine": "Pure Python Standard Library (zlib/struct)",
+    "color_metric": "Luminance-Weighted RGB Distance (D_lum)",
+    "coefficients": "ITU-R BT.601 (0.299, 0.587, 0.114)",
+    "font_family": "Cairo (Pinned Local Offline Artifact)",
+    "pixel_threshold": 0.05,
+    "image_threshold": 0.001,
+    "cartesian_space": "528 total = 12 visual baselines + 516 non-baselined combinations"
+  }
+}

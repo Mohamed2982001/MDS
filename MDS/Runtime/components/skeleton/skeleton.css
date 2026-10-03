@@ -1,0 +1,87 @@
+/**
+ * MDS (Master Design System) — Skeleton Component
+ * Architecture Layer: Layer 04 (Components / Feedback)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. Vestibular Reduced Motion Safety: Halts shimmer sweep under prefers-reduced-motion
+ * 3. 3 Canonical Shapes: text, circular, rectangular
+ * 4. 100% Token Consumption: neutral.100, neutral.50, radius.*
+ * 5. Screen Reader Guard: aria-hidden="true" on placeholders
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. BASE SKELETON PLACEHOLDER
+     ======================================================================== */
+
+  .mds-skeleton {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    background-color: var(--mds-color-neutral-100);
+    box-sizing: border-box;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+  }
+
+  /* Shimmer Sweep Animation */
+  .mds-skeleton::after {
+    content: "";
+    position: absolute;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--mds-color-neutral-50) 50%,
+      transparent 100%
+    );
+    transform: translateX(-100%);
+    animation: mds-skeleton-shimmer 1500ms linear infinite;
+  }
+
+  @keyframes mds-skeleton-shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  /* ========================================================================
+     2. SHAPES
+     ======================================================================== */
+
+  /* 2.1 Text Line Placeholder */
+  .mds-skeleton--text {
+    block-size: 1em;
+    border-radius: var(--mds-radius-xs);
+    width: 100%;
+  }
+
+  /* 2.2 Circular Avatar Placeholder */
+  .mds-skeleton--circular {
+    border-radius: var(--mds-radius-full);
+    display: inline-block;
+  }
+
+  /* 2.3 Rectangular Card / Image Placeholder */
+  .mds-skeleton--rectangular {
+    border-radius: var(--mds-radius-md);
+  }
+
+  /* ========================================================================
+     3. VESTIBULAR REDUCED MOTION SAFETY
+     ======================================================================== */
+
+  @media (prefers-reduced-motion: reduce) {
+    .mds-skeleton::after {
+      animation: none;
+      display: none;
+    }
+  }
+}

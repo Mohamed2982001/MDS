@@ -1,0 +1,595 @@
+/**
+ * MASTER DESIGN SYSTEM (MDS) — REFERENCE APPLICATION STYLESHEET
+ * Layer: @layer mds.overrides
+ * Product: MDS Workspace
+ * Invariants: 100% Logical Properties, Zero Row-Reverse, Zero Raw Hex Colors.
+ */
+
+@layer mds.overrides {
+  /* =========================================================================
+     1. App Shell Architecture & Layout Grid
+     ========================================================================= */
+  :root {
+    --mds-ref-sidebar-width: 260px;
+    --mds-ref-header-height: 64px;
+    --mds-ref-simbar-height: 44px;
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--mds-color-surface-canvas);
+    color: var(--mds-color-text-primary);
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-base);
+    line-height: var(--mds-font-line-height-normal);
+    min-block-size: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Accessibility Skip Link */
+  .mds-ref-skip-link {
+    position: absolute;
+    inset-block-start: -999px;
+    inset-inline-start: var(--mds-space-inline-md);
+    background: var(--mds-color-brand-600);
+    color: var(--mds-color-text-inverse);
+    padding: var(--mds-space-scale-2) var(--mds-space-scale-4);
+    border-radius: var(--mds-radius-md);
+    font-weight: var(--mds-font-weight-medium);
+    z-index: var(--mds-layer-max);
+    text-decoration: none;
+    transition: inset-block-start var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+  }
+
+  .mds-ref-skip-link:focus {
+    inset-block-start: var(--mds-space-block-md);
+    outline: 2px solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* Application Top Bar */
+  .mds-ref-header {
+    block-size: var(--mds-ref-header-height);
+    background-color: var(--mds-color-surface-default);
+    border-block-end: 1px solid var(--mds-color-border-subtle);
+    position: sticky;
+    inset-block-start: 0;
+    z-index: var(--mds-layer-sticky);
+    display: flex;
+    align-items: center;
+    padding-inline: var(--mds-space-scale-4);
+  }
+
+  .mds-ref-header__inner {
+    inline-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mds-space-inline-md);
+  }
+
+  .mds-ref-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+    text-decoration: none;
+    color: var(--mds-color-text-primary);
+    font-weight: var(--mds-font-weight-bold);
+    font-size: var(--mds-font-size-lg);
+  }
+
+  .mds-ref-brand__logo {
+    inline-size: 32px;
+    block-size: 32px;
+    background: var(--mds-color-brand-600);
+    color: var(--mds-color-text-inverse);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--mds-radius-md);
+    font-size: var(--mds-font-size-sm);
+    font-weight: var(--mds-font-weight-bold);
+  }
+
+  #btn-mobile-nav {
+    display: none;
+  }
+
+  .mds-ref-controls-group {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+    flex-wrap: wrap;
+  }
+
+  /* Main Workspace Body Container */
+  .mds-ref-body {
+    display: flex;
+    flex: 1;
+    min-block-size: calc(100vh - var(--mds-ref-header-height) - var(--mds-ref-simbar-height));
+    position: relative;
+  }
+
+  /* Sidebar Navigation */
+  .mds-ref-sidebar {
+    inline-size: var(--mds-ref-sidebar-width);
+    flex-shrink: 0;
+    background-color: var(--mds-color-surface-default);
+    border-inline-end: 1px solid var(--mds-color-border-subtle);
+    padding-block: var(--mds-space-block-lg);
+    padding-inline: var(--mds-space-scale-3);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: var(--mds-space-block-lg);
+    position: sticky;
+    inset-block-start: var(--mds-ref-header-height);
+    block-size: calc(100vh - var(--mds-ref-header-height) - var(--mds-ref-simbar-height));
+    overflow-y: auto;
+  }
+
+  .mds-ref-nav-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-xs);
+  }
+
+  .mds-ref-nav-heading {
+    font-size: var(--mds-font-size-xs);
+    font-weight: var(--mds-font-weight-semibold);
+    color: var(--mds-color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-inline: var(--mds-space-scale-3);
+    padding-block: var(--mds-space-scale-2) var(--mds-space-scale-1);
+  }
+
+  .mds-ref-nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--mds-space-scale-2) var(--mds-space-scale-3);
+    border-radius: var(--mds-radius-md);
+    color: var(--mds-color-text-secondary);
+    text-decoration: none;
+    font-weight: var(--mds-font-weight-medium);
+    font-size: var(--mds-font-size-sm);
+    transition: background-color var(--mds-motion-duration-fast) var(--mds-motion-easing-standard),
+                color var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+  }
+
+  .mds-ref-nav-item:hover {
+    background-color: var(--mds-color-surface-raised);
+    color: var(--mds-color-text-primary);
+  }
+
+  .mds-ref-nav-item.is-active {
+    background-color: var(--mds-color-surface-raised);
+    color: var(--mds-color-brand-600);
+    font-weight: var(--mds-font-weight-semibold);
+  }
+
+  .mds-ref-nav-item:focus-visible {
+    outline: 2px solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* Main Viewport Content */
+  .mds-ref-main {
+    flex: 1;
+    padding: var(--mds-space-block-xl) var(--mds-space-scale-6);
+    max-inline-size: 1440px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-xl);
+    overflow-x: hidden;
+  }
+
+  /* =========================================================================
+     2. Composed Patterns Styles
+     ========================================================================= */
+
+  /* Page Header Pattern (MDS-PAT-006) */
+  .mds-ref-page-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-xs);
+    border-block-end: 1px solid var(--mds-color-border-subtle);
+    padding-block-end: var(--mds-space-block-md);
+  }
+
+  .mds-ref-page-header__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mds-space-inline-md);
+    flex-wrap: wrap;
+  }
+
+  .mds-ref-page-header__title {
+    margin: 0;
+    font-size: var(--mds-font-size-2xl);
+    font-weight: var(--mds-font-weight-bold);
+    color: var(--mds-color-text-primary);
+    line-height: var(--mds-font-line-height-tight);
+  }
+
+  .mds-ref-page-header__subtitle {
+    margin: 0;
+    font-size: var(--mds-font-size-sm);
+    color: var(--mds-color-text-secondary);
+  }
+
+  .mds-ref-breadcrumbs {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-xs);
+    font-size: var(--mds-font-size-xs);
+    color: var(--mds-color-text-secondary);
+    margin: 0 0 var(--mds-space-block-xs) 0;
+  }
+
+  /* Metric KPI Stat Cards Pattern (Composed) */
+  .mds-ref-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: var(--mds-space-inline-md);
+  }
+
+  .mds-ref-stat-card {
+    background-color: var(--mds-color-surface-default);
+    border: 1px solid var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-lg);
+    padding: var(--mds-space-scale-4);
+    box-shadow: var(--mds-elevation-level1);
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-xs);
+  }
+
+  .mds-ref-stat-card__title {
+    font-size: var(--mds-font-size-xs);
+    font-weight: var(--mds-font-weight-medium);
+    color: var(--mds-color-text-secondary);
+    margin: 0;
+  }
+
+  .mds-ref-stat-card__value {
+    font-size: var(--mds-font-size-3xl);
+    font-weight: var(--mds-font-weight-bold);
+    color: var(--mds-color-text-primary);
+    font-variant-numeric: tabular-nums;
+    margin: 0;
+    line-height: 1.1;
+  }
+
+  .mds-ref-stat-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-block-start: var(--mds-space-block-xs);
+    font-size: var(--mds-font-size-xs);
+    color: var(--mds-color-text-secondary);
+  }
+
+  /* Search & Filter Bar Pattern (MDS-PAT-002) */
+  .mds-ref-search-filter-bar {
+    background-color: var(--mds-color-surface-default);
+    border: 1px solid var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-md);
+    padding: var(--mds-space-scale-3);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mds-space-inline-sm);
+    flex-wrap: wrap;
+  }
+
+  .mds-ref-search-filter-bar__inputs {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+    flex: 1;
+    min-inline-size: 260px;
+    flex-wrap: wrap;
+  }
+
+  /* Empty State Pattern (MDS-PAT-004) */
+  .mds-ref-empty-state {
+    padding: var(--mds-space-block-3xl) var(--mds-space-scale-6);
+    text-align: center;
+    background-color: var(--mds-color-surface-default);
+    border: 1px dashed var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--mds-space-block-md);
+  }
+
+  .mds-ref-empty-state__icon {
+    inline-size: 48px;
+    block-size: 48px;
+    color: var(--mds-color-text-secondary);
+    opacity: 0.6;
+  }
+
+  /* Form Section Pattern (MDS-PAT-001) */
+  .mds-ref-form-section {
+    background-color: var(--mds-color-surface-default);
+    border: 1px solid var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-lg);
+    padding: var(--mds-space-scale-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-lg);
+  }
+
+  .mds-ref-form-section__header {
+    border-block-end: 1px solid var(--mds-color-border-subtle);
+    padding-block-end: var(--mds-space-block-sm);
+  }
+
+  .mds-ref-form-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--mds-space-inline-md);
+  }
+
+  /* Table Pager Pattern (Composed) */
+  .mds-ref-pager {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--mds-space-scale-3) var(--mds-space-scale-4);
+    background-color: var(--mds-color-surface-default);
+    border: 1px solid var(--mds-color-border-subtle);
+    border-block-start: none;
+    border-radius: 0 0 var(--mds-radius-md) var(--mds-radius-md);
+    font-size: var(--mds-font-size-sm);
+  }
+
+  /* AI Workspace Patterns (MDS-PAT-007 & MDS-PAT-008) */
+  .mds-ref-ai-canvas {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-lg);
+  }
+
+  .mds-ref-ai-prompt {
+    background-color: var(--mds-color-surface-default);
+    border: 1px solid var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-lg);
+    padding: var(--mds-space-scale-5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-md);
+  }
+
+  .mds-ref-ai-review {
+    background-color: var(--mds-color-surface-default);
+    border: 1px solid var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-lg);
+    padding: var(--mds-space-scale-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-md);
+    border-inline-start: 4px solid var(--mds-color-brand-600);
+  }
+
+  .mds-ref-ai-streaming-box {
+    padding: var(--mds-space-scale-4);
+    background-color: var(--mds-color-surface-canvas);
+    border-radius: var(--mds-radius-md);
+    font-family: var(--mds-font-family-primary);
+    line-height: var(--mds-font-line-height-normal);
+    white-space: pre-wrap;
+    min-block-size: 80px;
+    border: 1px solid var(--mds-color-border-subtle);
+  }
+
+  /* Activity Timeline */
+  .mds-ref-timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-md);
+  }
+
+  .mds-ref-timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--mds-space-inline-md);
+    position: relative;
+    padding-inline-start: var(--mds-space-scale-4);
+    border-inline-start: 2px solid var(--mds-color-border-subtle);
+  }
+
+  .mds-ref-timeline-avatar {
+    inline-size: 36px;
+    block-size: 36px;
+    border-radius: var(--mds-radius-full);
+    background-color: var(--mds-color-surface-raised);
+    color: var(--mds-color-text-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--mds-font-weight-bold);
+    font-size: var(--mds-font-size-xs);
+    flex-shrink: 0;
+  }
+
+  /* Toast Shelf (Application-Level Composition) */
+  .mds-ref-toast-shelf {
+    position: fixed;
+    inset-block-start: var(--mds-space-block-xl);
+    inset-inline-end: var(--mds-space-inline-xl);
+    z-index: var(--mds-layer-toast);
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-sm);
+    inline-size: 360px;
+    max-inline-size: calc(100vw - 32px);
+    pointer-events: none;
+  }
+
+  .mds-ref-toast-shelf > * {
+    pointer-events: auto;
+    box-shadow: var(--mds-elevation-level3);
+    animation: mdsRefToastIn var(--mds-motion-duration-medium) var(--mds-motion-easing-decelerate);
+  }
+
+  @keyframes mdsRefToastIn {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Simulation Toolbar (Bottom Fixed Bar for Testers) */
+  .mds-ref-simulation-bar {
+    block-size: var(--mds-ref-simbar-height);
+    background-color: var(--mds-color-surface-raised);
+    border-block-start: 1px solid var(--mds-color-border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--mds-space-scale-4);
+    font-size: var(--mds-font-size-xs);
+    position: sticky;
+    inset-block-end: 0;
+    z-index: var(--mds-layer-sticky);
+  }
+
+  /* Danger Zone Panel */
+  .mds-ref-danger-zone {
+    border: 1px solid var(--mds-color-feedback-danger-border);
+    border-radius: var(--mds-radius-lg);
+    padding: var(--mds-space-scale-5);
+    background-color: var(--mds-color-feedback-danger-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mds-space-inline-md);
+  }
+
+  /* Mobile Navigation Drawer Surface (Composed via <mds-dialog>) */
+  .mds-ref-mobile-nav-surface {
+    max-inline-size: 320px;
+    inline-size: 85vw;
+    block-size: 100vh;
+    max-block-size: 100vh;
+    margin-inline-start: 0;
+    margin-inline-end: auto;
+    border-radius: 0;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Stepper Composition via <mds-tabs> (GAP-008 / R-004) */
+  .mds-ref-stepper-tabs {
+    border-block-end: 1px solid var(--mds-color-border-subtle);
+    margin-block-end: var(--mds-space-block-lg);
+  }
+
+  .mds-ref-stepper-tab[aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* =========================================================================
+     3. Responsive Recomposition Media Queries
+     ========================================================================= */
+
+  /* Tablet Recomposition (< 1024px) */
+  @media (max-width: 1023px) {
+    .mds-ref-sidebar {
+      inline-size: 72px;
+      padding-inline: var(--mds-space-scale-2);
+    }
+
+    .mds-ref-nav-heading {
+      display: none;
+    }
+
+    .mds-ref-nav-item span:not(.mds-badge) {
+      display: none;
+    }
+
+    .mds-ref-nav-item {
+      justify-content: center;
+      padding: var(--mds-space-scale-3);
+    }
+
+    .mds-ref-main {
+      padding: var(--mds-space-block-lg) var(--mds-space-scale-4);
+    }
+
+    .mds-ref-form-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Mobile Recomposition (< 768px) */
+  @media (max-width: 767px) {
+    #btn-mobile-nav {
+      display: inline-flex;
+    }
+
+    .mds-ref-body {
+      flex-direction: column;
+    }
+
+    .mds-ref-sidebar {
+      display: none;
+    }
+
+    .mds-ref-main {
+      padding: var(--mds-space-block-md) var(--mds-space-scale-3);
+      gap: var(--mds-space-block-md);
+    }
+
+    .mds-ref-stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .mds-ref-page-header__row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .mds-ref-search-filter-bar {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .mds-ref-danger-zone {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  /* Vestibular Reduced Motion Override */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-ref-toast-shelf > * {
+      animation: none !important;
+    }
+    .mds-ref-skip-link {
+      transition: none !important;
+    }
+  }
+}

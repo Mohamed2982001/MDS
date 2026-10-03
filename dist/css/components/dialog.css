@@ -1,0 +1,170 @@
+/**
+ * MDS (Master Design System) — Dialog (Modal) Component
+ * Architecture Layer: Layer 04 (Components / Overlays)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: Internal padding only; responsive positioning
+ * 2. Composed from Layer 03 Surface Primitive (Surface.overlay) + Elevation Level 3
+ * 3. Responsive Recomposition: Recomposes to Bottom Sheet on viewports < 480px
+ * 4. Accessibility Guarantees: role="dialog", aria-modal="true", FocusTrap integration
+ * 5. Initial Focus Safety (AF-002): Initial focus on Cancel button for destructive modals
+ * 6. 100% CSS Logical Properties
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. BACKDROP SCRIM
+     ======================================================================== */
+
+  .mds-dialog::backdrop,
+  .mds-dialog__backdrop {
+    background-color: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    transition: opacity var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* ========================================================================
+     2. DIALOG WINDOW (Native <dialog> & Custom Element)
+     ======================================================================== */
+
+  .mds-dialog {
+    /* Surface & Elevation */
+    background-color: var(--mds-color-surface-overlay);
+    color: var(--mds-color-text-primary);
+    border-style: solid;
+    border-width: var(--mds-border-width-thin);
+    border-color: var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-lg);
+    box-shadow: var(--mds-elevation-level3);
+
+    /* Layout & Sizing */
+    box-sizing: border-box;
+    width: 90%;
+    max-inline-size: 560px;
+    padding: var(--mds-space-scale-6);
+    margin: auto;
+    outline: none;
+    overflow: visible;
+
+    /* Typography */
+    font-family: var(--mds-font-family-primary);
+
+    /* Motion Transitions */
+    transition:
+      transform var(--mds-motion-normal) var(--mds-motion-ease-enter),
+      opacity var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* Fixed Positioning when not using native top-layer modal */
+  .mds-dialog:not(dialog) {
+    position: fixed;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--mds-layer-overlay, 1000);
+  }
+
+  /* ========================================================================
+     3. DIALOG SIZES
+     ======================================================================== */
+
+  /* 3.1 Small (400px Confirmations) */
+  .mds-dialog--sm {
+    max-inline-size: 400px;
+  }
+
+  /* 3.2 Medium (560px Standard Forms) */
+  .mds-dialog--md {
+    max-inline-size: 560px;
+  }
+
+  /* 3.3 Large (720px Complex Multi-Field) */
+  .mds-dialog--lg {
+    max-inline-size: 720px;
+  }
+
+  /* ========================================================================
+     4. SLOTS & SUB-ELEMENTS
+     ======================================================================== */
+
+  /* 4.1 Header Slot */
+  .mds-dialog__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--mds-space-inline-md);
+    margin-block-end: var(--mds-space-block-md);
+  }
+
+  .mds-dialog__title {
+    font-size: var(--mds-font-size-lg);
+    font-weight: 600;
+    line-height: var(--mds-font-line-height-tight);
+    margin: 0;
+    color: var(--mds-color-text-primary);
+  }
+
+  /* 4.2 Body Slot */
+  .mds-dialog__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-sm);
+    margin-block-end: var(--mds-space-block-lg);
+    color: var(--mds-color-text-secondary);
+    font-size: var(--mds-font-size-sm);
+    line-height: var(--mds-font-line-height-normal);
+  }
+
+  /* 4.3 Footer Slot */
+  .mds-dialog__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--mds-space-inline-sm);
+    margin: 0;
+  }
+
+  /* ========================================================================
+     5. RESPONSIVE RECOMPOSITION (< 480px: Bottom Sheet Anchor)
+     ======================================================================== */
+
+  @media (max-width: 480px) {
+    .mds-dialog {
+      inline-size: 100%;
+      max-inline-size: 100%;
+      border-radius: var(--mds-radius-lg) var(--mds-radius-lg) 0 0;
+      margin-block-end: 0;
+      padding: var(--mds-space-scale-4);
+    }
+
+    .mds-dialog:not(dialog) {
+      inset-block-start: auto;
+      inset-block-end: 0;
+      inset-inline-start: 0;
+      transform: none;
+    }
+
+    .mds-dialog__footer {
+      flex-direction: column-reverse;
+      align-items: stretch;
+      gap: var(--mds-space-block-xs);
+    }
+
+    .mds-dialog__footer .mds-button {
+      inline-size: 100%;
+    }
+  }
+
+  /* 5.1 Vestibular Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-dialog,
+    .mds-dialog::backdrop,
+    .mds-dialog__backdrop {
+      transition: none;
+    }
+  }
+}
+

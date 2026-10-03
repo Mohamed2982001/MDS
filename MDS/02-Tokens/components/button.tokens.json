@@ -1,0 +1,178 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Component-level token definitions for Button. Demonstrates scalable state-aware architecture (default, hover, pressed, focus, disabled) mapped directly to semantic tokens without CSS property bloat.",
+  "component": {
+    "button": {
+      "primary": {
+        "background": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.action.primary.default}",
+            "$description": "Resting background color for primary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.action.primary.hover}",
+            "$description": "Pointer hover background color for primary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "pressed": {
+            "$type": "color",
+            "$value": "{color.action.primary.pressed}",
+            "$description": "Active pressed background color for primary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.action.disabled.background}",
+            "$description": "Disabled non-interactive background color for primary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          }
+        },
+        "foreground": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.inverse}",
+            "$description": "Resting text and icon color for primary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.action.disabled.foreground}",
+            "$description": "Disabled text and icon color for primary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          }
+        },
+        "radius": {
+          "$type": "dimension",
+          "$value": "{radius.md}",
+          "$description": "Corner radius for primary button (10px default, 6px in Refined preset)",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "focusRing": {
+          "$type": "color",
+          "$value": "{color.focus.ring}",
+          "$description": "Accessibility focus ring indicator for primary button",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        }
+      },
+      "secondary": {
+        "background": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.surface.default}",
+            "$description": "Resting background color for secondary outlined button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.surface.raised}",
+            "$description": "Hover background color for secondary outlined button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.action.disabled.background}",
+            "$description": "Disabled background color for secondary outlined button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          }
+        },
+        "foreground": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Resting text and icon color for secondary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.action.disabled.foreground}",
+            "$description": "Disabled text color for secondary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.border.default}",
+            "$description": "Resting border boundary for secondary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.border.subtle}",
+            "$description": "Disabled border boundary for secondary button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          }
+        }
+      },
+      "ghost": {
+        "background": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.surface.default}",
+            "$description": "Resting transparent/surface background for ghost button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.surface.raised}",
+            "$description": "Hover background color for ghost button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.surface.default}",
+            "$description": "Disabled background color for ghost button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          }
+        },
+        "foreground": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.primary}",
+            "$description": "Resting text and icon color for ghost button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.action.disabled.foreground}",
+            "$description": "Disabled text color for ghost button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          }
+        }
+      },
+      "destructive": {
+        "background": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.action.destructive.default}",
+            "$description": "Resting background color for destructive button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{color.action.destructive.hover}",
+            "$description": "Hover background color for destructive button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          },
+          "disabled": {
+            "$type": "color",
+            "$value": "{color.action.disabled.background}",
+            "$description": "Disabled background color for destructive button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          }
+        },
+        "foreground": {
+          "default": {
+            "$type": "color",
+            "$value": "{color.text.inverse}",
+            "$description": "Resting text and icon color for destructive button",
+            "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+          }
+        }
+      }
+    }
+  }
+}

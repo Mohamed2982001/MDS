@@ -1,0 +1,29 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "High Contrast Mode semantic token overrides. Provides enhanced contrast-oriented semantic overrides, targeting WCAG AAA contrast levels where applicable while maintaining required non-text, border, and interaction criteria.",
+  "color": {
+    "border": {
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.1000}",
+        "$description": "Solid high-contrast border in high contrast light mode"
+      }
+    },
+    "focus": {
+      "ring": {
+        "$type": "color",
+        "$value": "{color.neutral.1000}",
+        "$description": "Maximum visibility focus ring for high contrast navigation"
+      }
+    }
+  },
+  "border": {
+    "width": {
+      "default": {
+        "$type": "dimension",
+        "$value": "{border.width.thick}",
+        "$description": "Enhanced border thickness for high contrast element boundary definition"
+      }
+    }
+  }
+}

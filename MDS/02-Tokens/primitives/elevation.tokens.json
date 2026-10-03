@@ -1,0 +1,82 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "elevation": {
+    "level0": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "0px",
+          "blur": "0px",
+          "spread": "0px",
+          "color": "rgba(0, 0, 0, 0)"
+        }
+      ],
+      "$description": "Level 0 Flat: Flush surface with zero shadow. Boundary defined purely by 1px subtle border.",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "level1": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "3px",
+          "spread": "0px",
+          "color": "rgba(15, 23, 42, 0.06)"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "1px",
+          "blur": "2px",
+          "spread": "-1px",
+          "color": "rgba(15, 23, 42, 0.04)"
+        }
+      ],
+      "$description": "Level 1 Raised: Subtle ambient shadow for resting cards, content containers, and control panels.",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "level2": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "6px",
+          "spread": "-1px",
+          "color": "rgba(15, 23, 42, 0.08)"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "2px",
+          "blur": "4px",
+          "spread": "-2px",
+          "color": "rgba(15, 23, 42, 0.04)"
+        }
+      ],
+      "$description": "Level 2 Floating: Pronounced shadow for dropdown menus, popovers, autocomplete overlays, and hovering cards.",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "level3": {
+      "$type": "shadow",
+      "$value": [
+        {
+          "offsetX": "0px",
+          "offsetY": "12px",
+          "blur": "16px",
+          "spread": "-4px",
+          "color": "rgba(15, 23, 42, 0.12)"
+        },
+        {
+          "offsetX": "0px",
+          "offsetY": "4px",
+          "blur": "6px",
+          "spread": "-2px",
+          "color": "rgba(15, 23, 42, 0.05)"
+        }
+      ],
+      "$description": "Level 3 Overlay: Deep dramatic shadow for modal dialogs, drawers, and floating notification toasts.",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    }
+  }
+}

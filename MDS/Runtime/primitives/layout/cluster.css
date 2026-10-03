@@ -1,0 +1,30 @@
+/**
+ * MDS (Master Design System) — Cluster Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Responsibility: Multi-element wrapping group & token-driven spacing
+ */
+
+.mds-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Token-Driven Gap Modifiers */
+.mds-cluster--gap-xs { gap: var(--mds-space-scale-1); }
+.mds-cluster--gap-sm { gap: var(--mds-space-scale-2); }
+.mds-cluster--gap-md { gap: var(--mds-space-scale-4); }
+.mds-cluster--gap-lg { gap: var(--mds-space-scale-6); }
+
+/* Alignment Modifiers */
+.mds-cluster--align-start  { align-items: flex-start; }
+.mds-cluster--align-center { align-items: center; }
+.mds-cluster--align-end    { align-items: flex-end; }
+
+/* Justification Modifiers */
+.mds-cluster--justify-start   { justify-content: flex-start; }
+.mds-cluster--justify-center  { justify-content: center; }
+.mds-cluster--justify-end     { justify-content: flex-end; }
+.mds-cluster--justify-between { justify-content: space-between; }

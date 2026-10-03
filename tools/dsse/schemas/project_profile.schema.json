@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://masterdesignsystem.com/schemas/dsse/project_profile.schema.json",
+  "title": "DSSE Project Profile Schema",
+  "description": "Standardized schema for project requirements, technical priorities, and hard constraints in DSSE.",
+  "type": "object",
+  "required": [
+    "projectName",
+    "dimensions"
+  ],
+  "properties": {
+    "projectName": {
+      "type": "string",
+      "description": "Human-readable name of the project or application"
+    },
+    "context": {
+      "type": "string",
+      "description": "Brief architectural or operational summary of the project"
+    },
+    "targetPlatform": {
+      "type": "string",
+      "description": "Primary runtime platform target (e.g. Flutter, Next.js, Web, Native)"
+    },
+    "dimensions": {
+      "type": "object",
+      "description": "Priorities assigned to the 12 canonical DSSE dimensions (D1 to D12)",
+      "additionalProperties": {
+        "type": "string",
+        "enum": ["Critical", "High", "Medium", "Low", "N/A"]
+      }
+    },
+    "hardConstraints": {
+      "type": "array",
+      "description": "Mandatory non-negotiable architectural constraints",
+      "items": {
+        "type": "object",
+        "required": ["id", "description"],
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the constraint (e.g. HC-FLUTTER-NATIVE)"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed explanation of the architectural gate"
+          },
+          "dimension": {
+            "type": "string",
+            "description": "Related DSSE dimension ID (e.g. D1, D3, D4)"
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Optional arbitrary metadata such as author, created date, or extraction source"
+    }
+  }
+}

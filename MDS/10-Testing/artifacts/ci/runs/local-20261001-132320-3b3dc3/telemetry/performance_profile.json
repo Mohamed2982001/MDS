@@ -1,0 +1,7 @@
+{
+  "orchestrator_duration_ms": 64659.82,
+  "ci_overhead_ms": 94.0346999996109,
+  "total_step_time_ms": 64753.85469999961,
+  "contract": "ADR-144 (Overhead <= 2000ms)",
+  "overhead_status": "PASS"
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "mds-motion",
+  "version": "1.0.0",
+  "durations": {
+    "instant": 0,
+    "fast": 150,
+    "normal": 250,
+    "slow": 350
+  },
+  "easing": {
+    "standard": [0.2, 0.0, 0.0, 1.0],
+    "enter": [0.0, 0.0, 0.2, 1.0],
+    "exit": [0.4, 0.0, 1.0, 1.0]
+  }
+}

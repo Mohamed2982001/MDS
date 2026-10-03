@@ -1,0 +1,31 @@
+{
+  "schema_version": "1.0.0",
+  "guard_version": "1.0.0",
+  "phase_id": "Phase-9.7.11",
+  "phase_name": "CI Pipeline & Artifact Dashboard",
+  "locked_at": "2026-10-01T12:00:00.000Z",
+  "authorized_by": "Lead Architect Mohamed Khalid",
+  "authorizing_adr": "ADR-153",
+  "prev_manifest_digest": "6e08ac1ccc9d1eab319f0003ee3f37314c16e74334ba0b0c5abb51804ae86e11",
+  "manifest_digest": "d0453e4d86066167fbbd43e8f07e976be5409613d87e28e9443fe3112f950543",
+  "total_documents": 2,
+  "documents": [
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.11-CI-Architecture.md",
+      "canonical_sha256": "1f1cbf687df3caff4fd349236826aa2b6244a9fba86330a2a014c89aa0afd273",
+      "byte_size": 82258,
+      "line_count": 1145,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7.11"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.11-Decision-Log.md",
+      "canonical_sha256": "8b18b895621a3dc3867a52dce93e6b66fe5831b4dc55f760d1727391a9a5165f",
+      "byte_size": 28163,
+      "line_count": 342,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.7.11"
+    }
+  ],
+  "history_blocks": []
+}

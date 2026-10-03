@@ -1,0 +1,4584 @@
+{
+  "schema_version": "1.0.0",
+  "capability_id": "MDS-RWD-003",
+  "status": "PASS",
+  "browser_version": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "duration_ms": 1507.58,
+  "accounting": {
+    "total_runs": 17,
+    "total_assertions": 143,
+    "passed_assertions": 143,
+    "failed_assertions": 0,
+    "hard_failures": 0
+  },
+  "runs": [
+    {
+      "run_id": "RWD-RUN-001",
+      "screen": "Overview",
+      "route": "#/overview",
+      "viewport": "320px (320x640)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 384.1569423675537,
+      "error_message": null,
+      "total_assertions": 8,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-001",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 320px",
+          "passed": true,
+          "expected": "320",
+          "actual": "320",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-001",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-001",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=320, clientWidth=320 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 320,
+            "scrollWidth": 320,
+            "bodyOffsetWidth": 320,
+            "bodyScrollWidth": 320,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-001",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle button (#btn-mobile-nav) is visible in mobile viewport",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-001",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Desktop sidebar (.mds-ref-sidebar) is hidden in mobile viewport",
+          "passed": true,
+          "expected": "hidden (display: none)",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-001",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-stats-grid",
+          "assertion_name": "Stats grid recomposes to 1 column at 320px",
+          "passed": true,
+          "expected": "1",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": true,
+            "statsCols": 1,
+            "statsColTemplate": "296px",
+            "formGridExists": false,
+            "formCols": 0,
+            "formColTemplate": "",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-001",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 320,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-001",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 5 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 5,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "btn-mobile-nav",
+                "width": 32,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 84,
+                "height": 48
+              },
+              {
+                "id": "a",
+                "width": 105,
+                "height": 48
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/overview",
+          "appFound": false
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 229.38275337219238,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "scrollWidth": 320,
+            "scrollHeight": 1579,
+            "bodyWidth": 320
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-002",
+      "screen": "Overview",
+      "route": "#/overview",
+      "viewport": "768px (768x1024)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 56.53500556945801,
+      "error_message": null,
+      "total_assertions": 9,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-002",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 768px",
+          "passed": true,
+          "expected": "768",
+          "actual": "768",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 768,
+            "innerHeight": 1024,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-002",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 768,
+            "innerHeight": 1024,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-002",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=768, clientWidth=768 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 768,
+            "scrollWidth": 768,
+            "bodyOffsetWidth": 768,
+            "bodyScrollWidth": 768,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-002",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in tablet viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 696,
+              "right": 768
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-002",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar collapses to 72px icon rail in tablet viewport",
+          "passed": true,
+          "expected": "72px (+/-8px)",
+          "actual": "72px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 696,
+              "right": 768
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-002",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Visibility Adaptation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-nav-item span:not(.mds-badge)",
+          "assertion_name": "Sidebar text labels hidden in tablet icon rail",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 696,
+              "right": 768
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-002",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-stats-grid",
+          "assertion_name": "Stats grid recomposes to 2 columns at 768px tablet",
+          "passed": true,
+          "expected": "2 columns (or 1-2)",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": true,
+            "statsCols": 2,
+            "statsColTemplate": "324px 324px",
+            "formGridExists": false,
+            "formCols": 0,
+            "formColTemplate": "",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-002",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 696,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-002",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 13 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 13,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "nav-overview",
+                "width": 55,
+                "height": 24
+              },
+              {
+                "id": "nav-items",
+                "width": 55,
+                "height": 42
+              },
+              {
+                "id": "nav-tasks",
+                "width": 55,
+                "height": 42
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/overview",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 18.408536911010742,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "scrollWidth": 768,
+            "scrollHeight": 1024,
+            "bodyWidth": 768
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-003",
+      "screen": "Overview",
+      "route": "#/overview",
+      "viewport": "1024px (1024x768)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 69.37217712402344,
+      "error_message": null,
+      "total_assertions": 7,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-003",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1024px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 1024px",
+          "passed": true,
+          "expected": "1024",
+          "actual": "1024",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1024,
+            "innerHeight": 768,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-003",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1024px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "1.0",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1024,
+            "innerHeight": 768,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-003",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1024px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=1024, clientWidth=1024 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 1024,
+            "scrollWidth": 1024,
+            "bodyOffsetWidth": 1024,
+            "bodyScrollWidth": 1024,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-003",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1024px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in desktop viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 660,
+              "left": 764,
+              "right": 1024
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-003",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1024px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar is expanded to standard width (>= 240px) in desktop viewport",
+          "passed": true,
+          "expected": ">= 240px (standard 260px)",
+          "actual": "260px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 660,
+              "left": 764,
+              "right": 1024
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-003",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1024px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-stats-grid",
+          "assertion_name": "Stats grid expands to multi-column (>= 3) at desktop viewports",
+          "passed": true,
+          "expected": ">= 3 columns",
+          "actual": "3",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": true,
+            "statsCols": 3,
+            "statsColTemplate": "244px 244px 244px",
+            "formGridExists": false,
+            "formCols": 0,
+            "formColTemplate": "",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-003",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1024px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 764,
+            "headerInnerMaxInlineSize": "none"
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/overview",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 24.377107620239258,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "scrollWidth": 1024,
+            "scrollHeight": 803,
+            "bodyWidth": 1024
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-004",
+      "screen": "Overview",
+      "route": "#/overview",
+      "viewport": "1440px (1440x900)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 55.18364906311035,
+      "error_message": null,
+      "total_assertions": 8,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-004",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1440px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 1440px",
+          "passed": true,
+          "expected": "1440",
+          "actual": "1440",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1440,
+            "innerHeight": 900,
+            "clientWidth": 1440,
+            "clientHeight": 900,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-004",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1440px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "1.0",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1440,
+            "innerHeight": 900,
+            "clientWidth": 1440,
+            "clientHeight": 900,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-004",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1440px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=1440, clientWidth=1440 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 1440,
+            "scrollWidth": 1440,
+            "bodyOffsetWidth": 1440,
+            "bodyScrollWidth": 1440,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-004",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1440px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in desktop viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 792,
+              "left": 1180,
+              "right": 1440
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-004",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1440px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar is expanded to standard width (>= 240px) in desktop viewport",
+          "passed": true,
+          "expected": ">= 240px (standard 260px)",
+          "actual": "260px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 792,
+              "left": 1180,
+              "right": 1440
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-004",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1440px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-stats-grid",
+          "assertion_name": "Stats grid expands to multi-column (>= 3) at desktop viewports",
+          "passed": true,
+          "expected": ">= 3 columns",
+          "actual": "4",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": true,
+            "statsCols": 4,
+            "statsColTemplate": "283px 283px 283px 283px 0px",
+            "formGridExists": false,
+            "formCols": 0,
+            "formColTemplate": "",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-004",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1440px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 1180,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-004",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "1440px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Main workspace container constrained to <= 1440px at wide viewport",
+          "passed": true,
+          "expected": "<= 1440px",
+          "actual": "1180px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 1180,
+            "headerInnerMaxInlineSize": "none"
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/overview",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 24.143695831298828,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 1440,
+            "clientHeight": 900,
+            "scrollWidth": 1440,
+            "scrollHeight": 900,
+            "bodyWidth": 1440
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-005",
+      "screen": "Items List",
+      "route": "#/items",
+      "viewport": "320px (320x640)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 110.46624183654785,
+      "error_message": null,
+      "total_assertions": 9,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-005",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 320px",
+          "passed": true,
+          "expected": "320",
+          "actual": "320",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-005",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-005",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=320, clientWidth=320 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 320,
+            "scrollWidth": 320,
+            "bodyOffsetWidth": 320,
+            "bodyScrollWidth": 320,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": [
+              {
+                "tag": "table",
+                "id": "",
+                "className": "mds-table mds-table--striped",
+                "width": 655,
+                "overflowX": "visible"
+              },
+              {
+                "tag": "thead",
+                "id": "",
+                "className": "",
+                "width": 655,
+                "overflowX": "visible"
+              },
+              {
+                "tag": "tr",
+                "id": "",
+                "className": "",
+                "width": 655,
+                "overflowX": "visible"
+              },
+              {
+                "tag": "tbody",
+                "id": "",
+                "className": "",
+                "width": 655,
+                "overflowX": "visible"
+              },
+              {
+                "tag": "tr",
+                "id": "",
+                "className": "",
+                "width": 655,
+                "overflowX": "visible"
+              }
+            ]
+          }
+        },
+        {
+          "run_id": "RWD-RUN-005",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle button (#btn-mobile-nav) is visible in mobile viewport",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-005",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Desktop sidebar (.mds-ref-sidebar) is hidden in mobile viewport",
+          "passed": true,
+          "expected": "hidden (display: none)",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-005",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-search-filter-bar",
+          "assertion_name": "Search and filter bar stacks vertically (flex-direction: column) at 320px",
+          "passed": true,
+          "expected": "column",
+          "actual": "column",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": false,
+            "statsCols": 0,
+            "statsColTemplate": "",
+            "formGridExists": false,
+            "formCols": 0,
+            "formColTemplate": "",
+            "filterBarExists": true,
+            "filterFlexDir": "column"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-005",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 320,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-005",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 9 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 9,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "btn-mobile-nav",
+                "width": 32,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 89,
+                "height": 32
+              },
+              {
+                "id": "button",
+                "width": 117,
+                "height": 40
+              }
+            ]
+          }
+        },
+        {
+          "run_id": "RWD-RUN-005",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Data Table Adaptation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": "table container",
+          "assertion_name": "Data table has dedicated horizontal scroll container on narrow viewports",
+          "passed": true,
+          "expected": "overflow-x: auto / scroll container",
+          "actual": "scrollContainer=True (overflowX=auto)",
+          "diagnostics": null,
+          "evidence": {
+            "tableExists": true,
+            "foundScrollContainer": true,
+            "overflowX": "auto",
+            "tableWidth": 655,
+            "parentWidth": 296
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/items",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 21.175622940063477,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "scrollWidth": 320,
+            "scrollHeight": 1310,
+            "bodyWidth": 320
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-006",
+      "screen": "Items List",
+      "route": "#/items",
+      "viewport": "768px (768x1024)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 83.38737487792969,
+      "error_message": null,
+      "total_assertions": 9,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-006",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "768px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 768px",
+          "passed": true,
+          "expected": "768",
+          "actual": "768",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 768,
+            "innerHeight": 1024,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-006",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "768px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 768,
+            "innerHeight": 1024,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-006",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "768px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=768, clientWidth=768 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 768,
+            "scrollWidth": 768,
+            "bodyOffsetWidth": 768,
+            "bodyScrollWidth": 768,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-006",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "768px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in tablet viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 696,
+              "right": 768
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-006",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "768px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar collapses to 72px icon rail in tablet viewport",
+          "passed": true,
+          "expected": "72px (+/-8px)",
+          "actual": "72px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 696,
+              "right": 768
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-006",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "768px",
+          "dimension": "Visibility Adaptation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-nav-item span:not(.mds-badge)",
+          "assertion_name": "Sidebar text labels hidden in tablet icon rail",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 696,
+              "right": 768
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-006",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "768px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 696,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-006",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "768px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 17 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 17,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "nav-overview",
+                "width": 55,
+                "height": 24
+              },
+              {
+                "id": "nav-items",
+                "width": 55,
+                "height": 42
+              },
+              {
+                "id": "nav-tasks",
+                "width": 55,
+                "height": 42
+              }
+            ]
+          }
+        },
+        {
+          "run_id": "RWD-RUN-006",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "768px",
+          "dimension": "Data Table Adaptation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": "table container",
+          "assertion_name": "Data table has dedicated horizontal scroll container on narrow viewports",
+          "passed": true,
+          "expected": "overflow-x: auto / scroll container",
+          "actual": "scrollContainer=True (overflowX=auto)",
+          "diagnostics": null,
+          "evidence": {
+            "tableExists": true,
+            "foundScrollContainer": true,
+            "overflowX": "auto",
+            "tableWidth": 662,
+            "parentWidth": 664
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/items",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 28.049468994140625,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "scrollWidth": 768,
+            "scrollHeight": 1170,
+            "bodyWidth": 768
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-007",
+      "screen": "Items List",
+      "route": "#/items",
+      "viewport": "1024px (1024x768)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 86.7605209350586,
+      "error_message": null,
+      "total_assertions": 6,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-007",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 1024px",
+          "passed": true,
+          "expected": "1024",
+          "actual": "1024",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1024,
+            "innerHeight": 768,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-007",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "1.0",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1024,
+            "innerHeight": 768,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-007",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=1024, clientWidth=1024 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 1024,
+            "scrollWidth": 1024,
+            "bodyOffsetWidth": 1024,
+            "bodyScrollWidth": 1024,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-007",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in desktop viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 660,
+              "left": 764,
+              "right": 1024
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-007",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar is expanded to standard width (>= 240px) in desktop viewport",
+          "passed": true,
+          "expected": ">= 240px (standard 260px)",
+          "actual": "260px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 660,
+              "left": 764,
+              "right": 1024
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-007",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 764,
+            "headerInnerMaxInlineSize": "none"
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/items",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 30.527353286743164,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "scrollWidth": 1024,
+            "scrollHeight": 812,
+            "bodyWidth": 1024
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-008",
+      "screen": "Items List",
+      "route": "#/items",
+      "viewport": "1440px (1440x900)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 61.93852424621582,
+      "error_message": null,
+      "total_assertions": 7,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-008",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1440px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 1440px",
+          "passed": true,
+          "expected": "1440",
+          "actual": "1440",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1440,
+            "innerHeight": 900,
+            "clientWidth": 1440,
+            "clientHeight": 900,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-008",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1440px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "1.0",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1440,
+            "innerHeight": 900,
+            "clientWidth": 1440,
+            "clientHeight": 900,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-008",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1440px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=1440, clientWidth=1440 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 1440,
+            "scrollWidth": 1440,
+            "bodyOffsetWidth": 1440,
+            "bodyScrollWidth": 1440,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-008",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1440px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in desktop viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 792,
+              "left": 1180,
+              "right": 1440
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-008",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1440px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar is expanded to standard width (>= 240px) in desktop viewport",
+          "passed": true,
+          "expected": ">= 240px (standard 260px)",
+          "actual": "260px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 792,
+              "left": 1180,
+              "right": 1440
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-008",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1440px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 1180,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-008",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1440px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Main workspace container constrained to <= 1440px at wide viewport",
+          "passed": true,
+          "expected": "<= 1440px",
+          "actual": "1180px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 1180,
+            "headerInnerMaxInlineSize": "none"
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/items",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 24.986743927001953,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 1440,
+            "clientHeight": 900,
+            "scrollWidth": 1440,
+            "scrollHeight": 900,
+            "bodyWidth": 1440
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-009",
+      "screen": "Item Edit",
+      "route": "#/items/edit",
+      "viewport": "320px (320x640)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 91.2628173828125,
+      "error_message": null,
+      "total_assertions": 8,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-009",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 320px",
+          "passed": true,
+          "expected": "320",
+          "actual": "320",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-009",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-009",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "320px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=320, clientWidth=320 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 320,
+            "scrollWidth": 320,
+            "bodyOffsetWidth": 320,
+            "bodyScrollWidth": 320,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-009",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle button (#btn-mobile-nav) is visible in mobile viewport",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-009",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Desktop sidebar (.mds-ref-sidebar) is hidden in mobile viewport",
+          "passed": true,
+          "expected": "hidden (display: none)",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-009",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "320px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-form-grid-2",
+          "assertion_name": "Two-column form stacks into 1 column at <= 768px viewports",
+          "passed": true,
+          "expected": "1",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": false,
+            "statsCols": 0,
+            "statsColTemplate": "",
+            "formGridExists": true,
+            "formCols": 1,
+            "formColTemplate": "246px",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-009",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "320px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 320,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-009",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "320px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 10 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 10,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "btn-mobile-nav",
+                "width": 32,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "step-tab-1",
+                "width": 152,
+                "height": 40
+              },
+              {
+                "id": "step-tab-2",
+                "width": 228,
+                "height": 40
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/items/edit",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 27.71782875061035,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "scrollWidth": 320,
+            "scrollHeight": 1058,
+            "bodyWidth": 320
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-010",
+      "screen": "Item Edit",
+      "route": "#/items/edit",
+      "viewport": "768px (768x1024)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 87.48292922973633,
+      "error_message": null,
+      "total_assertions": 9,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-010",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "768px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 768px",
+          "passed": true,
+          "expected": "768",
+          "actual": "768",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 768,
+            "innerHeight": 1024,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-010",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "768px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 768,
+            "innerHeight": 1024,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-010",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "768px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=768, clientWidth=768 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 768,
+            "scrollWidth": 768,
+            "bodyOffsetWidth": 768,
+            "bodyScrollWidth": 768,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-010",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "768px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in tablet viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 696,
+              "right": 768
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-010",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "768px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar collapses to 72px icon rail in tablet viewport",
+          "passed": true,
+          "expected": "72px (+/-8px)",
+          "actual": "72px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 696,
+              "right": 768
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-010",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "768px",
+          "dimension": "Visibility Adaptation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-nav-item span:not(.mds-badge)",
+          "assertion_name": "Sidebar text labels hidden in tablet icon rail",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 696,
+              "right": 768
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-010",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "768px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-form-grid-2",
+          "assertion_name": "Two-column form stacks into 1 column at <= 768px viewports",
+          "passed": true,
+          "expected": "1",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": false,
+            "statsCols": 0,
+            "statsColTemplate": "",
+            "formGridExists": true,
+            "formCols": 1,
+            "formColTemplate": "614px",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-010",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "768px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 696,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-010",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "768px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 18 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 18,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "nav-overview",
+                "width": 55,
+                "height": 24
+              },
+              {
+                "id": "nav-items",
+                "width": 55,
+                "height": 42
+              },
+              {
+                "id": "nav-tasks",
+                "width": 55,
+                "height": 42
+              }
+            ]
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/items/edit",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 24.264812469482422,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "scrollWidth": 768,
+            "scrollHeight": 1024,
+            "bodyWidth": 768
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-011",
+      "screen": "Item Edit",
+      "route": "#/items/edit",
+      "viewport": "1024px (1024x768)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 65.9632682800293,
+      "error_message": null,
+      "total_assertions": 7,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-011",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1024px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 1024px",
+          "passed": true,
+          "expected": "1024",
+          "actual": "1024",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1024,
+            "innerHeight": 768,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-011",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1024px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "1.0",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1024,
+            "innerHeight": 768,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-011",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1024px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=1024, clientWidth=1024 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 1024,
+            "scrollWidth": 1024,
+            "bodyOffsetWidth": 1024,
+            "bodyScrollWidth": 1024,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-011",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1024px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in desktop viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 660,
+              "left": 764,
+              "right": 1024
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-011",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1024px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar is expanded to standard width (>= 240px) in desktop viewport",
+          "passed": true,
+          "expected": ">= 240px (standard 260px)",
+          "actual": "260px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 660,
+              "left": 764,
+              "right": 1024
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-011",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1024px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-form-grid-2",
+          "assertion_name": "Two-column form maintains 2 columns at desktop viewports",
+          "passed": true,
+          "expected": "2",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": false,
+            "statsCols": 0,
+            "statsColTemplate": "",
+            "formGridExists": true,
+            "formCols": 2,
+            "formColTemplate": "349px 349px",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-011",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1024px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 764,
+            "headerInnerMaxInlineSize": "none"
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/items/edit",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 31.98075294494629,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "scrollWidth": 1024,
+            "scrollHeight": 813,
+            "bodyWidth": 1024
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-012",
+      "screen": "Item Edit",
+      "route": "#/items/edit",
+      "viewport": "1440px (1440x900)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 53.23433876037598,
+      "error_message": null,
+      "total_assertions": 8,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-012",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1440px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 1440px",
+          "passed": true,
+          "expected": "1440",
+          "actual": "1440",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1440,
+            "innerHeight": 900,
+            "clientWidth": 1440,
+            "clientHeight": 900,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-012",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1440px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "1.0",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1440,
+            "innerHeight": 900,
+            "clientWidth": 1440,
+            "clientHeight": 900,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-012",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1440px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=1440, clientWidth=1440 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 1440,
+            "scrollWidth": 1440,
+            "bodyOffsetWidth": 1440,
+            "bodyScrollWidth": 1440,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-012",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1440px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in desktop viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 792,
+              "left": 1180,
+              "right": 1440
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-012",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1440px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar is expanded to standard width (>= 240px) in desktop viewport",
+          "passed": true,
+          "expected": ">= 240px (standard 260px)",
+          "actual": "260px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 792,
+              "left": 1180,
+              "right": 1440
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-012",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1440px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-form-grid-2",
+          "assertion_name": "Two-column form maintains 2 columns at desktop viewports",
+          "passed": true,
+          "expected": "2",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": false,
+            "statsCols": 0,
+            "statsColTemplate": "",
+            "formGridExists": true,
+            "formCols": 2,
+            "formColTemplate": "557px 557px",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-012",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1440px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 1180,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-012",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Item Edit",
+          "viewport_tier": "1440px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Main workspace container constrained to <= 1440px at wide viewport",
+          "passed": true,
+          "expected": "<= 1440px",
+          "actual": "1180px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 1180,
+            "headerInnerMaxInlineSize": "none"
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/items/edit",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 29.14285659790039,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 1440,
+            "clientHeight": 900,
+            "scrollWidth": 1440,
+            "scrollHeight": 900,
+            "bodyWidth": 1440
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-013",
+      "screen": "Overview",
+      "route": "#/overview",
+      "viewport": "320px (320x640)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "ltr",
+      "passed": true,
+      "duration_ms": 68.32265853881836,
+      "error_message": null,
+      "total_assertions": 10,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 320px",
+          "passed": true,
+          "expected": "320",
+          "actual": "320",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=320, clientWidth=320 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 320,
+            "scrollWidth": 320,
+            "bodyOffsetWidth": 320,
+            "bodyScrollWidth": 320,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle button (#btn-mobile-nav) is visible in mobile viewport",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 16,
+              "right": 48
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Desktop sidebar (.mds-ref-sidebar) is hidden in mobile viewport",
+          "passed": true,
+          "expected": "hidden (display: none)",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 16,
+              "right": 48
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-stats-grid",
+          "assertion_name": "Stats grid recomposes to 1 column at 320px",
+          "passed": true,
+          "expected": "1",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": true,
+            "statsCols": 1,
+            "statsColTemplate": "296px",
+            "formGridExists": false,
+            "formCols": 0,
+            "formColTemplate": "",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 320,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 5 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 5,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "btn-mobile-nav",
+                "width": 32,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 84,
+                "height": 48
+              },
+              {
+                "id": "a",
+                "width": 105,
+                "height": 48
+              }
+            ]
+          }
+        },
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "RTL Bidirectional Symmetry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "html[dir]",
+          "assertion_name": "HTML root reflects LTR direction in LTR test run",
+          "passed": true,
+          "expected": "ltr",
+          "actual": "ltr",
+          "diagnostics": null,
+          "evidence": {
+            "htmlDir": "ltr",
+            "btnLeft": 16,
+            "sidebarLeft": 0
+          }
+        },
+        {
+          "run_id": "RWD-RUN-013",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "RTL Bidirectional Symmetry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle anchors at inline-start (left in LTR)",
+          "passed": true,
+          "expected": "left < 160.0px",
+          "actual": "16px",
+          "diagnostics": null,
+          "evidence": {
+            "htmlDir": "ltr",
+            "btnLeft": 16,
+            "sidebarLeft": 0
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "ltr",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/overview",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 24.985074996948242,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "scrollWidth": 320,
+            "scrollHeight": 1579,
+            "bodyWidth": 320
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-014",
+      "screen": "Overview",
+      "route": "#/overview",
+      "viewport": "768px (768x1024)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "comfortable",
+      "direction": "ltr",
+      "passed": true,
+      "duration_ms": 49.97086524963379,
+      "error_message": null,
+      "total_assertions": 11,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 768px",
+          "passed": true,
+          "expected": "768",
+          "actual": "768",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 768,
+            "innerHeight": 1024,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 768,
+            "innerHeight": 1024,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=768, clientWidth=768 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 768,
+            "scrollWidth": 768,
+            "bodyOffsetWidth": 768,
+            "bodyScrollWidth": 768,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in tablet viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 0,
+              "right": 72
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar collapses to 72px icon rail in tablet viewport",
+          "passed": true,
+          "expected": "72px (+/-8px)",
+          "actual": "72px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 0,
+              "right": 72
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Visibility Adaptation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-nav-item span:not(.mds-badge)",
+          "assertion_name": "Sidebar text labels hidden in tablet icon rail",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 72,
+            "sidebarRect": {
+              "width": 72,
+              "height": 916,
+              "left": 0,
+              "right": 72
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-stats-grid",
+          "assertion_name": "Stats grid recomposes to 2 columns at 768px tablet",
+          "passed": true,
+          "expected": "2 columns (or 1-2)",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": true,
+            "statsCols": 2,
+            "statsColTemplate": "324px 324px",
+            "formGridExists": false,
+            "formCols": 0,
+            "formColTemplate": "",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 696,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 13 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 13,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "nav-overview",
+                "width": 55,
+                "height": 24
+              },
+              {
+                "id": "nav-items",
+                "width": 55,
+                "height": 42
+              },
+              {
+                "id": "nav-tasks",
+                "width": 55,
+                "height": 42
+              }
+            ]
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "RTL Bidirectional Symmetry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "html[dir]",
+          "assertion_name": "HTML root reflects LTR direction in LTR test run",
+          "passed": true,
+          "expected": "ltr",
+          "actual": "ltr",
+          "diagnostics": null,
+          "evidence": {
+            "htmlDir": "ltr",
+            "btnLeft": 0,
+            "sidebarLeft": 0
+          }
+        },
+        {
+          "run_id": "RWD-RUN-014",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "768px",
+          "dimension": "RTL Bidirectional Symmetry",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Tablet 72px rail anchors at inline-start (left in LTR)",
+          "passed": true,
+          "expected": "left < 30px",
+          "actual": "0px",
+          "diagnostics": null,
+          "evidence": {
+            "htmlDir": "ltr",
+            "btnLeft": 0,
+            "sidebarLeft": 0
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "ltr",
+          "theme": "light",
+          "density": "comfortable",
+          "route": "#/overview",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 27.984619140625,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 768,
+            "clientHeight": 1024,
+            "scrollWidth": 768,
+            "scrollHeight": 1024,
+            "bodyWidth": 768
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-015",
+      "screen": "Items List",
+      "route": "#/items",
+      "viewport": "320px (320x640)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "compact",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 49.04913902282715,
+      "error_message": null,
+      "total_assertions": 10,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 320px",
+          "passed": true,
+          "expected": "320",
+          "actual": "320",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=320, clientWidth=320 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 320,
+            "scrollWidth": 320,
+            "bodyOffsetWidth": 320,
+            "bodyScrollWidth": 320,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": [
+              {
+                "tag": "table",
+                "id": "",
+                "className": "mds-table mds-table--striped",
+                "width": 655,
+                "overflowX": "visible"
+              },
+              {
+                "tag": "thead",
+                "id": "",
+                "className": "",
+                "width": 655,
+                "overflowX": "visible"
+              },
+              {
+                "tag": "tr",
+                "id": "",
+                "className": "",
+                "width": 655,
+                "overflowX": "visible"
+              },
+              {
+                "tag": "tbody",
+                "id": "",
+                "className": "",
+                "width": 655,
+                "overflowX": "visible"
+              },
+              {
+                "tag": "tr",
+                "id": "",
+                "className": "",
+                "width": 655,
+                "overflowX": "visible"
+              }
+            ]
+          }
+        },
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle button (#btn-mobile-nav) is visible in mobile viewport",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Desktop sidebar (.mds-ref-sidebar) is hidden in mobile viewport",
+          "passed": true,
+          "expected": "hidden (display: none)",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-search-filter-bar",
+          "assertion_name": "Search and filter bar stacks vertically (flex-direction: column) at 320px",
+          "passed": true,
+          "expected": "column",
+          "actual": "column",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": false,
+            "statsCols": 0,
+            "statsColTemplate": "",
+            "formGridExists": false,
+            "formCols": 0,
+            "formColTemplate": "",
+            "filterBarExists": true,
+            "filterFlexDir": "column"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 320,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 9 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 9,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "btn-mobile-nav",
+                "width": 32,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 89,
+                "height": 32
+              },
+              {
+                "id": "button",
+                "width": 117,
+                "height": 32
+              }
+            ]
+          }
+        },
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Data Table Adaptation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": "table container",
+          "assertion_name": "Data table has dedicated horizontal scroll container on narrow viewports",
+          "passed": true,
+          "expected": "overflow-x: auto / scroll container",
+          "actual": "scrollContainer=True (overflowX=auto)",
+          "diagnostics": null,
+          "evidence": {
+            "tableExists": true,
+            "foundScrollContainer": true,
+            "overflowX": "auto",
+            "tableWidth": 655,
+            "parentWidth": 296
+          }
+        },
+        {
+          "run_id": "RWD-RUN-015",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "320px",
+          "dimension": "Interaction Mode",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": "html[data-density]",
+          "assertion_name": "Compact density attribute applied to document root",
+          "passed": true,
+          "expected": "compact",
+          "actual": "compact",
+          "diagnostics": null,
+          "evidence": {
+            "densityAttr": "compact",
+            "avgRowHeight": 109
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "compact",
+          "route": "#/items",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 22.98593521118164,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "scrollWidth": 320,
+            "scrollHeight": 1290,
+            "bodyWidth": 320
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-016",
+      "screen": "Items List",
+      "route": "#/items",
+      "viewport": "1024px (1024x768)",
+      "theme": "Light",
+      "theme_identifier": "light",
+      "density": "compact",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 66.5287971496582,
+      "error_message": null,
+      "total_assertions": 8,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-016",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 1024px",
+          "passed": true,
+          "expected": "1024",
+          "actual": "1024",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1024,
+            "innerHeight": 768,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-016",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "1.0",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 1024,
+            "innerHeight": 768,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "devicePixelRatio": 1,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-016",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=1024, clientWidth=1024 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 1024,
+            "scrollWidth": 1024,
+            "bodyOffsetWidth": 1024,
+            "bodyScrollWidth": 1024,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-016",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle (#btn-mobile-nav) is hidden in desktop viewport",
+          "passed": true,
+          "expected": "hidden",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 660,
+              "left": 764,
+              "right": 1024
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-016",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Sidebar is expanded to standard width (>= 240px) in desktop viewport",
+          "passed": true,
+          "expected": ">= 240px (standard 260px)",
+          "actual": "260px",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": false,
+            "btnRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "sidebarExists": true,
+            "sidebarVisible": true,
+            "sidebarWidth": 260,
+            "sidebarRect": {
+              "width": 260,
+              "height": 660,
+              "left": 764,
+              "right": 1024
+            },
+            "labelsHidden": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-016",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 764,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-016",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Interaction Mode",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": "html[data-density]",
+          "assertion_name": "Compact density attribute applied to document root",
+          "passed": true,
+          "expected": "compact",
+          "actual": "compact",
+          "diagnostics": null,
+          "evidence": {
+            "densityAttr": "compact",
+            "avgRowHeight": 67
+          }
+        },
+        {
+          "run_id": "RWD-RUN-016",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Items List",
+          "viewport_tier": "1024px",
+          "dimension": "Interaction Mode",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": "table tbody tr",
+          "assertion_name": "Table row height reflects compact density standard (<= 75px)",
+          "passed": true,
+          "expected": "<= 75px",
+          "actual": "67px",
+          "diagnostics": null,
+          "evidence": {
+            "densityAttr": "compact",
+            "avgRowHeight": 67
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "light",
+          "density": "compact",
+          "route": "#/items",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 31.049489974975586,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 1024,
+            "clientHeight": 768,
+            "scrollWidth": 1024,
+            "scrollHeight": 800,
+            "bodyWidth": 1024
+          }
+        }
+      }
+    },
+    {
+      "run_id": "RWD-RUN-017",
+      "screen": "Overview",
+      "route": "#/overview",
+      "viewport": "320px (320x640)",
+      "theme": "High Contrast",
+      "theme_identifier": "high-contrast",
+      "density": "comfortable",
+      "direction": "rtl",
+      "passed": true,
+      "duration_ms": 67.96026229858398,
+      "error_message": null,
+      "total_assertions": 9,
+      "hard_failures": 0,
+      "assertions": [
+        {
+          "run_id": "RWD-RUN-017",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "documentElement.clientWidth",
+          "assertion_name": "CSS Viewport Width matches canonical 320px",
+          "passed": true,
+          "expected": "320",
+          "actual": "320",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-017",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Viewport Geometry",
+          "assertion_class": "INFORMATIONAL_MEASUREMENT",
+          "selector": "window.devicePixelRatio",
+          "assertion_name": "Emulated Device Metrics Diagnostic",
+          "passed": true,
+          "expected": "2.0",
+          "actual": "2",
+          "diagnostics": null,
+          "evidence": {
+            "innerWidth": 320,
+            "innerHeight": 640,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "devicePixelRatio": 2,
+            "mediaPointerCoarse": false,
+            "mediaHoverNone": false
+          }
+        },
+        {
+          "run_id": "RWD-RUN-017",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Horizontal Overflow Guard",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "document.documentElement.scrollWidth",
+          "assertion_name": "Zero horizontal page blowout (scrollWidth <= clientWidth + 1.0px)",
+          "passed": true,
+          "expected": "scrollWidth <= clientWidth + 1.0px",
+          "actual": "scrollWidth=320, clientWidth=320 (diff=0.0px)",
+          "diagnostics": null,
+          "evidence": {
+            "clientWidth": 320,
+            "scrollWidth": 320,
+            "bodyOffsetWidth": 320,
+            "bodyScrollWidth": 320,
+            "overflowDiff": 0,
+            "hasOverflow": false,
+            "blowouts": []
+          }
+        },
+        {
+          "run_id": "RWD-RUN-017",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "#btn-mobile-nav",
+          "assertion_name": "Mobile nav toggle button (#btn-mobile-nav) is visible in mobile viewport",
+          "passed": true,
+          "expected": "True",
+          "actual": "True",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-017",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Navigation Transformation",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-sidebar",
+          "assertion_name": "Desktop sidebar (.mds-ref-sidebar) is hidden in mobile viewport",
+          "passed": true,
+          "expected": "hidden (display: none)",
+          "actual": "hidden",
+          "diagnostics": null,
+          "evidence": {
+            "btnExists": true,
+            "btnVisible": true,
+            "btnRect": {
+              "width": 32,
+              "height": 32,
+              "left": 272,
+              "right": 304
+            },
+            "sidebarExists": true,
+            "sidebarVisible": false,
+            "sidebarWidth": 0,
+            "sidebarRect": {
+              "width": 0,
+              "height": 0,
+              "left": 0,
+              "right": 0
+            },
+            "labelsHidden": true
+          }
+        },
+        {
+          "run_id": "RWD-RUN-017",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Layout Recomposition",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": ".mds-ref-stats-grid",
+          "assertion_name": "Stats grid recomposes to 1 column at 320px",
+          "passed": true,
+          "expected": "1",
+          "actual": "1",
+          "diagnostics": null,
+          "evidence": {
+            "statsGridExists": true,
+            "statsCols": 1,
+            "statsColTemplate": "296px",
+            "formGridExists": false,
+            "formCols": 0,
+            "formColTemplate": "",
+            "filterBarExists": false,
+            "filterFlexDir": ""
+          }
+        },
+        {
+          "run_id": "RWD-RUN-017",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Container Constraints",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": ".mds-ref-main",
+          "assertion_name": "Container constraints prohibit non-canonical 1280px breakpoint",
+          "passed": true,
+          "expected": "!= 1280px",
+          "actual": "1440px",
+          "diagnostics": null,
+          "evidence": {
+            "mainExists": true,
+            "mainMaxInlineSize": "1440px",
+            "mainWidth": 320,
+            "headerInnerMaxInlineSize": "none"
+          }
+        },
+        {
+          "run_id": "RWD-RUN-017",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Touch Target Hit-Box",
+          "assertion_class": "HARD_CONTRACT",
+          "selector": "button, a, input, select",
+          "assertion_name": "Interactive mobile controls satisfy minimum 44x44px touch target (WCAG 2.5.5 / 2.5.8)",
+          "passed": true,
+          "expected": ">= 44x44px or calibrated sm with PressTarget (0 violations)",
+          "actual": "0 violations out of 5 evaluated controls",
+          "diagnostics": null,
+          "evidence": {
+            "evaluatedCount": 5,
+            "violationCount": 0,
+            "violations": [],
+            "compliantSample": [
+              {
+                "id": "a",
+                "width": 212,
+                "height": 40
+              },
+              {
+                "id": "btn-mobile-nav",
+                "width": 32,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 136,
+                "height": 32
+              },
+              {
+                "id": "a",
+                "width": 84,
+                "height": 48
+              },
+              {
+                "id": "a",
+                "width": 105,
+                "height": 48
+              }
+            ]
+          }
+        },
+        {
+          "run_id": "RWD-RUN-017",
+          "capability_id": "MDS-RWD-003",
+          "screen": "Overview",
+          "viewport_tier": "320px",
+          "dimension": "Visual Adaptation",
+          "assertion_class": "OBSERVABLE_BEHAVIOR",
+          "selector": "html[data-theme]",
+          "assertion_name": "High contrast theme attribute applied to document root",
+          "passed": true,
+          "expected": "high-contrast",
+          "actual": "high-contrast",
+          "diagnostics": null,
+          "evidence": {
+            "themeAttr": "high-contrast",
+            "modeAttr": "high-contrast",
+            "btnBorder": "1px solid rgba(0, 0, 0, 0)"
+          }
+        }
+      ],
+      "metrics": {
+        "environment": {
+          "dir": "rtl",
+          "theme": "high-contrast",
+          "density": "comfortable",
+          "route": "#/overview",
+          "appFound": true
+        },
+        "settlement": {
+          "success": true,
+          "duration_ms": 20.987987518310547,
+          "metrics": {
+            "settled": true,
+            "clientWidth": 320,
+            "clientHeight": 640,
+            "scrollWidth": 320,
+            "scrollHeight": 1579,
+            "bodyWidth": 320
+          }
+        }
+      }
+    }
+  ],
+  "error_message": null
+}

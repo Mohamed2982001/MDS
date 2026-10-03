@@ -1,0 +1,33 @@
+/**
+ * MDS (Master Design System) — VisuallyHidden Primitive
+ * Architecture Layer: Layer 03 (Primitives / Accessibility)
+ * Cascade Layer: @layer mds.primitives
+ * Rule: Content available to AT without visual rendering or blocking focus
+ */
+
+.mds-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focusable variant: Becomes visible when navigated to via keyboard (Skip links, triggers) */
+.mds-visually-hidden--focusable:focus,
+.mds-visually-hidden--focusable:focus-within {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
+}

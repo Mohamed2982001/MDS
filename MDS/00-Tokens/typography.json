@@ -1,0 +1,55 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "mds-typography",
+  "version": "1.0.0",
+  "font_families": {
+    "primary": "Cairo",
+    "primary_fallback": "Cairo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    "mono": "JetBrains Mono",
+    "mono_fallback": "JetBrains Mono, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
+  },
+  "weights": {
+    "regular": 400,
+    "medium": 500,
+    "semibold": 600,
+    "bold": 700
+  },
+  "sizes": {
+    "xs": 12.0,
+    "sm": 14.0,
+    "base": 16.0,
+    "lg": 20.0,
+    "xl": 24.0,
+    "2xl": 30.0,
+    "3xl": 36.0,
+    "4xl": 48.0
+  },
+  "line_heights": {
+    "tight": 1.25,
+    "normal": 1.5,
+    "relaxed": 1.75
+  },
+  "cairo_config": {
+    "font_family": "Cairo",
+    "is_default": true,
+    "supports_arabic_rtl": true,
+    "supports_latin_ltr": true
+  },
+  "styles": {
+    "displayLarge": { "size": 48.0, "weight": 700, "lineHeight": 1.25, "letterSpacing": -0.5 },
+    "displayMedium": { "size": 36.0, "weight": 700, "lineHeight": 1.25, "letterSpacing": -0.25 },
+    "displaySmall": { "size": 30.0, "weight": 600, "lineHeight": 1.25, "letterSpacing": 0.0 },
+    "headlineLarge": { "size": 30.0, "weight": 600, "lineHeight": 1.25, "letterSpacing": 0.0 },
+    "headlineMedium": { "size": 24.0, "weight": 600, "lineHeight": 1.25, "letterSpacing": 0.0 },
+    "headlineSmall": { "size": 20.0, "weight": 600, "lineHeight": 1.5, "letterSpacing": 0.0 },
+    "titleLarge": { "size": 20.0, "weight": 600, "lineHeight": 1.5, "letterSpacing": 0.0 },
+    "titleMedium": { "size": 16.0, "weight": 600, "lineHeight": 1.5, "letterSpacing": 0.15 },
+    "titleSmall": { "size": 14.0, "weight": 600, "lineHeight": 1.5, "letterSpacing": 0.1 },
+    "bodyLarge": { "size": 16.0, "weight": 400, "lineHeight": 1.5, "letterSpacing": 0.5 },
+    "bodyMedium": { "size": 14.0, "weight": 400, "lineHeight": 1.5, "letterSpacing": 0.25 },
+    "bodySmall": { "size": 12.0, "weight": 400, "lineHeight": 1.5, "letterSpacing": 0.4 },
+    "labelLarge": { "size": 14.0, "weight": 500, "lineHeight": 1.25, "letterSpacing": 0.1 },
+    "labelMedium": { "size": 12.0, "weight": 500, "lineHeight": 1.25, "letterSpacing": 0.5 },
+    "labelSmall": { "size": 10.0, "weight": 500, "lineHeight": 1.25, "letterSpacing": 0.5 }
+  }
+}

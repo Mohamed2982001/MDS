@@ -1,0 +1,64 @@
+# Master Design System (MDS) — Git Ignore Rules
+
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist-temp/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+venv/
+env/
+ENV/
+.env
+
+# Dart & Flutter artifacts
+.dart_tool/
+.packages
+**/build/
+.flutter-plugins
+.flutter-plugins-dependencies
+packages/**/pubspec.lock
+examples/**/pubspec.lock
+
+# IDE & Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.iml
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+[Dd]esktop.ini
+
+# Windows shortcuts and temp
+*.tmp
+*.bak

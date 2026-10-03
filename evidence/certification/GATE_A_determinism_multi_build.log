@@ -1,0 +1,47 @@
+================================================================================
+GATE A: Determinism & Multi-Build Reproducibility Verification Log
+================================================================================
+Build Epoch: 1790812800
+Workspace Root: D:\Work\Dev\Master Design System
+Initiating Dual Isolated Compilation Pipeline (Run A vs Run B)...
+Run A Build ID: 44e1866040bac91888ba7387c3e36ff2f2c5d64e769c5658becbdb3bf3b9a4aa
+Run B Build ID: 44e1866040bac91888ba7387c3e36ff2f2c5d64e769c5658becbdb3bf3b9a4aa
+Run A Release Files Count: 35
+Run B Release Files Count: 35
+  [OK] archives/mds-v1.0.0-dist.tar.gz -> f01009093c162eea772cc1218a9db159858e2637563d3ab50c07c602814e57aa (62,222 bytes)
+  [OK] archives/mds-v1.0.0-dist.zip -> 99efe99e4ca77d29f57f01890b2e1a582133817c4114239059ed61033cb27e39 (431,225 bytes)
+  [OK] bundles/mds.all.css -> c3aaa81caf4a48fa3a4b0d1ca7e543c1617d5761db7015618399e8bfbd363628 (100,489 bytes)
+  [OK] bundles/mds.all.esm.js -> c8ad4dd08922fe5ad7773b26d16f846ab507968311f47e81cafba4ce4dfaa6f9 (25,520 bytes)
+  [OK] bundles/mds.all.js -> 8381d511b302bf76fc259165d77c55fff70f968284496e0f7e6a166f3249aa35 (26,121 bytes)
+  [OK] css/components/alert.css -> d1df7c4562b1134d9d063fba0f73fd1c29ba4f2abdfea18324ba807df5577692 (3,623 bytes)
+  [OK] css/components/badge.css -> 876cd0e22ee947db0e9b53da8c5d50e04c28e7fc316add6ff7eca95050ce87f8 (3,518 bytes)
+  [OK] css/components/button.css -> 7d48eb77e3a1eae39f4fa577bc5de9f1d6eb505ed0e26047bc72c5facd8c8a51 (7,969 bytes)
+  [OK] css/components/card.css -> 94bf6b022f1a03cc43a78b62cd56fafa65c11b6d4c55a957234a24f44ca73e51 (3,714 bytes)
+  [OK] css/components/checkbox.css -> fbb195e3ed61df32a7fb89480fce50041c8afcbb18a149b733dd365e0d5a381e (5,159 bytes)
+  [OK] css/components/dialog.css -> 0aca3663bdbbb496130d2e932f852564eccc7e3eaf2af75c03c0812abec4b3e9 (5,067 bytes)
+  [OK] css/components/field.css -> ee30c087aaad7990252770df457b3c65d377dce1f51d7d12ed83ce70b7cbb98c (3,746 bytes)
+  [OK] css/components/icon-button.css -> c2ce0ddf909502ac6a50bba4a9aef18b5bf9448b86d14c0180376b90a473be9d (6,575 bytes)
+  [OK] css/components/input.css -> eb16a7aaf07c25a83662b5bc2d7081a1afe0319f0f1e117272fe0810374c0427 (5,387 bytes)
+  [OK] css/components/link.css -> cfbd077d2dffd6ae2057511a225c13bf38c163cc6b90982aff3d833dd0611c00 (2,771 bytes)
+  [OK] css/components/radio.css -> c517e62e201432376145efd24d0c02bda4b0269f6141e9254a89a22c90606c15 (4,976 bytes)
+  [OK] css/components/select.css -> 35092f6d8ed1727cc90cd0f52384cf721183e1e47cc7fd86d232d92f146fb78f (5,831 bytes)
+  [OK] css/components/skeleton.css -> 49ad07d6d5ca316a9e6582f1260bdf030dff45343c52d34d3aeedd65b3c21878 (2,494 bytes)
+  [OK] css/components/spinner.css -> 8f1fd532e0cf8409acfd6b16dfd6b2ad1dbfc9c09a245fca1c89ba1cee01df01 (3,480 bytes)
+  [OK] css/components/switch.css -> 206a8b37ab78dcf3b2deb6e81d34a92c63a26becd5acb240ebf6a237d28f302a (5,559 bytes)
+  [OK] css/components/table.css -> 091754b4b777590d9769bd55f84e45f7eb1a390aed9f5f2fd70f31bea49fff78 (4,240 bytes)
+  [OK] css/components/tabs.css -> 6ff2a6ed3bf8b8fb5456f47fe668dcc82f6eb6a8968ed0e829500bb4d89acbbd (4,488 bytes)
+  [OK] css/components/textarea.css -> fcf41d97a61247306e23302d4a2eb6df135a14b9c4e32cd7e419ea1a8f93878f (4,237 bytes)
+  [OK] css/components/tooltip.css -> 7ae369bfd5fe3fd776c9123469394139617369fa73911924018a47f28e7bbcaa (4,475 bytes)
+  [OK] css/mds.components.css -> c6dfc92a7b76adc6ac737e2fbe06d2956e09c4d118c8792cac015dc11c2ce902 (55,654 bytes)
+  [OK] css/mds.primitives.css -> f361675021b15cb8661c1ec25773a7c133276199b76dbcf7d359f22ce7c0ce2d (35,743 bytes)
+  [OK] css/mds.tokens.css -> 067267029613689fa2f86c35e0f2d94c27697457c690f963fab17feda6afe74e (9,252 bytes)
+  [OK] js/mds.components.js -> 8f8b06820d4727fdf30ac5729d8e0f79787bcba770a3f1f3d4b7497e15c1334a (20,526 bytes)
+  [OK] js/mds.primitives.js -> 88bae82732541994a8aaebf90c74dcd9bef35c648a7e3d5bf8e6daaca1a940cc (9,871 bytes)
+  [OK] mds_dist_manifest.json -> ddc281b130bf1aacc430e7156802796c41ea3df4ff437047a22f61883644206d (9,659 bytes)
+  [OK] mds_dist_manifest.sha256 -> 6b32f91ff5e77be6eea42cfe02d4f2f0c95689d915ebb60da76e1eb3925cffe4 (89 bytes)
+  [OK] tokens/tokens.css -> b137ee356d4d2792bb52a45f1dff1861fc54a74729f257b2d45679d1bb4cd221 (9,130 bytes)
+  [OK] tokens/tokens.d.ts -> fc699f72b51c9bb3a3581493297a375b4f096abfa45eae5ceffca761a1ed99b2 (595 bytes)
+  [OK] tokens/tokens.json -> 7ca7588a9e1ff73eaeb0a3c06889751237b93e17d45d71aaa13975925cf545f2 (46,049 bytes)
+  [OK] types/components.d.ts -> 710e3e92f33af91adec9c2760962f24af341958d66a0e7941e25bd48eaa5a539 (1,166 bytes)
+Deterministic Multi-Build Verification: 100% BIT-FOR-BIT IDENTICAL across all 35 files.
+VERDICT: PASS (Blockers: 0, Majors: 0, Minors: 0)

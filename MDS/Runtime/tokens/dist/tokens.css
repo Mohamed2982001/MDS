@@ -1,0 +1,232 @@
+/**
+ * MDS (Master Design System) — Compiled CSS Tokens
+ * Architecture Layer: Layer 13 (Implementation / Token Runtime)
+ * Source of Truth: MDS/02-Tokens/ (18 DTCG JSON files)
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ * Standard: Native CSS Cascade Layers (@layer mds.tokens)
+ * Determinism: 100% Deterministic (Alphabetically sorted, zero timestamps)
+ */
+
+@layer mds.tokens {
+  :root {
+    --mds-border-width-regular: 1.5px; /* 1.5px standard interactive border for form inputs, active controls, and vector icon stroke */
+    --mds-border-width-thick: 2px; /* 2px prominent border for accessibility focus rings and active selection outlines */
+    --mds-border-width-thin: 1px; /* 1px hairline border for subtle dividers, table rows, and resting card perimeters */
+    --mds-color-action-destructive-default: #DC2626; /* Destructive action resting background (#DC2626, WCAG AA 4.83:1 against #FFF) */
+    --mds-color-action-destructive-hover: #B91C1C; /* Destructive action hover background (#B91C1C, WCAG AA 6.47:1 against #FFF) */
+    --mds-color-action-disabled-background: #F1F5F9; /* Disabled action button non-interactive background fill */
+    --mds-color-action-disabled-foreground: #94A3B8; /* Disabled action button text and icon non-interactive foreground */
+    --mds-color-action-primary-default: #2563EB; /* Primary action button resting background (#2563EB, WCAG AA 5.17:1 against #FFF) */
+    --mds-color-action-primary-hover: #1D4ED8; /* Primary action button hover state background (#1D4ED8, WCAG AA 6.70:1 against #FFF) */
+    --mds-color-action-primary-pressed: #1E40AF; /* Primary action button pressed state background (#1E40AF, WCAG AAA 8.72:1 against #FFF) */
+    --mds-color-border-default: #CBD5E1; /* Standard border for form fields, cards, and resting containers */
+    --mds-color-border-subtle: #E2E8F0; /* Subtle border for dividers and table rows (interior non-text boundary) */
+    --mds-color-brand-100: #DBEAFE; /* Brand highlight fill for badges and light chips */
+    --mds-color-brand-200: #BFDBFE; /* Subtle brand boundary border */
+    --mds-color-brand-300: #93C5FD; /* Light brand accent and progress track fill */
+    --mds-color-brand-400: #60A5FA; /* Vibrant brand accent for dark mode secondary elements */
+    --mds-color-brand-50: #EFF6FF; /* Lightest brand tint for subtle backgrounds and active item fills */
+    --mds-color-brand-500: #3B82F6; /* Standard interactive brand blue */
+    --mds-color-brand-600: #2563EB; /* Core Royal Sapphire primary brand action color (WCAG AA 4.6:1 against #FFF) */
+    --mds-color-brand-700: #1D4ED8; /* Deep brand action hover state (WCAG AAA 7.2:1 against #FFF) */
+    --mds-color-brand-800: #1E40AF; /* Brand pressed state and dark mode primary accent */
+    --mds-color-brand-900: #1E3A8A; /* Deep high-contrast brand midnight blue */
+    --mds-color-brand-950: #172554; /* Deepest dark brand shade */
+    --mds-color-feedback-danger: #DC2626; /* Critical failure and error indicator color (#DC2626) */
+    --mds-color-feedback-info: #0284C7; /* Informational prompt and notification accent color (#0284C7) */
+    --mds-color-feedback-success: #059669; /* Success accent icon and boundary indicator color (#059669) */
+    --mds-color-feedback-warning: #D97706; /* Warning accent icon and boundary indicator color (#D97706) */
+    --mds-color-focus-ring: #2563EB; /* High-visibility keyboard navigation focus ring (#2563EB, 5.17:1 on white canvas) */
+    --mds-color-neutral-0: #FFFFFF; /* Pure white anchor for canvas and inverted text */
+    --mds-color-neutral-100: #F1F5F9; /* Subtle surface container fill and inactive control background */
+    --mds-color-neutral-1000: #000000; /* Pure black anchor for High Contrast Mode */
+    --mds-color-neutral-200: #E2E8F0; /* Hairline borders and table dividers */
+    --mds-color-neutral-300: #CBD5E1; /* Standard control border outline */
+    --mds-color-neutral-400: #94A3B8; /* Muted placeholder text and disabled icon fill */
+    --mds-color-neutral-50: #F8FAFC; /* Chromatic soft canvas background and alternate row shading */
+    --mds-color-neutral-500: #64748B; /* Secondary text and supporting labels (WCAG AA 4.6:1 on #FFF) */
+    --mds-color-neutral-600: #475569; /* Emphasized secondary text on light surfaces */
+    --mds-color-neutral-700: #334155; /* Subheadings on light canvas and dark mode overlay surface */
+    --mds-color-neutral-800: #1E293B; /* Dark Mode elevated surface card container */
+    --mds-color-neutral-900: #0F172A; /* Primary high-contrast dark neutral for body text (14.5:1 on #FFF) and dark surface */
+    --mds-color-neutral-950: #090D16; /* Deepest dark mode canvas backdrop */
+    --mds-color-palette-amber-200: #FDE68A;
+    --mds-color-palette-amber-50: #FFFBEB;
+    --mds-color-palette-amber-500: #F59E0B;
+    --mds-color-palette-amber-600: #D97706; /* Base amber source for warning feedback (4.5:1 on #FFF) */
+    --mds-color-palette-blue-200: #BAE6FD;
+    --mds-color-palette-blue-50: #F0F9FF;
+    --mds-color-palette-blue-500: #0EA5E9;
+    --mds-color-palette-blue-600: #0284C7; /* Base blue source for informational feedback and informative links */
+    --mds-color-palette-green-200: #A7F3D0;
+    --mds-color-palette-green-50: #ECFDF5;
+    --mds-color-palette-green-500: #10B981;
+    --mds-color-palette-green-600: #059669; /* Base green source for success and confirmation feedback (4.5:1 on #FFF) */
+    --mds-color-palette-red-200: #FECACA;
+    --mds-color-palette-red-50: #FEF2F2;
+    --mds-color-palette-red-500: #EF4444;
+    --mds-color-palette-red-600: #DC2626; /* Base red source for danger actions and critical error feedback (4.8:1 on #FFF) */
+    --mds-color-palette-red-700: #B91C1C;
+    --mds-color-surface-canvas: #F8FAFC; /* Base canvas background of the viewport/application */
+    --mds-color-surface-default: #FFFFFF; /* Standard surface background for cards, tables, and views */
+    --mds-color-surface-overlay: #FFFFFF; /* Modal dialog and drawer surface background */
+    --mds-color-surface-raised: #F1F5F9; /* Elevated surface container background */
+    --mds-color-text-inverse: #FFFFFF; /* High-contrast text on inverted, brand, or dark action surfaces */
+    --mds-color-text-primary: #0F172A; /* Primary high-contrast text for body copy and headings (WCAG AAA 17.85:1 on #FFF) */
+    --mds-color-text-secondary: #64748B; /* Secondary text for labels, captions, and supporting metadata (WCAG AA 4.76:1 on #FFF) */
+    --mds-component-badge-brand-background: #EFF6FF; /* Brand badge background tint */
+    --mds-component-badge-brand-border: #BFDBFE; /* Brand badge boundary border */
+    --mds-component-badge-brand-foreground: #1D4ED8; /* Brand badge text color (6.70:1 contrast) */
+    --mds-component-badge-danger-background: #FEF2F2; /* Danger badge background tint */
+    --mds-component-badge-danger-border: #FECACA; /* Danger badge boundary border */
+    --mds-component-badge-danger-foreground: #DC2626; /* Danger badge text and icon color */
+    --mds-component-badge-neutral-background: #F1F5F9; /* Neutral badge background tint */
+    --mds-component-badge-neutral-border: #E2E8F0; /* Neutral badge subtle border */
+    --mds-component-badge-neutral-foreground: #334155; /* Neutral badge text color */
+    --mds-component-badge-radius: 9999px; /* Pill radius for badges */
+    --mds-component-badge-success-background: #ECFDF5; /* Success badge background tint */
+    --mds-component-badge-success-border: #A7F3D0; /* Success badge boundary border */
+    --mds-component-badge-success-foreground: #059669; /* Success badge text and icon color */
+    --mds-component-button-destructive-background-default: #DC2626; /* Resting background color for destructive button */
+    --mds-component-button-destructive-background-disabled: #F1F5F9; /* Disabled background color for destructive button */
+    --mds-component-button-destructive-background-hover: #B91C1C; /* Hover background color for destructive button */
+    --mds-component-button-destructive-foreground-default: #FFFFFF; /* Resting text and icon color for destructive button */
+    --mds-component-button-ghost-background-default: #FFFFFF; /* Resting transparent/surface background for ghost button */
+    --mds-component-button-ghost-background-disabled: #FFFFFF; /* Disabled background color for ghost button */
+    --mds-component-button-ghost-background-hover: #F1F5F9; /* Hover background color for ghost button */
+    --mds-component-button-ghost-foreground-default: #0F172A; /* Resting text and icon color for ghost button */
+    --mds-component-button-ghost-foreground-disabled: #94A3B8; /* Disabled text color for ghost button */
+    --mds-component-button-primary-background-default: #2563EB; /* Resting background color for primary button */
+    --mds-component-button-primary-background-disabled: #F1F5F9; /* Disabled non-interactive background color for primary button */
+    --mds-component-button-primary-background-hover: #1D4ED8; /* Pointer hover background color for primary button */
+    --mds-component-button-primary-background-pressed: #1E40AF; /* Active pressed background color for primary button */
+    --mds-component-button-primary-focus-ring: #2563EB; /* Accessibility focus ring indicator for primary button */
+    --mds-component-button-primary-foreground-default: #FFFFFF; /* Resting text and icon color for primary button */
+    --mds-component-button-primary-foreground-disabled: #94A3B8; /* Disabled text and icon color for primary button */
+    --mds-component-button-primary-radius: 10px; /* Corner radius for primary button (10px default, 6px in Refined preset) */
+    --mds-component-button-secondary-background-default: #FFFFFF; /* Resting background color for secondary outlined button */
+    --mds-component-button-secondary-background-disabled: #F1F5F9; /* Disabled background color for secondary outlined button */
+    --mds-component-button-secondary-background-hover: #F1F5F9; /* Hover background color for secondary outlined button */
+    --mds-component-button-secondary-border-default: #CBD5E1; /* Resting border boundary for secondary button */
+    --mds-component-button-secondary-border-disabled: #E2E8F0; /* Disabled border boundary for secondary button */
+    --mds-component-button-secondary-foreground-default: #0F172A; /* Resting text and icon color for secondary button */
+    --mds-component-button-secondary-foreground-disabled: #94A3B8; /* Disabled text color for secondary button */
+    --mds-component-input-background-default: #FFFFFF; /* Resting background color for form inputs */
+    --mds-component-input-background-disabled: #F1F5F9; /* Disabled background fill for form inputs */
+    --mds-component-input-border-default: #CBD5E1; /* Resting boundary border for form inputs */
+    --mds-component-input-border-disabled: #E2E8F0; /* Disabled border color for form inputs */
+    --mds-component-input-border-focus: #2563EB; /* Active focused border highlight for form inputs */
+    --mds-component-input-border-invalid: #DC2626; /* Invalid/error state border for form inputs */
+    --mds-component-input-radius: 10px; /* Standard corner radius for form inputs */
+    --mds-component-input-text-default: #0F172A; /* User typed text color inside form inputs */
+    --mds-component-input-text-disabled: #94A3B8; /* Disabled input text color */
+    --mds-component-input-text-placeholder: #64748B; /* Placeholder hint text color inside form inputs */
+    --mds-elevation-level0: none; /* Level 0 Flat: Flush surface with zero shadow. Boundary defined purely by 1px subtle border. */
+    --mds-elevation-level1: 0px 1px 3px 0px rgba(15, 23, 42, 0.06), 0px 1px 2px -1px rgba(15, 23, 42, 0.04); /* Level 1 Raised: Subtle ambient shadow for resting cards, content containers, and control panels. */
+    --mds-elevation-level2: 0px 4px 6px -1px rgba(15, 23, 42, 0.08), 0px 2px 4px -2px rgba(15, 23, 42, 0.04); /* Level 2 Floating: Pronounced shadow for dropdown menus, popovers, autocomplete overlays, and hovering cards. */
+    --mds-elevation-level3: 0px 12px 16px -4px rgba(15, 23, 42, 0.12), 0px 4px 6px -2px rgba(15, 23, 42, 0.05); /* Level 3 Overlay: Deep dramatic shadow for modal dialogs, drawers, and floating notification toasts. */
+    --mds-font-family-mono: JetBrains Mono, SFMono-Regular, Menlo, Monaco, Consolas, monospace; /* Monospace font family for code snippets, JSON schemas, and tabular telemetry data */
+    --mds-font-family-primary: Cairo, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /* Primary multilingual font family for Arabic and Latin. Unified Arabic/Latin typography via Cairo. */
+    --mds-font-line-height-normal: 1.5; /* 1.50 normal line height for standard body copy (Arabic baseline: 1.65) */
+    --mds-font-line-height-relaxed: 1.75; /* 1.75 relaxed line height for long-form reading passages (Arabic baseline: 1.85) */
+    --mds-font-line-height-tight: 1.25; /* 1.25 tight line height for headings and short-form callouts (Arabic baseline: 1.35) */
+    --mds-font-size-2xl: 30px; /* 30px heading for major view headers and dashboard titles */
+    --mds-font-size-3xl: 36px; /* 36px display heading for marketing titles and featured metrics */
+    --mds-font-size-4xl: 48px; /* 48px hero display heading for landing pages and high-impact showcases */
+    --mds-font-size-base: 16px; /* 16px baseline body text size for all standard reading passages */
+    --mds-font-size-lg: 20px; /* 20px large text for subheadings and card titles */
+    --mds-font-size-sm: 14px; /* 14px small text for form input labels, table cells, and secondary metadata */
+    --mds-font-size-xl: 24px; /* 24px extra-large text for section headings and modal dialog titles */
+    --mds-font-size-xs: 12px; /* 12px extra-small text for captions, timestamps, and helper annotations */
+    --mds-font-weight-bold: 700; /* Bold weight for primary page titles and high-impact hero headings */
+    --mds-font-weight-medium: 500; /* Medium weight for interactive controls, labels, and table headers */
+    --mds-font-weight-regular: 400; /* Regular weight for body copy, paragraphs, and descriptive text */
+    --mds-font-weight-semibold: 600; /* Semibold weight for section headings and emphasized UI components */
+    --mds-layer-base: 0; /* Default base stacking plane for canvas surfaces and standard document flow */
+    --mds-layer-dropdown: 100; /* Floating plane for dropdown menus, select listboxes, popovers, and tooltips */
+    --mds-layer-overlay: 1000; /* Overlay plane for modal dialogs, full-screen backdrops, and side drawers */
+    --mds-layer-raised: 10; /* Elevated plane for sticky navigation bars, table headers, and elevated cards */
+    --mds-layer-toast: 2000; /* Top-level plane for global notification toasts, alerts, and critical system dialogs */
+    --mds-motion-duration-fast: 150ms; /* 150ms micro-interaction duration for button hover, active press, and icon rotations */
+    --mds-motion-duration-instant: 0ms; /* 0ms instant state change. Reduced-motion standard and non-animated toggles. */
+    --mds-motion-duration-normal: 250ms; /* 250ms standard transition duration for dropdown menus, popovers, and card expansions */
+    --mds-motion-duration-slow: 350ms; /* 350ms macro transition duration for modal dialog entries, slide-in drawers, and page changes */
+    --mds-motion-easing-enter: cubic-bezier(0, 0, 0.2, 1); /* Deceleration easing curve (cubic-bezier(0, 0, 0.2, 1)) for elements appearing on-screen */
+    --mds-motion-easing-exit: cubic-bezier(0.4, 0, 1, 1); /* Acceleration easing curve (cubic-bezier(0.4, 0, 1, 1)) for elements disappearing off-screen */
+    --mds-motion-easing-standard: cubic-bezier(0.2, 0, 0, 1); /* Signature MDS natural easing curve (cubic-bezier(0.2, 0, 0, 1)) for standard on-screen transitions */
+    --mds-opacity-disabled: 0.48; /* 0.48 standard opacity reduction for disabled non-interactive buttons and inputs */
+    --mds-opacity-muted: 0.38; /* 0.38 muted alpha for secondary placeholder text and subtle divider rules */
+    --mds-opacity-scrim: 0.64; /* 0.64 backdrop scrim darkness behind modal dialogs and side navigation drawers */
+    --mds-opacity-solid: 1; /* 1.0 fully opaque surface and foreground element */
+    --mds-opacity-subtle: 0.08; /* 0.08 subtle alpha fill for hover state tinting and inactive container washes */
+    --mds-opacity-transparent: 0; /* 0.0 full transparency for invisible hit areas and reset states */
+    --mds-radius-full: 9999px; /* Fully rounded pill radius for tags, status badges, and circular avatar containers */
+    --mds-radius-lg: 14px; /* 14px large radius for elevated cards, floating panels, and dropdown menus */
+    --mds-radius-md: 10px; /* 10px signature MDS Soft Modern radius for standard buttons, inputs, and cards */
+    --mds-radius-none: 0px; /* 0px sharp corners for seamless full-bleed containers and tables */
+    --mds-radius-sm: 6px; /* 6px compact radius for badges, small chips, and Refined Minimal preset controls */
+    --mds-radius-xl: 20px; /* 20px extra-large radius for modal dialogs, bottom sheets, and hero banners */
+    --mds-radius-xs: 4px; /* 4px micro radius for tags, status indicators, and inner nested items */
+    --mds-size-control-lg: 48px; /* 48px touch-first control height for mobile interfaces and hero call-to-actions */
+    --mds-size-control-md: 40px; /* 40px standard baseline control height for default buttons, inputs, and selects */
+    --mds-size-control-sm: 32px; /* 32px compact control height for dense desktop data grids and secondary utility buttons */
+    --mds-size-icon-lg: 24px; /* 24px primary navigation icon and toolbar action button */
+    --mds-size-icon-md: 20px; /* 20px medium icon for standard button icon-text pairings and form validation marks */
+    --mds-size-icon-sm: 16px; /* 16px small icon for dense table rows and compact buttons */
+    --mds-size-icon-xl: 32px; /* 32px prominent icon for feature callouts, stat banners, and empty state illustrations */
+    --mds-size-icon-xs: 14px; /* 14px extra-small icon for inline metadata tags and compact indicators */
+    --mds-space-block-lg: 32px; /* Generous vertical block margin between sections (32px) */
+    --mds-space-block-md: 16px; /* Standard vertical block gap between stacked elements (16px) */
+    --mds-space-block-sm: 8px; /* Compact vertical block padding (8px, e.g. button vertical padding) */
+    --mds-space-block-xs: 4px; /* Extra tight vertical block gap (4px) */
+    --mds-space-inline-lg: 24px; /* Generous horizontal inline padding (24px) */
+    --mds-space-inline-md: 16px; /* Standard horizontal inline padding and gap (16px) */
+    --mds-space-inline-sm: 8px; /* Compact horizontal inline gap (8px) */
+    --mds-space-inline-xs: 4px; /* Extra tight horizontal inline gap (4px, e.g. icon to label) */
+    --mds-space-scale-0: 0px; /* Zero spacing anchor */
+    --mds-space-scale-1: 4px; /* 4px micro spacing step on the base 4px grid (icon gaps, tight badges) */
+    --mds-space-scale-10: 40px; /* 40px major section break on tablet and desktop viewports */
+    --mds-space-scale-12: 48px; /* 48px prominent section divider for content groupings */
+    --mds-space-scale-16: 64px; /* 64px macro layout block spacing for landing views and hero sections */
+    --mds-space-scale-2: 8px; /* 8px tight spacing step (input internal padding, list item gaps) */
+    --mds-space-scale-3: 12px; /* 12px compact spacing step (card inner item separation) */
+    --mds-space-scale-4: 16px; /* 16px standard baseline component spacing step (card body padding, form row spacing) */
+    --mds-space-scale-5: 20px; /* 20px moderate spacing step (generous card padding, dialog header gap) */
+    --mds-space-scale-6: 24px; /* 24px medium layout spacing step (dialog padding, card grid gutter) */
+    --mds-space-scale-8: 32px; /* 32px generous container spacing step (page layout margins, section gaps) */
+  }
+
+  /* Theme Overrides: Dark Mode Luminance Overrides (9 tokens) */
+  [data-mode="dark"] {
+    --mds-color-border-default: #334155; /* Standard border for dark mode interactive controls (#334155) */
+    --mds-color-border-subtle: #1E293B; /* Subtle border and divider in dark mode (#1E293B) */
+    --mds-color-surface-canvas: #090D16; /* Deepest dark canvas base background (#090D16) */
+    --mds-color-surface-default: #0F172A; /* Standard dark surface card/view background (#0F172A) */
+    --mds-color-surface-overlay: #334155; /* Modal dialog, popover, and drawer surface in dark mode (#334155) */
+    --mds-color-surface-raised: #1E293B; /* Elevated dark container and floating card background (#1E293B) */
+    --mds-color-text-inverse: #0F172A; /* Inverted dark text on bright brand accent buttons (#0F172A) */
+    --mds-color-text-primary: #FFFFFF; /* High-contrast text on dark surfaces (#FFFFFF, 14.5:1 against neutral.900) */
+    --mds-color-text-secondary: #94A3B8; /* Secondary muted text on dark surfaces (#94A3B8, 5.2:1 against neutral.900) */
+  }
+
+  /* Theme Overrides: High Contrast Mode Overrides (3 tokens) */
+  [data-mode="high-contrast"] {
+    --mds-border-width-default: 2px; /* Enhanced border thickness for high contrast element boundary definition */
+    --mds-color-border-default: #000000; /* Solid high-contrast border in high contrast light mode */
+    --mds-color-focus-ring: #000000; /* Maximum visibility focus ring for high contrast navigation */
+  }
+
+  /* Theme Overrides: Refined Minimal Visual Preset Overrides (3 tokens) */
+  [data-preset="refined"] {
+    --mds-component-button-primary-radius: 6px; /* Refined Minimal disciplined radius for buttons */
+    --mds-component-card-elevation: none; /* Flat elevation discipline for cards in Refined Minimal */
+    --mds-component-card-radius: 6px; /* Refined Minimal tighter corner radius for cards */
+  }
+
+  /* Theme Overrides: Compact Density Spatial Overrides (3 tokens) */
+  [data-density="compact"] {
+    --mds-size-control-md: 32px; /* Compact density reduction of standard interactive control height */
+    --mds-space-block-md: 12px; /* Compact vertical spacing between stacked containers */
+    --mds-space-block-sm: 4px; /* Compact vertical control padding modifier */
+  }
+}

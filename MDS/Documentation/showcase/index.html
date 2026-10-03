@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light" data-density="default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS Documentation Portal — Unified Design System Catalog</title>
+
+  <!-- Google Fonts: Cairo (MDS Canonical Typography) & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- Canonical Token & Primitives Stylesheets -->
+  <link rel="stylesheet" href="../../03-Primitives/showcase/tokens.css">
+  <link rel="stylesheet" href="../../03-Primitives/showcase/primitives.css">
+  <link rel="stylesheet" href="../../05-Patterns/showcase/patterns.css">
+  <link rel="stylesheet" href="../../06-Workflows/showcase/workflows.css">
+  <link rel="stylesheet" href="../../07-Templates/showcase/templates.css">
+
+  <!-- Documentation Portal Stylesheet (100% Token-Driven, 0 Raw Hex) -->
+  <link rel="stylesheet" href="documentation.css">
+</head>
+<body>
+
+  <div class="mds-doc-shell">
+    <!-- Accessible Skip Link -->
+    <a href="#main-content" class="mds-doc-skip-link">تخطي إلى المحتوى الرئيسي (Skip to Content)</a>
+
+    <!-- Topbar Header -->
+    <header class="mds-doc-topbar" role="banner">
+      <div style="display: flex; align-items: center; gap: var(--mds-space-3);">
+        <button class="mds-doc-btn-icon" aria-label="Toggle Navigation Menu" onclick="toggleSidebar()" style="display: inline-flex;">
+          ☰
+        </button>
+        <a href="#/overview" class="mds-doc-brand" aria-label="MDS Documentation Portal Home">
+          <div class="mds-doc-brand-badge">MDS</div>
+          <div>
+            <div class="mds-doc-brand-title">Master Design System</div>
+          </div>
+          <span class="mds-doc-brand-version">v1.0.0 (Phase 8.1.4)</span>
+        </a>
+      </div>
+
+      <!-- Global Search Box -->
+      <div class="mds-doc-search-box" role="search">
+        <span>🔍</span>
+        <input type="search" id="global-search-input" class="mds-doc-search-input"
+               placeholder="ابحث في MDS... (Search components, tokens, workflows)"
+               aria-label="ابحث في عناصر وتوكنز النظام"
+               oninput="handleSearch(this.value)">
+        <span class="mds-doc-kbd">Ctrl+K</span>
+      </div>
+
+      <!-- Controls Strip -->
+      <div class="mds-doc-controls">
+        <button class="mds-doc-btn-icon" onclick="toggleDirection()" title="تبديل الاتجاه (Toggle RTL / LTR)" aria-label="تبديل الاتجاه">
+          🌐 RTL
+        </button>
+        <button class="mds-doc-btn-icon" onclick="toggleTheme()" title="تبديل السمة (Toggle Theme)" aria-label="تبديل السمة">
+          🌓 السمة
+        </button>
+        <button class="mds-doc-btn-icon" onclick="toggleDensity()" title="تبديل الكثافة (Toggle Density)" aria-label="تبديل الكثافة">
+          📐 الكثافة
+        </button>
+      </div>
+    </header>
+
+    <!-- Body Layout -->
+    <div class="mds-doc-body">
+      <!-- Navigation Sidebar -->
+      <aside id="mds-sidebar" class="mds-doc-sidebar" role="navigation" aria-label="شريط التنقل الرئيسي">
+        
+        <div class="mds-doc-nav-group">
+          <div class="mds-doc-nav-heading">01. البنية التأسيسية</div>
+          <ul class="mds-doc-nav-list">
+            <li><a href="#/overview" class="mds-doc-nav-item is-active">نظرة عامة (Overview)</a></li>
+            <li><a href="#/tokens" class="mds-doc-nav-item">مستكشف التوكنز (Tokens) <span class="mds-doc-badge mds-doc-badge--neutral">188</span></a></li>
+            <li><a href="#/overview" class="mds-doc-nav-item">الأسس (Foundations)</a></li>
+          </ul>
+        </div>
+
+        <div class="mds-doc-nav-group">
+          <div class="mds-doc-nav-heading">02. المكونات والأنماط</div>
+          <ul class="mds-doc-nav-list">
+            <li><a href="#/components" class="mds-doc-nav-item">المكونات (Components) <span class="mds-doc-badge mds-doc-badge--neutral">19</span></a></li>
+            <li><a href="#/patterns" class="mds-doc-nav-item">الأنماط (Patterns) <span class="mds-doc-badge mds-doc-badge--neutral">8</span></a></li>
+            <li><a href="#/workflows" class="mds-doc-nav-item">مسارات العمل (Workflows) <span class="mds-doc-badge mds-doc-badge--neutral">6</span></a></li>
+            <li><a href="#/templates" class="mds-doc-nav-item">قوالب الصفحات (Templates) <span class="mds-doc-badge mds-doc-badge--neutral">6</span></a></li>
+          </ul>
+        </div>
+
+        <div class="mds-doc-nav-group">
+          <div class="mds-doc-nav-heading">03. الجودة والامتثال</div>
+          <ul class="mds-doc-nav-list">
+            <li><a href="#/accessibility" class="mds-doc-nav-item">إمكانية الوصول (A11y)</a></li>
+            <li><a href="#/testing" class="mds-doc-nav-item">منظومة الاختبارات (Tests) <span class="mds-doc-badge mds-doc-badge--success">41/44</span></a></li>
+          </ul>
+        </div>
+
+      </aside>
+
+      <!-- Main Stage Dynamic View -->
+      <main id="main-content" class="mds-doc-main" role="main" tabindex="-1">
+        <!-- Rendered dynamically by documentation.js based on hash route -->
+      </main>
+    </div>
+
+    <!-- Global Toast Container -->
+    <div id="mds-toast" class="mds-doc-toast" role="status" aria-live="polite"></div>
+  </div>
+
+  <!-- Documentation Portal Controller -->
+  <script src="documentation.js"></script>
+</body>
+</html>

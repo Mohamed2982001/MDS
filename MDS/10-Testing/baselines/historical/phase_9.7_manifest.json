@@ -1,0 +1,199 @@
+{
+  "schema_version": "1.0.0",
+  "guard_version": "1.0.0",
+  "phase_id": "Phase-9.7",
+  "phase_name": "Validation, Testing & Specialized Hardening Suites",
+  "locked_at": "2026-09-24T18:00:00.000Z",
+  "authorized_by": "Mohamed Khalid",
+  "authorizing_adr": "ADR-090",
+  "prev_manifest_digest": "ab089a5a768afdf6d8e72ca3aa8f19b42c6ada0a3b714e21d834db0289f7bee8",
+  "manifest_digest": "97291449fccb259a4643aac19374b5fdb28552cae08952312e6e4a3b504e8440",
+  "total_documents": 23,
+  "documents": [
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7-Decision-Log.md",
+      "canonical_sha256": "5409101ff1b84b37eddc5f8b85645c1eb4821f15a6bd52b53e76233dd79a0923",
+      "byte_size": 32466,
+      "line_count": 364,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7-Gaps.md",
+      "canonical_sha256": "7deecc7720e22af22ab4e6a33ec48683469322c10409dfadc61adbd80093e543",
+      "byte_size": 13030,
+      "line_count": 175,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7-Validation-Architecture.md",
+      "canonical_sha256": "4cc63d07d013a9caeb2251cba2645fd90a86138b4f830c9760f6ddf003c3f92d",
+      "byte_size": 31280,
+      "line_count": 401,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.1-Architecture-Review.md",
+      "canonical_sha256": "4b6b9c8b898549646780b6148b22ee629277e1da95caadb93f6b2301d5d9c25d",
+      "byte_size": 13601,
+      "line_count": 152,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.2-Decision-Log.md",
+      "canonical_sha256": "0d21e35e26393ac1212b1d5333d3159a1a4ffb35ea0c0443430e3ff101e72598",
+      "byte_size": 7070,
+      "line_count": 88,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.2-Final-Audit.md",
+      "canonical_sha256": "66097f7d664b82223b4afcc3f3d27cdf53e100779a1fdaaba810786f740da7a2",
+      "byte_size": 12643,
+      "line_count": 209,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.2-Implementation-Report.md",
+      "canonical_sha256": "4bcbbeccbf21b99da9e9fbf097bc558b62581cab158200ef2e48f5f65d50817b",
+      "byte_size": 12598,
+      "line_count": 203,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.2-Remediation.md",
+      "canonical_sha256": "76a1dead7081b30164584ee77170c63ebfd8f2a487691b67595edb31dc3bc686",
+      "byte_size": 11244,
+      "line_count": 196,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.3-Decision-Log.md",
+      "canonical_sha256": "b9c7c6bbb1828fb14b7b33c892f75127b2877fa2f82f518cf3fa4c2e13265275",
+      "byte_size": 7581,
+      "line_count": 88,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.3-Final-Audit-Reconciliation.md",
+      "canonical_sha256": "782375b0adff9a68a526f825fff18ed84118b7f2fa9fe5e243f5536c7e954f51",
+      "byte_size": 13646,
+      "line_count": 223,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.3-Implementation-Report.md",
+      "canonical_sha256": "c3b9bd422c15ba7c0821dd20d939574a1d581a2b0a72197f663a19d566f148bc",
+      "byte_size": 8642,
+      "line_count": 163,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.4-Audit-Reconciliation.md",
+      "canonical_sha256": "5c77b6cacadf49d8fa94981c2d01d6b8a0597cffc3994c6745081b20f6a69bda",
+      "byte_size": 9923,
+      "line_count": 161,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.4-Decision-Log.md",
+      "canonical_sha256": "ed8fe85212571aa98c6f4b05b32752db791575d54ee42bc9754c29cc3c227e8d",
+      "byte_size": 7783,
+      "line_count": 94,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.4-Implementation-Report.md",
+      "canonical_sha256": "408b7d3f4fda53e1d9a6ee4f464db49da771dffd56e466caea3dc3ac9c614b5c",
+      "byte_size": 11784,
+      "line_count": 202,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.5-Decision-Log.md",
+      "canonical_sha256": "8100e5f762d593a52c08f22cd7d52c86e8969fbd6f18a3ea5c4f0bef600640dc",
+      "byte_size": 10081,
+      "line_count": 119,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.5-Implementation-Report.md",
+      "canonical_sha256": "b09a68dec5b073c6ee25be64c4018d8db1823cddfb9a8fb30560869077eecd26",
+      "byte_size": 13318,
+      "line_count": 203,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.6-Decision-Log.md",
+      "canonical_sha256": "ab0cd531d7e5eb46a92c073773c7851c7a1e4daeba6fd7046718781d973f8f0f",
+      "byte_size": 11079,
+      "line_count": 125,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.6-Gaps.md",
+      "canonical_sha256": "3d0eb047da0de509e8c718e4cf5c94d5991f3f5a6edc637e4618afd6e74ce6bb",
+      "byte_size": 10146,
+      "line_count": 145,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.6-Implementation-Report.md",
+      "canonical_sha256": "bdcd5ae8bbfac809866ed3959e76d26116f59f7ef7539f5751714f6cdb7c81f1",
+      "byte_size": 22684,
+      "line_count": 333,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.6-Responsive-Architecture.md",
+      "canonical_sha256": "5f9bde8c7c1c36310206831d15bfd4bcde9dcbb45bbb42a2474fcc445cf89748",
+      "byte_size": 23236,
+      "line_count": 350,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.7-Decision-Log.md",
+      "canonical_sha256": "77117ad9417cb38e4704f7857b7a823dfb79c240693c75b87753ebe860e342ee",
+      "byte_size": 21136,
+      "line_count": 244,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.7-Gaps.md",
+      "canonical_sha256": "f711fdeeca6458abc56aab679c1442917e64a27c1d900a45ece11cc835f135b1",
+      "byte_size": 10368,
+      "line_count": 126,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.7-Visual-Regression-Architecture.md",
+      "canonical_sha256": "150ce16c9c20d7bb3084d7bef8e9bcc21abe6ef532233905493c2bc8d6939124",
+      "byte_size": 27406,
+      "line_count": 419,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7"
+    }
+  ],
+  "history_blocks": []
+}

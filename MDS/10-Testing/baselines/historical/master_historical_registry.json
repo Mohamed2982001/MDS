@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0.0",
+  "guard_version": "1.0.0",
+  "registry_id": "MDS-MASTER-HISTORICAL-REGISTRY-v1",
+  "total_locked_phases": 12,
+  "total_historical_documents": 53,
+  "cumulative_chain_digest": "04d02f04c0bebd1e7959b9c57d4df0a5de337c001f049b1b4a34bb62a5fcae24",
+  "genesis_phase_id": "Phase-9.1",
+  "genesis_manifest_digest": "04869936c9afbd26fa39e3b3e3dc8baafa0a42f7e98d80199a21630f45161733",
+  "locked_phases": [
+    {
+      "phase_id": "Phase-9.1",
+      "phase_name": "Web Reference Implementation Architecture",
+      "manifest_file": "phase_9.1_manifest.json",
+      "manifest_digest": "04869936c9afbd26fa39e3b3e3dc8baafa0a42f7e98d80199a21630f45161733",
+      "total_documents": 0,
+      "total_blocks": 18
+    },
+    {
+      "phase_id": "Phase-9.2",
+      "phase_name": "Token Runtime Engine Implementation",
+      "manifest_file": "phase_9.2_manifest.json",
+      "manifest_digest": "faef21e54cb6e89195cecad752e313066fe12be9416c0d8a83c4bcdea2eb143f",
+      "total_documents": 0,
+      "total_blocks": 1
+    },
+    {
+      "phase_id": "Phase-9.3",
+      "phase_name": "Foundations & Primitives Runtime Engine Implementation",
+      "manifest_file": "phase_9.3_manifest.json",
+      "manifest_digest": "8ebb09d94b42a765c7a35dfb7c5ecba3e97a9f36f32252e87e6212e344e1a305",
+      "total_documents": 1,
+      "total_blocks": 1
+    },
+    {
+      "phase_id": "Phase-9.4",
+      "phase_name": "Core Component Runtime Engine Implementation",
+      "manifest_file": "phase_9.4_manifest.json",
+      "manifest_digest": "605b095099cfa7c46308992158b8e1a4a6b7a709aa241078ad1fc086d8b5d70b",
+      "total_documents": 2,
+      "total_blocks": 1
+    },
+    {
+      "phase_id": "Phase-9.5",
+      "phase_name": "Reference Runtime Laboratory (Interactive Playground) Implementation",
+      "manifest_file": "phase_9.5_manifest.json",
+      "manifest_digest": "9dea67e3eb91bee84393b9f5155ddf957b7d60c2ce8d045276c9dbd93713084f",
+      "total_documents": 2,
+      "total_blocks": 1
+    },
+    {
+      "phase_id": "Phase-9.6",
+      "phase_name": "Reference Application (MDS Workspace) Implementation",
+      "manifest_file": "phase_9.6_manifest.json",
+      "manifest_digest": "ab089a5a768afdf6d8e72ca3aa8f19b42c6ada0a3b714e21d834db0289f7bee8",
+      "total_documents": 9,
+      "total_blocks": 1
+    },
+    {
+      "phase_id": "Phase-9.7",
+      "phase_name": "Validation, Testing & Specialized Hardening Suites",
+      "manifest_file": "phase_9.7_manifest.json",
+      "manifest_digest": "97291449fccb259a4643aac19374b5fdb28552cae08952312e6e4a3b504e8440",
+      "total_documents": 23,
+      "total_blocks": 0
+    },
+    {
+      "phase_id": "Phase-9.7.8",
+      "phase_name": "Governance Engine & Repository Consistency Verifier",
+      "manifest_file": "phase_9.7.8_manifest.json",
+      "manifest_digest": "f29ab8c9875e8d532e07440779aa91688dcc37c700d039394d56e28bb15d773a",
+      "total_documents": 5,
+      "total_blocks": 0
+    },
+    {
+      "phase_id": "Phase-9.7.9",
+      "phase_name": "Historical Phase Guard & Architectural Immutability Engine",
+      "manifest_file": "phase_9.7.9_manifest.json",
+      "manifest_digest": "a40aab8de92542e18ad1b5267886b450682ae42489bed9a83116f091284044ff",
+      "total_documents": 4,
+      "total_blocks": 0
+    },
+    {
+      "phase_id": "Phase-9.7.10",
+      "phase_name": "Local Development Orchestrator & Multi-Subsystem Gate Harness",
+      "manifest_file": "phase_9.7.10_manifest.json",
+      "manifest_digest": "6e08ac1ccc9d1eab319f0003ee3f37314c16e74334ba0b0c5abb51804ae86e11",
+      "total_documents": 2,
+      "total_blocks": 0
+    },
+    {
+      "phase_id": "Phase-9.7.11",
+      "phase_name": "CI Pipeline & Artifact Dashboard",
+      "manifest_file": "phase_9.7.11_manifest.json",
+      "manifest_digest": "d0453e4d86066167fbbd43e8f07e976be5409613d87e28e9443fe3112f950543",
+      "total_documents": 2,
+      "total_blocks": 0
+    },
+    {
+      "phase_id": "Phase-9.7.12",
+      "phase_name": "Final Independent Audit & Phase 9.7 Gate Lock",
+      "manifest_file": "phase_9.7.12_manifest.json",
+      "manifest_digest": "04d02f04c0bebd1e7959b9c57d4df0a5de337c001f049b1b4a34bb62a5fcae24",
+      "total_documents": 3,
+      "total_blocks": 0
+    }
+  ]
+}

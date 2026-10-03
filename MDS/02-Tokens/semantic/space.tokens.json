@@ -1,0 +1,57 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "space": {
+    "inline": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "{space.scale.1}",
+        "$description": "Extra tight horizontal inline gap (4px, e.g. icon to label)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "{space.scale.2}",
+        "$description": "Compact horizontal inline gap (8px)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{space.scale.4}",
+        "$description": "Standard horizontal inline padding and gap (16px)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{space.scale.6}",
+        "$description": "Generous horizontal inline padding (24px)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      }
+    },
+    "block": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "{space.scale.1}",
+        "$description": "Extra tight vertical block gap (4px)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "{space.scale.2}",
+        "$description": "Compact vertical block padding (8px, e.g. button vertical padding)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{space.scale.4}",
+        "$description": "Standard vertical block gap between stacked elements (16px)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "{space.scale.8}",
+        "$description": "Generous vertical block margin between sections (32px)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      }
+    }
+  }
+}

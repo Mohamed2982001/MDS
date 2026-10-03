@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light" data-mode="light" data-preset="soft" data-density="comfortable">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS Workspace — تطبيق المرجع المعماري (Reference Application)</title>
+  
+  <!-- Canonical Typography: Cairo Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap">
+
+  <!-- Core MDS Cascade Layer Runtime -->
+  <link rel="stylesheet" href="../Runtime/css/mds-core.css">
+
+  <!-- Application-Level Layer Stylesheet (@layer mds.overrides) -->
+  <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+
+  <!-- Accessibility Skip Link (WCAG 2.4.1) -->
+  <a href="#main-content" class="mds-ref-skip-link">تخطي إلى المحتوى الرئيسي</a>
+
+  <!-- Top Application Shell Header (App-Header Composition) -->
+  <header class="mds-ref-header" role="banner">
+    <div class="mds-ref-header__inner">
+      
+      <!-- Brand & Mobile Toggle -->
+      <div style="display: flex; align-items: center; gap: var(--mds-space-inline-sm);">
+        <button type="button" class="mds-icon-button mds-icon-button--ghost mds-icon-button--sm" id="btn-mobile-nav" aria-label="فتح قائمة التنقل">
+          ☰
+        </button>
+        <a href="#/overview" class="mds-ref-brand" aria-label="MDS Workspace الرئيسية">
+          <div class="mds-ref-brand__logo">MDS</div>
+          <span>Workspace</span>
+        </a>
+      </div>
+
+      <!-- Global Controls Toolbar -->
+      <div class="mds-ref-controls-group">
+        
+        <!-- Role Simulation Switcher -->
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <label for="ctrl-ref-role" class="mds-label" style="margin: 0; font-size: var(--mds-font-size-xs);">الدور:</label>
+          <select id="ctrl-ref-role" class="mds-select mds-select--sm" style="inline-size: 140px;">
+            <option value="Administrator">Administrator (مدير)</option>
+            <option value="Manager">Manager (مشرف)</option>
+            <option value="Reviewer">Reviewer (مراجع)</option>
+            <option value="User">User (مستخدم عادي)</option>
+          </select>
+        </div>
+
+        <!-- Mode / Theme Switcher -->
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <label for="ctrl-ref-theme" class="mds-label" style="margin: 0; font-size: var(--mds-font-size-xs);">السمة:</label>
+          <select id="ctrl-ref-theme" class="mds-select mds-select--sm" style="inline-size: 110px;">
+            <option value="light" selected>Light</option>
+            <option value="dark">Dark</option>
+            <option value="high-contrast">High Contrast</option>
+          </select>
+        </div>
+
+        <!-- Preset Switcher -->
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <label for="ctrl-ref-preset" class="mds-label" style="margin: 0; font-size: var(--mds-font-size-xs);">النمط:</label>
+          <select id="ctrl-ref-preset" class="mds-select mds-select--sm" style="inline-size: 110px;">
+            <option value="soft" selected>Soft</option>
+            <option value="refined">Refined</option>
+            <option value="expressive">Expressive</option>
+          </select>
+        </div>
+
+        <!-- Density Switcher -->
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <label for="ctrl-ref-density" class="mds-label" style="margin: 0; font-size: var(--mds-font-size-xs);">الكثافة:</label>
+          <select id="ctrl-ref-density" class="mds-select mds-select--sm" style="inline-size: 120px;">
+            <option value="comfortable" selected>Comfortable</option>
+            <option value="compact">Compact</option>
+            <option value="dense" disabled>Dense [Deferred]</option>
+          </select>
+        </div>
+
+        <!-- Direction Switcher -->
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <label for="ctrl-ref-dir" class="mds-label" style="margin: 0; font-size: var(--mds-font-size-xs);">الاتجاه:</label>
+          <select id="ctrl-ref-dir" class="mds-select mds-select--sm" style="inline-size: 80px;">
+            <option value="rtl" selected>RTL</option>
+            <option value="ltr">LTR</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- Application Body Layout -->
+  <div class="mds-ref-body">
+    
+    <!-- Sidebar Navigation Landmark -->
+    <nav class="mds-ref-sidebar" id="ref-sidebar" role="navigation" aria-label="قائمة التنقل الرئيسية">
+      <div style="display: flex; flex-direction: column; gap: var(--mds-space-block-md);">
+        
+        <div>
+          <div class="mds-ref-nav-heading">العمليات التشغيلية</div>
+          <ul class="mds-ref-nav-list">
+            <li>
+              <a href="#/overview" class="mds-ref-nav-item is-active" id="nav-overview">
+                <span>📊 نظرة عامة (Overview)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/items" class="mds-ref-nav-item" id="nav-items">
+                <span>📁 العناصر والمشاريع (Items)</span>
+                <span class="mds-badge mds-badge--brand mds-badge--sm">8</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/tasks" class="mds-ref-nav-item" id="nav-tasks">
+                <span>✓ المهام والتدفقات (Tasks)</span>
+                <span class="mds-badge mds-badge--warning mds-badge--sm">5</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/ai-workspace" class="mds-ref-nav-item" id="nav-ai">
+                <span>⚡ التوليد الذكي (AI)</span>
+                <span class="mds-badge mds-badge--success mds-badge--sm">جديد</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/activity" class="mds-ref-nav-item" id="nav-activity">
+                <span>⏱ سجل النشاط (Activity)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="mds-ref-nav-heading">النظام والحوكمة</div>
+          <ul class="mds-ref-nav-list">
+            <li>
+              <a href="#/settings/general" class="mds-ref-nav-item" id="nav-set-gen">
+                <span>⚙ الإعدادات العامة</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/settings/appearance" class="mds-ref-nav-item" id="nav-set-app">
+                <span>🎨 المظهر والسمات</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/settings/notifications" class="mds-ref-nav-item" id="nav-set-notif">
+                <span>🔔 الإشعارات</span>
+              </a>
+            </li>
+            <li>
+              <a href="#/settings/access" class="mds-ref-nav-item" id="nav-set-acc">
+                <span>🔒 الوصول والأمان</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- User Footprint & Version Tag -->
+      <div style="border-block-start: 1px solid var(--mds-color-border-subtle); padding-block-start: var(--mds-space-block-sm);">
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="inline-size: 32px; block-size: 32px; border-radius: var(--mds-radius-full); background: var(--mds-color-brand-100); color: var(--mds-color-brand-700); display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 12px;">
+            MK
+          </div>
+          <div>
+            <div style="font-size: var(--mds-font-size-xs); font-weight: var(--mds-font-weight-semibold);">محمد خالد</div>
+            <div style="font-size: 10px; color: var(--mds-color-text-secondary);">MDS v1.0.0 Reference</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Stage Landmark -->
+    <main id="main-content" role="main" class="mds-ref-main">
+      <div id="ref-app-main">
+        <!-- Dynamic screen content rendered by app.js -->
+      </div>
+    </main>
+
+  <!-- Mobile Navigation Drawer Overlay (GAP-006: Composed via canonical <mds-dialog>) -->
+  <mds-dialog id="dialog-mobile-nav" aria-label="قائمة التنقل للجوال">
+    <div class="mds-dialog__surface mds-ref-mobile-nav-surface">
+      <div class="mds-dialog__header" style="display: flex; justify-content: space-between; align-items: center; border-block-end: 1px solid var(--mds-color-border-subtle); padding-block-end: var(--mds-space-block-sm);">
+        <div style="display: flex; align-items: center; gap: var(--mds-space-inline-xs);">
+          <div class="mds-ref-brand__logo">MDS</div>
+          <span style="font-weight: var(--mds-font-weight-bold); font-size: var(--mds-font-size-sm);">قائمة التنقل</span>
+        </div>
+        <button type="button" class="mds-icon-button mds-icon-button--ghost mds-icon-button--sm" id="btn-close-mobile-nav" data-dialog-cancel aria-label="إغلاق قائمة التنقل">
+          ✕
+        </button>
+      </div>
+      <div class="mds-dialog__body" style="padding-block: var(--mds-space-block-md);">
+        <nav role="navigation" aria-label="قائمة التنقل الرئيسية للجوال">
+          <div style="display: flex; flex-direction: column; gap: var(--mds-space-block-md);">
+            <div>
+              <div class="mds-ref-nav-heading">العمليات التشغيلية</div>
+              <ul class="mds-ref-nav-list">
+                <li><a href="#/overview" class="mds-ref-nav-item is-active"><span>📊 نظرة عامة (Overview)</span></a></li>
+                <li><a href="#/items" class="mds-ref-nav-item"><span>📁 العناصر والمشاريع (Items)</span> <span class="mds-badge mds-badge--brand mds-badge--sm">8</span></a></li>
+                <li><a href="#/tasks" class="mds-ref-nav-item"><span>✓ المهام والتدفقات (Tasks)</span> <span class="mds-badge mds-badge--warning mds-badge--sm">5</span></a></li>
+                <li><a href="#/ai-workspace" class="mds-ref-nav-item"><span>⚡ التوليد الذكي (AI)</span> <span class="mds-badge mds-badge--success mds-badge--sm">جديد</span></a></li>
+                <li><a href="#/activity" class="mds-ref-nav-item"><span>⏱ سجل النشاط (Activity)</span></a></li>
+              </ul>
+            </div>
+            <div>
+              <div class="mds-ref-nav-heading">النظام والحوكمة</div>
+              <ul class="mds-ref-nav-list">
+                <li><a href="#/settings/general" class="mds-ref-nav-item"><span>⚙ الإعدادات العامة</span></a></li>
+                <li><a href="#/settings/appearance" class="mds-ref-nav-item"><span>🎨 المظهر والسمات</span></a></li>
+                <li><a href="#/settings/notifications" class="mds-ref-nav-item"><span>🔔 الإشعارات</span></a></li>
+                <li><a href="#/settings/access" class="mds-ref-nav-item"><span>🔒 الوصول والأمان</span></a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </mds-dialog>
+
+  <!-- Toast Shelf Container (Application-Level Composition) -->
+  <div id="ref-toast-shelf" class="mds-ref-toast-shelf" aria-live="polite"></div>
+
+  <!-- Simulation Toolbar (Tester Bar at the bottom) -->
+  <div class="mds-ref-simulation-bar" role="region" aria-label="شريط محاكاة حالات الاختبار">
+    <div style="display: flex; align-items: center; gap: 8px;">
+      <span class="mds-badge mds-badge--neutral">محاكي الحالات التشغيلية (Experience States Tester):</span>
+      <select id="ctrl-ref-sim-state" class="mds-select mds-select--sm" style="inline-size: 180px;">
+        <option value="normal" selected>حالة طبيعية (Normal)</option>
+        <option value="loading">محاكاة التحميل (Loading)</option>
+        <option value="empty">محاكاة القائمة الفارغة (Empty)</option>
+        <option value="error">محاكاة خطأ تشغيلي (Error)</option>
+      </select>
+    </div>
+    <div style="font-size: var(--mds-font-size-xs); color: var(--mds-color-text-secondary);">
+      MDS Phase 9.6 • 100% Native Pure Web Standards • Zero NPM Packages
+    </div>
+  </div>
+
+  <!-- Application Controller Module -->
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

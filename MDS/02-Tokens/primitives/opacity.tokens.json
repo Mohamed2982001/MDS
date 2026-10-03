@@ -1,0 +1,42 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Primitive opacity tokens. Standardized alpha transparency levels for state overlays, backdrops, and disabled states.",
+  "opacity": {
+    "transparent": {
+      "$type": "number",
+      "$value": 0,
+      "$description": "0.0 full transparency for invisible hit areas and reset states",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "subtle": {
+      "$type": "number",
+      "$value": 0.08,
+      "$description": "0.08 subtle alpha fill for hover state tinting and inactive container washes",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "muted": {
+      "$type": "number",
+      "$value": 0.38,
+      "$description": "0.38 muted alpha for secondary placeholder text and subtle divider rules",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "disabled": {
+      "$type": "number",
+      "$value": 0.48,
+      "$description": "0.48 standard opacity reduction for disabled non-interactive buttons and inputs",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "scrim": {
+      "$type": "number",
+      "$value": 0.64,
+      "$description": "0.64 backdrop scrim darkness behind modal dialogs and side navigation drawers",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "solid": {
+      "$type": "number",
+      "$value": 1,
+      "$description": "1.0 fully opaque surface and foreground element",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    }
+  }
+}

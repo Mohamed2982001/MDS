@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'none'; form-action 'none';">
+    <title>Master Design System — CI Validation & Artifact Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="mds-header" id="mds-header">
+        <div class="mds-container header-inner">
+            <div class="header-brand">
+                <span class="mds-badge-system">Master Design System</span>
+                <h1 class="header-title" id="run-title">CI Pipeline & Artifact Dashboard</h1>
+            </div>
+            <div class="header-meta" id="header-meta">
+                <!-- Injected via safe DOM nodes -->
+            </div>
+        </div>
+    </header>
+
+    <main class="mds-container main-content">
+        <!-- Verdict Banner -->
+        <section class="mds-card verdict-card" id="verdict-banner">
+            <!-- Injected via safe DOM nodes -->
+        </section>
+
+        <!-- Pre-existing Notice Banner -->
+        <section class="mds-alert mds-alert-notice" id="provenance-notice" style="display: none;">
+            <div class="alert-icon">ℹ️</div>
+            <div class="alert-content" id="provenance-notice-content">
+                <!-- Injected via safe DOM nodes -->
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <nav class="mds-tabs" id="tab-nav" aria-label="Dashboard Views">
+            <button class="mds-tab-btn active" data-tab="tab-overview" type="button">V-01: Run Overview</button>
+            <button class="mds-tab-btn" data-tab="tab-subsystems" type="button">V-05: Subsystems Matrix</button>
+            <button class="mds-tab-btn" data-tab="tab-findings" type="button">V-06/07: Findings & Provenance</button>
+            <button class="mds-tab-btn" data-tab="tab-artifacts" type="button">V-14: Artifacts & Hashes</button>
+            <button class="mds-tab-btn" data-tab="tab-governance" type="button">V-09/10: Governance & Core</button>
+        </nav>
+
+        <!-- Tab 1: Overview -->
+        <div class="tab-pane active" id="tab-overview">
+            <div class="grid-2col">
+                <div class="mds-card" id="overview-env-card">
+                    <h3 class="card-title">Runner Environment</h3>
+                    <div class="kv-table" id="env-kv-table"></div>
+                </div>
+                <div class="mds-card" id="overview-perf-card">
+                    <h3 class="card-title">Execution Performance (ADR-144)</h3>
+                    <div class="kv-table" id="perf-kv-table"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 2: Subsystems -->
+        <div class="tab-pane" id="tab-subsystems">
+            <div class="mds-card">
+                <h3 class="card-title">Validation Subsystems (SUB-01 through SUB-15)</h3>
+                <div class="table-responsive">
+                    <table class="mds-table" id="subsystems-table">
+                        <thead>
+                            <tr>
+                                <th>Subsystem ID</th>
+                                <th>Name</th>
+                                <th>Stage</th>
+                                <th>Status</th>
+                                <th>Duration</th>
+                                <th>Findings</th>
+                            </tr>
+                        </thead>
+                        <tbody id="subsystems-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 3: Findings -->
+        <div class="tab-pane" id="tab-findings">
+            <div class="mds-card">
+                <h3 class="card-title">Diagnostic Findings Taxonomy</h3>
+                <div class="filter-bar" id="findings-filter-bar">
+                    <!-- Filter buttons injected safely -->
+                </div>
+                <div class="table-responsive">
+                    <table class="mds-table" id="findings-table">
+                        <thead>
+                            <tr>
+                                <th>Severity</th>
+                                <th>Provenance</th>
+                                <th>Code</th>
+                                <th>Target File</th>
+                                <th>Line</th>
+                                <th>Diagnostic Message</th>
+                            </tr>
+                        </thead>
+                        <tbody id="findings-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 4: Artifacts -->
+        <div class="tab-pane" id="tab-artifacts">
+            <div class="mds-card">
+                <h3 class="card-title">Harvested Artifact Inventory & Cryptographic Hashes</h3>
+                <div class="table-responsive">
+                    <table class="mds-table" id="artifacts-table">
+                        <thead>
+                            <tr>
+                                <th>Artifact ID</th>
+                                <th>Class</th>
+                                <th>Relative Path</th>
+                                <th>Byte Size</th>
+                                <th>NIST SHA-256 Digest</th>
+                            </tr>
+                        </thead>
+                        <tbody id="artifacts-tbody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tab 5: Governance -->
+        <div class="tab-pane" id="tab-governance">
+            <div class="grid-2col">
+                <div class="mds-card" id="governance-core-card">
+                    <h3 class="card-title">Protected Core Immutability (V-09)</h3>
+                    <div class="kv-table" id="core-kv-table"></div>
+                </div>
+                <div class="mds-card" id="governance-hist-card">
+                    <h3 class="card-title">Historical Guard Health (V-10)</h3>
+                    <div class="kv-table" id="hist-kv-table"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="mds-footer">
+        <div class="mds-container footer-inner">
+            <p id="footer-text">Master Design System — Layer M Architectural Assurance</p>
+        </div>
+    </footer>
+
+    <!-- Offline Manifest Bundle Script -->
+    <script src="manifest_data.js"></script>
+    <!-- Anti-XSS Rendering Engine -->
+    <script src="app.js"></script>
+</body>
+</html>

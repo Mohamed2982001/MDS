@@ -1,0 +1,492 @@
+{
+  "system": "Master Design System (MDS)",
+  "version": "1.0.0",
+  "phase": "8.1.4",
+  "status": "APPROVED",
+  "lead_architect": "Mohamed Khalid (Senior Full Stack & Flutter Developer)",
+  "last_updated": "2026-09-20",
+  "invariants": {
+    "tokens_total": 188,
+    "component_tokens": 47,
+    "components_total": 19,
+    "patterns_total": 8,
+    "workflows_total": 6,
+    "templates_total": 6,
+    "enterprise_deferred_total": 9,
+    "tests_defined_total": 44,
+    "tests_executable_passed": 41,
+    "tests_deferred": 3
+  },
+  "layers": [
+    {
+      "id": "01",
+      "code": "MDS-LYR-01",
+      "name": "Design System Strategy & Brand DNA",
+      "status": "APPROVED",
+      "path": "MDS/01-Strategy/Design-System-Strategy.md",
+      "description": "Core philosophy, Soft Modern personality, enterprise principles, and persona architecture."
+    },
+    {
+      "id": "02",
+      "code": "MDS-LYR-02",
+      "name": "Design Tokens & Foundations",
+      "status": "APPROVED",
+      "path": "MDS/02-Tokens/",
+      "description": "DTCG 3-tier token hierarchy, 188 registered tokens, theme axes (Light/Dark/High-Contrast) and density axes."
+    },
+    {
+      "id": "03",
+      "code": "MDS-LYR-03",
+      "name": "Foundational Primitives",
+      "status": "APPROVED",
+      "path": "MDS/03-Primitives/Foundational-Primitives.md",
+      "description": "Layout Primitives (5), Surface Triad (Surface-0/1/2), Accessibility Primitives (4), and Icon Contract."
+    },
+    {
+      "id": "04",
+      "code": "MDS-LYR-04",
+      "name": "Atomic Core Components",
+      "status": "APPROVED",
+      "path": "MDS/04-Components/Components-Catalog.md",
+      "description": "19 core UI components across 6 functional families adhering to the 16-point component anatomy."
+    },
+    {
+      "id": "05",
+      "code": "MDS-LYR-05",
+      "name": "Composite Structural Patterns",
+      "status": "APPROVED",
+      "path": "MDS/05-Patterns/Patterns-Catalog.md",
+      "description": "8 canonical multi-component patterns adhering to the 22-point anatomy and 10 Composition Laws."
+    },
+    {
+      "id": "06",
+      "code": "MDS-LYR-06",
+      "name": "Interactive Multi-Step Workflows",
+      "status": "APPROVED",
+      "path": "MDS/06-Workflows/Workflows-Catalog.md",
+      "description": "6 canonical business workflows with formal 11-state FSM progression, error recovery, and security triad."
+    },
+    {
+      "id": "07",
+      "code": "MDS-LYR-07",
+      "name": "Full-Page Archetype Templates",
+      "status": "APPROVED",
+      "path": "MDS/07-Templates/Templates-Catalog.md",
+      "description": "6 canonical page templates adhering to the 32-point anatomy, responsive reflow, and workflow slotting."
+    },
+    {
+      "id": "08",
+      "code": "MDS-LYR-08",
+      "name": "Universal Experience States",
+      "status": "APPROVED",
+      "path": "MDS/08-States/Universal-States.md",
+      "description": "Platform-agnostic state machine (11 operational states), fallback behaviors, and recovery contracts."
+    },
+    {
+      "id": "09",
+      "code": "MDS-LYR-09",
+      "name": "Accessibility & Assistive Technology Matrix",
+      "status": "APPROVED_WITH_DEFERRED_PHYSICAL_TESTS",
+      "path": "MDS/09-Accessibility/Accessibility-Matrix.md",
+      "description": "33 comprehensive accessibility audits, 7-facet law, AF findings, with physical AT testing explicitly deferred."
+    },
+    {
+      "id": "10",
+      "code": "MDS-LYR-10",
+      "name": "Responsive & Fluid Reflow Architecture",
+      "status": "APPROVED",
+      "path": "MDS/05-Patterns/Patterns-Catalog.md",
+      "description": "5 responsive breakpoints (320px to 1440px), container query contracts, and mobile-first recomposition."
+    },
+    {
+      "id": "11",
+      "code": "MDS-LYR-11",
+      "name": "AI Co-Pilot & Synthesis Layer",
+      "status": "APPROVED",
+      "path": "MDS/06-Workflows/Workflows-Catalog.md",
+      "description": "AI prompt input, streaming synthesis review, human-in-the-loop validation, and non-destructive persistence."
+    },
+    {
+      "id": "12",
+      "code": "MDS-LYR-12",
+      "name": "Design System Governance & ADRs",
+      "status": "APPROVED",
+      "path": "MDS/06-Workflows/Workflows-Decision-Log.md",
+      "description": "8-stage contribution lifecycle, 4 governance laws, deprecation protocols, and architectural decision records."
+    },
+    {
+      "id": "13",
+      "code": "MDS-LYR-13",
+      "name": "Automated Test Suite & Regression Harness",
+      "status": "APPROVED",
+      "path": "MDS/10-Testing/run_tests.py",
+      "description": "Executable Python regression harness executing 41 tests across 12 test suites with zero failures."
+    },
+    {
+      "id": "14",
+      "code": "MDS-LYR-14",
+      "name": "Interactive Documentation Portal",
+      "status": "APPROVED",
+      "path": "MDS/Documentation/MDS-Documentation-Portal.md",
+      "description": "Unified single-pane-of-glass catalog, Token Explorer, live search, and deep-linked interactive showcase."
+    }
+  ],
+  "deferred_enterprise_systems": [
+    { "name": "DataGrid", "phase": "Phase 9", "status": "DEFERRED" },
+    { "name": "RichTextEditor", "phase": "Phase 9", "status": "DEFERRED" },
+    { "name": "Calendar", "phase": "Phase 9", "status": "DEFERRED" },
+    { "name": "DateRangePicker", "phase": "Phase 9", "status": "DEFERRED" },
+    { "name": "CommandSystem", "phase": "Phase 9", "status": "DEFERRED" },
+    { "name": "Tree", "phase": "Phase 9", "status": "DEFERRED" },
+    { "name": "Combobox", "phase": "Phase 9", "status": "DEFERRED" },
+    { "name": "VirtualizedList", "phase": "Phase 9", "status": "DEFERRED" },
+    { "name": "FileUploadManager", "phase": "Phase 9", "status": "DEFERRED" }
+  ],
+  "catalog": {
+    "components": [
+      {
+        "id": "button",
+        "name": "Button",
+        "family": "Actions",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["btn.primary.bg", "btn.primary.text", "btn.primary.hover", "btn.padding.md", "btn.radius"],
+        "description": "Primary interactive control for user actions with primary, secondary, danger, and ghost variants."
+      },
+      {
+        "id": "icon-button",
+        "name": "IconButton",
+        "family": "Actions",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["icon-btn.size.md", "icon-btn.padding", "icon-btn.radius"],
+        "description": "Compact icon-only interactive button enforcing minimum 44x44px touch bounding box."
+      },
+      {
+        "id": "link",
+        "name": "Link",
+        "family": "Actions",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["link.color", "link.hover.color"],
+        "description": "Navigational anchor with distinct underline styling and visible focus indicator."
+      },
+      {
+        "id": "field",
+        "name": "Field",
+        "family": "Inputs",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["field.gap", "field.label.color", "field.hint.color"],
+        "description": "Composite form control container providing label, helper hint, and error message slots."
+      },
+      {
+        "id": "input",
+        "name": "Input",
+        "family": "Inputs",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["input.bg", "input.border", "input.focus.ring", "input.text", "input.placeholder"],
+        "description": "Single-line text input supporting text, email, password, and number data entries."
+      },
+      {
+        "id": "textarea",
+        "name": "Textarea",
+        "family": "Inputs",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["textarea.bg", "textarea.border", "textarea.min-height"],
+        "description": "Multi-line text input field with vertical resizing and character counter integration."
+      },
+      {
+        "id": "checkbox",
+        "name": "Checkbox",
+        "family": "Inputs",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["checkbox.size", "checkbox.border", "checkbox.checked.bg"],
+        "description": "Binary or indeterminate selection control for multi-option selection lists."
+      },
+      {
+        "id": "radio",
+        "name": "Radio",
+        "family": "Inputs",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["radio.size", "radio.border", "radio.checked.dot"],
+        "description": "Mutual-exclusion selection control for single selection within a defined option set."
+      },
+      {
+        "id": "switch",
+        "name": "Switch",
+        "family": "Inputs",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["switch.track.w", "switch.track.h", "switch.thumb.size", "switch.motion.duration"],
+        "description": "Instant toggle control for binary settings with token-bound motion transition."
+      },
+      {
+        "id": "select",
+        "name": "Select",
+        "family": "Inputs",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified (Native Core Baseline)",
+        "tokens": ["select.bg", "select.border", "select.arrow.color"],
+        "description": "Core baseline dropdown selection control utilizing native platform select element."
+      },
+      {
+        "id": "alert",
+        "name": "Alert",
+        "family": "Feedback",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["alert.info.bg", "alert.success.bg", "alert.warning.bg", "alert.error.bg"],
+        "description": "Status banner communicating contextual feedback across info, success, warning, and error states."
+      },
+      {
+        "id": "spinner",
+        "name": "Spinner",
+        "family": "Feedback",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["spinner.size.md", "spinner.track.color", "spinner.arc.color"],
+        "description": "Continuous circular animation indicating active indeterminate background processing."
+      },
+      {
+        "id": "skeleton",
+        "name": "Skeleton",
+        "family": "Feedback",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["skeleton.bg", "skeleton.shimmer", "skeleton.radius"],
+        "description": "Placeholder shape rendering shimmer animation during asynchronous data loading."
+      },
+      {
+        "id": "badge",
+        "name": "Badge",
+        "family": "Data Display",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["badge.bg", "badge.text", "badge.radius", "badge.padding"],
+        "description": "Compact label displaying metadata, counts, category tags, or operational statuses."
+      },
+      {
+        "id": "card",
+        "name": "Card",
+        "family": "Data Display",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["card.bg", "card.border", "card.shadow", "card.radius", "card.padding"],
+        "description": "Contained structural surface grouping related visual content and user actions."
+      },
+      {
+        "id": "table",
+        "name": "Table",
+        "family": "Data Display",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["table.header.bg", "table.row.hover", "table.border"],
+        "description": "Tabular grid organizing structured data rows with header cells and row hover feedback."
+      },
+      {
+        "id": "tabs",
+        "name": "Tabs",
+        "family": "Navigation",
+        "status": "Implemented",
+        "verification": "Automated & Manually Verified",
+        "tokens": ["tabs.track.border", "tabs.active.border", "tabs.active.text"],
+        "description": "Segmented navigational control organizing content into selectable pane views."
+      },
+      {
+        "id": "dialog",
+        "name": "Dialog",
+        "family": "Overlays",
+        "status": "Specified",
+        "verification": "Specification Verified (Implementation via Patterns)",
+        "tokens": ["dialog.overlay.bg", "dialog.panel.bg", "dialog.panel.shadow", "dialog.radius"],
+        "description": "Modal overlay dialog interrupting the workflow to present urgent decisions or confirmations."
+      },
+      {
+        "id": "tooltip",
+        "name": "Tooltip",
+        "family": "Overlays",
+        "status": "Specified",
+        "verification": "Specification Verified",
+        "tokens": ["tooltip.bg", "tooltip.text", "tooltip.shadow", "tooltip.radius"],
+        "description": "Floating contextual label presenting descriptive hint text on focus or hover."
+      }
+    ],
+    "patterns": [
+      {
+        "id": "page-header",
+        "name": "Page-Header",
+        "category": "Structural & Navigation",
+        "status": "Manually Verified",
+        "components": ["Card", "Badge", "Button", "Tabs"],
+        "description": "Top-level landmark pattern displaying page title, breadcrumb context, status badges, and action bars."
+      },
+      {
+        "id": "search-filter-bar",
+        "name": "Search-Filter-Bar",
+        "category": "Data & Discovery",
+        "status": "Manually Verified",
+        "components": ["Input", "Select", "Button", "Badge"],
+        "description": "Unified discovery bar combining real-time keyword search, filter dropdowns, and active tag chips."
+      },
+      {
+        "id": "data-list-card",
+        "name": "Data-List-Card",
+        "category": "Data & Discovery",
+        "status": "Manually Verified",
+        "components": ["Card", "Badge", "IconButton", "Button"],
+        "description": "Responsive entity card displaying thumbnail, title, status badge, metadata attributes, and quick action bar."
+      },
+      {
+        "id": "form-section",
+        "name": "Form-Section",
+        "category": "Data Input & Editing",
+        "status": "Manually Verified",
+        "components": ["Field", "Input", "Textarea", "Select", "Card"],
+        "description": "Grouped form layout organizing related input fields under semantic section headings and helper text."
+      },
+      {
+        "id": "empty-state",
+        "name": "Empty-State",
+        "category": "Feedback & Resilience",
+        "status": "Manually Verified",
+        "components": ["Card", "Button"],
+        "description": "Contextual placeholder communicating zero data records with visual illustration and clear call-to-action."
+      },
+      {
+        "id": "confirmation-dialog",
+        "name": "Confirmation-Dialog",
+        "category": "Overlay & Decision",
+        "status": "Manually Verified",
+        "components": ["Dialog", "Button"],
+        "description": "Modal decision dialog safeguarding high-impact operations with explicit confirm and cancel actions."
+      },
+      {
+        "id": "ai-input-prompt",
+        "name": "AI-Input-Prompt",
+        "category": "AI Co-Pilot",
+        "status": "Manually Verified",
+        "components": ["Textarea", "IconButton", "Badge", "Spinner"],
+        "description": "Specialized prompt composition box supporting model parameter toggles, token count badges, and submit trigger."
+      },
+      {
+        "id": "ai-result-review",
+        "name": "AI-Result-Review",
+        "category": "AI Co-Pilot",
+        "status": "Manually Verified",
+        "components": ["Card", "Badge", "Button", "Alert"],
+        "description": "Human-in-the-loop review panel displaying AI generated output, confidence score, and diff comparison."
+      }
+    ],
+    "workflows": [
+      {
+        "id": "form-submission",
+        "name": "Form-Submission",
+        "code": "MDS-WFL-001",
+        "status": "Manually Verified",
+        "steps": ["Drafting", "Client Validation", "Submitting", "Server Confirmation", "Completed"],
+        "description": "Canonical data entry workflow with asynchronous validation, loading feedback, and error recovery."
+      },
+      {
+        "id": "search-discovery",
+        "name": "Search-Discovery",
+        "code": "MDS-WFL-002",
+        "status": "Manually Verified",
+        "steps": ["Idle Query", "Debounced Search", "Results Rendering", "Facet Filtering", "Empty Fallback"],
+        "description": "Query orchestration workflow handling instant search, facet management, pagination, and zero-match handling."
+      },
+      {
+        "id": "destructive-action",
+        "name": "Destructive-Action",
+        "code": "MDS-WFL-003",
+        "status": "Manually Verified",
+        "steps": ["Intent Trigger", "Modal Confirmation", "Typed Verification", "Execution", "Audit Logging"],
+        "description": "High-risk workflow enforcing explicit user confirmation, two-phase verification, and irreversible action safeguarding."
+      },
+      {
+        "id": "settings-update",
+        "name": "Settings-Update",
+        "code": "MDS-WFL-004",
+        "status": "Manually Verified",
+        "steps": ["Read Current", "Field Mutation", "Autosave / Manual Save", "Toast Confirmation"],
+        "description": "Workspace configuration workflow supporting immediate and batch persistence with rollback capability."
+      },
+      {
+        "id": "ai-synthesis-review",
+        "name": "AI-Synthesis-Review",
+        "code": "MDS-WFL-005",
+        "status": "Manually Verified",
+        "steps": ["Prompt Dispatch", "Streaming Response", "Human Verification", "Accept / Reject", "Persistence"],
+        "description": "Generative AI workflow enforcing human-in-the-loop oversight and non-destructive output persistence."
+      },
+      {
+        "id": "error-recovery",
+        "name": "Error-Recovery",
+        "code": "MDS-WFL-006",
+        "status": "Manually Verified",
+        "steps": ["Fault Interception", "Categorization (Network/Auth/Server)", "Contextual Fallback", "Retry Orchestration"],
+        "description": "Resilience workflow intercepting network, auth, or validation faults with intelligent retry mechanics."
+      }
+    ],
+    "templates": [
+      {
+        "id": "dashboard-overview",
+        "code": "MDS-TMP-001",
+        "name": "Dashboard-Overview",
+        "category": "Operational Overview",
+        "status": "Manually Verified",
+        "patterns": ["Page-Header", "Data-List-Card", "Empty-State"],
+        "description": "Executive monitoring dashboard aggregating high-level KPI metric cards, analytical charts, and recent activity."
+      },
+      {
+        "id": "list-management",
+        "code": "MDS-TMP-002",
+        "name": "List-Management",
+        "category": "Collection Management",
+        "status": "Manually Verified",
+        "patterns": ["Page-Header", "Search-Filter-Bar", "Data-List-Card", "Confirmation-Dialog"],
+        "description": "Scalable entity management catalog unifying search, multi-faceted filtering, sorting, pagination, and batch actions."
+      },
+      {
+        "id": "detail-entity",
+        "code": "MDS-TMP-003",
+        "name": "Detail-Entity",
+        "category": "Entity Inspection",
+        "status": "Manually Verified",
+        "patterns": ["Page-Header", "Data-List-Card", "Form-Section", "Confirmation-Dialog"],
+        "description": "Comprehensive entity deep-dive layout with sticky header, tabbed metadata views, sidebar summary, and action bar."
+      },
+      {
+        "id": "form-edit",
+        "code": "MDS-TMP-004",
+        "name": "Form-Edit",
+        "category": "Data Authoring",
+        "status": "Manually Verified",
+        "patterns": ["Page-Header", "Form-Section", "Confirmation-Dialog"],
+        "description": "Full-page transactional authoring layout featuring stepped form sections, field validation, and sticky footer bar."
+      },
+      {
+        "id": "settings-workspace",
+        "code": "MDS-TMP-005",
+        "name": "Settings-Workspace",
+        "category": "Configuration",
+        "status": "Manually Verified",
+        "patterns": ["Page-Header", "Form-Section", "Confirmation-Dialog"],
+        "description": "Multi-pane workspace preferences layout with vertical category navigation, autosave toggles, and security controls."
+      },
+      {
+        "id": "ai-workspace",
+        "code": "MDS-TMP-006",
+        "name": "AI-Workspace",
+        "category": "Intelligence & Synthesis",
+        "status": "Manually Verified",
+        "patterns": ["Page-Header", "AI-Input-Prompt", "AI-Result-Review", "Empty-State"],
+        "description": "Interactive AI studio integrating prompt engineering console, streaming preview, human review, and side-by-side diff."
+      }
+    ]
+  }
+}

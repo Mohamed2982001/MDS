@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light" data-density="comfortable">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS Responsive Baseline Fixture</title>
+  <style>
+    :root {
+      --mds-container-max: 1440px;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Cairo', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .mds-ref-header__inner {
+      max-inline-size: 1440px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #btn-mobile-nav {
+      display: none;
+      min-width: 44px;
+      min-height: 44px;
+      padding: 10px;
+      align-items: center;
+      justify-content: center;
+    }
+    .mds-ref-body {
+      display: flex;
+      flex: 1;
+      width: 100%;
+    }
+    .mds-ref-sidebar {
+      inline-size: 260px;
+      min-height: 100%;
+      background: #f8fafc;
+      padding: 16px;
+    }
+    .mds-ref-main {
+      flex: 1;
+      padding: 24px;
+      max-inline-size: 1440px;
+      overflow-x: hidden;
+    }
+    .mds-ref-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .stat-card {
+      padding: 16px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+    }
+    .mds-ref-form-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .table-container {
+      overflow-x: auto;
+      width: 100%;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    button, a {
+      min-width: 44px;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Tablet (< 1024px) */
+    @media (max-width: 1023px) {
+      .mds-ref-sidebar {
+        inline-size: 72px;
+      }
+      .mds-ref-nav-item span:not(.mds-badge) {
+        display: none;
+      }
+      .mds-ref-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .mds-ref-form-grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* Mobile (< 768px) */
+    @media (max-width: 767px) {
+      #btn-mobile-nav {
+        display: inline-flex;
+      }
+      .mds-ref-sidebar {
+        display: none;
+      }
+      .mds-ref-stats-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    /* LTR Support */
+    html[dir="ltr"] .mds-ref-body {
+      flex-direction: row;
+    }
+    /* High Contrast */
+    html[data-theme="high-contrast"] button {
+      border: 2px solid #000;
+    }
+    /* Compact Density */
+    html[data-density="compact"] tr {
+      height: 36px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="mds-ref-header__inner">
+      <button id="btn-mobile-nav" aria-label="Toggle navigation">☰</button>
+      <div id="ctrl-ref-dir"></div>
+      <div id="ctrl-ref-theme"></div>
+      <div id="ctrl-ref-density"></div>
+    </div>
+  </header>
+  <div class="mds-ref-body">
+    <nav class="mds-ref-sidebar" id="ref-sidebar">
+      <a href="#/overview" class="mds-ref-nav-item"><span>نظرة عامة</span></a>
+      <a href="#/items" class="mds-ref-nav-item"><span>العناصر</span></a>
+    </nav>
+    <main class="mds-ref-main">
+      <div class="mds-ref-stats-grid">
+        <div class="stat-card">Stat 1</div>
+        <div class="stat-card">Stat 2</div>
+        <div class="stat-card">Stat 3</div>
+        <div class="stat-card">Stat 4</div>
+      </div>
+      <div class="mds-ref-search-filter-bar"></div>
+      <div class="mds-ref-form-grid-2">
+        <div>Field 1</div>
+        <div>Field 2</div>
+      </div>
+      <div class="table-container">
+        <table>
+          <tbody>
+            <tr><td>Cell 1</td><td>Cell 2</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+</body>
+</html>

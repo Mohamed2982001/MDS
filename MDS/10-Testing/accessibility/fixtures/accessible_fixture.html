@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Accessible Test Fixture — MDS Accessibility Validation</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #ffffff;
+      color: #111827;
+      margin: 0;
+      padding: 24px;
+      line-height: 1.5;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    header, nav, main, footer {
+      display: block;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 2rem;
+      color: #0f172a;
+      margin-top: 0;
+    }
+    h2 {
+      font-size: 1.5rem;
+      color: #1e293b;
+    }
+    a {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+    a:hover, a:focus {
+      color: #1e40af;
+      outline: 2px solid #2563eb;
+    }
+    .form-group {
+      margin-bottom: 16px;
+    }
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #0f172a;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 8px 12px;
+      border: 1px solid #64748b;
+      border-radius: 4px;
+      color: #0f172a;
+      background-color: #ffffff;
+      font-size: 1rem;
+    }
+    button {
+      padding: 8px 16px;
+      background-color: #1e3a8a;
+      color: #ffffff;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:focus {
+      outline: 3px solid #0284c7;
+      outline-offset: 2px;
+    }
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #000000;
+      color: #ffffff;
+      padding: 8px;
+      z-index: 100;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <header>
+    <div class="container">
+      <h1>Master Design System — Accessible Benchmark Fixture</h1>
+      <nav aria-label="Main Navigation">
+        <ul>
+          <li><a href="#section-overview">Overview</a></li>
+          <li><a href="#section-form">Form Controls</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" class="container">
+    <section id="section-overview">
+      <h2>Semantic Structure & Contrast Baseline</h2>
+      <p>This fixture conforms strictly to WCAG 2.1 Level AA standards with complete semantic landmarks, high color contrast, accessible headings, and valid metadata.</p>
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='40'%3E%3Crect width='100' height='40' fill='%231e3a8a'/%3E%3Ctext x='10' y='25' fill='%23ffffff' font-size='12'%3EMDS Logo%3C/text%3E%3C/svg%3E" alt="Master Design System Logo">
+    </section>
+
+    <section id="section-form">
+      <h2>Interactive Controls</h2>
+      <form action="#" method="get">
+        <div class="form-group">
+          <label for="search-input">Search Design Tokens</label>
+          <input type="text" id="search-input" name="search" placeholder="e.g. primary-blue">
+        </div>
+        <button type="submit">Filter Tokens</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="container">
+    <hr>
+    <p>&copy; 2026 Master Design System. All rights reserved.</p>
+  </footer>
+</body>
+</html>

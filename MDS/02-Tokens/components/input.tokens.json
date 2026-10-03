@@ -1,0 +1,74 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Component-level token definitions for Form Input controls.",
+  "component": {
+    "input": {
+      "background": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.surface.default}",
+          "$description": "Resting background color for form inputs",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.surface.raised}",
+          "$description": "Disabled background fill for form inputs",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        }
+      },
+      "border": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.border.default}",
+          "$description": "Resting boundary border for form inputs",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "focus": {
+          "$type": "color",
+          "$value": "{color.brand.600}",
+          "$description": "Active focused border highlight for form inputs",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "invalid": {
+          "$type": "color",
+          "$value": "{color.feedback.danger}",
+          "$description": "Invalid/error state border for form inputs",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.border.subtle}",
+          "$description": "Disabled border color for form inputs",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        }
+      },
+      "text": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.text.primary}",
+          "$description": "User typed text color inside form inputs",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "placeholder": {
+          "$type": "color",
+          "$value": "{color.text.secondary}",
+          "$description": "Placeholder hint text color inside form inputs",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "disabled": {
+          "$type": "color",
+          "$value": "{color.action.disabled.foreground}",
+          "$description": "Disabled input text color",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        }
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{radius.md}",
+        "$description": "Standard corner radius for form inputs",
+        "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+      }
+    }
+  }
+}

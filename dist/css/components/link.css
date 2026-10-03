@@ -1,0 +1,101 @@
+/**
+ * MDS (Master Design System) — Link Component
+ * Architecture Layer: Layer 04 (Components / Actions)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. WCAG 1.4.1 Compliance: Never rely on color alone (underline on hover/focus)
+ * 3. High-Visibility Focus Ring: 2px solid var(--mds-color-focus-ring)
+ * 4. 100% CSS Logical Properties
+ * 5. Native Navigation Anchor Semantics (<a>)
+ */
+
+@layer mds.components {
+  .mds-link {
+    /* Color & Typography */
+    color: var(--mds-color-brand-600);
+    font-family: inherit;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+    padding: 0;
+
+    /* Focus & Outline */
+    outline: none;
+    border-radius: var(--mds-radius-xs);
+
+    /* Motion Transitions */
+    transition:
+      color var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      text-decoration-color var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* ========================================================================
+     1. VARIANTS
+     ======================================================================== */
+
+  /* 1.1 Inline (Embedded in body copy) */
+  .mds-link--inline {
+    text-decoration: none;
+  }
+
+  .mds-link--inline:hover {
+    color: var(--mds-color-brand-700);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* 1.2 Standalone (Headers, Footers, Sidebars) */
+  .mds-link--standalone {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--mds-space-inline-xs);
+    font-weight: 500;
+  }
+
+  .mds-link--standalone:hover {
+    color: var(--mds-color-brand-700);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  /* 1.3 Muted (Footer legal items, secondary navigation) */
+  .mds-link--muted {
+    color: var(--mds-color-text-secondary);
+  }
+
+  .mds-link--muted:hover {
+    color: var(--mds-color-text-primary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  /* ========================================================================
+     2. STATES & ACCESSIBILITY
+     ======================================================================== */
+
+  /* 2.1 Keyboard Focus Indicator */
+  .mds-link:focus-visible {
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+    text-decoration: underline;
+  }
+
+  /* 2.2 Visited State */
+  .mds-link:visited {
+    color: var(--mds-color-brand-800);
+  }
+
+  /* 2.3 Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-link {
+      transition: none;
+    }
+  }
+}
+

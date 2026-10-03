@@ -1,0 +1,178 @@
+/**
+ * MDS (Master Design System) — Select Component
+ * Architecture Layer: Layer 04 (Components / Inputs)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Core Baseline Tier: Native <select> element integration
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. 100% Component Token Consumption: component.input.*
+ * 3. Canonical Touch Target: >= 44x44px on coarse pointers via PressTarget
+ * 4. High-Visibility Focus Ring: 2px solid var(--mds-color-focus-ring)
+ * 5. RTL Directionality: Chevron at inline-end, text at inline-start
+ * 6. Zero JavaScript Overhead in Core Baseline Tier
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. SELECT WRAPPER (Custom Chevron Positioning)
+     ======================================================================== */
+
+  .mds-select-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Chevron Icon at inline-end */
+  .mds-select-wrapper::after {
+    content: "";
+    position: absolute;
+    inset-inline-end: var(--mds-space-scale-4);
+    inset-block-start: 50%;
+    transform: translateY(-50%);
+    inline-size: 0;
+    block-size: 0;
+    border-inline-start: 5px solid transparent;
+    border-inline-end: 5px solid transparent;
+    border-block-start: 6px solid var(--mds-color-neutral-500);
+    pointer-events: none;
+    transition: transform var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  .mds-select-wrapper:focus-within::after {
+    border-block-start-color: var(--mds-component-input-border-focus);
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  /* ========================================================================
+     2. BASE SELECT CONTROL
+     ======================================================================== */
+
+  .mds-select {
+    width: 100%;
+    box-sizing: border-box;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Typography & Font */
+    font-family: var(--mds-font-family-primary);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+    text-align: start;
+
+    /* Surface & Border Tokens */
+    background-color: var(--mds-component-input-background-default);
+    border-style: solid;
+    border-width: var(--mds-border-width-thin);
+    border-color: var(--mds-component-input-border-default);
+    border-radius: var(--mds-component-input-radius);
+    outline: none;
+    cursor: pointer;
+
+    /* Logical Padding (room for chevron at inline-end) */
+    padding-inline-start: var(--mds-space-scale-4);
+    padding-inline-end: var(--mds-space-scale-8);
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+
+    /* Motion Transitions */
+    transition:
+      border-color var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      box-shadow var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      background-color var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* ========================================================================
+     3. CONTROL SIZES (sm: 32px, md: 40px, lg: 48px)
+     ======================================================================== */
+
+  /* 3.1 Small (32px) */
+  .mds-select--sm,
+  .mds-select-wrapper--sm .mds-select {
+    block-size: var(--mds-size-control-sm);
+    padding-block: 0;
+    padding-inline-start: var(--mds-space-scale-3);
+    padding-inline-end: var(--mds-space-scale-6);
+    font-size: var(--mds-font-size-xs);
+  }
+
+  /* 3.2 Medium (40px Default) */
+  .mds-select--md,
+  .mds-select-wrapper--md .mds-select {
+    block-size: var(--mds-size-control-md);
+    padding-block: 0;
+    padding-inline-start: var(--mds-space-scale-4);
+    padding-inline-end: var(--mds-space-scale-8);
+    font-size: var(--mds-font-size-sm);
+  }
+
+  /* 3.3 Large (48px) */
+  .mds-select--lg,
+  .mds-select-wrapper--lg .mds-select {
+    block-size: var(--mds-size-control-lg);
+    padding-block: 0;
+    padding-inline-start: var(--mds-space-scale-4);
+    padding-inline-end: var(--mds-space-scale-8);
+    font-size: var(--mds-font-size-base);
+  }
+
+  /* ========================================================================
+     4. STATES & ACCESSIBILITY
+     ======================================================================== */
+
+  /* 4.1 Hover State */
+  .mds-select:hover:not(:disabled) {
+    border-color: var(--mds-color-neutral-400);
+  }
+
+  /* 4.2 Keyboard Focus Indicator */
+  .mds-select:focus,
+  .mds-select:focus-visible {
+    border-color: var(--mds-component-input-border-focus);
+    box-shadow: 0 0 0 var(--mds-border-width-regular) var(--mds-color-brand-100);
+  }
+
+  /* 4.3 Invalid State */
+  .mds-select:invalid,
+  .mds-select[aria-invalid="true"],
+  .mds-select--invalid {
+    border-color: var(--mds-component-input-border-invalid);
+    box-shadow: 0 0 0 var(--mds-border-width-regular) var(--mds-color-palette-red-200);
+  }
+
+  /* 4.4 Disabled State */
+  .mds-select:disabled,
+  .mds-select[aria-disabled="true"] {
+    background-color: var(--mds-component-input-background-disabled);
+    border-color: var(--mds-component-input-border-disabled);
+    color: var(--mds-color-action-disabled-foreground);
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  /* 4.5 Touch Target Enforcement (44px) */
+  @media (pointer: coarse) {
+    .mds-select--sm,
+    .mds-select--md,
+    .mds-select-wrapper--sm .mds-select,
+    .mds-select-wrapper--md .mds-select {
+      min-block-size: var(--mds-size-touch-target);
+    }
+  }
+
+  /* 4.6 Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-select,
+    .mds-select-wrapper::after {
+      transition: none;
+    }
+  }
+}
+

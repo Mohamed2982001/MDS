@@ -1,0 +1,130 @@
+/**
+ * MDS (Master Design System) — Card Component
+ * Architecture Layer: Layer 04 (Components / Data Display)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. Composed from Layer 03 Surface Primitives
+ * 3. 3 Depth Levels: flat (level0), raised (level1), interactive (level2 on hover)
+ * 4. 3 Density Scales: sm (12px), md (16px), lg (24px)
+ * 5. 100% CSS Logical Properties
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. BASE CARD CONTAINER
+     ======================================================================== */
+
+  .mds-card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: var(--mds-color-surface-default);
+    border-style: solid;
+    border-width: var(--mds-border-width-thin);
+    border-color: var(--mds-color-border-subtle);
+    border-radius: var(--mds-component-card-radius, var(--mds-radius-md));
+    overflow: hidden;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+
+    /* Motion Transitions */
+    transition:
+      box-shadow var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      border-color var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* ========================================================================
+     2. DEPTH LEVELS & VARIANTS
+     ======================================================================== */
+
+  /* 2.1 Flat (Default: Resting boundary, zero shadow) */
+  .mds-card--flat {
+    box-shadow: var(--mds-component-card-elevation, var(--mds-elevation-level0));
+  }
+
+  /* 2.2 Raised (Soft ambient shadow) */
+  .mds-card--raised {
+    box-shadow: var(--mds-elevation-level1);
+  }
+
+  /* 2.3 Interactive (Hover lift & click response) */
+  .mds-card--interactive {
+    cursor: pointer;
+    box-shadow: var(--mds-elevation-level0);
+    outline: none;
+  }
+
+  .mds-card--interactive:hover {
+    box-shadow: var(--mds-elevation-level2);
+    border-color: var(--mds-color-border-default);
+  }
+
+  .mds-card--interactive:focus-visible {
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* ========================================================================
+     3. DENSITY & PADDING SIZES
+     ======================================================================== */
+
+  /* 3.1 Small (12px) */
+  .mds-card--sm {
+    padding: var(--mds-space-scale-3);
+    gap: var(--mds-space-block-xs);
+  }
+
+  /* 3.2 Medium (16px Default) */
+  .mds-card--md {
+    padding: var(--mds-space-scale-4);
+    gap: var(--mds-space-block-sm);
+  }
+
+  /* 3.3 Large (24px) */
+  .mds-card--lg {
+    padding: var(--mds-space-scale-6);
+    gap: var(--mds-space-block-md);
+  }
+
+  /* ========================================================================
+     4. SLOTS & SUB-ELEMENTS
+     ======================================================================== */
+
+  /* 4.1 Card Header */
+  .mds-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+  }
+
+  /* 4.2 Card Body */
+  .mds-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-xs);
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  /* 4.3 Card Footer */
+  .mds-card__footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--mds-space-inline-sm);
+    margin: 0;
+  }
+
+  /* 4.4 Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-card {
+      transition: none;
+    }
+  }
+}

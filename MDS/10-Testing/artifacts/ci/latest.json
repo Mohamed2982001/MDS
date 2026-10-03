@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "1.0.0",
+  "pointer_updated_utc": "2026-10-01T13:23:21.150928+00:00",
+  "run_id": "local-20261001-132320-3b3dc3",
+  "manifest_relative_path": "runs/local-20261001-132320-3b3dc3/ci_artifact_manifest.json",
+  "manifest_sha256": "6f150ace4abf22beb80fcb5746045d99f02d8d3ee4c0d0bb8ef8bfa68f2d7ef9"
+}

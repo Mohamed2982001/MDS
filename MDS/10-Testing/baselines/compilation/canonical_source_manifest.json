@@ -1,0 +1,255 @@
+{
+  "authorized_by": "Lead Architect Mohamed Khalid",
+  "locked_at": "2026-10-02T08:15:00Z",
+  "manifest_id": "MDS-SOURCE-MANIFEST-v1",
+  "phase_id": "Phase-10.3",
+  "schema_version": "1.0.0",
+  "source_identity_hash": "34cd5128a6258cdfb09bed3f0002eaf9910610bc8ebf3fda16034cef6a815a73",
+  "sources": {
+    "MDS/02-Tokens/components/badge.tokens.json": {
+      "byte_size": 3516,
+      "sha256": "b61db5b4613d27045d41d0f9601ebd7add4cf2ca036fe3f8902b0a264f262979"
+    },
+    "MDS/02-Tokens/components/button.tokens.json": {
+      "byte_size": 7534,
+      "sha256": "549affa243fadb10eef4670688ee4e10d0e87b4064e4caef11a4558f99bf433a"
+    },
+    "MDS/02-Tokens/components/input.tokens.json": {
+      "byte_size": 2852,
+      "sha256": "faa9788bc8f2bfa8a957c8ad3341c7d37ebfaa63ab3a53a1a4d1fd0d95d97378"
+    },
+    "MDS/02-Tokens/primitives/color.tokens.json": {
+      "byte_size": 7724,
+      "sha256": "6e1f2a2de8ad853e41860ade763d6a9552e27c6e29b90b08f821980e1b1be1b0"
+    },
+    "MDS/02-Tokens/primitives/elevation.tokens.json": {
+      "byte_size": 2418,
+      "sha256": "6a0cfe3cc14e88f7389215426a38bd09a9893989c6f01e5d3cfeed8982adbd8e"
+    },
+    "MDS/02-Tokens/primitives/layer.tokens.json": {
+      "byte_size": 1474,
+      "sha256": "81291cc2c05228ada55cfe057f5b817384f1c3c858223f173bf0255b2e465604"
+    },
+    "MDS/02-Tokens/primitives/motion.tokens.json": {
+      "byte_size": 2117,
+      "sha256": "f335b04c6ed164016d406a08716f8e17d709076e55993ffbd09172c5e613abee"
+    },
+    "MDS/02-Tokens/primitives/opacity.tokens.json": {
+      "byte_size": 1693,
+      "sha256": "d334a8c62c805475aebe18ace9b9225d4f11012c32267da067b0ddef41b72041"
+    },
+    "MDS/02-Tokens/primitives/shape.tokens.json": {
+      "byte_size": 2705,
+      "sha256": "cfe0105642bb684fc5e534bdcc4fde7a859ce3175bec1e38816fe0651d64fc7e"
+    },
+    "MDS/02-Tokens/primitives/size.tokens.json": {
+      "byte_size": 2349,
+      "sha256": "c659d2ea1bd4bac6083a72bcb72fbfa83d4b1aab22c33cdee4eb707c1aac1931"
+    },
+    "MDS/02-Tokens/primitives/space.tokens.json": {
+      "byte_size": 2840,
+      "sha256": "69e104529fc45085bebc7e3c85cf314ff534a9d13f05335e20f273fb582641e1"
+    },
+    "MDS/02-Tokens/primitives/typography.tokens.json": {
+      "byte_size": 4699,
+      "sha256": "fe576095197ed0c9ba1af1c628ffa9e4c28843343c1dad1b53997b0453483b34"
+    },
+    "MDS/02-Tokens/semantic/color.tokens.json": {
+      "byte_size": 6431,
+      "sha256": "37ed6b8bea9c576677ade0b10b8954678d99a0c61e8fac9477878734eb2e6b6b"
+    },
+    "MDS/02-Tokens/semantic/space.tokens.json": {
+      "byte_size": 2270,
+      "sha256": "881c1a1ba6bc32cee6e80f21157856cb2c9c2e373d154ed4c3b0c11ea1b7f709"
+    },
+    "MDS/02-Tokens/themes/density.compact.tokens.json": {
+      "byte_size": 881,
+      "sha256": "72572e57d179ca3026e7fd42d619d66072efc31a76633ac58daae6f5c82b09a7"
+    },
+    "MDS/02-Tokens/themes/mode.dark.tokens.json": {
+      "byte_size": 2013,
+      "sha256": "196d17b9b0e614856183d2997113c69e32d93ba005f777adf9a8dbf8e014db00"
+    },
+    "MDS/02-Tokens/themes/mode.high-contrast.tokens.json": {
+      "byte_size": 972,
+      "sha256": "2933194ffc9aeadc058eb594ca7a6f0071118b63f975f3160e0ed29cadb10f57"
+    },
+    "MDS/02-Tokens/themes/preset.refined.tokens.json": {
+      "byte_size": 842,
+      "sha256": "2afea5e676efd957fbff4aa4cdf823130d76c1395aaa5a5593eef92f55e42976"
+    },
+    "MDS/Runtime/components/alert/alert.css": {
+      "byte_size": 3622,
+      "sha256": "f73ea20e1ffd988addadf394c7e387e549965fd7c70a4b65321b4c58bc496b87"
+    },
+    "MDS/Runtime/components/badge/badge.css": {
+      "byte_size": 3517,
+      "sha256": "eb55ae837148fd4f4817ac0d2100db1eefb29758f83d1f435ffae96a54e8fc90"
+    },
+    "MDS/Runtime/components/button/button.css": {
+      "byte_size": 7968,
+      "sha256": "8400fc5c73e8f87731dab7f8612842dbb8d3809c03481052f7ce7a9cbd984ff8"
+    },
+    "MDS/Runtime/components/card/card.css": {
+      "byte_size": 3713,
+      "sha256": "930f8834d845e26d79bb629f673c3433f7aa2cf548e4bda7709e47e5fe75e359"
+    },
+    "MDS/Runtime/components/checkbox/checkbox.css": {
+      "byte_size": 5158,
+      "sha256": "d27c2103f4357afbe4b9c9f5e2f63981d82dc0b9d78f0296178d9f39622e1e45"
+    },
+    "MDS/Runtime/components/components.css": {
+      "byte_size": 55532,
+      "sha256": "af3c57b97d8b7a0c148d8ce88cb08ed2ab977d5dc51967e47c56d3b121665d81"
+    },
+    "MDS/Runtime/components/components.js": {
+      "byte_size": 596,
+      "sha256": "899964fe7943c4633cef3a2a927862349e390c45973b5d6fbc3aa958c1924741"
+    },
+    "MDS/Runtime/components/dialog/dialog.css": {
+      "byte_size": 5066,
+      "sha256": "f1b8cfe0b1bed99b12cbbba397c0c6e8a07cc272bece370922e86bb355d759a0"
+    },
+    "MDS/Runtime/components/dialog/dialog.js": {
+      "byte_size": 4012,
+      "sha256": "061818203644960537fdfd6610ac8a2a792c1c47b198a3ec91bb6438ac5307eb"
+    },
+    "MDS/Runtime/components/field/field.css": {
+      "byte_size": 3745,
+      "sha256": "9203587dfaee230127a186236e49c9c2e2954967acf7a30aa0cab7b79b1ad90a"
+    },
+    "MDS/Runtime/components/icon-button/icon-button.css": {
+      "byte_size": 6574,
+      "sha256": "e9787743eb37ff7eb387fc094e979caaa2d31d390ff9b2ae07230a89e9c4be5e"
+    },
+    "MDS/Runtime/components/input/input.css": {
+      "byte_size": 5386,
+      "sha256": "ceb5f3fc951a33ebbc4250ff00c1868ce68c99a575528891518eef31b94a9a78"
+    },
+    "MDS/Runtime/components/link/link.css": {
+      "byte_size": 2770,
+      "sha256": "0aa593afbf0e315b83e8844117e118b82b7206e6f572d221b3d8438e8b291ad9"
+    },
+    "MDS/Runtime/components/radio/radio.css": {
+      "byte_size": 4975,
+      "sha256": "24a2961c7863567206f22bfc95dc802665e3ae1daf58c15be4588363154e582f"
+    },
+    "MDS/Runtime/components/select/select.css": {
+      "byte_size": 5830,
+      "sha256": "88dcacb46d1be54efe2656b046390f58322d02506abfa6c3723764e65f01e083"
+    },
+    "MDS/Runtime/components/skeleton/skeleton.css": {
+      "byte_size": 2493,
+      "sha256": "f9766ea506d06036064f8baaf22a6c7d8f7b147fe01eceb4b98f8f2ee6ecbe23"
+    },
+    "MDS/Runtime/components/spinner/spinner.css": {
+      "byte_size": 3479,
+      "sha256": "2df3d7a2a53a026e2cd7eaf5d8aefa00912b6a566f2c74218bd4c5a2e56e0396"
+    },
+    "MDS/Runtime/components/switch/switch.css": {
+      "byte_size": 5558,
+      "sha256": "f8dc0b39f5ebf3af88d81ba7eecfb5bce0a060b546424fb8e0d027d6e1314e86"
+    },
+    "MDS/Runtime/components/switch/switch.js": {
+      "byte_size": 2765,
+      "sha256": "8b5ca5694ba06d7409e873528a43303f895178fbea6d464f9b82bdff81e9033f"
+    },
+    "MDS/Runtime/components/table/table.css": {
+      "byte_size": 4239,
+      "sha256": "b01d8f120fb58b46ce761d4e70196656c9d515eb4f2e3d6fec2ddce262e95a0d"
+    },
+    "MDS/Runtime/components/tabs/tabs.css": {
+      "byte_size": 4487,
+      "sha256": "ccf8eac7dffbcd87faab2091ec38934b762ac7c56fd836fc7487c8448171dd21"
+    },
+    "MDS/Runtime/components/tabs/tabs.js": {
+      "byte_size": 4847,
+      "sha256": "6959eb91341b7c89c442476fba21a592609131215b18ea67d2e605895d93e16d"
+    },
+    "MDS/Runtime/components/textarea/textarea.css": {
+      "byte_size": 4236,
+      "sha256": "826bf2f9f416cc7295a06b26927d757b809c901761266748a39c68a63ebc2da6"
+    },
+    "MDS/Runtime/components/tooltip/tooltip.css": {
+      "byte_size": 4474,
+      "sha256": "770b0742c9de9ccc1bafb59ff2cddbf53d459d006778b069eaf9b5aa14a46520"
+    },
+    "MDS/Runtime/components/tooltip/tooltip.js": {
+      "byte_size": 3559,
+      "sha256": "c1c16393af19a32720e471c280b5ade35c12af298513b90f9b2fc3fb57c0016d"
+    },
+    "MDS/Runtime/css/foundations.css": {
+      "byte_size": 1365,
+      "sha256": "23672767a8d5f98a4dc97d74c6cc42cdff68b6b710e65da304718922ae79f320"
+    },
+    "MDS/Runtime/css/mds-core.css": {
+      "byte_size": 766,
+      "sha256": "fc3d58a42319f759376d72ed56b5f080a1677347a72417d7d611ce616c8228ea"
+    },
+    "MDS/Runtime/css/primitives.css": {
+      "byte_size": 14782,
+      "sha256": "7955c0f8744ec60e4aca368259393d75686fdff8e5507a2b837ea643e4d9c6a4"
+    },
+    "MDS/Runtime/css/reset.css": {
+      "byte_size": 1704,
+      "sha256": "d5e8d5911476bfb580af164b99884c90ae87b7f9f6e2b1a58d4fabcb65e5ec3e"
+    },
+    "MDS/Runtime/primitives/icon/icon.css": {
+      "byte_size": 1575,
+      "sha256": "94c22415f1358b63820aaf23f5fc121d957806a8d609d16bba4bf79baf85463c"
+    },
+    "MDS/Runtime/primitives/interaction/focus-ring.css": {
+      "byte_size": 866,
+      "sha256": "4cc047c6eab383626459ef71bd5885c8a412c71ed294bc719a6d793adff46eef"
+    },
+    "MDS/Runtime/primitives/interaction/focus-trap.js": {
+      "byte_size": 4967,
+      "sha256": "6e19535df210a925bb201b6be3f2c33694eec3f05f309bb2ef0eb3e227d672f8"
+    },
+    "MDS/Runtime/primitives/interaction/live-region.js": {
+      "byte_size": 4475,
+      "sha256": "565895017ea96208a39fcae0681b710582e652a94a84744158991680f8a9cc6a"
+    },
+    "MDS/Runtime/primitives/interaction/press-target.css": {
+      "byte_size": 800,
+      "sha256": "65c3b2d4ae84b5ca163154177b901c24fd422ae11772f7b06438fdeff74837ac"
+    },
+    "MDS/Runtime/primitives/interaction/reduced-motion.css": {
+      "byte_size": 709,
+      "sha256": "8ca80980c52a5216829488410023d2b1d6ffb5c7ec90bbe9e49d9d56080bd2f7"
+    },
+    "MDS/Runtime/primitives/interaction/visually-hidden.css": {
+      "byte_size": 815,
+      "sha256": "cb925ca02df5d4798c2c8a072b8c9066658cead78851f751e35bdfd49e3235a5"
+    },
+    "MDS/Runtime/primitives/layout/cluster.css": {
+      "byte_size": 1060,
+      "sha256": "1b88f0b94f7cf0f86405e1cc99a342777b390540939c6487fc7ef487dee0490b"
+    },
+    "MDS/Runtime/primitives/layout/container.css": {
+      "byte_size": 945,
+      "sha256": "9926d7b41c233290d28839322862d8c7c9ad427607092e3bf3fb8984a41e79d8"
+    },
+    "MDS/Runtime/primitives/layout/grid.css": {
+      "byte_size": 1773,
+      "sha256": "5da63f1b2cc4618c431ab325cc6568c8e1f06c46e42d3aff8e601974b9cff1c3"
+    },
+    "MDS/Runtime/primitives/layout/inline.css": {
+      "byte_size": 1346,
+      "sha256": "e813baf378d705d5427584de4053ce75e548a6e8ffaf918c9d567853a1c56d60"
+    },
+    "MDS/Runtime/primitives/layout/stack.css": {
+      "byte_size": 1075,
+      "sha256": "562bf390957ee06d543b69903d2c524ddd90dc951f1969e19653be120c2c254c"
+    },
+    "MDS/Runtime/primitives/surface/surface.css": {
+      "byte_size": 1684,
+      "sha256": "1794d18fc3da105d56aa0293a9c744d50b9b5a63bc11d0d8a821a48cbdf4ab4c"
+    },
+    "MDS/Runtime/primitives/typography/typography.css": {
+      "byte_size": 4269,
+      "sha256": "8b70dd72a2b4f1e7c1435fc4e8f312d7403fd00184554746b1d9993174644f70"
+    }
+  },
+  "total_sources": 61
+}

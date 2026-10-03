@@ -1,0 +1,297 @@
+{
+  "users": [
+    {
+      "id": "usr_001",
+      "name": "محمد خالد",
+      "nameEn": "Mohamed Khalid",
+      "role": "Administrator",
+      "avatar": "MK",
+      "email": "mohamed.khalid@mds.workspace"
+    },
+    {
+      "id": "usr_002",
+      "name": "سارة أحمد",
+      "nameEn": "Sarah Ahmed",
+      "role": "Manager",
+      "avatar": "SA",
+      "email": "sarah.ahmed@mds.workspace"
+    },
+    {
+      "id": "usr_003",
+      "name": "عمر الشريف",
+      "nameEn": "Omar El-Sherif",
+      "role": "Reviewer",
+      "avatar": "OS",
+      "email": "omar.sherif@mds.workspace"
+    },
+    {
+      "id": "usr_004",
+      "name": "ليلى حسن",
+      "nameEn": "Layla Hassan",
+      "role": "User",
+      "avatar": "LH",
+      "email": "layla.hassan@mds.workspace"
+    }
+  ],
+  "items": [
+    {
+      "id": "ITM-101",
+      "title": "تحديث واجهة الدفع الإلكتروني",
+      "titleEn": "Payment Gateway Redesign",
+      "category": "Engineering",
+      "priority": "high",
+      "status": "active",
+      "owner": "محمد خالد",
+      "ownerId": "usr_001",
+      "budget": "45,000",
+      "isFavorite": true,
+      "isArchived": false,
+      "updated": "2026-09-21",
+      "description": "إعادة هيكلة تجربة الدفع المتكاملة لدعم التحويلات السريعة وأنظمة التقسيط مع مراعاة أقصى معايير الأمان.",
+      "tags": ["Checkout", "Security", "Fintech"]
+    },
+    {
+      "id": "ITM-102",
+      "title": "بناء نظام التوكنز متعدد المنصات",
+      "titleEn": "Cross-Platform Token Pipeline",
+      "category": "Architecture",
+      "priority": "critical",
+      "status": "active",
+      "owner": "محمد خالد",
+      "ownerId": "usr_001",
+      "budget": "80,000",
+      "isFavorite": true,
+      "isArchived": false,
+      "updated": "2026-09-20",
+      "description": "تطوير محرك ترجمة الـ DTCG إلى Web CSS و Flutter Dart مع دعم التبديل الديناميكي بين السمات.",
+      "tags": ["Tokens", "Flutter", "Web"]
+    },
+    {
+      "id": "ITM-103",
+      "title": "تدقيق معايير الوصول الرقمي WCAG AAA",
+      "titleEn": "Accessibility Audit WCAG AAA",
+      "category": "Compliance",
+      "priority": "medium",
+      "status": "pending",
+      "owner": "عمر الشريف",
+      "ownerId": "usr_003",
+      "budget": "25,000",
+      "isFavorite": false,
+      "isArchived": false,
+      "updated": "2026-09-19",
+      "description": "فحص التباين اللوني، التنقل عبر لوحة المفاتيح، وتكامل قارئات الشاشة لجميع المكونات الأساسية.",
+      "tags": ["A11y", "Audit", "WCAG"]
+    },
+    {
+      "id": "ITM-104",
+      "title": "توثيق واجهات برمجة التطبيقات v2",
+      "titleEn": "API Documentation v2",
+      "category": "Product",
+      "priority": "low",
+      "status": "completed",
+      "owner": "سارة أحمد",
+      "ownerId": "usr_002",
+      "budget": "15,000",
+      "isFavorite": false,
+      "isArchived": false,
+      "updated": "2026-09-18",
+      "description": "توليد ونشر وثائق تفاعلية شاملة لمطوري الطرف الثالث عبر بوابة المطورين الجديدة.",
+      "tags": ["Docs", "Developer", "API"]
+    },
+    {
+      "id": "ITM-105",
+      "title": "أرشفة السجلات المالية لعام 2025",
+      "titleEn": "Fiscal Year 2025 Ledger Archival",
+      "category": "Finance",
+      "priority": "medium",
+      "status": "archived",
+      "owner": "سارة أحمد",
+      "ownerId": "usr_002",
+      "budget": "10,000",
+      "isFavorite": false,
+      "isArchived": true,
+      "updated": "2026-01-15",
+      "description": "ترحيل وتشفير كافة المعاملات والدفاتر المالية للسنة المالية المنتهية في المخازن الباردة.",
+      "tags": ["Archive", "Finance", "Legal"]
+    },
+    {
+      "id": "ITM-106",
+      "title": "تطوير محرك التوصيات بالذكاء الاصطناعي",
+      "titleEn": "AI Recommendation Engine",
+      "category": "AI",
+      "priority": "critical",
+      "status": "active",
+      "owner": "عمر الشريف",
+      "ownerId": "usr_003",
+      "budget": "120,000",
+      "isFavorite": true,
+      "isArchived": false,
+      "updated": "2026-09-21",
+      "description": "بناء نماذج توليدية مخصصة لترشيح الإجراءات التشغيلية والمحتوى للمستخدمين بناء على الأنماط.",
+      "tags": ["AI", "GenAI", "Analytics"]
+    },
+    {
+      "id": "ITM-107",
+      "title": "تحسين أداء عرض الجداول على الموبايل",
+      "titleEn": "Mobile Table Performance Optimization",
+      "category": "Engineering",
+      "priority": "high",
+      "status": "active",
+      "owner": "ليلى حسن",
+      "ownerId": "usr_004",
+      "budget": "30,000",
+      "isFavorite": false,
+      "isArchived": false,
+      "updated": "2026-09-20",
+      "description": "تفعيل التمرير الأفقي السلس بمعدل 60 إطاراً في الثانية مع مؤشرات التركيز البصرية الكاملة.",
+      "tags": ["Mobile", "Performance", "CSS"]
+    },
+    {
+      "id": "ITM-108",
+      "title": "ترقية حزمة الأمان السحابي Zero Trust",
+      "titleEn": "Zero Trust Cloud Security Upgrade",
+      "category": "Security",
+      "priority": "critical",
+      "status": "active",
+      "owner": "محمد خالد",
+      "ownerId": "usr_001",
+      "budget": "95,000",
+      "isFavorite": true,
+      "isArchived": false,
+      "updated": "2026-09-21",
+      "description": "فرض التوثيق الثنائي المستمر وتشفير حركة البيانات بين الخدمات المصغرة ومنافذ الربط.",
+      "tags": ["Security", "ZeroTrust", "Infra"]
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TSK-201",
+      "title": "مراجعة عقد الـ FocusTrap في النوافذ المنبثقة",
+      "priority": "critical",
+      "status": "IN_PROGRESS",
+      "dueDate": "2026-09-22",
+      "assignee": "محمد خالد",
+      "itemId": "ITM-102"
+    },
+    {
+      "id": "TSK-202",
+      "title": "اختبار تباين ألوان النمط عالي التباين (High Contrast)",
+      "priority": "high",
+      "status": "TODO",
+      "dueDate": "2026-09-23",
+      "assignee": "عمر الشريف",
+      "itemId": "ITM-103"
+    },
+    {
+      "id": "TSK-203",
+      "title": "توثيق معايير الحذف الآمن وتأكيد الإلغاء أولاً",
+      "priority": "medium",
+      "status": "REVIEW",
+      "dueDate": "2026-09-21",
+      "assignee": "سارة أحمد",
+      "itemId": "ITM-104"
+    },
+    {
+      "id": "TSK-204",
+      "title": "تحسين توافقية استمارة تعديل البيانات مع قارئ الشاشة",
+      "priority": "medium",
+      "status": "DONE",
+      "dueDate": "2026-09-20",
+      "assignee": "ليلى حسن",
+      "itemId": "ITM-107"
+    },
+    {
+      "id": "TSK-205",
+      "title": "محاكاة تدفقات الاستجابة المتدفقة للذكاء الاصطناعي (Streaming)",
+      "priority": "high",
+      "status": "IN_PROGRESS",
+      "dueDate": "2026-09-24",
+      "assignee": "عمر الشريف",
+      "itemId": "ITM-106"
+    }
+  ],
+  "activities": [
+    {
+      "id": "ACT-301",
+      "actor": "محمد خالد",
+      "avatar": "MK",
+      "action": "أضاف عنصراً جديداً إلى سجل البنية المعمارية",
+      "target": "ITM-102",
+      "timestamp": "منذ 10 دقائق",
+      "type": "create"
+    },
+    {
+      "id": "ACT-302",
+      "actor": "سارة أحمد",
+      "avatar": "SA",
+      "action": "قامت باعتماد تقرير المراجعة التشغيلية",
+      "target": "TSK-203",
+      "timestamp": "منذ 45 دقيقة",
+      "type": "approve"
+    },
+    {
+      "id": "ACT-303",
+      "actor": "عمر الشريف",
+      "avatar": "OS",
+      "action": "قام بتشغيل جلسة توليد بالذكاء الاصطناعي لموجز المشروع",
+      "target": "AI-Session-88",
+      "timestamp": "منذ ساعتين",
+      "type": "ai"
+    },
+    {
+      "id": "ACT-304",
+      "actor": "النظام الآلي",
+      "avatar": "SYS",
+      "action": "تم ترحيل السجلات المالية القديمة إلى المستودع المؤرشف",
+      "target": "ITM-105",
+      "timestamp": "منذ 5 ساعات",
+      "type": "system"
+    },
+    {
+      "id": "ACT-305",
+      "actor": "ليلى حسن",
+      "avatar": "LH",
+      "action": "أكملت مهمة التحقق من التمرير الأفقي للجداول",
+      "target": "TSK-204",
+      "timestamp": "أمس في 18:30",
+      "type": "complete"
+    }
+  ],
+  "aiCorpus": {
+    "prompts": [
+      {
+        "id": "p_01",
+        "title": "تلخيص مواصفات المشروع التشغيلي",
+        "input": "قم بتوليد ملخص تنفيذي يوضح الأهداف الرئيسية والمعالم الحرجة لمشروع تحديث البنية التحتية مع التركيز على الجودة والامتثال.",
+        "model": "MDS-Atlas-Pro",
+        "output": "الملخص التنفيذي:\nيهدف المشروع إلى رفع الكفاءة التشغيلية بنسبة 35% عبر توحيد لغة التصميم، وضمان الامتثال التام لمعايير WCAG AAA، مع توفير تجربة استخدام متكافئة بالكامل في البيئات العربية (RTL). تم إنجاز مرحلة تدقيق النواة، ويوصى بالانتقال للمرحلة التطبيقية مع تثبيت سياسة عدم استحداث توكنز أو مكونات غير معتمدة.",
+        "tokensUsed": 184,
+        "confidence": "98.4%",
+        "safety": "Passed"
+      },
+      {
+        "id": "p_02",
+        "title": "تحليل أداء المعاملات والسيولة",
+        "input": "حلل توزيع الميزانية التشغيلية على المهام الحرجة واقترح إعادة توزيع للمهام ذات الأولوية القصوى.",
+        "model": "MDS-Atlas-Speed",
+        "output": "التحليل المالي والتشغيلي:\nتم رصد تركيز 68% من الميزانيات على قطاعي الهندسة والأمان السحابي. التوصية: إعادة توجيه 15% من فائض قطاع التوثيق لدعم اختبارات التوافقية والأداء على الهواتف منخفضة الموارد.",
+        "tokensUsed": 142,
+        "confidence": "94.2%",
+        "safety": "Passed"
+      }
+    ]
+  },
+  "settings": {
+    "workspaceName": "MDS Enterprise Workspace",
+    "defaultLanguage": "ar",
+    "timezone": "Africa/Cairo (UTC+03:00)",
+    "emailDigest": true,
+    "securityAlerts": true,
+    "taskMentions": true,
+    "autoSave": true,
+    "currentTheme": "light",
+    "currentPreset": "soft",
+    "currentDensity": "comfortable",
+    "currentDirection": "rtl"
+  }
+}

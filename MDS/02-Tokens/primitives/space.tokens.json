@@ -1,0 +1,73 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "space": {
+    "scale": {
+      "0": {
+        "$type": "dimension",
+        "$value": "0px",
+        "$description": "Zero spacing anchor",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "1": {
+        "$type": "dimension",
+        "$value": "4px",
+        "$description": "4px micro spacing step on the base 4px grid (icon gaps, tight badges)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "2": {
+        "$type": "dimension",
+        "$value": "8px",
+        "$description": "8px tight spacing step (input internal padding, list item gaps)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "3": {
+        "$type": "dimension",
+        "$value": "12px",
+        "$description": "12px compact spacing step (card inner item separation)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "4": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "16px standard baseline component spacing step (card body padding, form row spacing)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "5": {
+        "$type": "dimension",
+        "$value": "20px",
+        "$description": "20px moderate spacing step (generous card padding, dialog header gap)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "6": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "24px medium layout spacing step (dialog padding, card grid gutter)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "8": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "32px generous container spacing step (page layout margins, section gaps)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "10": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "40px major section break on tablet and desktop viewports",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "12": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": "48px prominent section divider for content groupings",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "16": {
+        "$type": "dimension",
+        "$value": "64px",
+        "$description": "64px macro layout block spacing for landing views and hero sections",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    }
+  }
+}

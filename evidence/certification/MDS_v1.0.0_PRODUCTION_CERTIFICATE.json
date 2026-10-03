@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "1.0.0",
+  "certificate_id": "MDS-CERT-v1.0.0-426b8bf473112cf5",
+  "release_id": "MDS-v1.0.0-RELEASE",
+  "package_name": "master-design-system",
+  "version": "1.0.0",
+  "certification_timestamp": "2026-10-03T14:14:01Z",
+  "certification_subject_summary": {
+    "subject_scope": "MDS v1.0.0 Production Design System Runtime & Distribution Package",
+    "runtime_files_count": 61,
+    "compiled_distribution_artifacts_count": 33,
+    "excluded_harnesses": [
+      "MDS/Playground/",
+      "MDS/Reference-Application/"
+    ]
+  },
+  "release_file_summary": {
+    "total_files_in_dist": 35,
+    "production_artifacts_count": 33,
+    "distribution_manifest_present": true,
+    "distribution_manifest_sha256_present": true
+  },
+  "root_trust_anchor": {
+    "anchor_id": "MDS-ROOT-ANCHOR-v1",
+    "fingerprint": "20c240e650a447299690d0e2f65c65a0dbed2acc4aba9de9997c4a093f2ed114"
+  },
+  "identity_contract": {
+    "source_identity": "34cd5128a6258cdfb09bed3f0002eaf9910610bc8ebf3fda16034cef6a815a73",
+    "compiler_identity": "3290cc589386c2afa5ac7dc48439dacdc2275cd9fbf96f2c7ecabaea703e013d",
+    "config_identity": "9dd135071c1f155d23abab9ba3492756dd2f3fec1d68b989952d3c44749a7d43",
+    "environment_identity": "7a9f36217a4cebd17653687cd392ed3af35448029da1a7da6c62734d032f51de",
+    "build_epoch": 1790812800,
+    "build_identity": "426b8bf473112cf5a46f7535e85d821efab7a5b2b6603b39ec7f52840fb9f526"
+  },
+  "evidence_manifest_binding": {
+    "evidence_manifest_path": "evidence/certification/certification_evidence_manifest.json",
+    "evidence_manifest_id": "MDS-EVID-v1.0.0-426b8bf473112cf5",
+    "evidence_manifest_sha256": "d82a97570c78dd9ec5afd1ed8cbe8ac72e0fddf2e4de52b8602c2d41db913ddf",
+    "total_evidence_files_count": 13
+  },
+  "gate_evaluations": {
+    "Gate_A": {
+      "name": "Determinism & Multi-Build Reproducibility",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "a3556172b231ca97add3294c2ed80c6eee527c08c494492d8ab279950e90b893"
+    },
+    "Gate_B": {
+      "name": "Security, Root Trust Anchor & Zero-NPM",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "8735c177ea7ecb98e7703b00baece83af50d6ad4f3157700728ee8c0d213c31d"
+    },
+    "Gate_C": {
+      "name": "Pure W3C Standards & Zero-NPM Web Runtime",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "12c6773d73585885c2fccaa39bcff6e83e2ba2e1e5c91dcb5b58746ae27710a9"
+    },
+    "Gate_D": {
+      "name": "Artifact Cryptographic Integrity",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "17aba6ceffae1cf9cb93fd6d09c578dced36983137c63a3577110800c55ed36b"
+    },
+    "Gate_E": {
+      "name": "Calibrated Performance & Size Budgets",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "cc3f08b5a402854f63942aa6153736d94110e6f275b79ef6421b6abdb6ce8376"
+    },
+    "Gate_F1": {
+      "name": "Toolchain Runtime Compliance",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "bbb70a0fca4fc3bbb393c7fddd7f6fbdf0c9e483ebcf61dc4c2b75493fac8df3"
+    },
+    "Gate_F2": {
+      "name": "Standards Compatibility & Reference Browser Verification",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "0ffb1769b456233ee983fdd356d8ac36c696baf6fdf7c7a7971e86b4d4a194b9"
+    },
+    "Gate_G": {
+      "name": "Production Runtime Accessibility Protocol",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "61598358e76e7913f7a943db8658569b35223b271bdeaccbcc0f76e46fb1d454"
+    },
+    "Gate_H": {
+      "name": "Responsive & RTL Bidirectionality",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "d39a692c5ba588119930eb5f88cc16dbf63d56569a1cfa2c74ef58f692fa3a68"
+    },
+    "Gate_I": {
+      "name": "SemVer Versioning & Historical Governance",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "f532c1fb18b9b483b55ac07a33ccf26d9c4ea3cccd971794beef0cc522e09918"
+    },
+    "Gate_J": {
+      "name": "Release Bill of Materials (BOM)",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "318304da834657740df980604dbfad49ebe777be5a69e954436d5d9d890db0fb"
+    },
+    "Gate_K": {
+      "name": "Clean Abort & Non-Destructive Rollback",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "2c53cbb84d777a39ddbe1b8fb76d7b04423b2f59b10d57c7d350ceb4f7019bc0"
+    },
+    "Gate_L": {
+      "name": "Sole Sign-off Authority & Standalone Seal Attestation",
+      "status": "PASS",
+      "blockers": 0,
+      "majors": 0,
+      "minors": 0,
+      "evidence_digest": "d3af7337938d077ce89816881c600b7f8e1ec112297801a8c9fa95bc5e888f10"
+    }
+  },
+  "waiver_records": [],
+  "not_applicable_determinations": [],
+  "verdict": {
+    "status": "CERTIFIED",
+    "total_blockers": 0,
+    "total_majors": 0,
+    "total_minors": 0,
+    "total_waived": 0,
+    "total_na": 0,
+    "certification_decision": "APPROVED_FOR_PRODUCTION_RELEASE"
+  },
+  "trusted_certification_seal_path": "evidence/certification/trusted_certification_seal.json",
+  "trusted_certification_seal_id": "MDS-SEAL-v1.0.0-PROD",
+  "certificate_integrity_digest": "6079d9b24288d5d90c0269369ee15bc5a31f4aa62ed9efad066999457c422f6d"
+}

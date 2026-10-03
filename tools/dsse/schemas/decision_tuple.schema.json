@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://masterdesignsystem.com/schemas/dsse/decision_tuple.schema.json",
+  "title": "DSSE Explainable Decision Tuple Output Schema",
+  "description": "Standardized schema for the 5-pillar decoupled selection report produced by DSSE.",
+  "type": "object",
+  "required": [
+    "selectionReport"
+  ],
+  "properties": {
+    "selectionReport": {
+      "type": "object",
+      "required": [
+        "projectProfile",
+        "recommendation",
+        "decisionMargin",
+        "epistemicConfidence",
+        "hardConstraints",
+        "ranking",
+        "governance"
+      ],
+      "properties": {
+        "engineVersion": {
+          "type": "string"
+        },
+        "reproducibilityDigest": {
+          "type": "string"
+        },
+        "projectProfile": {
+          "type": "object",
+          "required": [
+            "projectName",
+            "declaredDimensionsCount",
+            "activeDimensionsCount"
+          ],
+          "properties": {
+            "projectName": { "type": "string" },
+            "context": { "type": "string" },
+            "declaredDimensionsCount": { "type": "integer" },
+            "activeDimensionsCount": { "type": "integer" }
+          }
+        },
+        "recommendation": {
+          "type": "object",
+          "required": [
+            "selectedSystem",
+            "selectionScore",
+            "rank"
+          ],
+          "properties": {
+            "selectedSystem": { "type": "string" },
+            "selectedSystemId": { "type": "string" },
+            "selectionScore": { "type": "number" },
+            "rank": { "type": "integer" }
+          }
+        },
+        "decisionMargin": {
+          "type": "object",
+          "required": [
+            "delta",
+            "classification",
+            "tieBreakTriggered"
+          ],
+          "properties": {
+            "delta": { "type": "number" },
+            "classification": {
+              "type": "string",
+              "enum": ["Virtual Tie", "Tie-Break Zone", "Decisive Lead"]
+            },
+            "tieBreakTriggered": { "type": "boolean" },
+            "tieBreakLog": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "epistemicConfidence": {
+          "type": "object",
+          "required": [
+            "score",
+            "tier",
+            "metrics"
+          ],
+          "properties": {
+            "score": { "type": "number" },
+            "tier": {
+              "type": "string",
+              "enum": ["HIGH", "MEDIUM", "LOW", "High", "Medium", "Low"]
+            },
+            "metrics": {
+              "type": "object",
+              "required": [
+                "requirementsCoverage",
+                "evaluationCoverage",
+                "evidenceQuality"
+              ],
+              "properties": {
+                "requirementsCoverage": { "type": "number" },
+                "evaluationCoverage": { "type": "number" },
+                "evidenceQuality": { "type": "number" }
+              }
+            }
+          }
+        },
+        "hardConstraints": {
+          "type": "object",
+          "required": [
+            "status",
+            "evaluatedCount",
+            "disqualifiedCount"
+          ],
+          "properties": {
+            "status": { "type": "string" },
+            "evaluatedCount": { "type": "integer" },
+            "disqualifiedCount": { "type": "integer" }
+          }
+        },
+        "ranking": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "rank",
+              "system",
+              "score",
+              "status"
+            ],
+            "properties": {
+              "rank": { "type": "integer" },
+              "system": { "type": "string" },
+              "systemId": { "type": "string" },
+              "score": { "type": "number" },
+              "status": { "type": "string" },
+              "disqualificationReason": { "type": "string" }
+            }
+          }
+        },
+        "governance": {
+          "type": "object",
+          "required": [
+            "humanReviewRequired",
+            "humanReviewReasons"
+          ],
+          "properties": {
+            "humanReviewRequired": { "type": "boolean" },
+            "humanReviewReasons": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "selectedConfiguration": {
+          "type": "object",
+          "properties": {
+            "preset": { "type": "string" },
+            "density": { "type": "string" },
+            "mode": { "type": "string" },
+            "primaryDirection": { "type": "string" },
+            "primaryFont": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

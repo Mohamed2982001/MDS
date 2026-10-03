@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS Layer 06 — Workflows Interactive State Machine Testbed</title>
+  
+  <!-- Google Fonts: Cairo (MDS Canonical Typography) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Canonical Token & Primitives Stylesheets -->
+  <link rel="stylesheet" href="../../03-Primitives/showcase/tokens.css">
+  <link rel="stylesheet" href="../../03-Primitives/showcase/primitives.css">
+  <link rel="stylesheet" href="../../05-Patterns/showcase/patterns.css">
+  <link rel="stylesheet" href="workflows.css">
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: var(--mds-color-surface-default);
+      color: var(--mds-color-text-primary);
+      font-family: var(--mds-font-family-primary);
+      -webkit-font-smoothing: antialiased;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Notice Banner: Canonical Sandbox Invariant -->
+  <header style="background: var(--mds-color-brand-900); color: var(--mds-color-text-inverse); padding: var(--mds-space-3) var(--mds-space-4); border-bottom: 1px solid var(--mds-color-brand-700);">
+    <div class="mds-container mds-container--xl">
+      <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+        <div class="mds-inline mds-inline--gap-xs mds-inline--align-center">
+          <span style="font-size: 18px;">🔄</span>
+          <span class="mds-text mds-text--size-sm" style="font-weight: 600;">
+            MDS Layer 06 Workflows Testbed • FSM Progression • 100% Token-Driven • 0 Raw Hex
+          </span>
+        </div>
+        <div class="mds-inline mds-inline--gap-sm">
+          <button class="mds-button mds-button--ghost mds-button--sm mds-focus-ring" onclick="toggleTheme()" style="color: var(--mds-color-text-inverse);">
+            🌓 تبديل المظهر (Theme)
+          </button>
+          <button class="mds-button mds-button--ghost mds-button--sm mds-focus-ring" onclick="toggleDir()" style="color: var(--mds-color-text-inverse);">
+            🌐 LTR / RTL
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="mds-container mds-container--lg" style="padding-block: var(--mds-space-8);">
+    <div class="mds-workflow-sandbox">
+
+      <!-- ================================================================== -->
+      <!-- 1. WORKFLOW: Form-Submission (MDS-WF-001)                          -->
+      <!-- ================================================================== -->
+      <section class="mds-workflow-card" id="wf-form">
+        <div class="mds-workflow-header">
+          <div class="mds-stack mds-stack--gap-2xs">
+            <span class="mds-caption" style="color: var(--mds-color-brand-600); font-weight: 700;">WORKFLOW 1 • FORMS & MUTATION</span>
+            <h2 class="mds-heading mds-heading--size-md" style="margin: 0;">نموذج إرسال البيانات (Form-Submission)</h2>
+          </div>
+          <div id="form-fsm-badge" class="mds-fsm-badge mds-fsm-badge--idle">STATE: IDLE</div>
+        </div>
+
+        <!-- Stepper -->
+        <div class="mds-stepper">
+          <div class="mds-stepper-step mds-stepper-step--current" id="step-form-1">
+            <div class="mds-stepper-dot">1</div>
+            <span>إدخال البيانات</span>
+          </div>
+          <div class="mds-stepper-separator"></div>
+          <div class="mds-stepper-step" id="step-form-2">
+            <div class="mds-stepper-dot">2</div>
+            <span>التحقق والمعالجة</span>
+          </div>
+          <div class="mds-stepper-separator"></div>
+          <div class="mds-stepper-step" id="step-form-3">
+            <div class="mds-stepper-dot">3</div>
+            <span>النتيجة والإنهاء</span>
+          </div>
+        </div>
+
+        <!-- Interactive Stage -->
+        <div class="mds-stage-container" id="form-stage">
+          <div id="form-error-banner" class="mds-workflow-alert mds-workflow-alert--error" style="display: none;">
+            <div class="mds-inline mds-inline--gap-xs mds-inline--align-center">
+              <span>⚠️</span>
+              <span id="form-error-text" class="mds-text mds-text--size-sm">فشل الاتصال بالخادم. تم حفظ بياناتك المدخلة بالكامل.</span>
+            </div>
+            <button class="mds-button mds-button--secondary mds-button--sm mds-focus-ring" onclick="retryFormSubmission()">
+              🔄 إعادة المحاولة
+            </button>
+          </div>
+
+          <div id="form-success-banner" class="mds-workflow-alert mds-workflow-alert--success" style="display: none;">
+            <div class="mds-inline mds-inline--gap-xs mds-inline--align-center">
+              <span>✅</span>
+              <span class="mds-text mds-text--size-sm">تم إرسال وحفظ النموذج بنجاح تام!</span>
+            </div>
+            <button class="mds-button mds-button--ghost mds-button--sm mds-focus-ring" onclick="resetFormWorkflow()">
+              إرسال سجل جديد
+            </button>
+          </div>
+
+          <form id="sample-form" onsubmit="handleFormSubmit(event)" class="mds-stack mds-stack--gap-4" novalidate>
+            <div class="mds-field-group">
+              <label class="mds-field-label" for="user-name">اسم المستخدم *</label>
+              <input type="text" id="user-name" class="mds-input mds-focus-ring" placeholder="مثال: محمد خالد" required>
+              <span class="mds-field-error" id="user-name-error" style="display: none;">حقل الاسم مطلوب.</span>
+            </div>
+
+            <div class="mds-field-group">
+              <label class="mds-field-label" for="user-email">البريد الإلكتروني *</label>
+              <input type="email" id="user-email" class="mds-input mds-focus-ring" placeholder="name@company.com" required>
+              <span class="mds-field-error" id="user-email-error" style="display: none;">البريد الإلكتروني غير صحيح.</span>
+            </div>
+
+            <div class="mds-inline mds-inline--justify-between mds-inline--align-center" style="margin-top: var(--mds-space-2);">
+              <label class="mds-inline mds-inline--gap-xs mds-inline--align-center" style="font-size: var(--mds-font-size-xs); color: var(--mds-color-text-secondary);">
+                <input type="checkbox" id="simulate-form-failure"> محاكاة فشل الشبكة للاختبار
+              </label>
+
+              <div class="mds-inline mds-inline--gap-sm">
+                <button type="button" class="mds-button mds-button--secondary mds-focus-ring" onclick="resetFormWorkflow()">
+                  إلغاء
+                </button>
+                <button type="submit" id="form-submit-btn" class="mds-button mds-button--primary mds-focus-ring">
+                  <span id="form-btn-text">إرسال النموذج</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 2. WORKFLOW: Search & Discovery (MDS-WF-002)                       -->
+      <!-- ================================================================== -->
+      <section class="mds-workflow-card" id="wf-search">
+        <div class="mds-workflow-header">
+          <div class="mds-stack mds-stack--gap-2xs">
+            <span class="mds-caption" style="color: var(--mds-color-brand-600); font-weight: 700;">WORKFLOW 2 • SEARCH & FILTERING</span>
+            <h2 class="mds-heading mds-heading--size-md" style="margin: 0;">البحث والاستكشاف المفلتر (Search-Discovery)</h2>
+          </div>
+          <div id="search-fsm-badge" class="mds-fsm-badge mds-fsm-badge--idle">STATE: IDLE</div>
+        </div>
+
+        <div class="mds-stage-container">
+          <div class="mds-inline mds-inline--gap-sm mds-inline--align-center" style="width: 100%;">
+            <input type="text" id="search-query-input" class="mds-input mds-focus-ring" placeholder="ابحث في سجلات النظام (اكتب 'فارغ' لتجربة Empty State)..." oninput="handleSearchDebounced(this.value)" style="flex: 1;">
+            <button class="mds-button mds-button--secondary mds-focus-ring" onclick="clearSearchWorkflow()">
+              مسح
+            </button>
+          </div>
+
+          <!-- Active Filter Pills -->
+          <div class="mds-inline mds-inline--gap-xs mds-inline--align-center" id="search-filter-pills">
+            <span class="mds-text mds-text--size-xs" style="color: var(--mds-color-text-secondary);">التصنيف:</span>
+            <button class="mds-badge mds-badge--primary mds-focus-ring" onclick="toggleSearchFilter('all')" id="filter-all">الكل</button>
+            <button class="mds-badge mds-badge--neutral mds-focus-ring" onclick="toggleSearchFilter('active')" id="filter-active">نشط</button>
+            <button class="mds-badge mds-badge--neutral mds-focus-ring" onclick="toggleSearchFilter('archived')" id="filter-archived">مؤرشف</button>
+          </div>
+
+          <!-- Results Container -->
+          <div id="search-results-area" class="mds-stack mds-stack--gap-3">
+            <div class="mds-entity-card">
+              <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+                <span class="mds-text mds-text--weight-bold">مشروع: البنية التحتية الأساسية</span>
+                <span class="mds-badge mds-badge--success">نشط</span>
+              </div>
+              <p class="mds-text mds-text--size-sm" style="margin: 0; color: var(--mds-color-text-secondary);">
+                تطبيق محركات الـ Workflows والـ Primitives المعتمدة لعام 2026.
+              </p>
+            </div>
+            <div class="mds-entity-card">
+              <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+                <span class="mds-text mds-text--weight-bold">مشروع: تدقيق معايير الوصول (A11y)</span>
+                <span class="mds-badge mds-badge--success">نشط</span>
+              </div>
+              <p class="mds-text mds-text--size-sm" style="margin: 0; color: var(--mds-color-text-secondary);">
+                اختبار مؤشرات التركيز وتسلسل التبويب ودعم قارئات الشاشة.
+              </p>
+            </div>
+          </div>
+
+          <!-- Empty State (Hidden initially) -->
+          <div id="search-empty-state" class="mds-empty-state" style="display: none;">
+            <div class="mds-empty-state-icon">🔍</div>
+            <h3 class="mds-heading mds-heading--size-sm" style="margin: 0;">لا توجد نتائج مطابقة</h3>
+            <p class="mds-text mds-text--size-sm" style="color: var(--mds-color-text-secondary); margin: 0;">
+              لم نتمكن من العثور على أي عناصر تطابق معايير البحث الحالية.
+            </p>
+            <button class="mds-button mds-button--secondary mds-button--sm mds-focus-ring" onclick="clearSearchWorkflow()">
+              إعادة تعيين المرشحات والبحث
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 3. WORKFLOW: Destructive Action (MDS-WF-003)                      -->
+      <!-- ================================================================== -->
+      <section class="mds-workflow-card" id="wf-destructive">
+        <div class="mds-workflow-header">
+          <div class="mds-stack mds-stack--gap-2xs">
+            <span class="mds-caption" style="color: var(--mds-color-feedback-error); font-weight: 700;">WORKFLOW 3 • HIGH-CONSEQUENCE ACTIONS</span>
+            <h2 class="mds-heading mds-heading--size-md" style="margin: 0;">الإجراء التدميري عالي الخطورة (Destructive-Action)</h2>
+          </div>
+          <div id="delete-fsm-badge" class="mds-fsm-badge mds-fsm-badge--idle">STATE: IDLE</div>
+        </div>
+
+        <div class="mds-stage-container">
+          <div class="mds-entity-card" id="target-resource-card">
+            <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+              <div>
+                <div class="mds-text mds-text--weight-bold">قاعدة بيانات الإنتاج: `production-cluster-01`</div>
+                <div class="mds-caption" style="color: var(--mds-color-text-secondary);">تحتوي على 14 جدولاً نشطاً • آخر نسخ احتياطي قبل ساعتين</div>
+              </div>
+              <button id="delete-trigger-btn" class="mds-button mds-button--danger mds-focus-ring" onclick="openDeleteModal()">
+                🗑️ حذف نهائي
+              </button>
+            </div>
+          </div>
+
+          <div id="delete-deleted-banner" class="mds-workflow-alert mds-workflow-alert--warning" style="display: none;">
+            <span>تم حذف المورد بنجاح من النظام.</span>
+            <button class="mds-button mds-button--ghost mds-button--sm mds-focus-ring" onclick="restoreTargetResource()">
+              تراجع (Undo)
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 4. WORKFLOW: Settings & Preferences (MDS-WF-004)                   -->
+      <!-- ================================================================== -->
+      <section class="mds-workflow-card" id="wf-settings">
+        <div class="mds-workflow-header">
+          <div class="mds-stack mds-stack--gap-2xs">
+            <span class="mds-caption" style="color: var(--mds-color-brand-600); font-weight: 700;">WORKFLOW 4 • PREFERENCES & MUTATION</span>
+            <h2 class="mds-heading mds-heading--size-md" style="margin: 0;">تحديث التفضيلات والإعدادات (Settings-Update)</h2>
+          </div>
+          <div id="settings-fsm-badge" class="mds-fsm-badge mds-fsm-badge--idle">STATE: IDLE</div>
+        </div>
+
+        <div class="mds-stage-container">
+          <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+            <div>
+              <div class="mds-text mds-text--weight-bold">الحفظ التلقائي الفوري (Autosave Switch)</div>
+              <div class="mds-caption" style="color: var(--mds-color-text-secondary);">حفظ التغييرات في الخلفية مع إشعار حالة متكيف</div>
+            </div>
+            <div class="mds-inline mds-inline--gap-xs mds-inline--align-center">
+              <span id="autosave-status-indicator" class="mds-caption" style="color: var(--mds-color-text-muted);">محفوظ</span>
+              <input type="checkbox" id="autosave-toggle" onchange="handleAutosaveToggle(this.checked)" checked style="width: 20px; height: 20px; cursor: pointer;">
+            </div>
+          </div>
+
+          <hr style="border: 0; border-top: var(--mds-border-width-thin) solid var(--mds-color-border-subtle); margin: 0;">
+
+          <div>
+            <div class="mds-text mds-text--weight-bold" style="margin-bottom: var(--mds-space-2);">الحفظ الدفعي للمجموعة (Batched Settings)</div>
+            <div class="mds-stack mds-stack--gap-2">
+              <input type="text" id="settings-project-name" class="mds-input mds-focus-ring" value="Master Design System" oninput="handleSettingsInput()">
+              <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+                <span id="settings-dirty-status" class="mds-caption" style="color: var(--mds-color-text-muted);">لا توجد تعديلات غير محفوظة</span>
+                <button id="settings-save-btn" class="mds-button mds-button--primary mds-focus-ring" onclick="saveBatchedSettings()" disabled>
+                  حفظ التعديلات
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 5. WORKFLOW: AI Synthesis & Review (MDS-WF-005)                   -->
+      <!-- ================================================================== -->
+      <section class="mds-workflow-card" id="wf-ai">
+        <div class="mds-workflow-header">
+          <div class="mds-stack mds-stack--gap-2xs">
+            <span class="mds-caption" style="color: var(--mds-color-brand-600); font-weight: 700;">WORKFLOW 5 • GENERATIVE AI & HUMAN REVIEW</span>
+            <h2 class="mds-heading mds-heading--size-md" style="margin: 0;">التوليد والمراجعة البشرية (AI-Synthesis-Review)</h2>
+          </div>
+          <div id="ai-fsm-badge" class="mds-fsm-badge mds-fsm-badge--idle">STATE: IDLE</div>
+        </div>
+
+        <div class="mds-stage-container">
+          <div class="mds-stack mds-stack--gap-2">
+            <label class="mds-field-label" for="ai-prompt-input">صياغة الأمر (Prompt Formulation)</label>
+            <textarea id="ai-prompt-input" class="mds-textarea mds-focus-ring" rows="2" placeholder="اطلب من النموذج توليد تقرير تدقيق معماري...">قم بتلخيص مبادئ الطبقة 06 للـ Workflows في نظام MDS</textarea>
+            <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+              <span class="mds-caption" style="color: var(--mds-color-text-secondary);">المراجعة البشرية مطلوبة دائماً قبل الحفظ النهائي</span>
+              <div class="mds-inline mds-inline--gap-xs">
+                <button id="ai-stop-btn" class="mds-button mds-button--secondary mds-focus-ring" onclick="stopAISynthesis()" style="display: none;">
+                  ⏹️ إيقاف التوليد
+                </button>
+                <button id="ai-generate-btn" class="mds-button mds-button--primary mds-focus-ring" onclick="startAISynthesis()">
+                  ✨ بدء التوليد الحي
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Stream Output Area -->
+          <div id="ai-review-panel" class="mds-stack mds-stack--gap-3" style="display: none;">
+            <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+              <span class="mds-caption" style="font-weight: 700; color: var(--mds-color-brand-600);">مخرجات الذكاء الاصطناعي (مسودة قابلة للمراجعة)</span>
+              <div class="mds-inline mds-inline--gap-2xs">
+                <span class="mds-badge mds-badge--neutral">مرجع: WDR-008</span>
+                <span class="mds-badge mds-badge--neutral">ثقة: 98%</span>
+              </div>
+            </div>
+
+            <div id="ai-stream-content" class="mds-stream-box" role="region" aria-live="polite"></div>
+
+            <div class="mds-inline mds-inline--justify-between mds-inline--align-center" id="ai-review-actions" style="display: none;">
+              <button class="mds-button mds-button--ghost mds-button--sm mds-focus-ring" onclick="discardAISynthesis()">
+                تجاهل المسودة
+              </button>
+              <button class="mds-button mds-button--primary mds-button--sm mds-focus-ring" onclick="acceptAISynthesis()">
+                اعتماد وتطبيق المخرجات
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================================================================== -->
+      <!-- 6. WORKFLOW: Error Recovery & Retry (MDS-WF-006)                  -->
+      <!-- ================================================================== -->
+      <section class="mds-workflow-card" id="wf-recovery">
+        <div class="mds-workflow-header">
+          <div class="mds-stack mds-stack--gap-2xs">
+            <span class="mds-caption" style="color: var(--mds-color-feedback-warning); font-weight: 700;">WORKFLOW 6 • RESILIENCE & INTERCEPTION</span>
+            <h2 class="mds-heading mds-heading--size-md" style="margin: 0;">اعتراض الأخطاء والتعافي (Error-Recovery)</h2>
+          </div>
+          <div id="recovery-fsm-badge" class="mds-fsm-badge mds-fsm-badge--idle">STATE: IDLE</div>
+        </div>
+
+        <div class="mds-stage-container">
+          <p class="mds-text mds-text--size-sm" style="margin: 0; color: var(--mds-color-text-secondary);">
+            يوضح هذا الاختبار كيف يعترض نظام MDS الأخطاء دون فقدان بيانات المستخدم، مع إتاحة إعادة المحاولة فورياً.
+          </p>
+
+          <div id="recovery-alert" class="mds-workflow-alert mds-workflow-alert--error" style="display: none;">
+            <div class="mds-stack mds-stack--gap-2xs">
+              <div class="mds-inline mds-inline--gap-xs mds-inline--align-center">
+                <span>🚫</span>
+                <span class="mds-text mds-text--size-sm mds-text--weight-bold">انقطاع في الشبكة (HTTP 504 Gateway Timeout)</span>
+              </div>
+              <div class="mds-caption" style="color: var(--mds-color-text-secondary);" id="recovery-cached-payload-info">
+                تم حفظ حمولة البيانات (Payload) في الذاكرة المؤقتة. محاولة رقم: <span id="recovery-attempt-count">1</span>
+              </div>
+            </div>
+            <div class="mds-inline mds-inline--gap-xs">
+              <button class="mds-button mds-button--ghost mds-button--sm mds-focus-ring" onclick="dismissRecoveryAlert()">
+                إغلاق
+              </button>
+              <button id="recovery-retry-btn" class="mds-button mds-button--secondary mds-button--sm mds-focus-ring" onclick="executeRecoveryRetry()">
+                🔄 إعادة المحاولة الآن
+              </button>
+            </div>
+          </div>
+
+          <div class="mds-inline mds-inline--gap-sm">
+            <button class="mds-button mds-button--secondary mds-focus-ring" onclick="simulateRecoveryFailure()">
+              محاكاة اعتراض خطأ شبكي
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ====================================================================== -->
+  <!-- MODAL: Destructive Action High-Friction Confirmation                   -->
+  <!-- ====================================================================== -->
+  <div class="mds-modal-scrim" id="delete-modal-scrim" role="dialog" aria-modal="true" aria-labelledby="modal-delete-title">
+    <div class="mds-modal-surface">
+      <div class="mds-inline mds-inline--justify-between mds-inline--align-center">
+        <h3 id="modal-delete-title" class="mds-heading mds-heading--size-sm" style="margin: 0; color: var(--mds-color-feedback-error);">
+          تأكيد الحذف النهائي
+        </h3>
+        <button class="mds-button mds-button--ghost mds-button--sm mds-focus-ring" onclick="closeDeleteModal()" aria-label="إغلاق">✕</button>
+      </div>
+      
+      <p class="mds-text mds-text--size-sm" style="margin: 0; color: var(--mds-color-text-secondary);">
+        أنت على وشك حذف قاعدة البيانات <strong>`production-cluster-01`</strong> نهائياً. هذا الإجراء لا يمكن التراجع عنه.
+      </p>
+
+      <div class="mds-field-group">
+        <label class="mds-field-label" for="delete-confirm-input">
+          يرجى كتابة اسم المورد للتأكيد: <strong>production-cluster-01</strong>
+        </label>
+        <input type="text" id="delete-confirm-input" class="mds-input mds-focus-ring" oninput="handleDeleteChallengeInput(this.value)" placeholder="production-cluster-01">
+      </div>
+
+      <div class="mds-inline mds-inline--justify-between mds-inline--align-center" style="margin-top: var(--mds-space-2);">
+        <button id="modal-cancel-btn" class="mds-button mds-button--secondary mds-focus-ring" onclick="closeDeleteModal()">
+          إلغاء الأمر
+        </button>
+        <button id="modal-confirm-delete-btn" class="mds-button mds-button--danger mds-focus-ring" onclick="executeDestructiveAction()" disabled>
+          تأكيد الحذف النهائي
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ====================================================================== -->
+  <!-- Interactive State Machine JavaScript Controller                        -->
+  <!-- ====================================================================== -->
+  <script>
+    // Theme & Direction Helpers
+    function toggleTheme() {
+      const isDark = document.documentElement.classList.toggle('dark');
+      if (isDark) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    }
+
+    function toggleDir() {
+      const current = document.documentElement.getAttribute('dir');
+      const next = current === 'rtl' ? 'ltr' : 'rtl';
+      document.documentElement.setAttribute('dir', next);
+      document.documentElement.setAttribute('lang', next === 'rtl' ? 'ar' : 'en');
+    }
+
+    // --- WORKFLOW 1: Form-Submission ---
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('user-name').value.trim();
+      const email = document.getElementById('user-email').value.trim();
+      const shouldFail = document.getElementById('simulate-form-failure').checked;
+
+      // 1. Client Validation
+      let hasError = false;
+      if (!name) {
+        document.getElementById('user-name-error').style.display = 'block';
+        document.getElementById('user-name').classList.add('mds-field-input--error');
+        hasError = true;
+      } else {
+        document.getElementById('user-name-error').style.display = 'none';
+        document.getElementById('user-name').classList.remove('mds-field-input--error');
+      }
+
+      if (!email || !email.includes('@')) {
+        document.getElementById('user-email-error').style.display = 'block';
+        document.getElementById('user-email').classList.add('mds-field-input--error');
+        hasError = true;
+      } else {
+        document.getElementById('user-email-error').style.display = 'none';
+        document.getElementById('user-email').classList.remove('mds-field-input--error');
+      }
+
+      if (hasError) {
+        updateFSM('form', 'ERROR', 'error');
+        return;
+      }
+
+      // 2. Processing State
+      updateFSM('form', 'PROCESSING', 'processing');
+      document.getElementById('step-form-1').className = 'mds-stepper-step mds-stepper-step--completed';
+      document.getElementById('step-form-2').className = 'mds-stepper-step mds-stepper-step--current';
+      document.getElementById('form-submit-btn').disabled = true;
+      document.getElementById('form-btn-text').textContent = 'جارٍ الإرسال...';
+      document.getElementById('form-error-banner').style.display = 'none';
+      document.getElementById('form-success-banner').style.display = 'none';
+
+      // 3. Simulated Async Network
+      setTimeout(() => {
+        document.getElementById('form-submit-btn').disabled = false;
+        document.getElementById('form-btn-text').textContent = 'إرسال النموذج';
+
+        if (shouldFail) {
+          // Failure with State Retention
+          updateFSM('form', 'ERROR_INTERCEPTED', 'error');
+          document.getElementById('form-error-banner').style.display = 'flex';
+          document.getElementById('step-form-2').className = 'mds-stepper-step';
+        } else {
+          // Success
+          updateFSM('form', 'SUCCESS_RESOLVED', 'success');
+          document.getElementById('form-success-banner').style.display = 'flex';
+          document.getElementById('step-form-2').className = 'mds-stepper-step mds-stepper-step--completed';
+          document.getElementById('step-form-3').className = 'mds-stepper-step mds-stepper-step--completed';
+        }
+      }, 700);
+    }
+
+    function retryFormSubmission() {
+      document.getElementById('simulate-form-failure').checked = false;
+      document.getElementById('sample-form').dispatchEvent(new Event('submit'));
+    }
+
+    function resetFormWorkflow() {
+      document.getElementById('sample-form').reset();
+      document.getElementById('form-error-banner').style.display = 'none';
+      document.getElementById('form-success-banner').style.display = 'none';
+      document.getElementById('step-form-1').className = 'mds-stepper-step mds-stepper-step--current';
+      document.getElementById('step-form-2').className = 'mds-stepper-step';
+      document.getElementById('step-form-3').className = 'mds-stepper-step';
+      updateFSM('form', 'IDLE', 'idle');
+    }
+
+    // --- WORKFLOW 2: Search & Discovery ---
+    let searchTimeout = null;
+    function handleSearchDebounced(val) {
+      updateFSM('search', 'DEBOUNCING', 'active');
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(() => {
+        updateFSM('search', 'PROCESSING', 'processing');
+        setTimeout(() => {
+          if (val.trim() === 'فارغ' || val.trim() === 'empty') {
+            document.getElementById('search-results-area').style.display = 'none';
+            document.getElementById('search-empty-state').style.display = 'flex';
+            updateFSM('search', 'EMPTY_STATE', 'idle');
+          } else {
+            document.getElementById('search-results-area').style.display = 'flex';
+            document.getElementById('search-empty-state').style.display = 'none';
+            updateFSM('search', 'SUCCESS_RESOLVED', 'success');
+          }
+        }, 300);
+      }, 300);
+    }
+
+    function clearSearchWorkflow() {
+      document.getElementById('search-query-input').value = '';
+      document.getElementById('search-results-area').style.display = 'flex';
+      document.getElementById('search-empty-state').style.display = 'none';
+      updateFSM('search', 'IDLE', 'idle');
+    }
+
+    function toggleSearchFilter(type) {
+      ['all', 'active', 'archived'].forEach(t => {
+        const el = document.getElementById('filter-' + t);
+        el.className = t === type ? 'mds-badge mds-badge--primary mds-focus-ring' : 'mds-badge mds-badge--neutral mds-focus-ring';
+      });
+      handleSearchDebounced(document.getElementById('search-query-input').value);
+    }
+
+    // --- WORKFLOW 3: Destructive Action ---
+    let lastTriggerEl = null;
+    function openDeleteModal() {
+      lastTriggerEl = document.getElementById('delete-trigger-btn');
+      updateFSM('delete', 'CONFIRMING', 'confirming');
+      const scrim = document.getElementById('delete-modal-scrim');
+      scrim.classList.add('is-open');
+      document.getElementById('delete-confirm-input').value = '';
+      document.getElementById('modal-confirm-delete-btn').disabled = true;
+      // Focus safety: focus Cancel button, never destructive Delete
+      setTimeout(() => document.getElementById('modal-cancel-btn').focus(), 50);
+    }
+
+    function closeDeleteModal() {
+      document.getElementById('delete-modal-scrim').classList.remove('is-open');
+      updateFSM('delete', 'IDLE', 'idle');
+      if (lastTriggerEl) lastTriggerEl.focus();
+    }
+
+    function handleDeleteChallengeInput(val) {
+      const isValid = val.trim() === 'production-cluster-01';
+      document.getElementById('modal-confirm-delete-btn').disabled = !isValid;
+    }
+
+    function executeDestructiveAction() {
+      updateFSM('delete', 'PROCESSING', 'processing');
+      document.getElementById('modal-confirm-delete-btn').disabled = true;
+      document.getElementById('modal-confirm-delete-btn').textContent = 'جارٍ الحذف...';
+
+      setTimeout(() => {
+        closeDeleteModal();
+        document.getElementById('modal-confirm-delete-btn').textContent = 'تأكيد الحذف النهائي';
+        document.getElementById('target-resource-card').style.display = 'none';
+        document.getElementById('delete-deleted-banner').style.display = 'flex';
+        updateFSM('delete', 'SUCCESS_RESOLVED', 'success');
+      }, 500);
+    }
+
+    function restoreTargetResource() {
+      document.getElementById('target-resource-card').style.display = 'flex';
+      document.getElementById('delete-deleted-banner').style.display = 'none';
+      updateFSM('delete', 'IDLE', 'idle');
+    }
+
+    // --- WORKFLOW 4: Settings Update ---
+    function handleAutosaveToggle(checked) {
+      updateFSM('settings', 'PROCESSING', 'processing');
+      const indicator = document.getElementById('autosave-status-indicator');
+      indicator.textContent = 'جارٍ الحفظ...';
+      indicator.style.color = 'var(--mds-color-brand-600)';
+
+      setTimeout(() => {
+        indicator.textContent = 'تم الحفظ ✅';
+        indicator.style.color = 'var(--mds-color-feedback-success)';
+        updateFSM('settings', 'SUCCESS_RESOLVED', 'success');
+        setTimeout(() => {
+          indicator.textContent = 'محفوظ';
+          indicator.style.color = 'var(--mds-color-text-muted)';
+        }, 2000);
+      }, 400);
+    }
+
+    function handleSettingsInput() {
+      updateFSM('settings', 'DIRTY_EDITING', 'active');
+      document.getElementById('settings-save-btn').disabled = false;
+      document.getElementById('settings-dirty-status').textContent = 'يوجد تعديل غير محفوظ';
+      document.getElementById('settings-dirty-status').style.color = 'var(--mds-color-feedback-warning)';
+    }
+
+    function saveBatchedSettings() {
+      updateFSM('settings', 'PROCESSING', 'processing');
+      document.getElementById('settings-save-btn').disabled = true;
+      document.getElementById('settings-save-btn').textContent = 'جارٍ الحفظ...';
+
+      setTimeout(() => {
+        document.getElementById('settings-save-btn').textContent = 'حفظ التعديلات';
+        document.getElementById('settings-dirty-status').textContent = 'تم حفظ كافة التعديلات ✅';
+        document.getElementById('settings-dirty-status').style.color = 'var(--mds-color-feedback-success)';
+        updateFSM('settings', 'SUCCESS_RESOLVED', 'success');
+      }, 500);
+    }
+
+    // --- WORKFLOW 5: AI Synthesis & Review ---
+    let aiStreamInterval = null;
+    const aiSampleTokens = [
+      'تعتمد ', 'الطبقة 06 ', 'في نظام ', 'Master Design System (MDS) ',
+      'على بنية ', 'الآلة ذات الحالات المحدودة (FSM). ',
+      'الهدف الأساسي ', 'هو ضمان حماية بيانات المستخدم وعدم فقدانها ',
+      'عند وقوع أي خلل شبكي، ', 'مع توفير مسارات استرجاع صريحة ',
+      'وحوكمة دقيقة للمراجعة البشرية ', 'قبل اعتماد أي قرار توليدي.'
+    ];
+
+    function startAISynthesis() {
+      updateFSM('ai', 'STREAMING', 'streaming');
+      document.getElementById('ai-generate-btn').style.display = 'none';
+      document.getElementById('ai-stop-btn').style.display = 'inline-flex';
+      document.getElementById('ai-review-panel').style.display = 'flex';
+      document.getElementById('ai-review-actions').style.display = 'none';
+      
+      const streamEl = document.getElementById('ai-stream-content');
+      streamEl.innerHTML = '<span class="mds-stream-cursor"></span>';
+      let idx = 0;
+
+      clearInterval(aiStreamInterval);
+      aiStreamInterval = setInterval(() => {
+        if (idx < aiSampleTokens.length) {
+          const cursor = streamEl.querySelector('.mds-stream-cursor');
+          if (cursor) cursor.remove();
+          streamEl.textContent += aiSampleTokens[idx];
+          streamEl.innerHTML += '<span class="mds-stream-cursor"></span>';
+          idx++;
+        } else {
+          stopAISynthesis(true);
+        }
+      }, 120);
+    }
+
+    function stopAISynthesis(isCompleted = false) {
+      clearInterval(aiStreamInterval);
+      const streamEl = document.getElementById('ai-stream-content');
+      const cursor = streamEl.querySelector('.mds-stream-cursor');
+      if (cursor) cursor.remove();
+
+      document.getElementById('ai-generate-btn').style.display = 'inline-flex';
+      document.getElementById('ai-stop-btn').style.display = 'none';
+      document.getElementById('ai-review-actions').style.display = 'flex';
+      updateFSM('ai', 'HUMAN_REVIEW', 'active');
+    }
+
+    function acceptAISynthesis() {
+      updateFSM('ai', 'SUCCESS_RESOLVED', 'success');
+      alert('تم اعتماد مخرجات الذكاء الاصطناعي وتطبيقها على وثيقة النظام بنجاح.');
+      discardAISynthesis();
+    }
+
+    function discardAISynthesis() {
+      clearInterval(aiStreamInterval);
+      document.getElementById('ai-review-panel').style.display = 'none';
+      document.getElementById('ai-stream-content').textContent = '';
+      document.getElementById('ai-generate-btn').style.display = 'inline-flex';
+      document.getElementById('ai-stop-btn').style.display = 'none';
+      updateFSM('ai', 'IDLE', 'idle');
+    }
+
+    // --- WORKFLOW 6: Error Recovery ---
+    let recoveryAttempts = 0;
+    function simulateRecoveryFailure() {
+      recoveryAttempts = 1;
+      document.getElementById('recovery-attempt-count').textContent = recoveryAttempts;
+      document.getElementById('recovery-alert').style.display = 'flex';
+      updateFSM('recovery', 'ERROR_INTERCEPTED', 'error');
+    }
+
+    function executeRecoveryRetry() {
+      updateFSM('recovery', 'PROCESSING', 'processing');
+      const btn = document.getElementById('recovery-retry-btn');
+      btn.disabled = true;
+      btn.textContent = 'جارٍ إعادة المحاولة...';
+
+      setTimeout(() => {
+        btn.disabled = false;
+        btn.textContent = '🔄 إعادة المحاولة الآن';
+        document.getElementById('recovery-alert').className = 'mds-workflow-alert mds-workflow-alert--success';
+        document.getElementById('recovery-alert').innerHTML = '<span>تمت إعادة الاتصال وحفظ البيانات بنجاح تام! ✅</span>';
+        updateFSM('recovery', 'SUCCESS_RESOLVED', 'success');
+
+        setTimeout(() => {
+          dismissRecoveryAlert();
+        }, 2000);
+      }, 600);
+    }
+
+    function dismissRecoveryAlert() {
+      document.getElementById('recovery-alert').style.display = 'none';
+      document.getElementById('recovery-alert').className = 'mds-workflow-alert mds-workflow-alert--error';
+      updateFSM('recovery', 'IDLE', 'idle');
+    }
+
+    // Global FSM Status Updater
+    function updateFSM(system, stateName, badgeClass) {
+      const badge = document.getElementById(system + '-fsm-badge');
+      if (badge) {
+        badge.textContent = 'STATE: ' + stateName;
+        badge.className = 'mds-fsm-badge mds-fsm-badge--' + badgeClass;
+      }
+    }
+  </script>
+</body>
+</html>

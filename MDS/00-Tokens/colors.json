@@ -1,0 +1,152 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "mds-colors",
+  "version": "1.0.0",
+  "palettes": {
+    "brand": {
+      "50": "#EFF6FF",
+      "100": "#DBEAFE",
+      "200": "#BFDBFE",
+      "300": "#93C5FD",
+      "400": "#60A5FA",
+      "500": "#3B82F6",
+      "600": "#2563EB",
+      "700": "#1D4ED8",
+      "800": "#1E40AF",
+      "900": "#1E3A8A",
+      "950": "#172554"
+    },
+    "neutral": {
+      "0": "#FFFFFF",
+      "50": "#F8FAFC",
+      "100": "#F1F5F9",
+      "200": "#E2E8F0",
+      "300": "#CBD5E1",
+      "400": "#94A3B8",
+      "500": "#64748B",
+      "600": "#475569",
+      "700": "#334155",
+      "800": "#1E293B",
+      "900": "#0F172A",
+      "950": "#090D16",
+      "1000": "#000000"
+    },
+    "red": {
+      "50": "#FEF2F2",
+      "200": "#FECACA",
+      "500": "#EF4444",
+      "600": "#DC2626",
+      "700": "#B91C1C"
+    },
+    "green": {
+      "50": "#ECFDF5",
+      "200": "#A7F3D0",
+      "500": "#10B981",
+      "600": "#059669"
+    },
+    "amber": {
+      "50": "#FFFBEB",
+      "200": "#FDE68A",
+      "500": "#F59E0B",
+      "600": "#D97706"
+    },
+    "blue": {
+      "50": "#F0F9FF",
+      "200": "#BAE6FD",
+      "500": "#0EA5E9",
+      "600": "#0284C7"
+    }
+  },
+  "semantics": {
+    "light": {
+      "text": {
+        "primary": "#0F172A",
+        "secondary": "#64748B",
+        "inverse": "#FFFFFF"
+      },
+      "surface": {
+        "canvas": "#F8FAFC",
+        "default": "#FFFFFF",
+        "raised": "#F1F5F9",
+        "overlay": "#FFFFFF"
+      },
+      "border": {
+        "subtle": "#E2E8F0",
+        "default": "#CBD5E1"
+      },
+      "action": {
+        "primary": {
+          "default": "#2563EB",
+          "hover": "#1D4ED8",
+          "pressed": "#1E40AF"
+        },
+        "destructive": {
+          "default": "#DC2626",
+          "hover": "#B91C1C"
+        },
+        "disabled": {
+          "background": "#F1F5F9",
+          "foreground": "#94A3B8"
+        }
+      },
+      "feedback": {
+        "danger": "#DC2626",
+        "warning": "#D97706",
+        "success": "#059669",
+        "info": "#0284C7"
+      },
+      "focus": {
+        "ring": "#2563EB"
+      }
+    },
+    "dark": {
+      "text": {
+        "primary": "#FFFFFF",
+        "secondary": "#94A3B8",
+        "inverse": "#0F172A"
+      },
+      "surface": {
+        "canvas": "#090D16",
+        "default": "#0F172A",
+        "raised": "#1E293B",
+        "overlay": "#334155"
+      },
+      "border": {
+        "subtle": "#1E293B",
+        "default": "#334155"
+      },
+      "action": {
+        "primary": {
+          "default": "#3B82F6",
+          "hover": "#60A5FA",
+          "pressed": "#1D4ED8"
+        },
+        "destructive": {
+          "default": "#EF4444",
+          "hover": "#F87171"
+        },
+        "disabled": {
+          "background": "#1E293B",
+          "foreground": "#64748B"
+        }
+      },
+      "feedback": {
+        "danger": "#EF4444",
+        "warning": "#F59E0B",
+        "success": "#10B981",
+        "info": "#0EA5E9"
+      },
+      "focus": {
+        "ring": "#60A5FA"
+      }
+    }
+  },
+  "contrast_ratios": {
+    "text_primary_on_canvas_light": 17.85,
+    "text_secondary_on_canvas_light": 4.76,
+    "text_primary_on_canvas_dark": 14.5,
+    "text_secondary_on_canvas_dark": 5.2,
+    "brand_600_on_white": 4.6,
+    "brand_700_on_white": 7.2
+  }
+}

@@ -1,0 +1,48 @@
+/**
+ * MDS (Master Design System) — Surface Primitives
+ * Architecture Layer: Layer 03 (Primitives / Surface)
+ * Cascade Layer: @layer mds.primitives
+ * Design Rule: Surface Depth Triad (Luminance > Subtle Border > Ambient Shadow)
+ */
+
+/* 1. Canvas Primitive (Base Viewport Plane) */
+.mds-canvas {
+  background-color: var(--mds-color-surface-canvas);
+  min-height: 100vh;
+}
+
+/* 2. Resting Surface Primitive */
+.mds-surface {
+  background-color: var(--mds-color-surface-default);
+  border-radius: var(--mds-radius-md);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+  padding: var(--mds-space-scale-4);
+  transition: box-shadow var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+}
+
+/* 3. Raised Surface (Level 1 Elevation) */
+.mds-surface--raised {
+  background-color: var(--mds-color-surface-raised);
+  box-shadow: var(--mds-elevation-level1);
+}
+
+/* 4. Floating Surface (Level 2 Elevation — Menus, Popovers, Autocomplete) */
+.mds-surface--floating {
+  background-color: var(--mds-color-surface-default);
+  box-shadow: var(--mds-elevation-level2);
+  border-radius: var(--mds-radius-lg);
+  z-index: var(--mds-layer-dropdown, 100);
+}
+
+/* 5. Overlay Surface (Level 3 Elevation — Modal Dialogs, Drawers) */
+.mds-surface--overlay {
+  background-color: var(--mds-color-surface-overlay);
+  box-shadow: var(--mds-elevation-level3);
+  border-radius: var(--mds-radius-xl);
+  z-index: var(--mds-layer-overlay, 1000);
+}
+
+/* Surface Padding Modifiers */
+.mds-surface--padding-sm { padding: var(--mds-space-scale-2); }
+.mds-surface--padding-md { padding: var(--mds-space-scale-4); }
+.mds-surface--padding-lg { padding: var(--mds-space-scale-6); }

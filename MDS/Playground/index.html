@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light" data-mode="light" data-preset="soft" data-density="comfortable">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS — Reference Runtime Laboratory | Phase 9.5</title>
+  
+  <!-- Multilingual Typography: Cairo & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- MDS Core Runtime Stylesheet (Layered: reset, tokens, foundations, primitives, components) -->
+  <link rel="stylesheet" href="../Runtime/css/mds-core.css">
+  
+  <!-- Playground Laboratory Stylesheet -->
+  <link rel="stylesheet" href="./playground.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Navigation Link -->
+  <a href="#main-content" class="mds-pg-skip-link">تخطي إلى المحتوى الرئيسي (Skip to Content)</a>
+
+  <!-- =========================================================================
+   * Header Toolbar & Global Runtime Controls
+   * ========================================================================= -->
+  <header class="mds-pg-header" role="banner">
+    <div class="mds-pg-brand">
+      <div class="mds-pg-brand-logo" aria-hidden="true">M</div>
+      <div>
+        <h1 class="mds-pg-brand-title">
+          Master Design System
+          <span class="mds-badge mds-badge--brand mds-badge--sm">Phase 9.5 Lab</span>
+        </h1>
+        <span class="mds-pg-brand-subtitle">مختبر بيئة التشغيل المرجعية الموحدة (Reference Runtime Laboratory)</span>
+      </div>
+    </div>
+
+    <!-- Global Control Toolbar -->
+    <div class="mds-pg-toolbar" role="toolbar" aria-label="أدوات التحكم الشاملة بالنظام (System Controls)">
+      
+      <!-- Theme Mode -->
+      <div class="mds-pg-control-group">
+        <label for="ctrl-theme" class="mds-pg-control-label">النمط (Theme):</label>
+        <select id="ctrl-theme" class="mds-pg-select" aria-label="اختيار نمط العرض">
+          <option value="light" selected>Light (فاتح)</option>
+          <option value="dark">Dark (داكن)</option>
+          <option value="high-contrast">High Contrast (عالي التباين)</option>
+        </select>
+      </div>
+
+      <!-- Visual Preset -->
+      <div class="mds-pg-control-group">
+        <label for="ctrl-preset" class="mds-pg-control-label">الطابع (Preset):</label>
+        <select id="ctrl-preset" class="mds-pg-select" aria-label="اختيار الطابع البصري">
+          <option value="soft" selected>Soft Modern (الافتراضي)</option>
+          <option value="refined">Refined Minimal (مقتضب)</option>
+          <option value="expressive">Expressive (تعبيري)</option>
+        </select>
+      </div>
+
+      <!-- Density Tier -->
+      <div class="mds-pg-control-group">
+        <label for="ctrl-density" class="mds-pg-control-label">الكثافة (Density):</label>
+        <select id="ctrl-density" class="mds-pg-select" aria-label="اختيار مستوى الكثافة">
+          <option value="comfortable" selected>Comfortable (40px)</option>
+          <option value="compact">Compact (32px)</option>
+          <option value="dense" disabled>Dense (28px) [Deferred]</option>
+        </select>
+      </div>
+
+      <!-- Direction -->
+      <div class="mds-pg-control-group">
+        <label for="ctrl-dir" class="mds-pg-control-label">الاتجاه (Dir):</label>
+        <select id="ctrl-dir" class="mds-pg-select" aria-label="تحديد اتجاه الواجهة">
+          <option value="rtl" selected>RTL (العربية)</option>
+          <option value="ltr">LTR (English)</option>
+        </select>
+      </div>
+
+      <!-- Reduced Motion Simulator -->
+      <div class="mds-pg-control-group">
+        <button type="button" id="ctrl-motion-toggle" class="mds-pg-btn-toggle" aria-pressed="false">
+          ⚡ خفض الحركة (Reduce Motion)
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- =========================================================================
+   * Application Layout Shell
+   * ========================================================================= -->
+  <div class="mds-pg-shell">
+
+    <!-- Sidebar Navigation -->
+    <nav class="mds-pg-sidebar" aria-label="أقسام المختبر (Laboratory Sections)">
+      
+      <p class="mds-pg-nav-group-title">نظرة عامة (Overview)</p>
+      <ul class="mds-pg-nav-list">
+        <li>
+          <a href="#overview" class="mds-pg-nav-link is-active" data-section="overview">
+            <span>🏛️ بنية النظام والملخص</span>
+            <span class="mds-pg-nav-count">9.5</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="mds-pg-nav-group-title">الأساسيات والطبقات (Foundations & Primitives)</p>
+      <ul class="mds-pg-nav-list">
+        <li>
+          <a href="#foundations" class="mds-pg-nav-link" data-section="foundations">
+            <span>🎨 الأساسيات (Foundations)</span>
+            <span class="mds-pg-nav-count">6</span>
+          </a>
+        </li>
+        <li>
+          <a href="#primitives" class="mds-pg-nav-link" data-section="primitives">
+            <span>🧱 اللبنات الأولية (Primitives)</span>
+            <span class="mds-pg-nav-count">18</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="mds-pg-nav-group-title">المكونات (Components Runtime)</p>
+      <ul class="mds-pg-nav-list">
+        <li>
+          <a href="#components" class="mds-pg-nav-link" data-section="components">
+            <span>🧩 الـ 19 مكوناً المعتمدة</span>
+            <span class="mds-pg-nav-count">19</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="mds-pg-nav-group-title">مختبرات السلوك (Specialized Labs)</p>
+      <ul class="mds-pg-nav-list">
+        <li>
+          <a href="#states" class="mds-pg-nav-link" data-section="states">
+            <span>🔄 مختبر الحالات (State Lab)</span>
+            <span class="mds-pg-nav-count">8</span>
+          </a>
+        </li>
+        <li>
+          <a href="#themes" class="mds-pg-nav-link" data-section="themes">
+            <span>🌓 مختبر السمات (Theme Lab)</span>
+            <span class="mds-pg-nav-count">3</span>
+          </a>
+        </li>
+        <li>
+          <a href="#density" class="mds-pg-nav-link" data-section="density">
+            <span>📏 مختبر الكثافة (Density Lab)</span>
+            <span class="mds-pg-nav-count">3</span>
+          </a>
+        </li>
+        <li>
+          <a href="#rtl" class="mds-pg-nav-link" data-section="rtl">
+            <span>↔️ مختبر الاتجاه (RTL Lab)</span>
+            <span class="mds-pg-nav-count">2</span>
+          </a>
+        </li>
+        <li>
+          <a href="#responsive" class="mds-pg-nav-link" data-section="responsive">
+            <span>📱 محاكي الشاشات (Responsive)</span>
+            <span class="mds-pg-nav-count">4</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="mds-pg-nav-group-title">أدوات الفحص والتحقق (Inspectors)</p>
+      <ul class="mds-pg-nav-list">
+        <li>
+          <a href="#tokens" class="mds-pg-nav-link" data-section="tokens">
+            <span>🔍 فاحص التوكنز (Token Inspector)</span>
+            <span class="mds-pg-nav-count">188</span>
+          </a>
+        </li>
+        <li>
+          <a href="#a11y" class="mds-pg-nav-link" data-section="a11y">
+            <span>♿ فاحص سهولة الوصول (A11y)</span>
+            <span class="mds-pg-nav-count">10</span>
+          </a>
+        </li>
+      </ul>
+
+    </nav>
+
+    <!-- Main Content Area -->
+    <main id="main-content" class="mds-pg-main" role="main">
+
+      <!-- =====================================================================
+       * SECTION 1: OVERVIEW
+       * ===================================================================== -->
+      <section id="sec-overview" class="mds-pg-section is-active" aria-labelledby="heading-overview">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-overview" class="mds-pg-section-title">نظرة عامة على مختبر بيئة التشغيل المرجعية (MDS Laboratory)</h2>
+          <p class="mds-pg-section-desc">
+            مختبر هندسي معزول ومغلق يعمل بمعايير الويب القياسية البحتة (HTML5 / Vanilla JS ES Modules / Native CSS Layers)، يستهلك نواة نظام MDS Runtime بشكل مباشر للتحقق من المكونات والأساسيات دون أي تعديل على النواة.
+          </p>
+        </header>
+
+        <!-- KPI Metrics Grid -->
+        <div class="mds-pg-grid" style="margin-block-end: var(--mds-space-block-lg);">
+          <div class="mds-card mds-card--raised">
+            <div class="mds-card__body">
+              <span class="mds-text mds-text--secondary">إجمالي التوكنز المعيارية</span>
+              <h3 class="mds-heading mds-heading--2xl" style="margin-block: var(--mds-space-block-xs); font-variant-numeric: tabular-nums;">188</h3>
+              <p class="mds-text mds-text--sm">18 ملف DTCG بدون تكرار أو تعارض ألياسز</p>
+            </div>
+          </div>
+          <div class="mds-card mds-card--raised">
+            <div class="mds-card__body">
+              <span class="mds-text mds-text--secondary">توكنز المكونات المعتمدة</span>
+              <h3 class="mds-heading mds-heading--2xl" style="margin-block: var(--mds-space-block-xs); font-variant-numeric: tabular-nums;">47 + 2</h3>
+              <p class="mds-text mds-text--sm">47 توكن رسمي + 2 Theme Overrides للـ Refined</p>
+            </div>
+          </div>
+          <div class="mds-card mds-card--raised">
+            <div class="mds-card__body">
+              <span class="mds-text mds-text--secondary">المكونات الأساسية المعتمدة</span>
+              <h3 class="mds-heading mds-heading--2xl" style="margin-block: var(--mds-space-block-xs); font-variant-numeric: tabular-nums;">19 / 19</h3>
+              <p class="mds-text mds-text--sm">صفر مكونات مؤجلة أو مسربة (0 Banned)</p>
+            </div>
+          </div>
+          <div class="mds-card mds-card--raised">
+            <div class="mds-card__body">
+              <span class="mds-text mds-text--secondary">حالة الاختبارات المؤتمتة</span>
+              <h3 class="mds-heading mds-heading--2xl" style="margin-block: var(--mds-space-block-xs); font-variant-numeric: tabular-nums; color: var(--mds-color-feedback-success);">143 / 143</h3>
+              <p class="mds-text mds-text--sm">نجاح بنسبة 100% مع 3 اختبارات مؤجلة للـ CI</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architecture Hierarchy Card -->
+        <div class="mds-card">
+          <div class="mds-card__header">
+            <h3 class="mds-heading mds-heading--md">تراتبية طبقات الـ CSS Cascade (@layer Order)</h3>
+          </div>
+          <div class="mds-card__body">
+            <pre class="mds-pg-token-code" style="padding: var(--mds-space-scale-4); overflow-x: auto; display: block; line-height: 1.8;">@layer mds.reset < mds.tokens < mds.foundations < mds.primitives < mds.components < mds.patterns < mds.templates < mds.overrides;</pre>
+            <p class="mds-text mds-text--sm" style="margin-block-start: var(--mds-space-block-sm);">
+              المختبر يعمل بالكامل ضمن طبقة <code class="mds-pg-token-code">mds.overrides</code> ليضمن احترام كافة القواعد الصارمة لطبقة المكونات واللبنات الأولية دون كسر التغليف.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 2: FOUNDATIONS
+       * ===================================================================== -->
+      <section id="sec-foundations" class="mds-pg-section" aria-labelledby="heading-foundations">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-foundations" class="mds-pg-section-title">أساسيات النظام (Foundations)</h2>
+          <p class="mds-pg-section-desc">
+            استعراض مقاييس الخطوط، لوحات الألوان المتوافقة مع WCAG AAA، درجات التباعد، أنصاف الأقطار، الظلال، وتأثيرات الحركة السلسة.
+          </p>
+        </header>
+
+        <div class="mds-stack" style="gap: var(--mds-space-scale-8);">
+          
+          <!-- Typography Showcase -->
+          <div class="mds-card">
+            <div class="mds-card__header">
+              <h3 class="mds-heading mds-heading--md">1. مقاييس الخطوط والطباعة (Typography Scale — Cairo)</h3>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: var(--mds-space-scale-4);">
+                <div>
+                  <span class="mds-text mds-text--xs mds-text--secondary">Display 4xl (48px / Bold):</span>
+                  <div class="mds-heading mds-heading--4xl">الريادة في التصميم الهندسي المتكامل — Leading Design Systems</div>
+                </div>
+                <div>
+                  <span class="mds-text mds-text--xs mds-text--secondary">Heading 2xl (30px / Bold):</span>
+                  <div class="mds-heading mds-heading--2xl">لوحة القيادة والمؤشرات المتقدمة — Executive Dashboard</div>
+                </div>
+                <div>
+                  <span class="mds-text mds-text--xs mds-text--secondary">Heading lg (20px / Semibold):</span>
+                  <div class="mds-heading mds-heading--lg">المعاملات المالية والعمليات اليومية — Daily Transactions</div>
+                </div>
+                <div>
+                  <span class="mds-text mds-text--xs mds-text--secondary">Body Base (16px / Regular):</span>
+                  <p class="mds-text mds-text--base">
+                    تم بناء هذا النظام ليوفر تجربة استخدام متوازنة وثنائية الاتجاه بشكل كامل (RTL/LTR) مع دعم أعلى معايير سهولة الوصول WCAG 2.1 AA وAAA.
+                  </p>
+                </div>
+                <div>
+                  <span class="mds-text mds-text--xs mds-text--secondary">Tabular Numerics (tabular-nums):</span>
+                  <div class="mds-text mds-text--numeric" style="font-size: 20px;">
+                    123,456,789.00 EGP / $45,820.50 USD
+                  </div>
+                </div>
+                <div>
+                  <span class="mds-text mds-text--xs mds-text--secondary">Monospace Code (JetBrains Mono):</span>
+                  <code class="mds-text mds-text--code">const engine = new MDSRuntime({ deterministic: true });</code>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Color Palettes -->
+          <div class="mds-card">
+            <div class="mds-card__header">
+              <h3 class="mds-heading mds-heading--md">2. لوحات الألوان الأساسية والدلالية (Color Palettes)</h3>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: var(--mds-space-scale-4);">
+                <div>
+                  <h4 class="mds-heading mds-heading--sm" style="margin-block-end: var(--mds-space-block-xs);">اللون الرئيسي (Brand Sapphire):</h4>
+                  <div class="mds-inline" style="gap: var(--mds-space-inline-xs); flex-wrap: wrap;">
+                    <div style="text-align: center;"><div class="mds-pg-swatch" style="background: var(--mds-color-brand-50);"></div><span class="mds-text mds-text--xs" style="display:block;">50</span></div>
+                    <div style="text-align: center;"><div class="mds-pg-swatch" style="background: var(--mds-color-brand-100);"></div><span class="mds-text mds-text--xs" style="display:block;">100</span></div>
+                    <div style="text-align: center;"><div class="mds-pg-swatch" style="background: var(--mds-color-brand-300);"></div><span class="mds-text mds-text--xs" style="display:block;">300</span></div>
+                    <div style="text-align: center;"><div class="mds-pg-swatch" style="background: var(--mds-color-brand-500);"></div><span class="mds-text mds-text--xs" style="display:block;">500</span></div>
+                    <div style="text-align: center;"><div class="mds-pg-swatch" style="background: var(--mds-color-brand-600); border: 2px solid var(--mds-color-brand-900);"></div><span class="mds-text mds-text--xs" style="display:block; font-weight:bold;">600</span></div>
+                    <div style="text-align: center;"><div class="mds-pg-swatch" style="background: var(--mds-color-brand-700);"></div><span class="mds-text mds-text--xs" style="display:block;">700</span></div>
+                    <div style="text-align: center;"><div class="mds-pg-swatch" style="background: var(--mds-color-brand-900);"></div><span class="mds-text mds-text--xs" style="display:block;">900</span></div>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="mds-heading mds-heading--sm" style="margin-block-end: var(--mds-space-block-xs);">الألوان الدلالية والتغذية الراجعة (Semantics):</h4>
+                  <div class="mds-inline" style="gap: var(--mds-space-inline-md); flex-wrap: wrap;">
+                    <div class="mds-inline" style="gap: 6px;"><div class="mds-pg-swatch" style="background: var(--mds-color-feedback-success);"></div><span class="mds-text mds-text--sm">Success (#059669)</span></div>
+                    <div class="mds-inline" style="gap: 6px;"><div class="mds-pg-swatch" style="background: var(--mds-color-feedback-warning);"></div><span class="mds-text mds-text--sm">Warning (#D97706)</span></div>
+                    <div class="mds-inline" style="gap: 6px;"><div class="mds-pg-swatch" style="background: var(--mds-color-feedback-danger);"></div><span class="mds-text mds-text--sm">Danger (#DC2626)</span></div>
+                    <div class="mds-inline" style="gap: 6px;"><div class="mds-pg-swatch" style="background: var(--mds-color-feedback-info);"></div><span class="mds-text mds-text--sm">Info (#0284C7)</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Elevation & Radius Scales -->
+          <div class="mds-grid" style="grid-template-columns: 1fr 1fr; gap: var(--mds-space-scale-6);">
+            <div class="mds-card">
+              <div class="mds-card__header">
+                <h3 class="mds-heading mds-heading--md">3. ثلاثية العمق والظلال (Elevation Depth Triad)</h3>
+              </div>
+              <div class="mds-card__body">
+                <div class="mds-stack" style="gap: var(--mds-space-scale-4);">
+                  <div class="mds-surface mds-surface--canvas" style="padding: var(--mds-space-scale-3); border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle); border-radius: var(--mds-radius-sm);">Level 0 Flat (Canvas)</div>
+                  <div class="mds-surface mds-surface--default" style="padding: var(--mds-space-scale-3); box-shadow: var(--mds-elevation-level1); border-radius: var(--mds-radius-sm);">Level 1 Raised (Resting Cards)</div>
+                  <div class="mds-surface mds-surface--raised" style="padding: var(--mds-space-scale-3); box-shadow: var(--mds-elevation-level2); border-radius: var(--mds-radius-sm);">Level 2 Floating (Dropdowns / Menus)</div>
+                  <div class="mds-surface mds-surface--overlay" style="padding: var(--mds-space-scale-3); box-shadow: var(--mds-elevation-level3); border-radius: var(--mds-radius-sm);">Level 3 Overlay (Modals / Drawers)</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mds-card">
+              <div class="mds-card__header">
+                <h3 class="mds-heading mds-heading--md">4. مقياس أنصاف الأقطار (Radius Scale)</h3>
+              </div>
+              <div class="mds-card__body">
+                <div class="mds-stack" style="gap: var(--mds-space-scale-3);">
+                  <div class="mds-inline" style="justify-content: space-between;"><span class="mds-text mds-text--sm">None (0px)</span><div style="inline-size: 80px; block-size: 24px; border: 1px solid var(--mds-color-brand-600); border-radius: var(--mds-radius-none);"></div></div>
+                  <div class="mds-inline" style="justify-content: space-between;"><span class="mds-text mds-text--sm">Sm (6px — Refined)</span><div style="inline-size: 80px; block-size: 24px; border: 1px solid var(--mds-color-brand-600); border-radius: var(--mds-radius-sm);"></div></div>
+                  <div class="mds-inline" style="justify-content: space-between;"><span class="mds-text mds-text--sm">Md (10px — Signature)</span><div style="inline-size: 80px; block-size: 24px; border: 1px solid var(--mds-color-brand-600); border-radius: var(--mds-radius-md);"></div></div>
+                  <div class="mds-inline" style="justify-content: space-between;"><span class="mds-text mds-text--sm">Lg (14px — Panels)</span><div style="inline-size: 80px; block-size: 24px; border: 1px solid var(--mds-color-brand-600); border-radius: var(--mds-radius-lg);"></div></div>
+                  <div class="mds-inline" style="justify-content: space-between;"><span class="mds-text mds-text--sm">Full (9999px — Badges)</span><div style="inline-size: 80px; block-size: 24px; border: 1px solid var(--mds-color-brand-600); border-radius: var(--mds-radius-full);"></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 3: PRIMITIVES
+       * ===================================================================== -->
+      <section id="sec-primitives" class="mds-pg-section" aria-labelledby="heading-primitives">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-primitives" class="mds-pg-section-title">اللبنات الأولية (Primitives Runtime)</h2>
+          <p class="mds-pg-section-desc">
+            اللبنات الهيكلية الـ 18 التي تحكم التخطيط، الأسطح، النصوص، سهولة الوصول، والأيقونات تحت مبدأ "Parent-Owned Spacing".
+          </p>
+        </header>
+
+        <div class="mds-pg-grid">
+          
+          <!-- Layout Primitives -->
+          <div class="mds-pg-specimen">
+            <div class="mds-pg-specimen-header">
+              <h3 class="mds-pg-specimen-title">تخطيط Stack & Inline</h3>
+              <span class="mds-pg-specimen-tag">.mds-stack / .mds-inline</span>
+            </div>
+            <div class="mds-pg-specimen-body">
+              <div class="mds-stack" style="inline-size: 100%; gap: var(--mds-space-scale-2);">
+                <div class="mds-surface mds-surface--raised" style="padding: 6px; text-align: center;">عنصر رأسي 1</div>
+                <div class="mds-surface mds-surface--raised" style="padding: 6px; text-align: center;">عنصر رأسي 2</div>
+                <div class="mds-inline" style="gap: var(--mds-space-scale-2); justify-content: center;">
+                  <span class="mds-badge mds-badge--brand">أفقي A</span>
+                  <span class="mds-badge mds-badge--neutral">أفقي B</span>
+                  <span class="mds-badge mds-badge--success">أفقي C</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cluster Primitive -->
+          <div class="mds-pg-specimen">
+            <div class="mds-pg-specimen-header">
+              <h3 class="mds-pg-specimen-title">تخطيط Cluster (تجميع شارات)</h3>
+              <span class="mds-pg-specimen-tag">.mds-cluster</span>
+            </div>
+            <div class="mds-pg-specimen-body">
+              <div class="mds-cluster" style="gap: var(--mds-space-scale-2);">
+                <span class="mds-badge mds-badge--brand">نواة النظام</span>
+                <span class="mds-badge mds-badge--neutral">Flutter / Dart</span>
+                <span class="mds-badge mds-badge--neutral">TypeScript</span>
+                <span class="mds-badge mds-badge--neutral">NestJS</span>
+                <span class="mds-badge mds-badge--neutral">Modern CSS</span>
+                <span class="mds-badge mds-badge--success">Zero Drift</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accessibility Primitives -->
+          <div class="mds-pg-specimen">
+            <div class="mds-pg-specimen-header">
+              <h3 class="mds-pg-specimen-title">سهولة الوصول (A11y Primitives)</h3>
+              <span class="mds-pg-specimen-tag">PressTarget & FocusRing</span>
+            </div>
+            <div class="mds-pg-specimen-body">
+              <div class="mds-stack" style="align-items: center; gap: var(--mds-space-scale-4);">
+                <button type="button" class="mds-button mds-button--primary mds-press-target" style="outline: 2px solid var(--mds-color-focus-ring); outline-offset: 2px;">
+                  زر محاط بحلقة تركيز 2px (FocusRing)
+                </button>
+                <span class="mds-text mds-text--xs mds-text--secondary">PressTarget: يضمن منطقة ضغط لا تقل عن 44x44px على شاشات اللمس</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Icon Primitive -->
+          <div class="mds-pg-specimen">
+            <div class="mds-pg-specimen-header">
+              <h3 class="mds-pg-specimen-title">عقد الأيقونات وقواعد الانعكاس (Icon Contract)</h3>
+              <span class="mds-pg-specimen-tag">.mds-icon / RTL Mirroring</span>
+            </div>
+            <div class="mds-pg-specimen-body">
+              <div class="mds-inline" style="gap: var(--mds-space-inline-md); align-items: center;">
+                <div style="text-align: center;">
+                  <span class="mds-icon mds-icon--rtl-mirror" aria-hidden="true">➔</span>
+                  <span class="mds-text mds-text--xs" style="display: block;">سهم ينعكس</span>
+                </div>
+                <div style="text-align: center;">
+                  <span class="mds-icon" aria-hidden="true">🔍</span>
+                  <span class="mds-text mds-text--xs" style="display: block;">بحث ثابت</span>
+                </div>
+                <div style="text-align: center;">
+                  <span class="mds-icon" aria-hidden="true">✓</span>
+                  <span class="mds-text mds-text--xs" style="display: block;">تأكيد ثابت</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 4: ALL 19 CANONICAL COMPONENTS
+       * ===================================================================== -->
+      <section id="sec-components" class="mds-pg-section" aria-labelledby="heading-components">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-components" class="mds-pg-section-title">المكونات الأساسية المعتمدة (19 Core Components)</h2>
+          <p class="mds-pg-section-desc">
+            عينات تفاعلية حية لجميع المكونات الـ 19 المقيدة في النظام موزعة على العائلات الست، مع إمكانية التبديل بين الحالات والأنماط.
+          </p>
+        </header>
+
+        <div class="mds-stack" style="gap: var(--mds-space-scale-8);">
+          
+          <!-- BATCH 1: Actions -->
+          <h3 class="mds-heading mds-heading--lg">عائلة أزرار الأفعال والروابط (Actions Family)</h3>
+          <div class="mds-pg-grid">
+            
+            <!-- 1. Button -->
+            <div class="mds-pg-specimen" id="specimen-button">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">1. زر الأمر (Button)</h4>
+                <span class="mds-pg-specimen-tag">&lt;button class="mds-button"&gt;</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-inline" style="gap: var(--mds-space-inline-sm); flex-wrap: wrap; justify-content: center;">
+                  <button type="button" class="mds-button mds-button--primary" id="btn-demo-primary">زر أساسي</button>
+                  <button type="button" class="mds-button mds-button--secondary">زر ثانوي</button>
+                  <button type="button" class="mds-button mds-button--destructive">زر تدميري</button>
+                  <button type="button" class="mds-button mds-button--ghost">زر شبحي</button>
+                </div>
+                <div class="mds-inline" style="gap: var(--mds-space-inline-sm); justify-content: center;">
+                  <button type="button" class="mds-button mds-button--primary mds-button--sm">صغير (sm)</button>
+                  <button type="button" class="mds-button mds-button--primary mds-button--md">متوسط (md)</button>
+                  <button type="button" class="mds-button mds-button--primary mds-button--lg">كبير (lg)</button>
+                  <button type="button" class="mds-button mds-button--primary" disabled>معطل</button>
+                </div>
+              </div>
+              <div class="mds-pg-specimen-controls">
+                <span class="mds-text mds-text--xs mds-text--secondary">الحالات التفاعلية:</span>
+                <div class="mds-inline" style="gap: 4px;">
+                  <button type="button" class="mds-button mds-button--secondary mds-button--sm" id="btn-toggle-loading">تبديل التحميل (Loading)</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2. IconButton -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">2. زر الأيقونة (IconButton)</h4>
+                <span class="mds-pg-specimen-tag">&lt;button class="mds-icon-button"&gt;</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-inline" style="gap: var(--mds-space-inline-md); justify-content: center;">
+                  <button type="button" class="mds-icon-button mds-icon-button--primary" aria-label="تعديل العنصر">✏️</button>
+                  <button type="button" class="mds-icon-button mds-icon-button--secondary" aria-label="إعدادات">⚙️</button>
+                  <button type="button" class="mds-icon-button mds-icon-button--destructive" aria-label="حذف">🗑️</button>
+                  <button type="button" class="mds-icon-button mds-icon-button--ghost" aria-label="إغلاق">✕</button>
+                </div>
+              </div>
+              <div class="mds-pg-specimen-controls">
+                <span class="mds-text mds-text--xs mds-text--secondary">يحمل دائماً aria-label إلزامي لوصف الوظيفة لقارئ الشاشة</span>
+              </div>
+            </div>
+
+            <!-- 3. Link -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">3. الرابط النصي (Link)</h4>
+                <span class="mds-pg-specimen-tag">&lt;a class="mds-link"&gt;</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-stack" style="gap: var(--mds-space-scale-2); text-align: center;">
+                  <a href="#components" class="mds-link">رابط قياسي افتراضي مع خط تحتي عند التحويم</a>
+                  <a href="#tokens" class="mds-link mds-link--subtle">رابط ثانوي خافت (Subtle)</a>
+                </div>
+              </div>
+              <div class="mds-pg-specimen-controls">
+                <span class="mds-text mds-text--xs mds-text--secondary">يحترم التباين اللوني WCAG AA (أكبر من 4.5:1)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- BATCH 2: Inputs -->
+          <h3 class="mds-heading mds-heading--lg">عائلة المدخلات والاستمارات (Inputs Family)</h3>
+          <div class="mds-pg-grid">
+            
+            <!-- 4. Field & 5. Input -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">4. الحقل (Field) & 5. حقل الإدخال (Input)</h4>
+                <span class="mds-pg-specimen-tag">.mds-field / .mds-input</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-field" style="inline-size: 100%;">
+                  <label for="demo-input-email" class="mds-label">البريد الإلكتروني المهني <span class="mds-field__required">*</span></label>
+                  <input type="email" id="demo-input-email" class="mds-input" placeholder="name@company.com" value="eng.mohamed@domain.com">
+                  <span class="mds-field__helper">سنرسل كود التحقق الثنائي لهذا العنوان</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. Textarea -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">6. حقل النص المتعدد (Textarea)</h4>
+                <span class="mds-pg-specimen-tag">&lt;textarea class="mds-textarea"&gt;</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-field" style="inline-size: 100%;">
+                  <label for="demo-textarea" class="mds-label">ملاحظات التقرير الفني</label>
+                  <textarea id="demo-textarea" class="mds-textarea" rows="3" placeholder="اكتب الملاحظات هنا...">النظام يعمل بكفاءة استثنائية وفق معايير الجودة المحددة.</textarea>
+                </div>
+              </div>
+            </div>
+
+            <!-- 7. Checkbox & 8. Radio -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">7. مربع الاختيار (Checkbox) & 8. زر الخيار (Radio)</h4>
+                <span class="mds-pg-specimen-tag">.mds-checkbox / .mds-radio</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-stack" style="gap: var(--mds-space-scale-3); inline-size: 100%;">
+                  <label class="mds-checkbox">
+                    <input type="checkbox" checked>
+                    <span class="mds-checkbox__label">تفعيل الحماية المتقدمة وتشفير الجلسات</span>
+                  </label>
+                  <div class="mds-inline" style="gap: var(--mds-space-inline-md);">
+                    <label class="mds-radio">
+                      <input type="radio" name="demo-radio" value="monthly" checked>
+                      <span class="mds-radio__label">شهري</span>
+                    </label>
+                    <label class="mds-radio">
+                      <input type="radio" name="demo-radio" value="yearly">
+                      <span class="mds-radio__label">سنوي</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 9. Switch -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">9. المفتاح التبديل (Switch)</h4>
+                <span class="mds-pg-specimen-tag">&lt;mds-switch&gt;</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-stack" style="gap: var(--mds-space-scale-4);">
+                  <mds-switch id="demo-switch-notifications" checked>
+                    <span slot="label">تلقي الإشعارات الفورية على البريد</span>
+                  </mds-switch>
+                  <mds-switch id="demo-switch-logs">
+                    <span slot="label">تسجيل سجلات التشغيل والتدقيق</span>
+                  </mds-switch>
+                </div>
+              </div>
+              <div class="mds-pg-specimen-controls">
+                <span class="mds-text mds-text--xs mds-text--secondary">عنصر Custom Element متجاوب مع RTL ويعكس اتجاه الإزاحة تلقائياً</span>
+              </div>
+            </div>
+
+            <!-- 10. Select -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">10. قائمة الاختيار الأساسية (Native Select)</h4>
+                <span class="mds-pg-specimen-tag">&lt;select class="mds-select"&gt;</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-field" style="inline-size: 100%;">
+                  <label for="demo-native-select" class="mds-label">اختر بيئة النشر</label>
+                  <select id="demo-native-select" class="mds-select">
+                    <option value="prod">الإنتاج الرئيسي (Production Server)</option>
+                    <option value="stage">بيئة الاختبار (Staging Cluster)</option>
+                    <option value="dev">بيئة التطوير (Development Sandbox)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- BATCH 3: Feedback -->
+          <h3 class="mds-heading mds-heading--lg">عائلة التغذية الراجعة والحالة (Feedback Family)</h3>
+          <div class="mds-pg-grid">
+            
+            <!-- 11. Alert -->
+            <div class="mds-pg-specimen" style="grid-column: 1 / -1;">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">11. التنبيهات وإشعارات النظام (Alert)</h4>
+                <span class="mds-pg-specimen-tag">.mds-alert [--info, --success, --warning, --danger]</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-stack" style="gap: var(--mds-space-scale-3); inline-size: 100%;">
+                  <div class="mds-alert mds-alert--info" role="status">
+                    <span class="mds-alert__icon">ℹ️</span>
+                    <div class="mds-alert__content"><strong>معلومة:</strong> تم اعتماد Phase 9.4 رسميًا وتفعيل كافة عناصر بيئة التشغيل.</div>
+                  </div>
+                  <div class="mds-alert mds-alert--success" role="status">
+                    <span class="mds-alert__icon">✅</span>
+                    <div class="mds-alert__content"><strong>نجاح العملية:</strong> تم تحديث توكنز النظام بنجاح وتوليد ملفات الـ dist.</div>
+                  </div>
+                  <div class="mds-alert mds-alert--warning" role="alert">
+                    <span class="mds-alert__icon">⚠️</span>
+                    <div class="mds-alert__content"><strong>تنبيه:</strong> مستوى الكثافة Dense مؤجل ومدرج كـ Deferred للأنظمة المؤسسية.</div>
+                  </div>
+                  <div class="mds-alert mds-alert--danger" role="alert">
+                    <span class="mds-alert__icon">🚫</span>
+                    <div class="mds-alert__content"><strong>خطأ اعتراضي:</strong> فشل الاتصال بقاعدة البيانات بسبب انتهاء مهلة الشبكة.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 12. Spinner -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">12. مؤشر التحميل الدوار (Spinner)</h4>
+                <span class="mds-pg-specimen-tag">.mds-spinner</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-inline" style="gap: var(--mds-space-inline-lg); align-items: center;">
+                  <div class="mds-spinner mds-spinner--sm" aria-label="جاري التحميل"></div>
+                  <div class="mds-spinner mds-spinner--md" aria-label="جاري التحميل"></div>
+                  <div class="mds-spinner mds-spinner--lg" aria-label="جاري التحميل"></div>
+                  <div class="mds-spinner mds-spinner--xl" aria-label="جاري التحميل"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 13. Skeleton -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">13. الهيكل العظمي النابض (Skeleton Loader)</h4>
+                <span class="mds-pg-specimen-tag">.mds-skeleton</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-stack" style="inline-size: 100%; gap: var(--mds-space-scale-2);">
+                  <div class="mds-inline" style="gap: var(--mds-space-inline-md); align-items: center;">
+                    <div class="mds-skeleton mds-skeleton--circle" style="inline-size: 40px; block-size: 40px;"></div>
+                    <div class="mds-stack" style="flex: 1; gap: 6px;">
+                      <div class="mds-skeleton mds-skeleton--text" style="inline-size: 60%; block-size: 14px;"></div>
+                      <div class="mds-skeleton mds-skeleton--text" style="inline-size: 40%; block-size: 10px;"></div>
+                    </div>
+                  </div>
+                  <div class="mds-skeleton mds-skeleton--rect" style="inline-size: 100%; block-size: 60px;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 14. Badge -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">14. الشارة الدلالية (Badge)</h4>
+                <span class="mds-pg-specimen-tag">.mds-badge</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-cluster" style="gap: var(--mds-space-scale-2);">
+                  <span class="mds-badge mds-badge--brand"><span class="mds-badge__dot"></span>نشط</span>
+                  <span class="mds-badge mds-badge--success"><span class="mds-badge__dot"></span>مكتمل</span>
+                  <span class="mds-badge mds-badge--warning"><span class="mds-badge__dot"></span>قيد المراجعة</span>
+                  <span class="mds-badge mds-badge--danger"><span class="mds-badge__dot"></span>معلق</span>
+                  <span class="mds-badge mds-badge--neutral">مسودة</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- BATCH 4: Content & Data -->
+          <h3 class="mds-heading mds-heading--lg">عائلة عرض البيانات والمحتوى (Data & Content Family)</h3>
+          <div class="mds-pg-grid">
+            
+            <!-- 15. Card -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">15. البطاقة الحاوية (Card)</h4>
+                <span class="mds-pg-specimen-tag">.mds-card</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-card mds-card--raised" style="inline-size: 100%;">
+                  <div class="mds-card__header">
+                    <h5 class="mds-heading mds-heading--sm">عنوان البطاقة الإدارية</h5>
+                  </div>
+                  <div class="mds-card__body">
+                    <p class="mds-text mds-text--sm">محتوى مرن يلتزم بقانون الحاويات والتباعد المعياري المحدد في مصفوفة MDS.</p>
+                  </div>
+                  <div class="mds-card__footer">
+                    <button type="button" class="mds-button mds-button--primary mds-button--sm">إجراء رئيسي</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 16. Table -->
+            <div class="mds-pg-specimen" style="grid-column: 1 / -1;">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">16. جدول البيانات المعياري (Table — AF-002 Focusable Region)</h4>
+                <span class="mds-pg-specimen-tag">.mds-table-container[tabindex="0"]</span>
+              </div>
+              <div class="mds-pg-specimen-body" style="padding: 0;">
+                <div class="mds-table-container" tabindex="0" role="region" aria-label="جدول المعاملات المالية المرجعية">
+                  <table class="mds-table mds-table--striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">رقم المعاملة</th>
+                        <th scope="col">العميل</th>
+                        <th scope="col">التاريخ</th>
+                        <th scope="col">الحالة</th>
+                        <th scope="col" style="text-align: end;">المبلغ</th>
+                      </tr>
+                    </thead>
+                    <tbody id="demo-table-body">
+                      <!-- Filled dynamically via playground.js from sample_data.json -->
+                      <tr>
+                        <td class="mds-text--code">TXN-9041</td>
+                        <td>مؤسسة الأفق للحلول البرمجية</td>
+                        <td>2026-09-21</td>
+                        <td><span class="mds-badge mds-badge--success">ناجحة</span></td>
+                        <td class="mds-text--numeric" style="text-align: end;">24,500.00 EGP</td>
+                      </tr>
+                      <tr>
+                        <td class="mds-text--code">TXN-9042</td>
+                        <td>شركة الدلتا للاستشارات</td>
+                        <td>2026-09-20</td>
+                        <td><span class="mds-badge mds-badge--brand">قيد المعالجة</span></td>
+                        <td class="mds-text--numeric" style="text-align: end;">18,200.00 EGP</td>
+                      </tr>
+                      <tr>
+                        <td class="mds-text--code">TXN-9043</td>
+                        <td>مجموعة النيل للتجارة</td>
+                        <td>2026-09-19</td>
+                        <td><span class="mds-badge mds-badge--warning">معلقة</span></td>
+                        <td class="mds-text--numeric" style="text-align: end;">9,150.00 EGP</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div class="mds-pg-specimen-controls">
+                <span class="mds-text mds-text--xs mds-text--secondary">يحقق الشرط AF-002: حاوية التمرير تقبل التركيز عبر لوحة المفاتيح (tabindex="0")</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- BATCH 5: Navigation & Overlays -->
+          <h3 class="mds-heading mds-heading--lg">عائلة التنقل والطبقات العائمة (Navigation & Overlays Family)</h3>
+          <div class="mds-pg-grid">
+            
+            <!-- 17. Tabs -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">17. التبويبات التفاعلية (Tabs)</h4>
+                <span class="mds-pg-specimen-tag">&lt;mds-tabs&gt;</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <mds-tabs id="demo-tabs" style="inline-size: 100%;">
+                  <div role="tablist" aria-label="أقسام الحساب">
+                    <button role="tab" id="tab-1" aria-controls="panel-1" aria-selected="true" tabindex="0">الملف الشخصي</button>
+                    <button role="tab" id="tab-2" aria-controls="panel-2" aria-selected="false" tabindex="-1">الأمان والخصوصية</button>
+                    <button role="tab" id="tab-3" aria-controls="panel-3" aria-selected="false" tabindex="-1">الفواتير</button>
+                  </div>
+                  <div role="tabpanel" id="panel-1" aria-labelledby="tab-1" tabindex="0" style="padding-block: var(--mds-space-block-sm);">
+                    بيانات المهندس المعماري: محمد خالد — مطور تطبيقات وبرمجيات متقدمة.
+                  </div>
+                  <div role="tabpanel" id="panel-2" aria-labelledby="tab-2" tabindex="0" hidden style="padding-block: var(--mds-space-block-sm);">
+                    إعدادات المصادقة الثنائية وسياسات تشفير كلمات المرور.
+                  </div>
+                  <div role="tabpanel" id="panel-3" aria-labelledby="tab-3" tabindex="0" hidden style="padding-block: var(--mds-space-block-sm);">
+                    سجل المعاملات وعروض الأسعار المعتمدة.
+                  </div>
+                </mds-tabs>
+              </div>
+              <div class="mds-pg-specimen-controls">
+                <span class="mds-text mds-text--xs mds-text--secondary">تدعم Roving tabindex والتنقل بالأسهم يميناً ويساراً</span>
+              </div>
+            </div>
+
+            <!-- 18. Dialog -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">18. النافذة الحوارية (Dialog — Cancel-first Focus)</h4>
+                <span class="mds-pg-specimen-tag">&lt;mds-dialog&gt;</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <button type="button" class="mds-button mds-button--destructive" id="btn-open-dialog">
+                  فتح نافذة الحذف التدميرية (Test Dialog)
+                </button>
+
+                <!-- Canonical MDS Dialog Custom Element -->
+                <mds-dialog id="demo-dialog" hidden>
+                  <div class="mds-dialog__header">
+                    <h3 class="mds-heading mds-heading--md">تأكيد حذف الحساب نهائياً</h3>
+                    <button type="button" class="mds-icon-button mds-icon-button--ghost" data-dialog-close aria-label="إغلاق النافذة">✕</button>
+                  </div>
+                  <div class="mds-dialog__body">
+                    <p class="mds-text mds-text--base">
+                      هذا الإجراء غير قابل للتراجع. سيتم مسح كافة التوكنز والبيانات فوراً. يقع التركيز الأولي تلقائياً على زر "إلغاء الأمر" لحماية المستخدم من الضغط الخاطئ.
+                    </p>
+                  </div>
+                  <div class="mds-dialog__footer">
+                    <button type="button" class="mds-button mds-button--secondary" data-dialog-cancel>إلغاء الأمر (Cancel)</button>
+                    <button type="button" class="mds-button mds-button--destructive" data-dialog-confirm>نعم، احذف نهائياً</button>
+                  </div>
+                </mds-dialog>
+              </div>
+              <div class="mds-pg-specimen-controls">
+                <span class="mds-text mds-text--xs mds-text--secondary">تطبق FocusTrap وحبس مؤشر التركيز داخل النافذة حتى إغلاقها</span>
+              </div>
+            </div>
+
+            <!-- 19. Tooltip -->
+            <div class="mds-pg-specimen">
+              <div class="mds-pg-specimen-header">
+                <h4 class="mds-pg-specimen-title">19. التلميح التوضيحي (Tooltip)</h4>
+                <span class="mds-pg-specimen-tag">&lt;mds-tooltip&gt;</span>
+              </div>
+              <div class="mds-pg-specimen-body">
+                <div class="mds-inline" style="justify-content: center;">
+                  <mds-tooltip>
+                    <button type="button" class="mds-button mds-button--secondary">
+                      مرر الفأرة هنا (Hover / Focus)
+                    </button>
+                    <div class="mds-tooltip__bubble" role="tooltip">
+                      المفتاح المشفر لجلسة العمل الحالية
+                    </div>
+                  </mds-tooltip>
+                </div>
+              </div>
+              <div class="mds-pg-specimen-controls">
+                <span class="mds-text mds-text--xs mds-text--secondary">تأخير ظهور 300ms وإغلاق فوري عند الضغط على زر Escape</span>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 5: STATE LABORATORY
+       * ===================================================================== -->
+      <section id="sec-states" class="mds-pg-section" aria-labelledby="heading-states">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-states" class="mds-pg-section-title">مختبر الحالات التشغيلية (State Machine Laboratory)</h2>
+          <p class="mds-pg-section-desc">
+            محاكاة تفاعلية لحالات آلة الحالة المحددة (Universal FSM Topology) الـ 8 الرئيسية وكيفية استجابة واجهة المستخدم لها بدون فقدان للبيانات.
+          </p>
+        </header>
+
+        <div class="mds-pg-state-runner">
+          <div class="mds-inline" style="justify-content: space-between; align-items: center;">
+            <h3 class="mds-heading mds-heading--md">الحالة الحالية: <span id="fsm-current-state-badge" class="mds-badge mds-badge--brand">IDLE</span></h3>
+            <div class="mds-inline" style="gap: var(--mds-space-inline-xs);">
+              <button type="button" class="mds-button mds-button--secondary mds-button--sm" id="btn-fsm-prev">الحالة السابقة</button>
+              <button type="button" class="mds-button mds-button--primary mds-button--sm" id="btn-fsm-next">الحالة التالية (Dispatch)</button>
+              <button type="button" class="mds-button mds-button--ghost mds-button--sm" id="btn-fsm-reset">إعادة الضبط</button>
+            </div>
+          </div>
+
+          <!-- FSM State Nodes Timeline -->
+          <div class="mds-pg-state-timeline" role="progressbar" aria-label="شريط تقدم الحالات" id="fsm-timeline">
+            <span class="mds-pg-state-node is-active" data-fsm-state="IDLE">1. IDLE</span>
+            <span class="mds-pg-state-node" data-fsm-state="ACTIVE_INPUT">2. ACTIVE_INPUT</span>
+            <span class="mds-pg-state-node" data-fsm-state="VALIDATING">3. VALIDATING</span>
+            <span class="mds-pg-state-node" data-fsm-state="CONFIRMING">4. CONFIRMING</span>
+            <span class="mds-pg-state-node" data-fsm-state="PROCESSING">5. PROCESSING</span>
+            <span class="mds-pg-state-node" data-fsm-state="STREAMING">6. STREAMING</span>
+            <span class="mds-pg-state-node" data-fsm-state="SUCCESS_RESOLVED">7. SUCCESS_RESOLVED</span>
+            <span class="mds-pg-state-node" data-fsm-state="ERROR_INTERCEPTED">8. ERROR_INTERCEPTED</span>
+          </div>
+
+          <!-- Live Dynamic Specimen Frame -->
+          <div class="mds-card mds-card--raised" style="margin-block-start: var(--mds-space-block-md);" id="fsm-live-canvas">
+            <div class="mds-card__body">
+              <div id="fsm-view-idle">
+                <p class="mds-text mds-text--secondary">النظام في حالة سكون واستعداد لاستقبال مدخلات المستخدم.</p>
+                <button type="button" class="mds-button mds-button--primary" id="btn-fsm-start-input">بدء تعبئة الاستمارة (INPUT)</button>
+              </div>
+              <div id="fsm-view-input" hidden>
+                <div class="mds-field">
+                  <label for="fsm-input-val" class="mds-label">الاسم بالكامل</label>
+                  <input type="text" id="fsm-input-val" class="mds-input" value="محمد خالد">
+                </div>
+              </div>
+              <div id="fsm-view-validating" hidden>
+                <div class="mds-inline" style="gap: var(--mds-space-inline-md); align-items: center;">
+                  <div class="mds-spinner mds-spinner--sm"></div>
+                  <span class="mds-text mds-text--sm">جاري التحقق من صحة المدخلات ومطابقة المعايير...</span>
+                </div>
+              </div>
+              <div id="fsm-view-processing" hidden>
+                <div class="mds-inline" style="gap: var(--mds-space-inline-md); align-items: center;">
+                  <div class="mds-spinner mds-spinner--md"></div>
+                  <span class="mds-text mds-text--sm">جاري معالجة العملية وتأمين السجل في قاعدة البيانات...</span>
+                </div>
+              </div>
+              <div id="fsm-view-streaming" hidden>
+                <div class="mds-alert mds-alert--info">
+                  <span class="mds-alert__icon">⚡</span>
+                  <div class="mds-alert__content">
+                    <strong>البث الحي (AF-001 LiveRegion Decoupled):</strong> يتم استقبال حزم البيانات وتحديث الواجهة دون إزعاج قارئ الشاشة.
+                  </div>
+                </div>
+              </div>
+              <div id="fsm-view-success" hidden>
+                <div class="mds-alert mds-alert--success">
+                  <span class="mds-alert__icon">✅</span>
+                  <div class="mds-alert__content"><strong>اكتملت العملية بنجاح!</strong> تم حفظ البيانات وتسجيل العملية برقم مرجعي #905.</div>
+                </div>
+              </div>
+              <div id="fsm-view-error" hidden>
+                <div class="mds-alert mds-alert--danger">
+                  <span class="mds-alert__icon">🚫</span>
+                  <div class="mds-alert__content"><strong>خطأ اعتراضي:</strong> تم اعتراض خطأ شبكي، البيانات محفوظة ولم تفقد.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 6: THEME LABORATORY
+       * ===================================================================== -->
+      <section id="sec-themes" class="mds-pg-section" aria-labelledby="heading-themes">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-themes" class="mds-pg-section-title">مختبر السمات متعددة الأبعاد (Multi-Dimensional Theme Lab)</h2>
+          <p class="mds-pg-section-desc">
+            مقارنة فورية حية جنباً إلى جنب للسمات اللونية والأنماط البصرية دون الحاجة لإعادة تحميل الصفحة.
+          </p>
+        </header>
+
+        <div class="mds-pg-grid" style="grid-template-columns: repeat(3, 1fr);">
+          
+          <!-- Light Preview -->
+          <div class="mds-card" data-mode="light" style="background: #FFFFFF; color: #0F172A; border: 1px solid #CBD5E1;">
+            <div class="mds-card__header">
+              <h4 class="mds-heading mds-heading--sm">1. النمط الفاتح (Light Mode)</h4>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: var(--mds-space-scale-3);">
+                <button type="button" class="mds-button mds-button--primary">زر أساسي (Sapphire 600)</button>
+                <div class="mds-badge mds-badge--success">متوافق مع WCAG AAA</div>
+                <input type="text" class="mds-input" value="نص تجريبي على خلفية فاتحة" readonly>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dark Preview -->
+          <div class="mds-card" data-mode="dark" style="background: #0F172A; color: #FFFFFF; border: 1px solid #334155;">
+            <div class="mds-card__header">
+              <h4 class="mds-heading mds-heading--sm" style="color: #FFFFFF;">2. النمط الداكن (Dark Mode)</h4>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: var(--mds-space-scale-3);">
+                <button type="button" class="mds-button mds-button--primary">زر أساسي في الداكن</button>
+                <div class="mds-badge mds-badge--brand">Sapphire Glow</div>
+                <input type="text" class="mds-input" value="خلفية داكنة مع تباين عالي" style="background: #1E293B; color: #FFFFFF; border-color: #334155;" readonly>
+              </div>
+            </div>
+          </div>
+
+          <!-- High Contrast Preview -->
+          <div class="mds-card" data-mode="high-contrast" style="background: #FFFFFF; color: #000000; border: 2px solid #000000;">
+            <div class="mds-card__header">
+              <h4 class="mds-heading mds-heading--sm" style="color: #000000;">3. عالي التباين (High Contrast)</h4>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: var(--mds-space-scale-3);">
+                <button type="button" class="mds-button mds-button--primary" style="outline: 2px solid #000000;">حدود سميكة 2px</button>
+                <div class="mds-badge mds-badge--neutral" style="border: 2px solid #000000; color: #000000;">أقصى وضوح</div>
+                <input type="text" class="mds-input" value="إطار أسود نقي 2px" style="border: 2px solid #000000;" readonly>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 7: DENSITY LABORATORY
+       * ===================================================================== -->
+      <section id="sec-density" class="mds-pg-section" aria-labelledby="heading-density">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-density" class="mds-pg-section-title">مختبر الكثافة المكانية (Density Laboratory)</h2>
+          <p class="mds-pg-section-desc">
+            مقارنة بين مستويات الكثافة: المريح (Comfortable 40px) مقابل المدمج (Compact 32px)، مع تثبيت تأجيل المستوى الكثيف (Dense) للأنظمة المؤجلة.
+          </p>
+        </header>
+
+        <div class="mds-grid" style="grid-template-columns: repeat(3, 1fr);">
+          
+          <!-- Comfortable -->
+          <div class="mds-card" data-density="comfortable">
+            <div class="mds-card__header">
+              <h4 class="mds-heading mds-heading--sm">المستوى المريح (Comfortable — 40px)</h4>
+              <span class="mds-badge mds-badge--brand">الافتراضي العام</span>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: var(--mds-space-block-md);">
+                <button type="button" class="mds-button mds-button--primary" style="min-block-size: 40px;">ارتفاع الزر 40px</button>
+                <input type="text" class="mds-input" value="حقل إدخال بارتفاع 40px" style="min-block-size: 40px;" readonly>
+                <p class="mds-text mds-text--xs mds-text--secondary">مناسب للشاشات العامة والهواتف وتطبيقات الويب اليومية.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Compact -->
+          <div class="mds-card" data-density="compact">
+            <div class="mds-card__header">
+              <h4 class="mds-heading mds-heading--sm">المستوى المدمج (Compact — 32px)</h4>
+              <span class="mds-badge mds-badge--neutral">متاح للبيانات الكثيفة</span>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: 12px;">
+                <button type="button" class="mds-button mds-button--primary mds-button--sm" style="min-block-size: 32px;">ارتفاع الزر 32px</button>
+                <input type="text" class="mds-input mds-input--sm" value="حقل إدخال بارتفاع 32px" style="min-block-size: 32px;" readonly>
+                <p class="mds-text mds-text--xs mds-text--secondary">مناسب لجداول الأعمال وجداول البيانات المكتبية عالية التركيز.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dense (Deferred) -->
+          <div class="mds-card" style="opacity: 0.6; position: relative;">
+            <div class="mds-card__header">
+              <h4 class="mds-heading mds-heading--sm">المستوى المكثف (Dense — 28px)</h4>
+              <span class="mds-badge mds-badge--warning">مؤجل (Deferred)</span>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: 8px;">
+                <button type="button" class="mds-button mds-button--primary" disabled style="min-block-size: 28px;">زر 28px (معطل)</button>
+                <input type="text" class="mds-input" value="حقل 28px (معطل)" disabled style="min-block-size: 28px;" readonly>
+                <p class="mds-text mds-text--xs mds-text--secondary">خاص بأنظمة Enterprise المعقدة كـ DataGrid المؤجلة للمراحل القادمة.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 8: RTL LABORATORY
+       * ===================================================================== -->
+      <section id="sec-rtl" class="mds-pg-section" aria-labelledby="heading-rtl">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-rtl" class="mds-pg-section-title">مختبر ثنائية الاتجاه والانعكاس (RTL & Bidirectional Laboratory)</h2>
+          <p class="mds-pg-section-desc">
+            إثبات الالتزام بنسبة 100% بالخصائص المنطقية (CSS Logical Properties) وانعدام استخدام row-reverse لحماية تسلسل قراءة التركيز عبر لوحة المفاتيح.
+          </p>
+        </header>
+
+        <div class="mds-grid" style="grid-template-columns: 1fr 1fr;">
+          
+          <!-- Arabic RTL Frame -->
+          <div class="mds-card" dir="rtl">
+            <div class="mds-card__header">
+              <h4 class="mds-heading mds-heading--sm">العربية (RTL — الأساس الأصلي)</h4>
+              <span class="mds-badge mds-badge--brand">dir="rtl"</span>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: var(--mds-space-scale-4);">
+                <div class="mds-inline" style="justify-content: space-between; align-items: center;">
+                  <span class="mds-text mds-text--base">الرصيد المتاح:</span>
+                  <span class="mds-text mds-text--numeric" style="font-weight: bold;">154,200.00 ج.م</span>
+                </div>
+                <div class="mds-inline" style="gap: var(--mds-space-inline-sm);">
+                  <button type="button" class="mds-button mds-button--primary">
+                    <span>متابعة</span>
+                    <span class="mds-icon mds-icon--rtl-mirror" aria-hidden="true">➔</span>
+                  </button>
+                  <button type="button" class="mds-button mds-button--secondary">إلغاء</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- English LTR Frame -->
+          <div class="mds-card" dir="ltr">
+            <div class="mds-card__header">
+              <h4 class="mds-heading mds-heading--sm">English (LTR — Symmetrical Inversion)</h4>
+              <span class="mds-badge mds-badge--neutral">dir="ltr"</span>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: var(--mds-space-scale-4);">
+                <div class="mds-inline" style="justify-content: space-between; align-items: center;">
+                  <span class="mds-text mds-text--base">Available Balance:</span>
+                  <span class="mds-text mds-text--numeric" style="font-weight: bold;">$154,200.00 USD</span>
+                </div>
+                <div class="mds-inline" style="gap: var(--mds-space-inline-sm);">
+                  <button type="button" class="mds-button mds-button--primary">
+                    <span>Continue</span>
+                    <span class="mds-icon mds-icon--rtl-mirror" aria-hidden="true">➔</span>
+                  </button>
+                  <button type="button" class="mds-button mds-button--secondary">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 9: RESPONSIVE LABORATORY
+       * ===================================================================== -->
+      <section id="sec-responsive" class="mds-pg-section" aria-labelledby="heading-responsive">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-responsive" class="mds-pg-section-title">محاكي الشاشات والتكيف الذكي (Responsive Laboratory)</h2>
+          <p class="mds-pg-section-desc">
+            اختبار مبدأ "إعادة التشكيل وليس الانكماش" (Recomposition, Not Shrinking) عبر محاكاة حية لمقاسات العرض المختلفة (320px, 768px, 1024px, 1440px).
+          </p>
+        </header>
+
+        <div class="mds-pg-viewport-simulator">
+          <div class="mds-inline" style="gap: var(--mds-space-inline-sm); flex-wrap: wrap;">
+            <button type="button" class="mds-button mds-button--secondary mds-button--sm" data-vp="320">📱 هاتف محمول (320px)</button>
+            <button type="button" class="mds-button mds-button--secondary mds-button--sm" data-vp="768">📱 حاسوب لوحي (768px)</button>
+            <button type="button" class="mds-button mds-button--secondary mds-button--sm" data-vp="1024">💻 شاشة مكتبية (1024px)</button>
+            <button type="button" class="mds-button mds-button--secondary mds-button--sm" data-vp="1440">🖥️ شاشة عريضة (1440px)</button>
+            <button type="button" class="mds-button mds-button--primary mds-button--sm" data-vp="100%">100% (العرض الكامل)</button>
+          </div>
+
+          <!-- Resizable Container Frame -->
+          <div class="mds-pg-viewport-container" id="vp-container">
+            <h4 class="mds-heading mds-heading--md" style="margin-block-end: var(--mds-space-block-sm);">إعادة تشكيل الاستمارة والأزرار تلقائياً</h4>
+            <p class="mds-text mds-text--sm mds-text--secondary">عند تصغير الشاشة إلى 320px تتحول الحقول المتجاورة تلقائياً إلى عمود رأسي وتتسع الأزرار لكامل العرض.</p>
+            
+            <div class="mds-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--mds-space-scale-4); margin-block: var(--mds-space-block-md);">
+              <div class="mds-field">
+                <label for="vp-first-name" class="mds-label">الاسم الأول</label>
+                <input type="text" id="vp-first-name" class="mds-input" value="محمد">
+              </div>
+              <div class="mds-field">
+                <label for="vp-last-name" class="mds-label">اسم العائلة</label>
+                <input type="text" id="vp-last-name" class="mds-input" value="خالد">
+              </div>
+            </div>
+
+            <div class="mds-inline" style="gap: var(--mds-space-inline-sm); justify-content: flex-end; flex-wrap: wrap;">
+              <button type="button" class="mds-button mds-button--secondary">إلغاء</button>
+              <button type="button" class="mds-button mds-button--primary">حفظ التغييرات</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 10: TOKEN INSPECTOR
+       * ===================================================================== -->
+      <section id="sec-tokens" class="mds-pg-section" aria-labelledby="heading-tokens">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-tokens" class="mds-pg-section-title">فاحص التوكنز التفاعلي (Token Inspector)</h2>
+          <p class="mds-pg-section-desc">
+            استكشاف وبحث فوري في شجرة التوكنز الـ 188 الصادرة من W3C DTCG مع عرض القيم المترجمة وإمكانية النسخ بنقرة واحدة.
+          </p>
+        </header>
+
+        <!-- Search & Filter Controls -->
+        <div class="mds-inline" style="gap: var(--mds-space-inline-md); margin-block-end: var(--mds-space-block-md); flex-wrap: wrap;">
+          <input type="search" id="token-search-input" class="mds-input" placeholder="ابحث باسم التوكن أو القيمة (e.g. brand-600, radius)..." style="flex: 1; min-inline-size: 280px;">
+          <div class="mds-cluster" id="token-category-chips" style="gap: var(--mds-space-scale-2);">
+            <button type="button" class="mds-badge mds-badge--brand" data-cat="all">الكل (All)</button>
+            <button type="button" class="mds-badge mds-badge--neutral" data-cat="color">الألوان (Color)</button>
+            <button type="button" class="mds-badge mds-badge--neutral" data-cat="space">المسافات (Space)</button>
+            <button type="button" class="mds-badge mds-badge--neutral" data-cat="font">الخطوط (Font)</button>
+            <button type="button" class="mds-badge mds-badge--neutral" data-cat="radius">أنصاف الأقطار (Radius)</button>
+            <button type="button" class="mds-badge mds-badge--neutral" data-cat="elevation">الظلال (Elevation)</button>
+            <button type="button" class="mds-badge mds-badge--neutral" data-cat="component">المكونات (Component)</button>
+          </div>
+        </div>
+
+        <!-- Token Table -->
+        <div class="mds-pg-token-table-wrap">
+          <table class="mds-pg-token-table" id="token-inspector-table">
+            <thead>
+              <tr>
+                <th scope="col" style="inline-size: 320px;">اسم التوكن (Token Name)</th>
+                <th scope="col" style="inline-size: 100px;">النوع (Type)</th>
+                <th scope="col" style="inline-size: 200px;">القيمة المصدرية ($value)</th>
+                <th scope="col">متغير الـ CSS المتولد</th>
+                <th scope="col" style="inline-size: 100px; text-align: end;">إجراء</th>
+              </tr>
+            </thead>
+            <tbody id="token-table-body">
+              <!-- Populated dynamically by playground.js -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- =====================================================================
+       * SECTION 11: ACCESSIBILITY INSPECTOR
+       * ===================================================================== -->
+      <section id="sec-a11y" class="mds-pg-section" aria-labelledby="heading-a11y">
+        <header class="mds-pg-section-header">
+          <h2 id="heading-a11y" class="mds-pg-section-title">فاحص سهولة الوصول والامتثال (Accessibility Inspector)</h2>
+          <p class="mds-pg-section-desc">
+            قائمة التحقق التفاعلية لضمان الامتثال الصارم لمعايير WCAG 2.1 AA وAAA، وتفقد نتائج التدقيق المعماري المعتمدة.
+          </p>
+        </header>
+
+        <div class="mds-stack" style="gap: var(--mds-space-scale-6);">
+          
+          <div class="mds-card">
+            <div class="mds-card__header">
+              <h3 class="mds-heading mds-heading--md">قائمة التدقيق المعماري الصارم (10 Inviolable A11y Rules)</h3>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-stack" style="gap: var(--mds-space-scale-3);">
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">1. خط Cairo موحد مع التوجيه التلقائي لاتجاه القراءة (RTL/LTR).</span></label>
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">2. منطقة ضغط لا تقل عن 44x44px على أجهزة اللمس (PressTarget Contract).</span></label>
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">3. حلقة تركيز بصرية مرئية بوضوح 2px solid على كافة العناصر التفاعلية (:focus-visible).</span></label>
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">4. قفل التركيز وحبسه داخل النوافذ الحوارية مع البدء بزر الإلغاء (Dialog FocusTrap).</span></label>
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">5. حاوية تمرير الجدول قابلة للتركيز بلوحة المفاتيح tabindex="0" (النتيجة المعمارية AF-002).</span></label>
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">6. فصل بث الذكاء الاصطناعي عن قارئ الشاشة لتفادي الإزعاج (النتيجة المعمارية AF-001).</span></label>
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">7. احترام تفضيل خفض الحركة (prefers-reduced-motion) وإلغاء فترات الانتقال فوراً.</span></label>
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">8. ربط عناوين الحقول بمعرفات الحقول المقابلة بنسبة 100% (label for/id).</span></label>
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">9. عدم الاعتماد على اللون وحده لتوضيح الحالة وفق معيار WCAG 1.4.1.</span></label>
+                <label class="mds-checkbox"><input type="checkbox" checked disabled><span class="mds-checkbox__label">10. انعدام استخدام row-reverse لحماية التسلسل المنطقي لترتيب التركيز (WCAG 2.4.3).</span></label>
+              </div>
+            </div>
+          </div>
+
+          <!-- Live Testing Sandbox for Screen Reader LiveRegion -->
+          <div class="mds-card mds-card--raised">
+            <div class="mds-card__header">
+              <h3 class="mds-heading mds-heading--md">منطقة اختبار الإعلانات الحية (LiveRegion Announcer)</h3>
+            </div>
+            <div class="mds-card__body">
+              <div class="mds-inline" style="gap: var(--mds-space-inline-sm);">
+                <button type="button" class="mds-button mds-button--secondary" id="btn-test-announce-polite">إعلان هادئ (aria-live="polite")</button>
+                <button type="button" class="mds-button mds-button--destructive" id="btn-test-announce-assertive">إعلان عاجل (aria-live="assertive")</button>
+              </div>
+              <div id="live-announcer" class="mds-visually-hidden" aria-live="polite" aria-atomic="true"></div>
+              <p class="mds-text mds-text--xs mds-text--secondary" style="margin-block-start: var(--mds-space-block-sm);" id="live-announcer-log">
+                الحالة: بانتظار إرسال إشعار...
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Playground Laboratory JavaScript Engine -->
+  <script type="module" src="./playground.js"></script>
+</body>
+</html>

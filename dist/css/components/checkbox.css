@@ -1,0 +1,164 @@
+/**
+ * MDS (Master Design System) — Checkbox Component
+ * Architecture Layer: Layer 04 (Components / Inputs)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. Canonical Touch Target: >= 44x44px hit-box on coarse pointers via PressTarget
+ * 3. Tri-State Support: unchecked, checked, indeterminate (aria-checked="mixed")
+ * 4. High-Visibility Focus Ring: 2px solid var(--mds-color-focus-ring)
+ * 5. 100% CSS Logical Properties
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. CHECKBOX CONTAINER
+     ======================================================================== */
+
+  .mds-checkbox {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+    padding: 0;
+
+    /* Typography */
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-sm);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+  }
+
+  /* ========================================================================
+     2. ACCESSIBLE HIDDEN INPUT
+     ======================================================================== */
+
+  .mds-checkbox__input {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* ========================================================================
+     3. VISUAL BOX (20x20px)
+     ======================================================================== */
+
+  .mds-checkbox__box {
+    inline-size: var(--mds-size-icon-md);
+    block-size: var(--mds-size-icon-md);
+    border-style: solid;
+    border-width: var(--mds-border-width-regular);
+    border-color: var(--mds-color-border-default);
+    border-radius: var(--mds-radius-xs);
+    background-color: var(--mds-color-surface-default);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    box-sizing: border-box;
+    position: relative;
+
+    /* Motion Transitions */
+    transition:
+      background-color var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      border-color var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      box-shadow var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* Vector Checkmark (SVG or CSS polygon) */
+  .mds-checkbox__icon {
+    inline-size: 14px;
+    block-size: 14px;
+    color: var(--mds-color-text-inverse);
+    display: none;
+  }
+
+  /* 3.1 Checked State */
+  .mds-checkbox__input:checked + .mds-checkbox__box {
+    background-color: var(--mds-color-action-primary-default);
+    border-color: var(--mds-color-action-primary-default);
+  }
+
+  .mds-checkbox__input:checked + .mds-checkbox__box .mds-checkbox__icon--check {
+    display: block;
+  }
+
+  /* 3.2 Indeterminate State */
+  .mds-checkbox__input:indeterminate + .mds-checkbox__box,
+  .mds-checkbox[aria-checked="mixed"] .mds-checkbox__box {
+    background-color: var(--mds-color-action-primary-default);
+    border-color: var(--mds-color-action-primary-default);
+  }
+
+  .mds-checkbox__input:indeterminate + .mds-checkbox__box .mds-checkbox__icon--dash,
+  .mds-checkbox[aria-checked="mixed"] .mds-checkbox__box .mds-checkbox__icon--dash {
+    display: block;
+  }
+
+  /* 3.3 Hover State */
+  .mds-checkbox:hover .mds-checkbox__input:not(:disabled) + .mds-checkbox__box {
+    border-color: var(--mds-color-brand-600);
+  }
+
+  /* 3.4 Keyboard Focus Indicator */
+  .mds-checkbox__input:focus-visible + .mds-checkbox__box {
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* 3.5 Disabled State */
+  .mds-checkbox__input:disabled + .mds-checkbox__box {
+    background-color: var(--mds-color-action-disabled-background);
+    border-color: var(--mds-color-border-subtle);
+    cursor: not-allowed;
+  }
+
+  .mds-checkbox:has(.mds-checkbox__input:disabled) {
+    cursor: not-allowed;
+    color: var(--mds-color-action-disabled-foreground);
+    opacity: var(--mds-opacity-disabled);
+  }
+
+  /* 3.6 Invalid State */
+  .mds-checkbox--invalid .mds-checkbox__box,
+  .mds-checkbox__input:invalid + .mds-checkbox__box {
+    border-color: var(--mds-color-feedback-danger);
+  }
+
+  /* 3.7 Canonical Touch Target (PressTarget 44px) */
+  @media (pointer: coarse) {
+    .mds-checkbox::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+      min-inline-size: var(--mds-size-touch-target);
+      min-block-size: var(--mds-size-touch-target);
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  /* 3.8 Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-checkbox__box {
+      transition: none;
+    }
+  }
+}
+

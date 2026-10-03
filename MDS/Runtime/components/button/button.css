@@ -1,0 +1,230 @@
+/**
+ * MDS (Master Design System) — Button Component
+ * Architecture Layer: Layer 04 (Components / Actions)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. 100% CSS Logical Properties (padding-inline, padding-block, etc.)
+ * 3. Canonical Touch Target: >= 44x44px hit-box on coarse pointers
+ * 4. High-Visibility Focus Ring: 2px solid var(--mds-color-focus-ring)
+ * 5. 100% Token Consumption (Component & Semantic Tokens)
+ * 6. Zero Widget Bloat: Native <button> element foundation
+ */
+
+@layer mds.components {
+  .mds-button {
+    /* Layout & Alignment */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+
+    /* Typography & Font */
+    font-family: var(--mds-font-family-primary);
+    line-height: var(--mds-font-line-height-tight);
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    word-break: break-word;
+
+    /* Architectural Invariant: Parent-Owned Spacing (Zero External Margins) */
+    margin: 0;
+
+    /* Border & Surface */
+    border-style: solid;
+    border-width: var(--mds-border-width-thin);
+    outline: none;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+
+    /* Motion Transitions */
+    transition:
+      background-color var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      border-color var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      color var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      box-shadow var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  /* ========================================================================
+     1. INTENTS & VARIANTS
+     ======================================================================== */
+
+  /* 1.1 Primary (High-Emphasis Main Action) */
+  .mds-button--primary {
+    background-color: var(--mds-component-button-primary-background-default);
+    color: var(--mds-component-button-primary-foreground-default);
+    border-color: transparent;
+  }
+
+  .mds-button--primary:hover:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--mds-component-button-primary-background-hover);
+  }
+
+  .mds-button--primary:active:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--mds-component-button-primary-background-pressed);
+  }
+
+  .mds-button--primary:disabled,
+  .mds-button--primary[aria-disabled="true"] {
+    background-color: var(--mds-component-button-primary-background-disabled);
+    color: var(--mds-component-button-primary-foreground-disabled);
+    border-color: transparent;
+  }
+
+  /* 1.2 Secondary (Medium-Emphasis Outlined Action) */
+  .mds-button--secondary {
+    background-color: var(--mds-component-button-secondary-background-default);
+    color: var(--mds-component-button-secondary-foreground-default);
+    border-color: var(--mds-component-button-secondary-border-default);
+  }
+
+  .mds-button--secondary:hover:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--mds-component-button-secondary-background-hover);
+  }
+
+  .mds-button--secondary:active:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--mds-color-surface-raised);
+    border-color: var(--mds-color-border-default);
+  }
+
+  .mds-button--secondary:disabled,
+  .mds-button--secondary[aria-disabled="true"] {
+    background-color: var(--mds-component-button-secondary-background-disabled);
+    color: var(--mds-component-button-secondary-foreground-disabled);
+    border-color: var(--mds-component-button-secondary-border-disabled);
+  }
+
+  /* 1.3 Ghost (Low-Emphasis Subtle Action) */
+  .mds-button--ghost {
+    background-color: var(--mds-component-button-ghost-background-default, transparent);
+    color: var(--mds-component-button-ghost-foreground-default);
+    border-color: transparent;
+  }
+
+  .mds-button--ghost:hover:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--mds-component-button-ghost-background-hover);
+  }
+
+  .mds-button--ghost:active:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--mds-color-surface-raised);
+  }
+
+  .mds-button--ghost:disabled,
+  .mds-button--ghost[aria-disabled="true"] {
+    background-color: var(--mds-component-button-ghost-background-disabled, transparent);
+    color: var(--mds-component-button-ghost-foreground-disabled);
+    border-color: transparent;
+  }
+
+  /* 1.4 Destructive (High-Risk Irreversible Action) */
+  .mds-button--destructive {
+    background-color: var(--mds-component-button-destructive-background-default);
+    color: var(--mds-component-button-destructive-foreground-default);
+    border-color: transparent;
+  }
+
+  .mds-button--destructive:hover:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--mds-component-button-destructive-background-hover);
+  }
+
+  .mds-button--destructive:active:not(:disabled):not([aria-disabled="true"]) {
+    background-color: var(--mds-color-palette-red-700);
+  }
+
+  .mds-button--destructive:disabled,
+  .mds-button--destructive[aria-disabled="true"] {
+    background-color: var(--mds-component-button-destructive-background-disabled);
+    color: var(--mds-color-action-disabled-foreground);
+    border-color: transparent;
+  }
+
+  /* ========================================================================
+     2. CONTROL SIZES (sm: 32px, md: 40px, lg: 48px)
+     ======================================================================== */
+
+  /* 2.1 Small (32px) */
+  .mds-button--sm {
+    min-block-size: var(--mds-size-control-sm);
+    padding-block: 0;
+    padding-inline: var(--mds-space-scale-3);
+    font-size: var(--mds-font-size-xs);
+    font-weight: 500;
+    border-radius: var(--mds-radius-sm);
+    gap: var(--mds-space-inline-xs);
+  }
+
+  /* 2.2 Medium (40px Default) */
+  .mds-button--md {
+    min-block-size: var(--mds-size-control-md);
+    padding-block: 0;
+    padding-inline: var(--mds-space-scale-4);
+    font-size: var(--mds-font-size-sm);
+    font-weight: 500;
+    border-radius: var(--mds-component-button-primary-radius, var(--mds-radius-md));
+    gap: var(--mds-space-inline-sm);
+  }
+
+  /* 2.3 Large (48px) */
+  .mds-button--lg {
+    min-block-size: var(--mds-size-control-lg);
+    padding-block: 0;
+    padding-inline: var(--mds-space-scale-5);
+    font-size: var(--mds-font-size-base);
+    font-weight: 600;
+    border-radius: var(--mds-component-button-primary-radius, var(--mds-radius-md));
+    gap: var(--mds-space-inline-sm);
+  }
+
+  /* ========================================================================
+     3. INTERACTION STATES & ACCESSIBILITY
+     ======================================================================== */
+
+  /* 3.1 Keyboard Focus Indicator */
+  .mds-button:focus-visible {
+    outline: var(--mds-border-width-thick) solid var(--mds-component-button-primary-focus-ring, var(--mds-color-focus-ring));
+    outline-offset: 2px;
+  }
+
+  /* 3.2 Disabled State */
+  .mds-button:disabled,
+  .mds-button[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: var(--mds-opacity-disabled);
+    pointer-events: none;
+    box-shadow: none;
+  }
+
+  /* 3.3 Loading State */
+  .mds-button[aria-busy="true"],
+  .mds-button--loading {
+    cursor: wait;
+    pointer-events: none;
+  }
+
+  /* 3.4 Canonical Touch Target Enforcement (PressTarget 44px) */
+  @media (pointer: coarse) {
+    .mds-button--sm::after,
+    .mds-button--md::after {
+      content: "";
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+      min-inline-size: var(--mds-size-touch-target);
+      min-block-size: var(--mds-size-touch-target);
+      inline-size: 100%;
+      block-size: 100%;
+    }
+  }
+
+  /* 3.5 Vestibular Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-button {
+      transition: none;
+    }
+  }
+}

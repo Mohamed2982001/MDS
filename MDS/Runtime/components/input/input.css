@@ -1,0 +1,172 @@
+/**
+ * MDS (Master Design System) — Input Component
+ * Architecture Layer: Layer 04 (Components / Inputs)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. 100% Component Token Consumption: component.input.*
+ * 3. Canonical Touch Target: >= 44x44px on coarse pointers via PressTarget
+ * 4. 100% CSS Logical Properties (padding-inline, border-inline, etc.)
+ * 5. Native <input> Element Baseline
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. BASE INPUT CONTROL
+     ======================================================================== */
+
+  .mds-input {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: var(--mds-font-family-primary);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-component-input-text-default, var(--mds-color-text-primary));
+    background-color: var(--mds-component-input-background-default);
+    border-style: solid;
+    border-width: var(--mds-border-width-thin);
+    border-color: var(--mds-component-input-border-default);
+    border-radius: var(--mds-component-input-radius);
+    outline: none;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+
+    /* Transitions */
+    transition:
+      border-color var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      box-shadow var(--mds-motion-fast) var(--mds-motion-ease-standard),
+      background-color var(--mds-motion-fast) var(--mds-motion-ease-standard);
+  }
+
+  .mds-input::placeholder {
+    color: var(--mds-component-input-text-placeholder, var(--mds-color-neutral-400));
+    opacity: 1;
+  }
+
+  /* ========================================================================
+     2. CONTROL SIZES (sm: 32px, md: 40px, lg: 48px)
+     ======================================================================== */
+
+  /* 2.1 Small (32px) */
+  .mds-input--sm {
+    block-size: var(--mds-size-control-sm);
+    padding-block: 0;
+    padding-inline: var(--mds-space-scale-3);
+    font-size: var(--mds-font-size-xs);
+  }
+
+  /* 2.2 Medium (40px Default) */
+  .mds-input--md {
+    block-size: var(--mds-size-control-md);
+    padding-block: 0;
+    padding-inline: var(--mds-space-scale-4);
+    font-size: var(--mds-font-size-sm);
+  }
+
+  /* 2.3 Large (48px) */
+  .mds-input--lg {
+    block-size: var(--mds-size-control-lg);
+    padding-block: 0;
+    padding-inline: var(--mds-space-scale-4);
+    font-size: var(--mds-font-size-base);
+  }
+
+  /* ========================================================================
+     3. INTERACTION STATES & ACCESSIBILITY
+     ======================================================================== */
+
+  /* 3.1 Hover State */
+  .mds-input:hover:not(:disabled):not([readonly]):not([aria-invalid="true"]) {
+    border-color: var(--mds-color-neutral-400);
+  }
+
+  /* 3.2 Keyboard Focus Indicator */
+  .mds-input:focus,
+  .mds-input:focus-visible {
+    border-color: var(--mds-component-input-border-focus);
+    box-shadow: 0 0 0 var(--mds-border-width-regular) var(--mds-color-brand-100);
+  }
+
+  /* 3.3 Invalid / Error State */
+  .mds-input:invalid:not(:placeholder-shown),
+  .mds-input[aria-invalid="true"],
+  .mds-input--invalid {
+    border-color: var(--mds-component-input-border-invalid);
+    box-shadow: 0 0 0 var(--mds-border-width-regular) var(--mds-color-palette-red-200);
+  }
+
+  /* 3.4 Disabled State */
+  .mds-input:disabled,
+  .mds-input[aria-disabled="true"] {
+    background-color: var(--mds-component-input-background-disabled);
+    border-color: var(--mds-component-input-border-disabled);
+    color: var(--mds-component-input-text-disabled, var(--mds-color-action-disabled-foreground));
+    cursor: not-allowed;
+    opacity: 1;
+  }
+
+  /* 3.5 Read-Only State */
+  .mds-input[readonly] {
+    background-color: var(--mds-color-surface-raised);
+    border-color: var(--mds-color-border-default);
+    cursor: default;
+  }
+
+  /* 3.6 Touch Target Enforcement (44px) */
+  @media (pointer: coarse) {
+    .mds-input--sm,
+    .mds-input--md {
+      min-block-size: var(--mds-size-touch-target);
+    }
+  }
+
+  /* ========================================================================
+     4. INPUT GROUP (Prefix & Suffix Slots)
+     ======================================================================== */
+
+  .mds-input-group {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin: 0;
+  }
+
+  .mds-input-group__prefix {
+    position: absolute;
+    inset-inline-start: var(--mds-space-scale-3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mds-color-neutral-400);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .mds-input-group__suffix {
+    position: absolute;
+    inset-inline-end: var(--mds-space-scale-3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--mds-color-neutral-400);
+    z-index: 1;
+  }
+
+  .mds-input-group--has-prefix .mds-input {
+    padding-inline-start: var(--mds-space-scale-8);
+  }
+
+  .mds-input-group--has-suffix .mds-input {
+    padding-inline-end: var(--mds-space-scale-8);
+  }
+
+  /* 4.1 Reduced Motion Safety */
+  @media (prefers-reduced-motion: reduce) {
+    .mds-input {
+      transition: none;
+    }
+  }
+}

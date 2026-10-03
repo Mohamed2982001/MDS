@@ -1,0 +1,100 @@
+/**
+ * MDS (Master Design System) — Reset & Baseline Normalization
+ * Architecture Layer: Layer 13 (Implementation / Reset)
+ * Cascade Layer: @layer mds.reset
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ */
+
+@layer mds.reset {
+  /* 1. Box-sizing Invariant across all elements and pseudo-elements */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 2. Document Root & Viewport Normalization */
+  html {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+  }
+
+  body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
+
+  /* 3. List & Typography Element Normalization */
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 4. Form & Control Normalization */
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [type="button"]:disabled,
+  [type="reset"]:disabled,
+  [type="submit"]:disabled {
+    cursor: not-allowed;
+  }
+
+  /* 5. Table Element Normalization */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-indent: 0;
+    border-color: inherit;
+    width: 100%;
+  }
+
+  /* 6. Media & Replaced Content Responsiveness */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+}

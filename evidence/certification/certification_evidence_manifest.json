@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "evidence_manifest_id": "MDS-EVID-v1.0.0-426b8bf473112cf5",
+  "release_identity": "MDS-v1.0.0-RELEASE",
+  "build_identity": "426b8bf473112cf5a46f7535e85d821efab7a5b2b6603b39ec7f52840fb9f526",
+  "source_identity": "34cd5128a6258cdfb09bed3f0002eaf9910610bc8ebf3fda16034cef6a815a73",
+  "timestamp": "2026-10-03T14:14:01Z",
+  "gate_evidence_map": {
+    "Gate_A": {
+      "log_file": "evidence/certification/GATE_A_determinism_multi_build.log",
+      "sha256": "a3556172b231ca97add3294c2ed80c6eee527c08c494492d8ab279950e90b893",
+      "byte_size": 4699
+    },
+    "Gate_B": {
+      "log_file": "evidence/certification/GATE_B_security_trust_chain.log",
+      "sha256": "8735c177ea7ecb98e7703b00baece83af50d6ad4f3157700728ee8c0d213c31d",
+      "byte_size": 656
+    },
+    "Gate_C": {
+      "log_file": "evidence/certification/GATE_C_standards_zero_npm.log",
+      "sha256": "12c6773d73585885c2fccaa39bcff6e83e2ba2e1e5c91dcb5b58746ae27710a9",
+      "byte_size": 531
+    },
+    "Gate_D": {
+      "log_file": "evidence/certification/GATE_D_artifact_integrity.log",
+      "sha256": "17aba6ceffae1cf9cb93fd6d09c578dced36983137c63a3577110800c55ed36b",
+      "byte_size": 602
+    },
+    "Gate_E": {
+      "log_file": "evidence/certification/GATE_E_size_performance_budgets.log",
+      "sha256": "cc3f08b5a402854f63942aa6153736d94110e6f275b79ef6421b6abdb6ce8376",
+      "byte_size": 646
+    },
+    "Gate_F1": {
+      "log_file": "evidence/certification/GATE_F1_toolchain_runtime.log",
+      "sha256": "bbb70a0fca4fc3bbb393c7fddd7f6fbdf0c9e483ebcf61dc4c2b75493fac8df3",
+      "byte_size": 419
+    },
+    "Gate_F2": {
+      "log_file": "evidence/certification/GATE_F2_browser_compatibility.log",
+      "sha256": "0ffb1769b456233ee983fdd356d8ac36c696baf6fdf7c7a7971e86b4d4a194b9",
+      "byte_size": 1202
+    },
+    "Gate_G": {
+      "log_file": "evidence/certification/GATE_G_accessibility_wcag.log",
+      "sha256": "61598358e76e7913f7a943db8658569b35223b271bdeaccbcc0f76e46fb1d454",
+      "byte_size": 2336
+    },
+    "Gate_H": {
+      "log_file": "evidence/certification/GATE_H_responsive_rtl.log",
+      "sha256": "d39a692c5ba588119930eb5f88cc16dbf63d56569a1cfa2c74ef58f692fa3a68",
+      "byte_size": 530
+    },
+    "Gate_I": {
+      "log_file": "evidence/certification/GATE_I_versioning_governance.log",
+      "sha256": "f532c1fb18b9b483b55ac07a33ccf26d9c4ea3cccd971794beef0cc522e09918",
+      "byte_size": 498
+    },
+    "Gate_J": {
+      "log_file": "evidence/certification/GATE_J_release_bom.log",
+      "sha256": "318304da834657740df980604dbfad49ebe777be5a69e954436d5d9d890db0fb",
+      "byte_size": 451
+    },
+    "Gate_K": {
+      "log_file": "evidence/certification/GATE_K_rollback_recovery.log",
+      "sha256": "2c53cbb84d777a39ddbe1b8fb76d7b04423b2f59b10d57c7d350ceb4f7019bc0",
+      "byte_size": 506
+    },
+    "Gate_L": {
+      "log_file": "evidence/certification/GATE_L_sign_off_attestation.log",
+      "sha256": "d3af7337938d077ce89816881c600b7f8e1ec112297801a8c9fa95bc5e888f10",
+      "byte_size": 544
+    }
+  }
+}

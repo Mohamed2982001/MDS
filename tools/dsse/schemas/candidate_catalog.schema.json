@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://masterdesignsystem.com/schemas/dsse/candidate_catalog.schema.json",
+  "title": "DSSE Candidate Catalog Schema",
+  "description": "Standardized schema for design system candidate benchmarks, dimension scores, evidence tiers, and hard constraint compliance.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "catalogName",
+    "candidates"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "catalogName": {
+      "type": "string"
+    },
+    "lastUpdated": {
+      "type": "string"
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name",
+          "dimensions"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "dimensions": {
+            "type": "object",
+            "description": "Mapping from dimension ID (D1..D12) to rating object",
+            "additionalProperties": {
+              "type": "object",
+              "required": [
+                "score",
+                "evidenceTier"
+              ],
+              "properties": {
+                "score": {
+                  "type": "number",
+                  "minimum": 0.0,
+                  "maximum": 10.0
+                },
+                "evidenceTier": {
+                  "type": "string",
+                  "enum": [
+                    "CODE_AUDITED",
+                    "OFFICIAL_DOCS",
+                    "COMMUNITY",
+                    "INFERRED",
+                    "UNKNOWN"
+                  ]
+                },
+                "provenance": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "hardConstraints": {
+            "type": "object",
+            "description": "Mapping from constraint ID to tri-state status",
+            "additionalProperties": {
+              "type": "string",
+              "enum": ["PASS", "FAIL", "UNKNOWN"]
+            }
+          },
+          "suggestedConfiguration": {
+            "type": "object",
+            "properties": {
+              "preset": { "type": "string" },
+              "density": { "type": "string" },
+              "mode": { "type": "string" },
+              "primaryDirection": { "type": "string" },
+              "primaryFont": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

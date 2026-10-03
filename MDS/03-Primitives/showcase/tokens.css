@@ -1,0 +1,252 @@
+/**
+ * MDS (Master Design System) — Canonical CSS Tokens
+ * Compiled from MDS/02-Tokens/ (W3C DTCG Format)
+ * Lead Architect: Mohamed Khalid
+ */
+
+:root {
+  /* Typography - Families */
+  --mds-font-family-primary: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --mds-font-family-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  /* Typography - Sizes */
+  --mds-font-size-xs: 12px;
+  --mds-font-size-sm: 14px;
+  --mds-font-size-base: 16px;
+  --mds-font-size-lg: 20px;
+  --mds-font-size-xl: 24px;
+  --mds-font-size-2xl: 30px;
+  --mds-font-size-3xl: 36px;
+  --mds-font-size-4xl: 48px;
+
+  /* Typography - Weights */
+  --mds-font-weight-regular: 400;
+  --mds-font-weight-medium: 500;
+  --mds-font-weight-semibold: 600;
+  --mds-font-weight-bold: 700;
+
+  /* Typography - Line Heights */
+  --mds-line-height-tight: 1.25;
+  --mds-line-height-normal: 1.5;
+  --mds-line-height-relaxed: 1.75;
+  --mds-arabic-leading-boost: 0.15;
+
+  /* Spacing - 4px Modular Scale */
+  --mds-space-0: 0px;
+  --mds-space-1: 4px;
+  --mds-space-2: 8px;
+  --mds-space-3: 12px;
+  --mds-space-4: 16px;
+  --mds-space-5: 20px;
+  --mds-space-6: 24px;
+  --mds-space-8: 32px;
+  --mds-space-10: 40px;
+  --mds-space-12: 48px;
+  --mds-space-16: 64px;
+
+  /* Semantic Space - Inline */
+  --mds-space-inline-xs: var(--mds-space-1);
+  --mds-space-inline-sm: var(--mds-space-2);
+  --mds-space-inline-md: var(--mds-space-4);
+  --mds-space-inline-lg: var(--mds-space-6);
+
+  /* Semantic Space - Block */
+  --mds-space-block-xs: var(--mds-space-1);
+  --mds-space-block-sm: var(--mds-space-2);
+  --mds-space-block-md: var(--mds-space-4);
+  --mds-space-block-lg: var(--mds-space-8);
+
+  /* Containers */
+  --mds-container-standard: 1152px;
+  --mds-container-wide: 1440px;
+
+  /* Shape - Corner Radii (Refined Softness) */
+  --mds-radius-none: 0px;
+  --mds-radius-xs: 4px;
+  --mds-radius-sm: 6px;
+  --mds-radius-md: 10px;
+  --mds-radius-lg: 14px;
+  --mds-radius-xl: 20px;
+  --mds-radius-full: 9999px;
+
+  /* Borders */
+  --mds-border-width-thin: 1px;
+  --mds-border-width-regular: 1.5px;
+  --mds-border-width-thick: 2px;
+
+  /* Elevation Shadows */
+  --mds-elevation-level0: none;
+  --mds-elevation-level1: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px -1px rgba(15, 23, 42, 0.04);
+  --mds-elevation-level2: 0 4px 6px -1px rgba(15, 23, 42, 0.08), 0 2px 4px -2px rgba(15, 23, 42, 0.04);
+  --mds-elevation-level3: 0 12px 16px -4px rgba(15, 23, 42, 0.12), 0 4px 6px -2px rgba(15, 23, 42, 0.05);
+
+  /* Motion */
+  --mds-motion-instant: 0ms;
+  --mds-motion-fast: 150ms;
+  --mds-motion-normal: 250ms;
+  --mds-motion-slow: 350ms;
+  --mds-ease-standard: cubic-bezier(0.2, 0.0, 0.0, 1.0);
+  --mds-ease-enter: cubic-bezier(0.0, 0.0, 0.2, 1.0);
+  --mds-ease-exit: cubic-bezier(0.4, 0.0, 1.0, 1.0);
+
+  /* Size & Touch Targets */
+  --mds-size-control-sm: 32px;
+  --mds-size-control-md: 40px;
+  --mds-size-control-lg: 48px;
+  --mds-size-target-touch: 44px;
+
+  --mds-size-icon-xs: 14px;
+  --mds-size-icon-sm: 16px;
+  --mds-size-icon-md: 20px;
+  --mds-size-icon-lg: 24px;
+  --mds-size-icon-xl: 32px;
+
+  /* Opacity */
+  --mds-opacity-disabled: 0.38;
+
+  /* Base Light Palette - Chromatic Slate */
+  --mds-color-neutral-0: #FFFFFF;
+  --mds-color-neutral-50: #F8FAFC;
+  --mds-color-neutral-100: #F1F5F9;
+  --mds-color-neutral-200: #E2E8F0;
+  --mds-color-neutral-300: #CBD5E1;
+  --mds-color-neutral-400: #94A3B8;
+  --mds-color-neutral-500: #64748B;
+  --mds-color-neutral-600: #475569;
+  --mds-color-neutral-700: #334155;
+  --mds-color-neutral-800: #1E293B;
+  --mds-color-neutral-900: #0F172A;
+  --mds-color-neutral-950: #090D16;
+
+  /* Brand - Royal Sapphire */
+  --mds-color-brand-50: #EFF6FF;
+  --mds-color-brand-100: #DBEAFE;
+  --mds-color-brand-200: #BFDBFE;
+  --mds-color-brand-500: #3B82F6;
+  --mds-color-brand-600: #2563EB;
+  --mds-color-brand-700: #1D4ED8;
+  --mds-color-brand-800: #1E40AF;
+
+  /* Feedback */
+  --mds-color-success: #059669;
+  --mds-color-success-bg: #ECFDF5;
+  --mds-color-success-text: #047857;
+  --mds-color-warning: #D97706;
+  --mds-color-warning-bg: #FFFBEB;
+  --mds-color-warning-text: #B45309;
+  --mds-color-danger: #DC2626;
+  --mds-color-danger-bg: #FEF2F2;
+  --mds-color-danger-text: #B91C1C;
+  --mds-color-info: #0284C7;
+  --mds-color-info-bg: #F0F9FF;
+  --mds-color-info-text: #0369A1;
+
+  /* Semantic Default Surface & Text (Light Mode) */
+  --mds-color-surface-canvas: var(--mds-color-neutral-50);
+  --mds-color-surface-default: var(--mds-color-neutral-0);
+  --mds-color-surface-raised: var(--mds-color-neutral-100);
+  --mds-color-surface-overlay: var(--mds-color-neutral-0);
+  --mds-color-border-subtle: var(--mds-color-neutral-200);
+  --mds-color-border-default: var(--mds-color-neutral-300);
+  --mds-color-text-primary: var(--mds-color-neutral-900);
+  --mds-color-text-secondary: var(--mds-color-neutral-500);
+  --mds-color-text-inverse: var(--mds-color-neutral-0);
+  --mds-color-action-primary: var(--mds-color-brand-600);
+  --mds-color-action-hover: var(--mds-color-brand-700);
+  --mds-color-action-focus: var(--mds-color-brand-600);
+
+  /* Component Tokens - Button */
+  --mds-button-primary-bg: var(--mds-color-action-primary);
+  --mds-button-primary-bg-hover: var(--mds-color-action-hover);
+  --mds-button-primary-text: var(--mds-color-text-inverse);
+  --mds-button-secondary-bg: var(--mds-color-surface-default);
+  --mds-button-secondary-bg-hover: var(--mds-color-surface-raised);
+  --mds-button-secondary-border: var(--mds-color-border-default);
+  --mds-button-secondary-text: var(--mds-color-text-primary);
+  --mds-button-destructive-bg: var(--mds-color-danger);
+  --mds-button-destructive-bg-hover: var(--mds-color-danger-text);
+  --mds-button-destructive-text: var(--mds-color-text-inverse);
+
+  /* Component Tokens - Form Inputs */
+  --mds-input-bg: var(--mds-color-surface-default);
+  --mds-input-border: var(--mds-color-border-default);
+  --mds-input-border-focus: var(--mds-color-brand-600);
+  --mds-input-border-invalid: var(--mds-color-danger);
+  --mds-input-text: var(--mds-color-text-primary);
+  --mds-input-placeholder: var(--mds-color-text-secondary);
+  --mds-input-disabled-bg: var(--mds-color-surface-raised);
+
+  /* Component Tokens - Badge */
+  --mds-badge-neutral-bg: var(--mds-color-neutral-100);
+  --mds-badge-neutral-text: var(--mds-color-neutral-700);
+  --mds-badge-neutral-border: var(--mds-color-neutral-200);
+  --mds-badge-brand-bg: var(--mds-color-brand-50);
+  --mds-badge-brand-text: var(--mds-color-brand-700);
+  --mds-badge-brand-border: var(--mds-color-brand-200);
+  --mds-badge-success-bg: var(--mds-color-success-bg);
+  --mds-badge-success-text: var(--mds-color-success-text);
+  --mds-badge-success-border: var(--mds-color-neutral-200);
+  --mds-badge-danger-bg: var(--mds-color-danger-bg);
+  --mds-badge-danger-text: var(--mds-color-danger-text);
+  --mds-badge-danger-border: var(--mds-color-neutral-200);
+}
+
+/* Dark Mode Theme Overrides */
+[data-theme="dark"] {
+  --mds-color-surface-canvas: var(--mds-color-neutral-950);
+  --mds-color-surface-default: var(--mds-color-neutral-900);
+  --mds-color-surface-raised: var(--mds-color-neutral-800);
+  --mds-color-surface-overlay: var(--mds-color-neutral-700);
+  --mds-color-border-subtle: var(--mds-color-neutral-800);
+  --mds-color-border-default: var(--mds-color-neutral-700);
+  --mds-color-text-primary: var(--mds-color-neutral-50);
+  --mds-color-text-secondary: var(--mds-color-neutral-400);
+  --mds-color-text-inverse: var(--mds-color-neutral-950);
+  --mds-elevation-level1: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --mds-elevation-level2: 0 4px 6px rgba(0, 0, 0, 0.5);
+  --mds-elevation-level3: 0 12px 16px rgba(0, 0, 0, 0.6);
+}
+
+/* High Contrast Mode Theme Overrides */
+[data-theme="high-contrast"] {
+  --mds-color-surface-canvas: #FFFFFF;
+  --mds-color-surface-default: #FFFFFF;
+  --mds-color-surface-raised: #FFFFFF;
+  --mds-color-surface-overlay: #FFFFFF;
+  --mds-color-border-subtle: #000000;
+  --mds-color-border-default: #000000;
+  --mds-color-text-primary: #000000;
+  --mds-color-text-secondary: #000000;
+  --mds-color-action-primary: #000000;
+  --mds-color-action-hover: #000000;
+  --mds-color-action-focus: #000000;
+  --mds-border-width-thin: 2px;
+  --mds-elevation-level1: none;
+  --mds-elevation-level2: none;
+  --mds-elevation-level3: none;
+}
+
+/* Compact Density Overrides */
+[data-density="compact"] {
+  --mds-space-inline-md: var(--mds-space-3);
+  --mds-space-inline-lg: var(--mds-space-4);
+  --mds-space-block-md: var(--mds-space-3);
+  --mds-space-block-lg: var(--mds-space-5);
+  --mds-size-control-md: var(--mds-size-control-sm);
+}
+
+/* Arabic Contextual Leading */
+[dir="rtl"] {
+  --mds-line-height-tight: 1.35;
+  --mds-line-height-normal: 1.65;
+  --mds-line-height-relaxed: 1.85;
+}
+
+/* Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --mds-motion-fast: 0ms;
+    --mds-motion-normal: 0ms;
+    --mds-motion-slow: 0ms;
+  }
+}

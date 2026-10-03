@@ -1,0 +1,16 @@
+/**
+ * MDS (Master Design System) — Core Runtime Stylesheet
+ * Architecture Layer: Layer 13 (Implementation / Foundations & Primitives)
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Canonical CSS Cascade Layer Order:
+ * mds.reset < mds.tokens < mds.foundations < mds.primitives < mds.components < mds.patterns < mds.templates < mds.overrides
+ */
+
+@layer mds.reset, mds.tokens, mds.foundations, mds.primitives, mds.components, mds.patterns, mds.templates, mds.overrides;
+
+@import "../tokens/dist/tokens.css" layer(mds.tokens);
+@import "./reset.css" layer(mds.reset);
+@import "./foundations.css" layer(mds.foundations);
+@import "./primitives.css" layer(mds.primitives);
+@import "../components/components.css" layer(mds.components);

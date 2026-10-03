@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>MDS Broken Responsive Fixture</title>
+  <style>
+    /* Deliberate defects for failure detection verification:
+       1. Fixed 1600px width child causing massive horizontal blowout
+       2. Touch targets < 44px
+       3. Sidebar remains 300px wide at all viewports (zero recomposition)
+       4. Forbidden 1280px container constraint
+    */
+    body {
+      margin: 0;
+      padding: 0;
+    }
+    .mds-ref-main {
+      max-inline-size: 1280px; /* Non-canonical / forbidden breakpoint */
+    }
+    .blowout-box {
+      width: 1600px;
+      height: 100px;
+      background: red;
+    }
+    .tiny-button {
+      width: 20px;
+      height: 20px;
+      padding: 0;
+    }
+    .mds-ref-sidebar {
+      inline-size: 300px;
+      display: block !important;
+    }
+    #btn-mobile-nav {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <button id="btn-mobile-nav" class="tiny-button">☰</button>
+  </header>
+  <div class="mds-ref-body">
+    <nav class="mds-ref-sidebar" id="ref-sidebar">
+      <a href="#" class="tiny-button">Link</a>
+    </nav>
+    <main class="mds-ref-main">
+      <div class="blowout-box">BLOWOUT</div>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,200 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "color": {
+    "brand": {
+      "50": {
+        "$type": "color",
+        "$value": "#EFF6FF",
+        "$description": "Lightest brand tint for subtle backgrounds and active item fills",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#DBEAFE",
+        "$description": "Brand highlight fill for badges and light chips",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#BFDBFE",
+        "$description": "Subtle brand boundary border",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#93C5FD",
+        "$description": "Light brand accent and progress track fill",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#60A5FA",
+        "$description": "Vibrant brand accent for dark mode secondary elements",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#3B82F6",
+        "$description": "Standard interactive brand blue",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#2563EB",
+        "$description": "Core Royal Sapphire primary brand action color (WCAG AA 4.6:1 against #FFF)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#1D4ED8",
+        "$description": "Deep brand action hover state (WCAG AAA 7.2:1 against #FFF)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#1E40AF",
+        "$description": "Brand pressed state and dark mode primary accent",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#1E3A8A",
+        "$description": "Deep high-contrast brand midnight blue",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#172554",
+        "$description": "Deepest dark brand shade",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    },
+    "neutral": {
+      "0": {
+        "$type": "color",
+        "$value": "#FFFFFF",
+        "$description": "Pure white anchor for canvas and inverted text",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "50": {
+        "$type": "color",
+        "$value": "#F8FAFC",
+        "$description": "Chromatic soft canvas background and alternate row shading",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#F1F5F9",
+        "$description": "Subtle surface container fill and inactive control background",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#E2E8F0",
+        "$description": "Hairline borders and table dividers",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#CBD5E1",
+        "$description": "Standard control border outline",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#94A3B8",
+        "$description": "Muted placeholder text and disabled icon fill",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#64748B",
+        "$description": "Secondary text and supporting labels (WCAG AA 4.6:1 on #FFF)",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#475569",
+        "$description": "Emphasized secondary text on light surfaces",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#334155",
+        "$description": "Subheadings on light canvas and dark mode overlay surface",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#1E293B",
+        "$description": "Dark Mode elevated surface card container",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#0F172A",
+        "$description": "Primary high-contrast dark neutral for body text (14.5:1 on #FFF) and dark surface",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#090D16",
+        "$description": "Deepest dark mode canvas backdrop",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "1000": {
+        "$type": "color",
+        "$value": "#000000",
+        "$description": "Pure black anchor for High Contrast Mode",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    },
+    "palette": {
+      "red": {
+        "50": { "$type": "color", "$value": "#FEF2F2" },
+        "200": { "$type": "color", "$value": "#FECACA" },
+        "500": { "$type": "color", "$value": "#EF4444" },
+        "600": {
+          "$type": "color",
+          "$value": "#DC2626",
+          "$description": "Base red source for danger actions and critical error feedback (4.8:1 on #FFF)",
+          "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+        },
+        "700": { "$type": "color", "$value": "#B91C1C" }
+      },
+      "green": {
+        "50": { "$type": "color", "$value": "#ECFDF5" },
+        "200": { "$type": "color", "$value": "#A7F3D0" },
+        "500": { "$type": "color", "$value": "#10B981" },
+        "600": {
+          "$type": "color",
+          "$value": "#059669",
+          "$description": "Base green source for success and confirmation feedback (4.5:1 on #FFF)",
+          "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+        }
+      },
+      "amber": {
+        "50": { "$type": "color", "$value": "#FFFBEB" },
+        "200": { "$type": "color", "$value": "#FDE68A" },
+        "500": { "$type": "color", "$value": "#F59E0B" },
+        "600": {
+          "$type": "color",
+          "$value": "#D97706",
+          "$description": "Base amber source for warning feedback (4.5:1 on #FFF)",
+          "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+        }
+      },
+      "blue": {
+        "50": { "$type": "color", "$value": "#F0F9FF" },
+        "200": { "$type": "color", "$value": "#BAE6FD" },
+        "500": { "$type": "color", "$value": "#0EA5E9" },
+        "600": {
+          "$type": "color",
+          "$value": "#0284C7",
+          "$description": "Base blue source for informational feedback and informative links",
+          "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+        }
+      }
+    }
+  }
+}

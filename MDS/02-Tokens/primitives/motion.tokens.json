@@ -1,0 +1,51 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "motion": {
+    "duration": {
+      "instant": {
+        "$type": "duration",
+        "$value": "0ms",
+        "$description": "0ms instant state change. Reduced-motion standard and non-animated toggles.",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "fast": {
+        "$type": "duration",
+        "$value": "150ms",
+        "$description": "150ms micro-interaction duration for button hover, active press, and icon rotations",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "normal": {
+        "$type": "duration",
+        "$value": "250ms",
+        "$description": "250ms standard transition duration for dropdown menus, popovers, and card expansions",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "slow": {
+        "$type": "duration",
+        "$value": "350ms",
+        "$description": "350ms macro transition duration for modal dialog entries, slide-in drawers, and page changes",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    },
+    "easing": {
+      "standard": {
+        "$type": "cubicBezier",
+        "$value": [0.2, 0, 0, 1],
+        "$description": "Signature MDS natural easing curve (cubic-bezier(0.2, 0, 0, 1)) for standard on-screen transitions",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "enter": {
+        "$type": "cubicBezier",
+        "$value": [0, 0, 0.2, 1],
+        "$description": "Deceleration easing curve (cubic-bezier(0, 0, 0.2, 1)) for elements appearing on-screen",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "exit": {
+        "$type": "cubicBezier",
+        "$value": [0.4, 0, 1, 1],
+        "$description": "Acceleration easing curve (cubic-bezier(0.4, 0, 1, 1)) for elements disappearing off-screen",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    }
+  }
+}

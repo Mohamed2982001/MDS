@@ -1,0 +1,55 @@
+{
+  "schema_version": "1.0.0",
+  "guard_version": "1.0.0",
+  "phase_id": "Phase-9.7.8",
+  "phase_name": "Governance Engine & Repository Consistency Verifier",
+  "locked_at": "2026-09-25T23:45:00.000Z",
+  "authorized_by": "Mohamed Khalid",
+  "authorizing_adr": "ADR-103",
+  "prev_manifest_digest": "97291449fccb259a4643aac19374b5fdb28552cae08952312e6e4a3b504e8440",
+  "manifest_digest": "f29ab8c9875e8d532e07440779aa91688dcc37c700d039394d56e28bb15d773a",
+  "total_documents": 5,
+  "documents": [
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.8-Capability-Coverage-Matrix.md",
+      "canonical_sha256": "efdb472fa58b314ecb73254560f8d69c49b83e23f590643b68093e774661f827",
+      "byte_size": 41149,
+      "line_count": 255,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7.8"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.8-Decision-Log.md",
+      "canonical_sha256": "196f9d6dcaf33f8033c76a15ae7abc48475fff0c1bff68bfc41cf02745339419",
+      "byte_size": 13204,
+      "line_count": 177,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.7.8"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.8-Gaps.md",
+      "canonical_sha256": "ca5068e5f86423172fecc1c8facd829ddcd3545c3fdd06c1f4b9b6d8c032c3b2",
+      "byte_size": 14378,
+      "line_count": 172,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7.8"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.8-Governance-Architecture.md",
+      "canonical_sha256": "f94090c22e3aff74ba2d2a9470d24b2986c13a1ad450d8225299b5d77520c32a",
+      "byte_size": 46029,
+      "line_count": 600,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7.8"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.7.8-Governance-Implementation-Report.md",
+      "canonical_sha256": "45ea549c8c12a5971e002a3ab66c5b5acb97fc52d83631de7317d8466d9ca51a",
+      "byte_size": 17224,
+      "line_count": 292,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.7.8"
+    }
+  ],
+  "history_blocks": []
+}

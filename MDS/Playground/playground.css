@@ -1,0 +1,520 @@
+/**
+ * MDS (Master Design System) — Reference Runtime Playground Stylesheet
+ * Architecture Layer: Layer 13 / Phase 9.5 (Reference Runtime Laboratory)
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Laws:
+ * 1. Strictly consumes MDS Core tokens via CSS Custom Properties.
+ * 2. 100% CSS Logical Properties (0 physical left/right).
+ * 3. Zero row-reverse (WCAG 2.4.3 Focus Order Invariant).
+ * 4. Zero hardcoded colors; all styling derived from token scales.
+ */
+
+@layer mds.overrides {
+  /* =========================================================================
+   * 1. Playground Shell & Base Typography
+   * ========================================================================= */
+  :root {
+    --mds-pg-sidebar-width: 260px;
+    --mds-pg-header-height: 68px;
+  }
+
+  body {
+    background-color: var(--mds-color-surface-canvas);
+    color: var(--mds-color-text-primary);
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-base);
+    line-height: var(--mds-font-line-height-normal);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Skip Link for Keyboard Accessibility */
+  .mds-pg-skip-link {
+    position: absolute;
+    inset-block-start: -999px;
+    inset-inline-start: var(--mds-space-inline-md);
+    background-color: var(--mds-color-brand-600);
+    color: var(--mds-color-text-inverse);
+    padding-block: var(--mds-space-block-sm);
+    padding-inline: var(--mds-space-inline-md);
+    border-radius: var(--mds-radius-sm);
+    font-weight: var(--mds-font-weight-semibold);
+    text-decoration: none;
+    z-index: var(--mds-layer-toast);
+    transition: inset-block-start var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+  }
+
+  .mds-pg-skip-link:focus-visible {
+    inset-block-start: var(--mds-space-block-md);
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  /* =========================================================================
+   * 2. Header & Global Controls Toolbar
+   * ========================================================================= */
+  .mds-pg-header {
+    position: sticky;
+    inset-block-start: 0;
+    z-index: var(--mds-layer-raised);
+    height: var(--mds-pg-header-height);
+    background-color: var(--mds-color-surface-default);
+    border-block-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--mds-space-inline-lg);
+    box-shadow: var(--mds-elevation-level1);
+  }
+
+  .mds-pg-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-md);
+  }
+
+  .mds-pg-brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 36px;
+    block-size: 36px;
+    border-radius: var(--mds-radius-md);
+    background: linear-gradient(135deg, var(--mds-color-brand-600), var(--mds-color-brand-800));
+    color: var(--mds-color-text-inverse);
+    font-weight: var(--mds-font-weight-bold);
+    font-size: var(--mds-font-size-lg);
+    box-shadow: var(--mds-elevation-level1);
+  }
+
+  .mds-pg-brand-title {
+    font-size: var(--mds-font-size-lg);
+    font-weight: var(--mds-font-weight-bold);
+    color: var(--mds-color-text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+  }
+
+  .mds-pg-brand-subtitle {
+    font-size: var(--mds-font-size-xs);
+    color: var(--mds-color-text-secondary);
+    display: block;
+  }
+
+  .mds-pg-toolbar {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-md);
+    flex-wrap: wrap;
+  }
+
+  .mds-pg-control-group {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-xs);
+    background-color: var(--mds-color-surface-raised);
+    border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-md);
+    padding-block: 2px;
+    padding-inline: var(--mds-space-inline-xs);
+  }
+
+  .mds-pg-control-label {
+    font-size: var(--mds-font-size-xs);
+    font-weight: var(--mds-font-weight-medium);
+    color: var(--mds-color-text-secondary);
+    padding-inline-start: var(--mds-space-inline-xs);
+  }
+
+  .mds-pg-select {
+    font-family: inherit;
+    font-size: var(--mds-font-size-xs);
+    font-weight: var(--mds-font-weight-medium);
+    background-color: transparent;
+    color: var(--mds-color-text-primary);
+    border: none;
+    padding-block: var(--mds-space-block-xs);
+    padding-inline: var(--mds-space-inline-sm);
+    border-radius: var(--mds-radius-sm);
+    cursor: pointer;
+    outline: none;
+  }
+
+  .mds-pg-select:focus-visible {
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+  }
+
+  .mds-pg-btn-toggle {
+    font-family: inherit;
+    font-size: var(--mds-font-size-xs);
+    font-weight: var(--mds-font-weight-semibold);
+    background-color: transparent;
+    color: var(--mds-color-text-primary);
+    border: none;
+    padding-block: var(--mds-space-block-xs);
+    padding-inline: var(--mds-space-inline-sm);
+    border-radius: var(--mds-radius-sm);
+    cursor: pointer;
+    transition: background-color var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+  }
+
+  .mds-pg-btn-toggle:hover {
+    background-color: var(--mds-color-surface-default);
+  }
+
+  .mds-pg-btn-toggle.is-active {
+    background-color: var(--mds-color-brand-600);
+    color: var(--mds-color-text-inverse);
+  }
+
+  /* =========================================================================
+   * 3. App Layout Shell (Sidebar + Main Viewport)
+   * ========================================================================= */
+  .mds-pg-shell {
+    display: flex;
+    flex: 1;
+    min-block-size: calc(100vh - var(--mds-pg-header-height));
+  }
+
+  .mds-pg-sidebar {
+    inline-size: var(--mds-pg-sidebar-width);
+    flex-shrink: 0;
+    background-color: var(--mds-color-surface-default);
+    border-inline-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    padding-block: var(--mds-space-block-md);
+    padding-inline: var(--mds-space-inline-md);
+    overflow-y: auto;
+    position: sticky;
+    inset-block-start: var(--mds-pg-header-height);
+    block-size: calc(100vh - var(--mds-pg-header-height));
+  }
+
+  .mds-pg-nav-group-title {
+    font-size: var(--mds-font-size-xs);
+    font-weight: var(--mds-font-weight-bold);
+    color: var(--mds-color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-block: var(--mds-space-block-sm);
+    padding-inline: var(--mds-space-inline-sm);
+    margin: 0;
+  }
+
+  .mds-pg-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--mds-space-block-md) 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .mds-pg-nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--mds-space-block-sm);
+    padding-inline: var(--mds-space-inline-sm);
+    border-radius: var(--mds-radius-md);
+    color: var(--mds-color-text-secondary);
+    text-decoration: none;
+    font-size: var(--mds-font-size-sm);
+    font-weight: var(--mds-font-weight-medium);
+    transition: all var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+  }
+
+  .mds-pg-nav-link:hover {
+    background-color: var(--mds-color-surface-raised);
+    color: var(--mds-color-text-primary);
+  }
+
+  .mds-pg-nav-link.is-active {
+    background-color: var(--mds-color-brand-50);
+    color: var(--mds-color-brand-700);
+    font-weight: var(--mds-font-weight-semibold);
+  }
+
+  [data-mode="dark"] .mds-pg-nav-link.is-active {
+    background-color: var(--mds-color-neutral-800);
+    color: var(--mds-color-brand-400);
+  }
+
+  .mds-pg-nav-count {
+    font-size: var(--mds-font-size-xs);
+    background-color: var(--mds-color-surface-raised);
+    color: var(--mds-color-text-secondary);
+    padding-block: 2px;
+    padding-inline: 6px;
+    border-radius: var(--mds-radius-full);
+  }
+
+  .mds-pg-main {
+    flex: 1;
+    padding-block: var(--mds-space-block-lg);
+    padding-inline: var(--mds-space-inline-lg);
+    max-inline-size: 1440px;
+    margin-inline: auto;
+    overflow-x: hidden;
+  }
+
+  /* =========================================================================
+   * 4. Section Visibility & Typography
+   * ========================================================================= */
+  .mds-pg-section {
+    display: none;
+  }
+
+  .mds-pg-section.is-active {
+    display: block;
+  }
+
+  .mds-pg-section-header {
+    margin-block-end: var(--mds-space-block-lg);
+    border-block-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    padding-block-end: var(--mds-space-block-md);
+  }
+
+  .mds-pg-section-title {
+    font-size: var(--mds-font-size-2xl);
+    font-weight: var(--mds-font-weight-bold);
+    color: var(--mds-color-text-primary);
+    margin: 0 0 var(--mds-space-block-xs) 0;
+  }
+
+  .mds-pg-section-desc {
+    font-size: var(--mds-font-size-base);
+    color: var(--mds-color-text-secondary);
+    margin: 0;
+    max-inline-size: 80ch;
+  }
+
+  /* =========================================================================
+   * 5. Specimen Cards & Laboratory Canvases
+   * ========================================================================= */
+  .mds-pg-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: var(--mds-space-scale-6);
+  }
+
+  .mds-pg-specimen {
+    background-color: var(--mds-color-surface-default);
+    border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+    border-radius: var(--mds-radius-md);
+    box-shadow: var(--mds-elevation-level1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mds-pg-specimen-header {
+    padding-block: var(--mds-space-block-sm);
+    padding-inline: var(--mds-space-inline-md);
+    border-block-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    background-color: var(--mds-color-surface-raised);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .mds-pg-specimen-title {
+    font-size: var(--mds-font-size-sm);
+    font-weight: var(--mds-font-weight-semibold);
+    color: var(--mds-color-text-primary);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+  }
+
+  .mds-pg-specimen-tag {
+    font-size: var(--mds-font-size-xs);
+    font-family: var(--mds-font-family-mono);
+    color: var(--mds-color-text-secondary);
+  }
+
+  .mds-pg-specimen-body {
+    padding-block: var(--mds-space-block-lg);
+    padding-inline: var(--mds-space-inline-lg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--mds-space-scale-4);
+    min-block-size: 160px;
+    background-color: var(--mds-color-surface-default);
+    flex: 1;
+  }
+
+  .mds-pg-specimen-controls {
+    padding-block: var(--mds-space-block-sm);
+    padding-inline: var(--mds-space-inline-md);
+    border-block-start: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    background-color: var(--mds-color-surface-raised);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--mds-space-inline-sm);
+  }
+
+  .mds-pg-control-row {
+    display: flex;
+    align-items: center;
+    gap: var(--mds-space-inline-sm);
+    flex-wrap: wrap;
+  }
+
+  /* =========================================================================
+   * 6. Specialized Laboratory Views
+   * ========================================================================= */
+  /* State Lab */
+  .mds-pg-state-runner {
+    background-color: var(--mds-color-surface-default);
+    border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+    border-radius: var(--mds-radius-lg);
+    padding: var(--mds-space-scale-6);
+    box-shadow: var(--mds-elevation-level1);
+    margin-block-end: var(--mds-space-block-lg);
+  }
+
+  .mds-pg-state-timeline {
+    display: flex;
+    gap: var(--mds-space-inline-xs);
+    margin-block: var(--mds-space-block-md);
+    overflow-x: auto;
+    padding-block: var(--mds-space-block-xs);
+  }
+
+  .mds-pg-state-node {
+    padding-block: var(--mds-space-block-xs);
+    padding-inline: var(--mds-space-inline-sm);
+    border-radius: var(--mds-radius-sm);
+    font-size: var(--mds-font-size-xs);
+    font-weight: var(--mds-font-weight-medium);
+    border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    background-color: var(--mds-color-surface-raised);
+    color: var(--mds-color-text-secondary);
+    white-space: nowrap;
+  }
+
+  .mds-pg-state-node.is-active {
+    background-color: var(--mds-color-brand-600);
+    color: var(--mds-color-text-inverse);
+    border-color: var(--mds-color-brand-600);
+    font-weight: var(--mds-font-weight-bold);
+  }
+
+  /* Responsive Simulator Frame */
+  .mds-pg-viewport-simulator {
+    background-color: var(--mds-color-neutral-100);
+    border: var(--mds-border-width-thick) dashed var(--mds-color-border-default);
+    border-radius: var(--mds-radius-md);
+    padding: var(--mds-space-scale-4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--mds-space-block-md);
+    margin-block-end: var(--mds-space-block-lg);
+  }
+
+  .mds-pg-viewport-container {
+    background-color: var(--mds-color-surface-default);
+    border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+    border-radius: var(--mds-radius-md);
+    box-shadow: var(--mds-elevation-level2);
+    transition: inline-size var(--mds-motion-duration-normal) var(--mds-motion-easing-standard);
+    overflow: hidden;
+    inline-size: 100%;
+    min-block-size: 480px;
+    padding: var(--mds-space-scale-6);
+  }
+
+  /* Token Inspector */
+  .mds-pg-token-table-wrap {
+    background-color: var(--mds-color-surface-default);
+    border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+    border-radius: var(--mds-radius-md);
+    overflow-x: auto;
+    box-shadow: var(--mds-elevation-level1);
+  }
+
+  .mds-pg-token-table {
+    inline-size: 100%;
+    border-collapse: collapse;
+    font-size: var(--mds-font-size-sm);
+    text-align: start;
+  }
+
+  .mds-pg-token-table th,
+  .mds-pg-token-table td {
+    padding-block: var(--mds-space-block-sm);
+    padding-inline: var(--mds-space-inline-md);
+    border-block-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+  }
+
+  .mds-pg-token-table th {
+    background-color: var(--mds-color-surface-raised);
+    font-weight: var(--mds-font-weight-semibold);
+    color: var(--mds-color-text-secondary);
+  }
+
+  .mds-pg-token-code {
+    font-family: var(--mds-font-family-mono);
+    font-size: var(--mds-font-size-xs);
+    background-color: var(--mds-color-surface-raised);
+    padding-block: 2px;
+    padding-inline: 4px;
+    border-radius: var(--mds-radius-xs);
+  }
+
+  .mds-pg-swatch {
+    inline-size: 24px;
+    block-size: 24px;
+    border-radius: var(--mds-radius-sm);
+    border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  /* Reduced Motion Simulator Flag */
+  .mds-simulate-reduced-motion *,
+  .mds-simulate-reduced-motion *::before,
+  .mds-simulate-reduced-motion *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  /* Responsive Adjustments for Mobile */
+  @media (max-width: 768px) {
+    .mds-pg-shell {
+      flex-direction: column;
+    }
+    .mds-pg-sidebar {
+      inline-size: 100%;
+      block-size: auto;
+      position: static;
+      border-inline-end: none;
+      border-block-end: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    }
+    .mds-pg-header {
+      height: auto;
+      padding-block: var(--mds-space-block-sm);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--mds-space-block-sm);
+    }
+    .mds-pg-toolbar {
+      inline-size: 100%;
+      justify-content: flex-start;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "schema_version": "1.0.0",
+  "registry_updated_utc": "2026-10-01T00:00:00Z",
+  "rules": [
+    {
+      "rule_id": "RULE-SURFACE-001",
+      "target_path": "MDS/Reference-Application/index.html",
+      "violation_code": "color-contrast",
+      "provenance": "PREEXISTING_SURFACE",
+      "origin_phase": "Phase-9.7.5",
+      "origin_test": "test_05_live_reference_app_accessibility_audit",
+      "rationale": "Pre-existing color contrast violation in Reference Application demo panel, codified in Phase 9.7.5"
+    },
+    {
+      "rule_id": "RULE-SURFACE-002",
+      "target_path": "MDS/Reference-Application/index.html",
+      "violation_code": "select-name",
+      "provenance": "PREEXISTING_SURFACE",
+      "origin_phase": "Phase-9.7.5",
+      "origin_test": "test_05_live_reference_app_accessibility_audit",
+      "rationale": "Pre-existing unlabelled select element in Reference Application controls, codified in Phase 9.7.5"
+    }
+  ]
+}

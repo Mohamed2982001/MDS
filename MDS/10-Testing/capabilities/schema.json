@@ -1,0 +1,204 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://masterdesignsystem.com/schemas/mds-capability-schema.json",
+  "title": "MdsValidationCapabilityRegistry",
+  "description": "Canonical schema for Master Design System (MDS) validation capability specifications and registry.",
+  "type": "object",
+  "required": ["version", "schema_version", "metadata", "capabilities"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Registry release version (e.g. 1.0.0)"
+    },
+    "schema_version": {
+      "type": "string",
+      "description": "Capability schema version (e.g. 1.0.0)"
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["generated_at", "total_capabilities", "accounting"],
+      "properties": {
+        "generated_at": { "type": "string" },
+        "total_capabilities": { "type": "integer", "minimum": 0 },
+        "accounting": {
+          "type": "object",
+          "required": [
+            "unique_defined_ids",
+            "active_executable_assertions",
+            "deferred_capabilities",
+            "quarantined_capabilities",
+            "disabled_capabilities",
+            "wrapped_assertions"
+          ],
+          "properties": {
+            "unique_defined_ids": { "type": "integer", "minimum": 0 },
+            "active_executable_assertions": { "type": "integer", "minimum": 0 },
+            "deferred_capabilities": { "type": "integer", "minimum": 0 },
+            "quarantined_capabilities": { "type": "integer", "minimum": 0 },
+            "disabled_capabilities": { "type": "integer", "minimum": 0 },
+            "wrapped_assertions": { "type": "integer", "minimum": 0 }
+          }
+        }
+      }
+    },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Capability"
+      }
+    }
+  },
+  "definitions": {
+    "Capability": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "layer",
+        "category",
+        "execution",
+        "severity",
+        "status",
+        "owner",
+        "runner"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^MDS-[A-Z0-9]+-[0-9]{3}$",
+          "description": "Unique, immutable capability identifier conforming to MDS taxonomy"
+        },
+        "name": {
+          "type": "string",
+          "description": "Concise, human-readable capability title"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of architectural invariant verified"
+        },
+        "layer": {
+          "type": "string",
+          "enum": [
+            "A_REPOSITORY",
+            "B_TOKENS",
+            "C_CSS",
+            "D_COMPONENTS",
+            "E_PRIMITIVES",
+            "F_PATTERNS_WORKFLOWS_TEMPLATES",
+            "G_DSSE",
+            "H_REFERENCE_APPLICATION",
+            "I_BROWSER",
+            "J_ACCESSIBILITY",
+            "K_RESPONSIVE",
+            "L_VISUAL",
+            "M_GOVERNANCE",
+            "N_PHASE_GUARD"
+          ],
+          "description": "One of the 14 canonical MDS validation layers"
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "STATIC",
+            "UNIT",
+            "INTEGRATION",
+            "BROWSER",
+            "ACCESSIBILITY",
+            "RESPONSIVE",
+            "VISUAL",
+            "GOVERNANCE"
+          ],
+          "description": "Testing category taxonomy"
+        },
+        "execution": {
+          "type": "string",
+          "enum": [
+            "PYTHON_UNIT",
+            "PYTHON_STATIC",
+            "AST_PARSER",
+            "BROWSER_AUTOMATION",
+            "DOC_SCANNER",
+            "COMPOSITE_HARNESS"
+          ],
+          "description": "Runtime execution harness method"
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "BLOCKER",
+            "CRITICAL",
+            "MAJOR",
+            "MINOR",
+            "WARNING",
+            "INFO"
+          ],
+          "description": "Failure severity classification determining CI exit gate behavior"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "QUARANTINED",
+            "DEFERRED",
+            "DISABLED"
+          ],
+          "description": "Current lifecycle state of the capability"
+        },
+        "owner": {
+          "type": "string",
+          "description": "Architectural owner or domain team"
+        },
+        "runner": {
+          "type": "object",
+          "required": ["file", "entrypoint", "type"],
+          "properties": {
+            "file": {
+              "type": "string",
+              "description": "Path to test runner file relative to workspace root"
+            },
+            "entrypoint": {
+              "type": "string",
+              "description": "Function, class, or method name to execute"
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "standalone_test",
+                "harness_capability",
+                "composite_suite",
+                "browser_test"
+              ]
+            }
+          }
+        },
+        "artifacts": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of diagnostic artifacts or reports produced upon execution"
+        },
+        "depends_on": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "List of capability IDs that must pass before this capability runs"
+        },
+        "wraps": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Sub-assertion IDs wrapped by this composite capability (preventing double counting)"
+        },
+        "deferred_reason": {
+          "type": ["string", "null"],
+          "description": "Mandatory explanation if status is DEFERRED; null otherwise"
+        },
+        "quarantine_reason": {
+          "type": ["string", "null"],
+          "description": "Mandatory explanation and expiration ticket if status is QUARANTINED; null otherwise"
+        },
+        "disabled_reason": {
+          "type": ["string", "null"],
+          "description": "Mandatory explanation if status is DISABLED; null otherwise"
+        }
+      }
+    }
+  }
+}

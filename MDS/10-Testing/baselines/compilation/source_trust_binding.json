@@ -1,0 +1,12 @@
+{
+  "authorized_by": "Lead Architect Mohamed Khalid",
+  "binding_id": "MDS-SOURCE-TRUST-BINDING-v1",
+  "locked_at": "2026-10-02T08:15:00Z",
+  "root_anchor_sha256": "20c240e650a447299690d0e2f65c65a0dbed2acc4aba9de9997c4a093f2ed114",
+  "root_anchor_version": "MDS-ROOT-ANCHOR-v1",
+  "schema_version": "1.0.0",
+  "source_identity_hash": "34cd5128a6258cdfb09bed3f0002eaf9910610bc8ebf3fda16034cef6a815a73",
+  "source_manifest_path": "MDS/10-Testing/baselines/compilation/canonical_source_manifest.json",
+  "source_manifest_sha256": "bc77421d30408375ad4c197cfa2db12dbaa18b395bd06928da64bbc3f41c5744",
+  "total_sources": 61
+}

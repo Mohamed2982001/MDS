@@ -1,0 +1,22 @@
+{
+  "metrics": [
+    { "id": "m1", "label": "Active Sessions", "value": "12,842", "change": "+14.2%", "trend": "up" },
+    { "id": "m2", "label": "Mean Latency", "value": "42.8ms", "change": "-6.1%", "trend": "down" },
+    { "id": "m3", "label": "Error Rate", "value": "0.04%", "change": "-0.01%", "trend": "down" },
+    { "id": "m4", "label": "System Throughput", "value": "98.7%", "change": "+0.4%", "trend": "up" }
+  ],
+  "users": [
+    { "id": "USR-1001", "name": "Mohamed Khalid", "email": "m.khalid@masterdesign.dev", "role": "Lead Architect", "status": "active", "created": "2026-09-13" },
+    { "id": "USR-1002", "name": "Sarah Jenkins", "email": "s.jenkins@acme-cloud.io", "role": "Senior Engineer", "status": "active", "created": "2026-09-14" },
+    { "id": "USR-1003", "name": "Ahmed Mansour", "email": "a.mansour@fintech-hub.eg", "role": "Security Officer", "status": "pending", "created": "2026-09-15" },
+    { "id": "USR-1004", "name": "Elena Rostova", "email": "e.rostova@data-core.org", "role": "Data Analyst", "status": "inactive", "created": "2026-09-16" },
+    { "id": "USR-1005", "name": "Tariq Al-Sabah", "email": "t.alsabah@enterprise.qa", "role": "Product Manager", "status": "active", "created": "2026-09-17" }
+  ],
+  "transactions": [
+    { "id": "TX-8921", "reference": "REF-99201", "amount": "$4,250.00", "currency": "USD", "status": "completed", "timestamp": "2026-09-21 14:22:10" },
+    { "id": "TX-8922", "reference": "REF-99202", "amount": "$1,120.50", "currency": "USD", "status": "completed", "timestamp": "2026-09-21 14:35:45" },
+    { "id": "TX-8923", "reference": "REF-99203", "amount": "$890.00", "currency": "EUR", "status": "processing", "timestamp": "2026-09-21 15:02:18" },
+    { "id": "TX-8924", "reference": "REF-99204", "amount": "$12,400.00", "currency": "USD", "status": "failed", "timestamp": "2026-09-21 15:10:02" },
+    { "id": "TX-8925", "reference": "REF-99205", "amount": "$350.25", "currency": "GBP", "status": "completed", "timestamp": "2026-09-21 15:40:11" }
+  ]
+}

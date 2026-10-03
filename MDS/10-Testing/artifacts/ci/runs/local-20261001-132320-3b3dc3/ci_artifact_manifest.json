@@ -1,0 +1,385 @@
+{
+  "$schema": "https://mds.local/schemas/ci_artifact_manifest.schema.json",
+  "schema_version": "1.0.0",
+  "manifest_id": "bcf2a4c1-3a46-463e-9f35-812950ef1e5d",
+  "timestamp_utc": "2026-10-01T13:23:21.092980+00:00",
+  "run_context": {
+    "provider": "local_runner",
+    "run_id": "local-20261001-132320-3b3dc3",
+    "run_attempt": 1,
+    "commit_sha": "0000000000000000000000000000000000000000",
+    "branch_ref": "refs/heads/local",
+    "pr_number": null,
+    "actor": "local-developer",
+    "runner_os": "windows",
+    "runner_arch": "amd64",
+    "python_version": "3.12.10"
+  },
+  "phase_context": {
+    "active_phase_id": "Phase-9.7.10",
+    "active_prefixes": [
+      "Phase-9.7.10"
+    ],
+    "previous_phase_id": "Phase-9.7.9"
+  },
+  "orchestrator_summary": {
+    "version": "1.0.0",
+    "profile": "full",
+    "overall_status": "FAIL",
+    "exit_code": 1,
+    "duration_ms": 64659.82,
+    "ci_overhead_ms": 94.0346999996109
+  },
+  "subsystems": [
+    {
+      "subsystem_id": "SUB-01",
+      "subsystem_name": "Historical Phase Guard",
+      "stage": 1,
+      "status": "FAIL",
+      "duration_ms": 66.43,
+      "assertions_run": 42,
+      "assertions_cached": 0,
+      "findings_count": 2
+    },
+    {
+      "subsystem_id": "SUB-02",
+      "subsystem_name": "Governance Invariants Engine",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 546.45,
+      "assertions_run": 363,
+      "assertions_cached": 0,
+      "findings_count": 10
+    },
+    {
+      "subsystem_id": "SUB-03",
+      "subsystem_name": "Capability Registry Validator",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 4.35,
+      "assertions_run": 170,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-04",
+      "subsystem_name": "Repository Structure Validator",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 79.3,
+      "assertions_run": 4,
+      "assertions_cached": 0,
+      "findings_count": 1
+    },
+    {
+      "subsystem_id": "SUB-05",
+      "subsystem_name": "Token DTCG Parser & Schema",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 4.65,
+      "assertions_run": 188,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-06",
+      "subsystem_name": "Semantic CSS Scanner",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 118.62,
+      "assertions_run": 39,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-07",
+      "subsystem_name": "DSSE Mathematical Harness",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 1.22,
+      "assertions_run": 37,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-08",
+      "subsystem_name": "Core Primitives Contract Suite",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 2.34,
+      "assertions_run": 5,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-09",
+      "subsystem_name": "Core Components Contract Suite",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 9.69,
+      "assertions_run": 4,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-10",
+      "subsystem_name": "Patterns & Templates Laws",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 0.83,
+      "assertions_run": 3,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-11",
+      "subsystem_name": "Workflow FSM Determinism",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 0.83,
+      "assertions_run": 4,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-12",
+      "subsystem_name": "Browser & Server Infrastructure",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 0.0,
+      "assertions_run": 1,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-13",
+      "subsystem_name": "Live Accessibility & Axe-Core",
+      "stage": 1,
+      "status": "FAIL",
+      "duration_ms": 3193.96,
+      "assertions_run": 42,
+      "assertions_cached": 0,
+      "findings_count": 1
+    },
+    {
+      "subsystem_id": "SUB-14",
+      "subsystem_name": "Responsive Viewport Matrix",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 3413.9,
+      "assertions_run": 17,
+      "assertions_cached": 0,
+      "findings_count": 0
+    },
+    {
+      "subsystem_id": "SUB-15",
+      "subsystem_name": "Visual Regression Pixel-Diff",
+      "stage": 1,
+      "status": "PASS",
+      "duration_ms": 57009.79,
+      "assertions_run": 12,
+      "assertions_cached": 0,
+      "findings_count": 0
+    }
+  ],
+  "findings_summary": {
+    "total": 14,
+    "blocker": 0,
+    "critical": 3,
+    "warn": 10,
+    "info": 1
+  },
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "code": "ADDED",
+      "target": "MDS/13-Implementation/Phase-9.7.11-CI-Architecture.md",
+      "line": null,
+      "col": null,
+      "message": "Unrecognized historical document 'MDS/13-Implementation/Phase-9.7.11-CI-Architecture.md' (HISTORICAL_PHASE_RECORD) added without baseline manifest",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "CRITICAL",
+      "code": "ADDED",
+      "target": "MDS/13-Implementation/Phase-9.7.11-Decision-Log.md",
+      "line": null,
+      "col": null,
+      "message": "Unrecognized historical document 'MDS/13-Implementation/Phase-9.7.11-Decision-Log.md' (HISTORICAL_DECISION_LOG) added without baseline manifest",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "INV-012",
+      "target": "MDS/00-Research/README.md",
+      "line": 16,
+      "col": null,
+      "message": "Broken Intra-Repository Link: Link '[`MDS/03-Primitives/Primitives-Decision-Log.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/03-Primitives/Primitives-Decision-Log.md)' does not resolve to a file on disk. [Classification: Tier 5 Advisory Guidance (Layer Pointer README)] [Validation Mode: Strict Structural] [Reason: Typographical pluralization mismatch ('Primitives' vs canonical 'Primitive-Decision-Log.md')]",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "INV-012",
+      "target": "MDS/08-Experience-States/README.md",
+      "line": 19,
+      "col": null,
+      "message": "Broken Intra-Repository Link: Link '[`MDS/05-Patterns/Feedback/EmptyStateCard.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/05-Patterns/Feedback/EmptyStateCard.md)' does not resolve to a file on disk. [Classification: Tier 5 Advisory Guidance (Layer Pointer README)] [Validation Mode: Strict Structural] [Reason: Provisional pre-standardization entity name referenced prior to final layer ratification]",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "INV-012",
+      "target": "MDS/08-Experience-States/README.md",
+      "line": 20,
+      "col": null,
+      "message": "Broken Intra-Repository Link: Link '[`MDS/05-Patterns/Feedback/NotificationFeed.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/05-Patterns/Feedback/NotificationFeed.md)' does not resolve to a file on disk. [Classification: Tier 5 Advisory Guidance (Layer Pointer README)] [Validation Mode: Strict Structural] [Reason: Provisional pre-standardization entity name referenced prior to final layer ratification]",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "INV-012",
+      "target": "MDS/11-AI/README.md",
+      "line": 15,
+      "col": null,
+      "message": "Broken Intra-Repository Link: Link '[`MDS/05-Patterns/AI/PromptBox.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/05-Patterns/AI/PromptBox.md)' does not resolve to a file on disk. [Classification: Tier 5 Advisory Guidance (Layer Pointer README)] [Validation Mode: Strict Structural] [Reason: Provisional pre-standardization entity name referenced prior to final layer ratification]",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "INV-012",
+      "target": "MDS/11-AI/README.md",
+      "line": 16,
+      "col": null,
+      "message": "Broken Intra-Repository Link: Link '[`MDS/05-Patterns/AI/StreamingResponse.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/05-Patterns/AI/StreamingResponse.md)' does not resolve to a file on disk. [Classification: Tier 5 Advisory Guidance (Layer Pointer README)] [Validation Mode: Strict Structural] [Reason: Provisional pre-standardization entity name referenced prior to final layer ratification]",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "INV-012",
+      "target": "MDS/11-AI/README.md",
+      "line": 18,
+      "col": null,
+      "message": "Broken Intra-Repository Link: Link '[`MDS/06-Workflows/AI/AI-Assisted-Task.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/06-Workflows/AI/AI-Assisted-Task.md)' does not resolve to a file on disk. [Classification: Tier 5 Advisory Guidance (Layer Pointer README)] [Validation Mode: Strict Structural] [Reason: Provisional pre-standardization entity name referenced prior to final layer ratification]",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "INV-012",
+      "target": "MDS/11-AI/README.md",
+      "line": 20,
+      "col": null,
+      "message": "Broken Intra-Repository Link: Link '[`MDS/07-Templates/AI/AI-Workspace-Split.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/07-Templates/AI/AI-Workspace-Split.md)' does not resolve to a file on disk. [Classification: Tier 5 Advisory Guidance (Layer Pointer README)] [Validation Mode: Strict Structural] [Reason: Provisional pre-standardization entity name referenced prior to final layer ratification]",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "INV-012",
+      "target": "MDS/12-Governance/README.md",
+      "line": 19,
+      "col": null,
+      "message": "Broken Intra-Repository Link: Link '[`MDS/03-Primitives/Primitives-Decision-Log.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/03-Primitives/Primitives-Decision-Log.md)' does not resolve to a file on disk. [Classification: Tier 5 Advisory Guidance (Layer Pointer README)] [Validation Mode: Strict Structural] [Reason: Typographical pluralization mismatch ('Primitives' vs canonical 'Primitive-Decision-Log.md')]",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "INV-012",
+      "target": "MDS/Runtime/primitives/README.md",
+      "line": 7,
+      "col": null,
+      "message": "Broken Intra-Repository Link: Link '[`MDS/13-Implementation/Phase-9.1-Implementation-Architecture.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/13-Implementation/Phase-9.1-Implementation-Architecture.md)' does not resolve to a file on disk. [Classification: Tier 2 Realization (Runtime Spec Pointer)] [Validation Mode: Strict Structural] [Reason: Reference to historical/legacy phase filename (MDS/13-Implementation/Phase-9.1-Implementation-Architecture.md) rather than canonical architecture spec (MDS-Implementation-Architecture.md)]",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "INFO",
+      "code": "PERF-001",
+      "target": "governance_engine",
+      "line": 1,
+      "col": null,
+      "message": "Performance Benchmark Target Advisory: Warm benchmark target (500.0ms) exceeded (520.8ms). Non-blocking ADVISORY.",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "WARN",
+      "code": "REPO_WARNING",
+      "target": "repository",
+      "line": null,
+      "col": null,
+      "message": "[WARN-A03-DOC-LINKS] Found 14 unresolvable historical markdown links across docs/research (Advisory/Non-blocking under Section 5 Severity Matrix).",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    },
+    {
+      "severity": "CRITICAL",
+      "code": "A11Y_AUDIT_FAIL",
+      "target": "SUB-13",
+      "line": null,
+      "col": null,
+      "message": "Policy 'MDS-Standard-WCAG-AA' breached: 2 blocking violation(s) (Critical: 1, Serious: 1, Moderate: 0)",
+      "provenance": "REGRESSION",
+      "triage_state": "NEW_FINDING"
+    }
+  ],
+  "protected_core": {
+    "clean": true,
+    "files_audited": 94,
+    "mutations_detected": 0
+  },
+  "historical_guard": {
+    "status": "FAIL",
+    "locked_phases_audited": 8,
+    "records_audited": 42,
+    "drift_detected": 2,
+    "root_anchor_verified": true
+  },
+  "artifacts": [
+    {
+      "artifact_id": "art-358c8acd",
+      "artifact_class": "LOG",
+      "subsystem_id": null,
+      "relative_path": "logs/orchestrator_stderr.log",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mime_type": "application/octet-stream"
+    },
+    {
+      "artifact_id": "art-b777bc7e",
+      "artifact_class": "LOG",
+      "subsystem_id": null,
+      "relative_path": "logs/orchestrator_stdout.log",
+      "byte_size": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "mime_type": "application/octet-stream"
+    },
+    {
+      "artifact_id": "art-0f9d4379",
+      "artifact_class": "TELEMETRY",
+      "subsystem_id": null,
+      "relative_path": "telemetry/performance_profile.json",
+      "byte_size": 204,
+      "sha256": "2ce974e2745941186dd55078e0df85018a392259ec02cfab7e744b19c15ae759",
+      "mime_type": "application/json"
+    },
+    {
+      "artifact_id": "art-2fa8e189",
+      "artifact_class": "TELEMETRY",
+      "subsystem_id": null,
+      "relative_path": "telemetry/run_all_telemetry.json",
+      "byte_size": 21072,
+      "sha256": "b4ebe23c5ebc490e301ea8f2636ae22087ee5fba715570734db85bedc6757ea6",
+      "mime_type": "application/json"
+    }
+  ],
+  "manifest_sha256": "6f150ace4abf22beb80fcb5746045d99f02d8d3ee4c0d0bb8ef8bfa68f2d7ef9"
+}

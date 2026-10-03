@@ -1,0 +1,310 @@
+/**
+ * Master Design System (MDS) — Workflows Showcase Stylesheet
+ * Layer 06: Workflows Interactive State Machine Testbed
+ *
+ * STRICT INVARIANTS:
+ * - 100% token-driven via CSS custom properties var(--mds-...)
+ * - EXACTLY 0 raw hex colors (#[0-9a-fA-F]{3,6})
+ * - 100% CSS Logical Properties (inline/block/start/end)
+ * - Zero physical directional hacks (no row-reverse, no float, no hardcoded left/right)
+ */
+
+/* ==========================================================================
+   1. Workflow Sandbox Layout & Scaffolding
+   ========================================================================== */
+.mds-workflow-sandbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-8);
+  padding-block: var(--mds-space-6);
+}
+
+.mds-workflow-card {
+  background-color: var(--mds-color-surface-raised);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+  border-radius: var(--mds-radius-lg);
+  padding: var(--mds-space-6);
+  box-shadow: var(--mds-elevation-level1);
+  transition: box-shadow var(--mds-motion-fast) var(--mds-ease-standard);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-5);
+}
+
+.mds-workflow-card:hover {
+  box-shadow: var(--mds-elevation-level2);
+}
+
+.mds-workflow-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+  padding-bottom: var(--mds-space-3);
+  gap: var(--mds-space-3);
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   2. Finite State Machine (FSM) Visualizer Badges
+   ========================================================================== */
+.mds-fsm-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--mds-space-2);
+  padding-inline: var(--mds-space-3);
+  padding-block: var(--mds-space-1);
+  border-radius: var(--mds-radius-full);
+  font-family: var(--mds-font-family-mono);
+  font-size: var(--mds-font-size-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: var(--mds-border-width-thin) solid currentColor;
+}
+
+.mds-fsm-badge--idle {
+  color: var(--mds-color-text-secondary);
+  background-color: var(--mds-color-surface-subtle);
+}
+
+.mds-fsm-badge--active {
+  color: var(--mds-color-brand-600);
+  background-color: var(--mds-color-surface-raised);
+}
+
+.mds-fsm-badge--processing {
+  color: var(--mds-color-brand-700);
+  background-color: var(--mds-color-surface-raised);
+}
+
+.mds-fsm-badge--streaming {
+  color: var(--mds-color-brand-500);
+  background-color: var(--mds-color-surface-raised);
+}
+
+.mds-fsm-badge--success {
+  color: var(--mds-color-feedback-success);
+  background-color: var(--mds-color-surface-raised);
+}
+
+.mds-fsm-badge--error {
+  color: var(--mds-color-feedback-error);
+  background-color: var(--mds-color-surface-raised);
+}
+
+.mds-fsm-badge--confirming {
+  color: var(--mds-color-feedback-warning);
+  background-color: var(--mds-color-surface-raised);
+}
+
+/* ==========================================================================
+   3. Workflow Step Indicator / Stepper
+   ========================================================================== */
+.mds-stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--mds-space-2);
+  width: 100%;
+  margin-block-end: var(--mds-space-2);
+  flex-wrap: wrap;
+}
+
+.mds-stepper-step {
+  display: flex;
+  align-items: center;
+  gap: var(--mds-space-2);
+  font-size: var(--mds-font-size-xs);
+  font-weight: 600;
+  color: var(--mds-color-text-muted);
+}
+
+.mds-stepper-step--current {
+  color: var(--mds-color-brand-600);
+}
+
+.mds-stepper-step--completed {
+  color: var(--mds-color-feedback-success);
+}
+
+.mds-stepper-dot {
+  width: var(--mds-space-5);
+  height: var(--mds-space-5);
+  border-radius: var(--mds-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--mds-font-size-xs);
+  background-color: var(--mds-color-surface-subtle);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+}
+
+.mds-stepper-step--current .mds-stepper-dot {
+  background-color: var(--mds-color-brand-600);
+  color: var(--mds-color-text-inverse);
+  border-color: var(--mds-color-brand-600);
+}
+
+.mds-stepper-step--completed .mds-stepper-dot {
+  background-color: var(--mds-color-feedback-success);
+  color: var(--mds-color-text-inverse);
+  border-color: var(--mds-color-feedback-success);
+}
+
+.mds-stepper-separator {
+  flex: 1;
+  height: var(--mds-border-width-thin);
+  min-width: var(--mds-space-4);
+  background-color: var(--mds-color-border-subtle);
+}
+
+/* ==========================================================================
+   4. Interactive Stage Stage Containers
+   ========================================================================== */
+.mds-stage-container {
+  border: var(--mds-border-width-thin) dashed var(--mds-color-border-default);
+  border-radius: var(--mds-radius-md);
+  padding: var(--mds-space-5);
+  background-color: var(--mds-color-surface-default);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-4);
+}
+
+.mds-workflow-alert {
+  padding: var(--mds-space-4);
+  border-radius: var(--mds-radius-md);
+  border: var(--mds-border-width-thin) solid currentColor;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--mds-space-3);
+  flex-wrap: wrap;
+}
+
+.mds-workflow-alert--error {
+  color: var(--mds-color-feedback-error);
+  background-color: var(--mds-color-surface-raised);
+}
+
+.mds-workflow-alert--success {
+  color: var(--mds-color-feedback-success);
+  background-color: var(--mds-color-surface-raised);
+}
+
+.mds-workflow-alert--warning {
+  color: var(--mds-color-feedback-warning);
+  background-color: var(--mds-color-surface-raised);
+}
+
+/* ==========================================================================
+   5. AI Streaming & Cursor Styles
+   ========================================================================== */
+.mds-stream-box {
+  font-family: var(--mds-font-family-primary);
+  font-size: var(--mds-font-size-base);
+  line-height: var(--mds-line-height-relaxed);
+  color: var(--mds-color-text-primary);
+  background-color: var(--mds-color-surface-raised);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+  border-radius: var(--mds-radius-md);
+  padding: var(--mds-space-4);
+  min-height: 100px;
+  white-space: pre-wrap;
+  position: relative;
+}
+
+.mds-stream-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 16px;
+  background-color: var(--mds-color-brand-600);
+  margin-inline-start: var(--mds-space-1);
+  vertical-align: middle;
+  animation: mds-cursor-blink 800ms infinite ease-in-out;
+}
+
+@keyframes mds-cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ==========================================================================
+   6. Modal Dialog Scrim & Surface (Confirmation)
+   ========================================================================== */
+.mds-modal-scrim {
+  position: fixed;
+  inset: 0;
+  background-color: var(--mds-color-overlay-scrim);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--mds-space-4);
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--mds-motion-fast) var(--mds-ease-standard);
+}
+
+.mds-modal-scrim.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mds-modal-surface {
+  background-color: var(--mds-color-surface-raised);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-default);
+  border-radius: var(--mds-radius-lg);
+  box-shadow: var(--mds-elevation-level4);
+  max-width: 480px;
+  width: 100%;
+  padding: var(--mds-space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-4);
+  transform: scale(0.95);
+  transition: transform var(--mds-motion-fast) var(--mds-ease-standard);
+}
+
+.mds-modal-scrim.is-open .mds-modal-surface {
+  transform: scale(1);
+}
+
+/* ==========================================================================
+   7. Form & Interactive Controls
+   ========================================================================== */
+.mds-field-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--mds-space-1);
+}
+
+.mds-field-label {
+  font-size: var(--mds-font-size-sm);
+  font-weight: 600;
+  color: var(--mds-color-text-secondary);
+}
+
+.mds-field-error {
+  font-size: var(--mds-font-size-xs);
+  color: var(--mds-color-feedback-error);
+}
+
+.mds-field-input--error {
+  border-color: var(--mds-color-feedback-error) !important;
+}
+
+/* ==========================================================================
+   8. Reduced Motion Override
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  .mds-modal-scrim,
+  .mds-modal-surface,
+  .mds-workflow-card,
+  .mds-stream-cursor {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

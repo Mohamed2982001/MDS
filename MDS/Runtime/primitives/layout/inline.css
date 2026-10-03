@@ -1,0 +1,44 @@
+/**
+ * MDS (Master Design System) — Inline Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Responsibility: 1D Horizontal logical composition & RTL-safe flow
+ */
+
+.mds-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Token-Driven Gap Modifiers */
+.mds-inline--gap-xs { gap: var(--mds-space-inline-xs); }
+.mds-inline--gap-sm { gap: var(--mds-space-inline-sm); }
+.mds-inline--gap-md { gap: var(--mds-space-inline-md); }
+.mds-inline--gap-lg { gap: var(--mds-space-inline-lg); }
+
+/* Alignment Modifiers */
+.mds-inline--align-start    { align-items: flex-start; }
+.mds-inline--align-center   { align-items: center; }
+.mds-inline--align-end      { align-items: flex-end; }
+.mds-inline--align-baseline { align-items: baseline; }
+
+/* Justification Modifiers */
+.mds-inline--justify-start   { justify-content: flex-start; }
+.mds-inline--justify-center  { justify-content: center; }
+.mds-inline--justify-end     { justify-content: flex-end; }
+.mds-inline--justify-between { justify-content: space-between; }
+
+/* Wrapping Modifier */
+.mds-inline--wrap {
+  flex-wrap: wrap;
+}
+
+/* Responsive Collapse to Vertical Stack */
+@media (max-width: 640px) {
+  .mds-inline--collapse-sm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

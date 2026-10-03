@@ -1,0 +1,1157 @@
+/**
+ * Master Design System (MDS) — Modular Primitives Stylesheet
+ * Layers: mds.reset, mds.foundations, mds.primitives
+ */
+@layer mds.reset, mds.foundations, mds.primitives;
+
+/**
+ * MDS (Master Design System) — Reset & Baseline Normalization
+ * Architecture Layer: Layer 13 (Implementation / Reset)
+ * Cascade Layer: @layer mds.reset
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ */
+
+@layer mds.reset {
+  /* 1. Box-sizing Invariant across all elements and pseudo-elements */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 2. Document Root & Viewport Normalization */
+  html {
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+  }
+
+  body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+  }
+
+  /* 3. List & Typography Element Normalization */
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  /* 4. Form & Control Normalization */
+  button,
+  input,
+  optgroup,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: inherit;
+    color: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+  }
+
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [type="button"]:disabled,
+  [type="reset"]:disabled,
+  [type="submit"]:disabled {
+    cursor: not-allowed;
+  }
+
+  /* 5. Table Element Normalization */
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    text-indent: 0;
+    border-color: inherit;
+    width: 100%;
+  }
+
+  /* 6. Media & Replaced Content Responsiveness */
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+}
+
+
+/**
+ * MDS (Master Design System) — Foundations Runtime
+ * Architecture Layer: Layer 13 (Implementation / Foundations)
+ * Cascade Layer: @layer mds.foundations
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ */
+
+@layer mds.foundations {
+  :root {
+    color-scheme: light dark;
+  }
+
+  /* 1. Global Baseline Typography & Canvas */
+  body {
+    font-family: var(--mds-font-family-primary);
+    font-size: var(--mds-font-size-base);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+    background-color: var(--mds-color-surface-canvas);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* 2. Arabic & RTL Foundation: Context-Aware Leading Boost (+0.15) */
+  :lang(ar),
+  [dir="rtl"] {
+    line-height: calc(var(--mds-font-line-height-normal) + var(--mds-arabic-leading-boost));
+  }
+
+  /* 3. Text Selection Highlights */
+  ::selection {
+    background-color: var(--mds-color-brand-100);
+    color: var(--mds-color-brand-900);
+  }
+
+  /* 4. Universal Reduced-Motion Safety Foundation */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+
+/**
+ * MDS (Master Design System) — Primitives Runtime Engine
+ * Architecture Layer: Layer 13 (Implementation / Primitives)
+ * Cascade Layer: @layer mds.primitives
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Implements 18 Canonical Primitives across:
+ * 1. Layout: Container, Stack, Inline, Grid, Cluster
+ * 2. Typography: Text, Heading (1-6), Label, Caption, HelperText, Numeric, Code
+ * 3. Surface: Canvas, Surface, Raised, Floating, Overlay (Depth Triad)
+ * 4. Interaction & A11y: PressTarget (44px), FocusRing, VisuallyHidden, ReducedMotion
+ * 5. Icon Contract: Optical scaling & RTL mirroring taxonomy
+ */
+
+@layer mds.primitives {
+  /* ========================================================================
+     1. LAYOUT PRIMITIVES
+     ======================================================================== */
+
+  /* 1.1 Container */
+  .mds-container {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: var(--mds-space-scale-4); /* Mobile: 16px */
+  }
+
+  @media (min-width: 768px) {
+    .mds-container {
+      padding-inline: var(--mds-space-scale-6); /* Tablet: 24px */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mds-container {
+      padding-inline: var(--mds-space-scale-8); /* Desktop: 32px */
+    }
+  }
+
+  .mds-container--standard {
+    max-width: var(--mds-container-standard, 1152px); /* Canonical Standard: 1152px */
+  }
+
+  .mds-container--wide {
+    max-width: var(--mds-container-wide, 1440px); /* Canonical Wide: 1440px */
+  }
+
+  .mds-container--fluid {
+    max-width: 100%;
+  }
+
+  /* 1.2 Stack (1D Vertical Composition) */
+  .mds-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+
+  .mds-stack--gap-xs { gap: var(--mds-space-block-xs); }
+  .mds-stack--gap-sm { gap: var(--mds-space-block-sm); }
+  .mds-stack--gap-md { gap: var(--mds-space-block-md); }
+  .mds-stack--gap-lg { gap: var(--mds-space-block-lg); }
+  .mds-stack--gap-xl { gap: var(--mds-space-scale-12); }
+
+  .mds-stack--align-start    { align-items: flex-start; }
+  .mds-stack--align-center   { align-items: center; }
+  .mds-stack--align-end      { align-items: flex-end; }
+  .mds-stack--justify-center { justify-content: center; }
+
+  .mds-stack--dividers > * + * {
+    border-block-start: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    padding-block-start: inherit;
+  }
+
+  /* 1.3 Inline (1D Horizontal Composition) */
+  .mds-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .mds-inline--gap-xs { gap: var(--mds-space-inline-xs); }
+  .mds-inline--gap-sm { gap: var(--mds-space-inline-sm); }
+  .mds-inline--gap-md { gap: var(--mds-space-inline-md); }
+  .mds-inline--gap-lg { gap: var(--mds-space-inline-lg); }
+
+  .mds-inline--align-start    { align-items: flex-start; }
+  .mds-inline--align-center   { align-items: center; }
+  .mds-inline--align-end      { align-items: flex-end; }
+  .mds-inline--align-baseline { align-items: baseline; }
+
+  .mds-inline--justify-start   { justify-content: flex-start; }
+  .mds-inline--justify-center  { justify-content: center; }
+  .mds-inline--justify-end     { justify-content: flex-end; }
+  .mds-inline--justify-between { justify-content: space-between; }
+
+  .mds-inline--wrap {
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .mds-inline--collapse-sm {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+
+  /* 1.4 Grid (12-Column Responsive System) */
+  .mds-grid {
+    display: grid;
+    column-gap: var(--mds-space-scale-4);
+    row-gap: var(--mds-space-block-md);
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* Mobile: 4 cols */
+  }
+
+  @media (min-width: 768px) {
+    .mds-grid {
+      column-gap: var(--mds-space-scale-6);
+      grid-template-columns: repeat(8, minmax(0, 1fr)); /* Tablet: 8 cols */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .mds-grid {
+      column-gap: var(--mds-space-scale-6);
+      grid-template-columns: repeat(12, minmax(0, 1fr)); /* Desktop: 12 cols */
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .mds-grid {
+      column-gap: var(--mds-space-scale-8); /* Wide: 32px gutter */
+    }
+  }
+
+  .mds-grid--auto-tiles {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .mds-grid__col--1  { grid-column: span 1 / span 1; }
+  .mds-grid__col--2  { grid-column: span 2 / span 2; }
+  .mds-grid__col--3  { grid-column: span 3 / span 3; }
+  .mds-grid__col--4  { grid-column: span 4 / span 4; }
+  .mds-grid__col--5  { grid-column: span 5 / span 5; }
+  .mds-grid__col--6  { grid-column: span 6 / span 6; }
+  .mds-grid__col--7  { grid-column: span 7 / span 7; }
+  .mds-grid__col--8  { grid-column: span 8 / span 8; }
+  .mds-grid__col--9  { grid-column: span 9 / span 9; }
+  .mds-grid__col--10 { grid-column: span 10 / span 10; }
+  .mds-grid__col--11 { grid-column: span 11 / span 11; }
+  .mds-grid__col--12 { grid-column: span 12 / span 12; }
+
+  /* 1.5 Cluster (Wrapping Group) */
+  .mds-cluster {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .mds-cluster--gap-xs { gap: var(--mds-space-scale-1); }
+  .mds-cluster--gap-sm { gap: var(--mds-space-scale-2); }
+  .mds-cluster--gap-md { gap: var(--mds-space-scale-4); }
+  .mds-cluster--gap-lg { gap: var(--mds-space-scale-6); }
+
+  .mds-cluster--align-start  { align-items: flex-start; }
+  .mds-cluster--align-center { align-items: center; }
+  .mds-cluster--align-end    { align-items: flex-end; }
+
+  .mds-cluster--justify-start   { justify-content: flex-start; }
+  .mds-cluster--justify-center  { justify-content: center; }
+  .mds-cluster--justify-end     { justify-content: flex-end; }
+  .mds-cluster--justify-between { justify-content: space-between; }
+
+  /* ========================================================================
+     2. TYPOGRAPHY PRIMITIVES
+     ======================================================================== */
+
+  .mds-text {
+    margin: 0;
+    font-family: inherit;
+    font-size: var(--mds-font-size-base);
+    font-weight: var(--mds-font-weight-regular);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+    overflow-wrap: break-word;
+  }
+
+  .mds-text--size-xs   { font-size: var(--mds-font-size-xs); }
+  .mds-text--size-sm   { font-size: var(--mds-font-size-sm); }
+  .mds-text--size-base { font-size: var(--mds-font-size-base); }
+  .mds-text--size-lg   { font-size: var(--mds-font-size-lg); }
+  .mds-text--size-xl   { font-size: var(--mds-font-size-xl); }
+  .mds-text--size-2xl  { font-size: var(--mds-font-size-2xl); }
+  .mds-text--size-3xl  { font-size: var(--mds-font-size-3xl); }
+  .mds-text--size-4xl  { font-size: var(--mds-font-size-4xl); }
+
+  .mds-text--weight-regular  { font-weight: var(--mds-font-weight-regular); }
+  .mds-text--weight-medium   { font-weight: var(--mds-font-weight-medium); }
+  .mds-text--weight-semibold { font-weight: var(--mds-font-weight-semibold); }
+  .mds-text--weight-bold     { font-weight: var(--mds-font-weight-bold); }
+
+  .mds-text--color-primary   { color: var(--mds-color-text-primary); }
+  .mds-text--color-secondary { color: var(--mds-color-text-secondary); }
+  .mds-text--color-inverse   { color: var(--mds-color-text-inverse); }
+  .mds-text--color-brand     { color: var(--mds-color-action-primary-default); }
+
+  .mds-text--align-start   { text-align: start; }
+  .mds-text--align-center  { text-align: center; }
+  .mds-text--align-end     { text-align: end; }
+  .mds-text--align-justify { text-align: justify; }
+
+  .mds-text--soft-wrap {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+
+  .mds-heading {
+    margin: 0;
+    font-family: inherit;
+    font-weight: var(--mds-font-weight-bold);
+    line-height: var(--mds-font-line-height-tight);
+    color: var(--mds-color-text-primary);
+    overflow-wrap: break-word;
+  }
+
+  .mds-heading--1 { font-size: var(--mds-font-size-4xl); font-weight: var(--mds-font-weight-bold); }
+  .mds-heading--2 { font-size: var(--mds-font-size-3xl); font-weight: var(--mds-font-weight-bold); }
+  .mds-heading--3 { font-size: var(--mds-font-size-2xl); font-weight: var(--mds-font-weight-semibold); }
+  .mds-heading--4 { font-size: var(--mds-font-size-xl);  font-weight: var(--mds-font-weight-semibold); }
+  .mds-heading--5 { font-size: var(--mds-font-size-lg);  font-weight: var(--mds-font-weight-semibold); }
+  .mds-heading--6 { font-size: var(--mds-font-size-base);font-weight: var(--mds-font-weight-semibold); }
+
+  .mds-label {
+    display: inline-block;
+    margin: 0;
+    font-size: var(--mds-font-size-sm);
+    font-weight: var(--mds-font-weight-medium);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+  }
+
+  .mds-caption {
+    margin: 0;
+    font-size: var(--mds-font-size-xs);
+    font-weight: var(--mds-font-weight-regular);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-secondary);
+  }
+
+  .mds-helper-text {
+    margin: 0;
+    font-size: var(--mds-font-size-xs);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-secondary);
+  }
+  .mds-helper-text--error   { color: var(--mds-color-feedback-danger); }
+  .mds-helper-text--success { color: var(--mds-color-feedback-success); }
+
+  .mds-numeric {
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.01em;
+  }
+
+  .mds-code {
+    font-family: var(--mds-font-family-mono);
+    font-size: var(--mds-font-size-sm);
+    padding-inline: var(--mds-space-scale-1);
+    padding-block: var(--mds-space-scale-0);
+    background-color: var(--mds-color-neutral-100);
+    border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    border-radius: var(--mds-radius-xs);
+  }
+
+  /* ========================================================================
+     3. SURFACE PRIMITIVES (DEPTH TRIAD)
+     ======================================================================== */
+
+  .mds-canvas {
+    background-color: var(--mds-color-surface-canvas);
+    min-height: 100vh;
+  }
+
+  .mds-surface {
+    background-color: var(--mds-color-surface-default);
+    border-radius: var(--mds-radius-md);
+    border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+    padding: var(--mds-space-scale-4);
+    transition: box-shadow var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+  }
+
+  .mds-surface--raised {
+    background-color: var(--mds-color-surface-raised);
+    box-shadow: var(--mds-elevation-level1);
+  }
+
+  .mds-surface--floating {
+    background-color: var(--mds-color-surface-default);
+    box-shadow: var(--mds-elevation-level2);
+    border-radius: var(--mds-radius-lg);
+    z-index: var(--mds-layer-dropdown, 100);
+  }
+
+  .mds-surface--overlay {
+    background-color: var(--mds-color-surface-overlay);
+    box-shadow: var(--mds-elevation-level3);
+    border-radius: var(--mds-radius-xl);
+    z-index: var(--mds-layer-overlay, 1000);
+  }
+
+  .mds-surface--padding-sm { padding: var(--mds-space-scale-2); }
+  .mds-surface--padding-md { padding: var(--mds-space-scale-4); }
+  .mds-surface--padding-lg { padding: var(--mds-space-scale-6); }
+
+  /* ========================================================================
+     4. INTERACTION & ACCESSIBILITY PRIMITIVES
+     ======================================================================== */
+
+  /* 4.1 PressTarget (44×44px hit area enforcer) */
+  .mds-press-target {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (pointer: coarse) {
+    .mds-press-target::after {
+      content: '';
+      position: absolute;
+      inset-block-start: 50%;
+      inset-inline-start: 50%;
+      transform: translate(-50%, -50%);
+      min-width: var(--mds-size-touch-target-min, 44px);
+      min-height: var(--mds-size-touch-target-min, 44px);
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  }
+
+  /* 4.2 FocusRing (2px visible focus outline) */
+  .mds-focus-ring:focus-visible {
+    outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+    outline-offset: 2px;
+  }
+
+  .mds-focus-ring:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* 4.3 Interactive Base Behavior */
+  .mds-interactive {
+    cursor: pointer;
+    user-select: none;
+    transition: all var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+  }
+
+  .mds-interactive:disabled,
+  .mds-interactive[aria-disabled="true"] {
+    cursor: not-allowed;
+    opacity: var(--mds-opacity-disabled);
+    pointer-events: none;
+  }
+
+  /* 4.4 VisuallyHidden */
+  .mds-visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .mds-visually-hidden--focusable:focus,
+  .mds-visually-hidden--focusable:focus-within {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+  }
+
+  /* 4.5 ReducedMotion Utilities */
+  .mds-motion--instant {
+    transition-duration: var(--mds-motion-duration-instant) !important;
+    animation-duration: var(--mds-motion-duration-instant) !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mds-motion--collapse {
+      transition: none !important;
+      animation: none !important;
+      transform: none !important;
+    }
+  }
+
+  /* ========================================================================
+     5. VENDOR-AGNOSTIC ICON CONTRACT
+     ======================================================================== */
+
+  .mds-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    line-height: 1;
+    vertical-align: middle;
+  }
+
+  .mds-icon--size-xs, .mds-icon--xs { width: var(--mds-size-icon-xs); height: var(--mds-size-icon-xs); }
+  .mds-icon--size-sm, .mds-icon--sm { width: var(--mds-size-icon-sm); height: var(--mds-size-icon-sm); }
+  .mds-icon--size-md, .mds-icon--md { width: var(--mds-size-icon-md); height: var(--mds-size-icon-md); }
+  .mds-icon--size-lg, .mds-icon--lg { width: var(--mds-size-icon-lg); height: var(--mds-size-icon-lg); }
+  .mds-icon--size-xl, .mds-icon--xl { width: var(--mds-size-icon-xl); height: var(--mds-size-icon-xl); }
+
+  .mds-icon > svg {
+    width: 100%;
+    height: 100%;
+    fill: currentColor;
+  }
+
+  .mds-icon--stroke-regular > svg { stroke-width: var(--mds-border-width-regular); }
+  .mds-icon--stroke-thick > svg   { stroke-width: var(--mds-border-width-thick); }
+
+  :lang(ar) .mds-icon--mirror-rtl,
+  [dir="rtl"] .mds-icon--mirror-rtl {
+    transform: scaleX(-1);
+  }
+}
+
+
+/**
+ * MDS (Master Design System) — Core Runtime Stylesheet
+ * Architecture Layer: Layer 13 (Implementation / Foundations & Primitives)
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Canonical CSS Cascade Layer Order:
+ * mds.reset < mds.tokens < mds.foundations < mds.primitives < mds.components < mds.patterns < mds.templates < mds.overrides
+ */
+
+@layer mds.reset, mds.tokens, mds.foundations, mds.primitives, mds.components, mds.patterns, mds.templates, mds.overrides;
+
+@import "../tokens/dist/tokens.css" layer(mds.tokens);
+@import "./reset.css" layer(mds.reset);
+@import "./foundations.css" layer(mds.foundations);
+@import "./primitives.css" layer(mds.primitives);
+@import "../components/components.css" layer(mds.components);
+
+
+/**
+ * MDS (Master Design System) — Vendor-Agnostic Icon Contract Primitive
+ * Architecture Layer: Layer 03 (Primitives / Icon)
+ * Cascade Layer: @layer mds.primitives
+ * Specifications: 24×24 Bounding Box, 20×20 Optical Grid, RTL Directional Mirroring Taxonomy
+ */
+
+.mds-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* Optical Icon Sizing Mapped Strictly to MDS Tokens */
+.mds-icon--size-xs, .mds-icon--xs { width: var(--mds-size-icon-xs); height: var(--mds-size-icon-xs); } /* 14px */
+.mds-icon--size-sm, .mds-icon--sm { width: var(--mds-size-icon-sm); height: var(--mds-size-icon-sm); } /* 16px */
+.mds-icon--size-md, .mds-icon--md { width: var(--mds-size-icon-md); height: var(--mds-size-icon-md); } /* 20px */
+.mds-icon--size-lg, .mds-icon--lg { width: var(--mds-size-icon-lg); height: var(--mds-size-icon-lg); } /* 24px */
+.mds-icon--size-xl, .mds-icon--xl { width: var(--mds-size-icon-xl); height: var(--mds-size-icon-xl); } /* 32px */
+
+/* Scalable Vector Substrate */
+.mds-icon > svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
+/* Stroke Weight Taxonomy */
+.mds-icon--stroke-regular > svg { stroke-width: var(--mds-border-width-regular); } /* 1.5px standard */
+.mds-icon--stroke-thick > svg   { stroke-width: var(--mds-border-width-thick); }   /* 2.0px heavy */
+
+/* RTL Directional Mirroring: Strictly for directional icons (chevrons, arrows, send) */
+:lang(ar) .mds-icon--mirror-rtl,
+[dir="rtl"] .mds-icon--mirror-rtl {
+  transform: scaleX(-1);
+}
+
+
+/**
+ * MDS (Master Design System) — FocusRing Primitive & Interactive Base
+ * Architecture Layer: Layer 03 (Primitives / Interaction)
+ * Cascade Layer: @layer mds.primitives
+ * Rule: 2px visible keyboard focus indicator (:focus-visible)
+ */
+
+/* 1. Visible Keyboard Focus Ring */
+.mds-focus-ring:focus-visible {
+  outline: var(--mds-border-width-thick) solid var(--mds-color-focus-ring);
+  outline-offset: 2px;
+}
+
+/* Suppress redundant outline on mouse click */
+.mds-focus-ring:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* 2. Interactive Base Behavior */
+.mds-interactive {
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+}
+
+.mds-interactive:disabled,
+.mds-interactive[aria-disabled="true"] {
+  cursor: not-allowed;
+  opacity: var(--mds-opacity-disabled);
+  pointer-events: none;
+}
+
+
+/**
+ * MDS (Master Design System) — PressTarget Primitive
+ * Architecture Layer: Layer 03 (Primitives / Interaction)
+ * Cascade Layer: @layer mds.primitives
+ * Rule: 44×44px Canonical MDS Interaction Touch Target (Internal Design System Rule)
+ */
+
+.mds-press-target {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Expand physical hit area to 44×44px minimum on touch viewports */
+@media (pointer: coarse) {
+  .mds-press-target::after {
+    content: '';
+    position: absolute;
+    inset-block-start: 50%;
+    inset-inline-start: 50%;
+    transform: translate(-50%, -50%);
+    min-width: var(--mds-size-touch-target-min, 44px);
+    min-height: var(--mds-size-touch-target-min, 44px);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+}
+
+
+/**
+ * MDS (Master Design System) — ReducedMotion Primitive & Utilities
+ * Architecture Layer: Layer 03 (Primitives / Accessibility)
+ * Cascade Layer: @layer mds.primitives
+ * Rule: Motion explains change; never decorates. Instant collapse under prefers-reduced-motion.
+ */
+
+/* 1. Explicit Instant Transition Utility */
+.mds-motion--instant {
+  transition-duration: var(--mds-motion-duration-instant) !important;
+  animation-duration: var(--mds-motion-duration-instant) !important;
+}
+
+/* 2. Canonical Reduced-Motion Collapse Utility */
+@media (prefers-reduced-motion: reduce) {
+  .mds-motion--collapse {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+
+/**
+ * MDS (Master Design System) — VisuallyHidden Primitive
+ * Architecture Layer: Layer 03 (Primitives / Accessibility)
+ * Cascade Layer: @layer mds.primitives
+ * Rule: Content available to AT without visual rendering or blocking focus
+ */
+
+.mds-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focusable variant: Becomes visible when navigated to via keyboard (Skip links, triggers) */
+.mds-visually-hidden--focusable:focus,
+.mds-visually-hidden--focusable:focus-within {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: inherit;
+  margin: inherit;
+  overflow: visible;
+  clip: auto;
+  clip-path: none;
+  white-space: normal;
+}
+
+
+/**
+ * MDS (Master Design System) — Cluster Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Responsibility: Multi-element wrapping group & token-driven spacing
+ */
+
+.mds-cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Token-Driven Gap Modifiers */
+.mds-cluster--gap-xs { gap: var(--mds-space-scale-1); }
+.mds-cluster--gap-sm { gap: var(--mds-space-scale-2); }
+.mds-cluster--gap-md { gap: var(--mds-space-scale-4); }
+.mds-cluster--gap-lg { gap: var(--mds-space-scale-6); }
+
+/* Alignment Modifiers */
+.mds-cluster--align-start  { align-items: flex-start; }
+.mds-cluster--align-center { align-items: center; }
+.mds-cluster--align-end    { align-items: flex-end; }
+
+/* Justification Modifiers */
+.mds-cluster--justify-start   { justify-content: flex-start; }
+.mds-cluster--justify-center  { justify-content: center; }
+.mds-cluster--justify-end     { justify-content: flex-end; }
+.mds-cluster--justify-between { justify-content: space-between; }
+
+
+/**
+ * MDS (Master Design System) — Container Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Canonical Constraints: Standard = 1152px, Wide = 1440px
+ */
+
+.mds-container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--mds-space-scale-4); /* Mobile gutter: 16px */
+}
+
+/* Tablet Gutter (768px+) */
+@media (min-width: 768px) {
+  .mds-container {
+    padding-inline: var(--mds-space-scale-6); /* Tablet gutter: 24px */
+  }
+}
+
+/* Desktop Gutter (1024px+) */
+@media (min-width: 1024px) {
+  .mds-container {
+    padding-inline: var(--mds-space-scale-8); /* Desktop gutter: 32px */
+  }
+}
+
+/* Width Constraints */
+.mds-container--standard {
+  max-width: var(--mds-container-standard, 1152px); /* Canonical Standard: 1152px */
+}
+
+.mds-container--wide {
+  max-width: var(--mds-container-wide, 1440px); /* Canonical Wide: 1440px */
+}
+
+.mds-container--fluid {
+  max-width: 100%;
+}
+
+
+/**
+ * MDS (Master Design System) — Grid Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Responsibility: 12-column responsive fluid layout & auto-fit tiles
+ */
+
+.mds-grid {
+  display: grid;
+  column-gap: var(--mds-space-scale-4);
+  row-gap: var(--mds-space-block-md);
+  grid-template-columns: repeat(4, minmax(0, 1fr)); /* Mobile baseline: 4 columns */
+}
+
+/* Tablet Scale (768px+) */
+@media (min-width: 768px) {
+  .mds-grid {
+    column-gap: var(--mds-space-scale-6);
+    grid-template-columns: repeat(8, minmax(0, 1fr)); /* Tablet: 8 columns */
+  }
+}
+
+/* Desktop Scale (1024px+) */
+@media (min-width: 1024px) {
+  .mds-grid {
+    column-gap: var(--mds-space-scale-6);
+    grid-template-columns: repeat(12, minmax(0, 1fr)); /* Desktop: 12 columns */
+  }
+}
+
+/* Wide Desktop Scale (1440px+) */
+@media (min-width: 1440px) {
+  .mds-grid {
+    column-gap: var(--mds-space-scale-8); /* Wide: 32px gutter */
+  }
+}
+
+/* Auto-Fitting Fluid Tile Grid */
+.mds-grid--auto-tiles {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Column Span Modifiers (1 to 12) */
+.mds-grid__col--1  { grid-column: span 1 / span 1; }
+.mds-grid__col--2  { grid-column: span 2 / span 2; }
+.mds-grid__col--3  { grid-column: span 3 / span 3; }
+.mds-grid__col--4  { grid-column: span 4 / span 4; }
+.mds-grid__col--5  { grid-column: span 5 / span 5; }
+.mds-grid__col--6  { grid-column: span 6 / span 6; }
+.mds-grid__col--7  { grid-column: span 7 / span 7; }
+.mds-grid__col--8  { grid-column: span 8 / span 8; }
+.mds-grid__col--9  { grid-column: span 9 / span 9; }
+.mds-grid__col--10 { grid-column: span 10 / span 10; }
+.mds-grid__col--11 { grid-column: span 11 / span 11; }
+.mds-grid__col--12 { grid-column: span 12 / span 12; }
+
+
+/**
+ * MDS (Master Design System) — Inline Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Responsibility: 1D Horizontal logical composition & RTL-safe flow
+ */
+
+.mds-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+/* Token-Driven Gap Modifiers */
+.mds-inline--gap-xs { gap: var(--mds-space-inline-xs); }
+.mds-inline--gap-sm { gap: var(--mds-space-inline-sm); }
+.mds-inline--gap-md { gap: var(--mds-space-inline-md); }
+.mds-inline--gap-lg { gap: var(--mds-space-inline-lg); }
+
+/* Alignment Modifiers */
+.mds-inline--align-start    { align-items: flex-start; }
+.mds-inline--align-center   { align-items: center; }
+.mds-inline--align-end      { align-items: flex-end; }
+.mds-inline--align-baseline { align-items: baseline; }
+
+/* Justification Modifiers */
+.mds-inline--justify-start   { justify-content: flex-start; }
+.mds-inline--justify-center  { justify-content: center; }
+.mds-inline--justify-end     { justify-content: flex-end; }
+.mds-inline--justify-between { justify-content: space-between; }
+
+/* Wrapping Modifier */
+.mds-inline--wrap {
+  flex-wrap: wrap;
+}
+
+/* Responsive Collapse to Vertical Stack */
+@media (max-width: 640px) {
+  .mds-inline--collapse-sm {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+/**
+ * MDS (Master Design System) — Stack Primitive
+ * Architecture Layer: Layer 03 (Primitives / Layout)
+ * Cascade Layer: @layer mds.primitives
+ * Responsibility: 1D Vertical composition & parent-owned spacing
+ */
+
+.mds-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+/* Token-Driven Gap Modifiers */
+.mds-stack--gap-xs { gap: var(--mds-space-block-xs); }
+.mds-stack--gap-sm { gap: var(--mds-space-block-sm); }
+.mds-stack--gap-md { gap: var(--mds-space-block-md); }
+.mds-stack--gap-lg { gap: var(--mds-space-block-lg); }
+.mds-stack--gap-xl { gap: var(--mds-space-scale-12); }
+
+/* Alignment Modifiers */
+.mds-stack--align-start    { align-items: flex-start; }
+.mds-stack--align-center   { align-items: center; }
+.mds-stack--align-end      { align-items: flex-end; }
+.mds-stack--justify-center { justify-content: center; }
+
+/* Structural Content Dividers */
+.mds-stack--dividers > * + * {
+  border-block-start: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+  padding-block-start: inherit;
+}
+
+
+/**
+ * MDS (Master Design System) — Surface Primitives
+ * Architecture Layer: Layer 03 (Primitives / Surface)
+ * Cascade Layer: @layer mds.primitives
+ * Design Rule: Surface Depth Triad (Luminance > Subtle Border > Ambient Shadow)
+ */
+
+/* 1. Canvas Primitive (Base Viewport Plane) */
+.mds-canvas {
+  background-color: var(--mds-color-surface-canvas);
+  min-height: 100vh;
+}
+
+/* 2. Resting Surface Primitive */
+.mds-surface {
+  background-color: var(--mds-color-surface-default);
+  border-radius: var(--mds-radius-md);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+  padding: var(--mds-space-scale-4);
+  transition: box-shadow var(--mds-motion-duration-fast) var(--mds-motion-easing-standard);
+}
+
+/* 3. Raised Surface (Level 1 Elevation) */
+.mds-surface--raised {
+  background-color: var(--mds-color-surface-raised);
+  box-shadow: var(--mds-elevation-level1);
+}
+
+/* 4. Floating Surface (Level 2 Elevation — Menus, Popovers, Autocomplete) */
+.mds-surface--floating {
+  background-color: var(--mds-color-surface-default);
+  box-shadow: var(--mds-elevation-level2);
+  border-radius: var(--mds-radius-lg);
+  z-index: var(--mds-layer-dropdown, 100);
+}
+
+/* 5. Overlay Surface (Level 3 Elevation — Modal Dialogs, Drawers) */
+.mds-surface--overlay {
+  background-color: var(--mds-color-surface-overlay);
+  box-shadow: var(--mds-elevation-level3);
+  border-radius: var(--mds-radius-xl);
+  z-index: var(--mds-layer-overlay, 1000);
+}
+
+/* Surface Padding Modifiers */
+.mds-surface--padding-sm { padding: var(--mds-space-scale-2); }
+.mds-surface--padding-md { padding: var(--mds-space-scale-4); }
+.mds-surface--padding-lg { padding: var(--mds-space-scale-6); }
+
+
+/**
+ * MDS (Master Design System) — Typography Primitives
+ * Architecture Layer: Layer 03 (Primitives / Typography)
+ * Cascade Layer: @layer mds.primitives
+ * Fonts: Cairo (Multilingual Primary), JetBrains Mono (Code/Telemetry)
+ */
+
+/* 1. Body Text Primitive */
+.mds-text {
+  margin: 0;
+  font-family: inherit;
+  font-size: var(--mds-font-size-base);
+  font-weight: var(--mds-font-weight-regular);
+  line-height: var(--mds-font-line-height-normal);
+  color: var(--mds-color-text-primary);
+  overflow-wrap: break-word;
+}
+
+/* Size Modifiers */
+.mds-text--size-xs   { font-size: var(--mds-font-size-xs); }
+.mds-text--size-sm   { font-size: var(--mds-font-size-sm); }
+.mds-text--size-base { font-size: var(--mds-font-size-base); }
+.mds-text--size-lg   { font-size: var(--mds-font-size-lg); }
+.mds-text--size-xl   { font-size: var(--mds-font-size-xl); }
+.mds-text--size-2xl  { font-size: var(--mds-font-size-2xl); }
+.mds-text--size-3xl  { font-size: var(--mds-font-size-3xl); }
+.mds-text--size-4xl  { font-size: var(--mds-font-size-4xl); }
+
+/* Weight Modifiers */
+.mds-text--weight-regular  { font-weight: var(--mds-font-weight-regular); }
+.mds-text--weight-medium   { font-weight: var(--mds-font-weight-medium); }
+.mds-text--weight-semibold { font-weight: var(--mds-font-weight-semibold); }
+.mds-text--weight-bold     { font-weight: var(--mds-font-weight-bold); }
+
+/* Semantic Color Modifiers */
+.mds-text--color-primary   { color: var(--mds-color-text-primary); }
+.mds-text--color-secondary { color: var(--mds-color-text-secondary); }
+.mds-text--color-inverse   { color: var(--mds-color-text-inverse); }
+.mds-text--color-brand     { color: var(--mds-color-action-primary-default); }
+
+/* Alignment Modifiers */
+.mds-text--align-start   { text-align: start; }
+.mds-text--align-center  { text-align: center; }
+.mds-text--align-end     { text-align: end; }
+.mds-text--align-justify { text-align: justify; }
+
+/* Soft-Wrap Invariant: No ellipsis truncation on descriptive text */
+.mds-text--soft-wrap {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+/* 2. Heading Primitive (H1 - H6) */
+.mds-heading {
+  margin: 0;
+  font-family: inherit;
+  font-weight: var(--mds-font-weight-bold);
+  line-height: var(--mds-font-line-height-tight);
+  color: var(--mds-color-text-primary);
+  overflow-wrap: break-word;
+}
+
+.mds-heading--1 { font-size: var(--mds-font-size-4xl); font-weight: var(--mds-font-weight-bold); }
+.mds-heading--2 { font-size: var(--mds-font-size-3xl); font-weight: var(--mds-font-weight-bold); }
+.mds-heading--3 { font-size: var(--mds-font-size-2xl); font-weight: var(--mds-font-weight-semibold); }
+.mds-heading--4 { font-size: var(--mds-font-size-xl);  font-weight: var(--mds-font-weight-semibold); }
+.mds-heading--5 { font-size: var(--mds-font-size-lg);  font-weight: var(--mds-font-weight-semibold); }
+.mds-heading--6 { font-size: var(--mds-font-size-base);font-weight: var(--mds-font-weight-semibold); }
+
+/* 3. Label Primitive */
+.mds-label {
+  display: inline-block;
+  margin: 0;
+  font-size: var(--mds-font-size-sm);
+  font-weight: var(--mds-font-weight-medium);
+  line-height: var(--mds-font-line-height-normal);
+  color: var(--mds-color-text-primary);
+}
+
+/* 4. Caption Primitive */
+.mds-caption {
+  margin: 0;
+  font-size: var(--mds-font-size-xs);
+  font-weight: var(--mds-font-weight-regular);
+  line-height: var(--mds-font-line-height-normal);
+  color: var(--mds-color-text-secondary);
+}
+
+/* 5. HelperText Primitive */
+.mds-helper-text {
+  margin: 0;
+  font-size: var(--mds-font-size-xs);
+  line-height: var(--mds-font-line-height-normal);
+  color: var(--mds-color-text-secondary);
+}
+.mds-helper-text--error   { color: var(--mds-color-feedback-danger); }
+.mds-helper-text--success { color: var(--mds-color-feedback-success); }
+
+/* 6. Numeric Tabular Primitive */
+.mds-numeric {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* 7. Code Monospace Primitive */
+.mds-code {
+  font-family: var(--mds-font-family-mono);
+  font-size: var(--mds-font-size-sm);
+  padding-inline: var(--mds-space-scale-1);
+  padding-block: var(--mds-space-scale-0);
+  background-color: var(--mds-color-neutral-100);
+  border: var(--mds-border-width-thin) solid var(--mds-color-border-subtle);
+  border-radius: var(--mds-radius-xs);
+}
+

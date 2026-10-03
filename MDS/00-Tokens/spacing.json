@@ -1,0 +1,52 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "mds-spacing",
+  "version": "1.0.0",
+  "grid_base": 4.0,
+  "scale": {
+    "0": 0.0,
+    "1": 4.0,
+    "2": 8.0,
+    "3": 12.0,
+    "4": 16.0,
+    "5": 20.0,
+    "6": 24.0,
+    "8": 32.0,
+    "10": 40.0,
+    "12": 48.0,
+    "16": 64.0
+  },
+  "semantic": {
+    "inline": {
+      "xs": 4.0,
+      "sm": 8.0,
+      "md": 16.0,
+      "lg": 24.0
+    },
+    "block": {
+      "xs": 4.0,
+      "sm": 8.0,
+      "md": 16.0,
+      "lg": 32.0
+    }
+  },
+  "component_paddings": {
+    "button": {
+      "sm_horizontal": 12.0,
+      "sm_vertical": 6.0,
+      "md_horizontal": 16.0,
+      "md_vertical": 10.0,
+      "lg_horizontal": 20.0,
+      "lg_vertical": 12.0
+    },
+    "card": {
+      "padding_sm": 12.0,
+      "padding_md": 16.0,
+      "padding_lg": 24.0
+    },
+    "input": {
+      "horizontal": 12.0,
+      "vertical": 10.0
+    }
+  }
+}

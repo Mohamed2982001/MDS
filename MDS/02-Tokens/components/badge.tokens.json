@@ -1,0 +1,94 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Component-level token definitions for Badge and Status markers.",
+  "component": {
+    "badge": {
+      "neutral": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.neutral.100}",
+          "$description": "Neutral badge background tint",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.neutral.700}",
+          "$description": "Neutral badge text color",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.neutral.200}",
+          "$description": "Neutral badge subtle border",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        }
+      },
+      "brand": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.brand.50}",
+          "$description": "Brand badge background tint",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.brand.700}",
+          "$description": "Brand badge text color (6.70:1 contrast)",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.brand.200}",
+          "$description": "Brand badge boundary border",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        }
+      },
+      "success": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.palette.green.50}",
+          "$description": "Success badge background tint",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.palette.green.600}",
+          "$description": "Success badge text and icon color",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.palette.green.200}",
+          "$description": "Success badge boundary border",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        }
+      },
+      "danger": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.palette.red.50}",
+          "$description": "Danger badge background tint",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.palette.red.600}",
+          "$description": "Danger badge text and icon color",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        },
+        "border": {
+          "$type": "color",
+          "$value": "{color.palette.red.200}",
+          "$description": "Danger badge boundary border",
+          "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+        }
+      },
+      "radius": {
+        "$type": "dimension",
+        "$value": "{radius.full}",
+        "$description": "Pill radius for badges",
+        "$extensions": { "mds": { "layer": "component", "status": "approved" } }
+      }
+    }
+  }
+}

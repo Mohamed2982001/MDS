@@ -1,0 +1,123 @@
+/**
+ * MDS (Master Design System) — Alert Component
+ * Architecture Layer: Layer 04 (Components / Feedback)
+ * Cascade Layer: @layer mds.components
+ * Lead Architect: Mohamed Khalid (Senior Full Stack & Flutter Developer)
+ *
+ * Invariants Enforced:
+ * 1. Parent-Owned Spacing Law: margin: 0 (never external margins)
+ * 2. WCAG 1.4.1 Non-Color Communication: Pairs distinct icons and text with colors
+ * 3. ARIA Roles: role="alert" for danger; role="status" for info/success/warning
+ * 4. Soft-Wrap Law: Descriptive text wraps without horizontal truncation
+ * 5. 100% CSS Logical Properties
+ */
+
+@layer mds.components {
+  /* ========================================================================
+     1. ALERT CONTAINER
+     ======================================================================== */
+
+  .mds-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--mds-space-inline-md);
+    padding: var(--mds-space-block-md);
+    border-radius: var(--mds-radius-md);
+    border-width: var(--mds-border-width-thin);
+    border-style: solid;
+    box-sizing: border-box;
+    width: 100%;
+
+    /* Architectural Invariant: Parent-Owned Spacing */
+    margin: 0;
+
+    /* Typography */
+    font-family: var(--mds-font-family-primary);
+  }
+
+  /* ========================================================================
+     2. SEMANTIC INTENTS
+     ======================================================================== */
+
+  /* 2.1 Info */
+  .mds-alert--info {
+    background-color: var(--mds-color-palette-blue-50);
+    border-color: var(--mds-color-palette-blue-200);
+    color: var(--mds-color-palette-blue-600);
+  }
+
+  /* 2.2 Success */
+  .mds-alert--success {
+    background-color: var(--mds-color-palette-green-50);
+    border-color: var(--mds-color-palette-green-200);
+    color: var(--mds-color-palette-green-600);
+  }
+
+  /* 2.3 Warning */
+  .mds-alert--warning {
+    background-color: var(--mds-color-palette-amber-50);
+    border-color: var(--mds-color-palette-amber-200);
+    color: var(--mds-color-palette-amber-600);
+  }
+
+  /* 2.4 Danger (Critical Error / System Alert) */
+  .mds-alert--danger {
+    background-color: var(--mds-color-palette-red-50);
+    border-color: var(--mds-color-palette-red-200);
+    color: var(--mds-color-palette-red-600);
+  }
+
+  /* ========================================================================
+     3. SLOTS & SUB-ELEMENTS
+     ======================================================================== */
+
+  /* 3.1 Status Icon */
+  .mds-alert__icon {
+    inline-size: var(--mds-size-icon-md);
+    block-size: var(--mds-size-icon-md);
+    flex-shrink: 0;
+    margin-block-start: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* 3.2 Content Body */
+  .mds-alert__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mds-space-block-xs);
+    flex-grow: 1;
+    margin: 0;
+  }
+
+  /* 3.3 Alert Title */
+  .mds-alert__title {
+    font-size: var(--mds-font-size-sm);
+    font-weight: 600;
+    line-height: var(--mds-font-line-height-tight);
+    color: inherit;
+    margin: 0;
+  }
+
+  /* 3.4 Alert Description (Soft Wrap) */
+  .mds-alert__description {
+    font-size: var(--mds-font-size-sm);
+    line-height: var(--mds-font-line-height-normal);
+    color: var(--mds-color-text-primary);
+    white-space: pre-wrap;
+    word-break: break-word;
+    margin: 0;
+  }
+
+  /* 3.5 Action Slot (Inline recovery button) */
+  .mds-alert__action {
+    margin-block-start: var(--mds-space-block-xs);
+  }
+
+  /* 3.6 Dismiss Button Slot */
+  .mds-alert__dismiss {
+    flex-shrink: 0;
+    margin-inline-start: auto;
+  }
+}

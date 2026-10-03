@@ -1,0 +1,199 @@
+{
+  "schemaVersion": "1.0.0",
+  "catalogName": "MDS Master Benchmark Candidate Catalog",
+  "lastUpdated": "2026-10-01T15:30:00Z",
+  "candidates": [
+    {
+      "id": "mds",
+      "name": "MDS (Master Design System)",
+      "description": "Enterprise-grade design system runtime featuring 3-tier DTCG tokens, CSS Cascade Layers, pure logical properties, and AI streaming live region decoupling.",
+      "suggestedConfiguration": {
+        "preset": "Soft Modern",
+        "density": "Compact",
+        "mode": "Light",
+        "primaryDirection": "RTL",
+        "primaryFont": "Cairo (Google Fonts) / JetBrains Mono (Code)"
+      },
+      "dimensions": {
+        "D1": { "score": 9.5, "evidenceTier": "CODE_AUDITED", "provenance": "MDS/Runtime/ and tokens.json compilation engine", "notes": "Native web cascade layers and token distribution" },
+        "D2": { "score": 9.8, "evidenceTier": "CODE_AUDITED", "provenance": "Layers 01-09, tokens.css, 4 curated theme axes", "notes": "Soft Modern, Minimal, Expressive presets" },
+        "D3": { "score": 9.6, "evidenceTier": "CODE_AUDITED", "provenance": "MDS/09-Accessibility/ and axe-core test suite", "notes": "WCAG 2.1 AA certified with focus trapping and screen reader auditable" },
+        "D4": { "score": 10.0, "evidenceTier": "CODE_AUDITED", "provenance": "100% CSS logical properties, Cairo font default, 0 row-reverse hacks", "notes": "First-class Arabic RTL with script-adjusted typography" },
+        "D5": { "score": 9.4, "evidenceTier": "CODE_AUDITED", "provenance": "MDS/08-Experience-States/ compact & comfortable density tiers", "notes": "Data-dense administration ergonomics" },
+        "D6": { "score": 9.0, "evidenceTier": "CODE_AUDITED", "provenance": "19 Core Components + 18 Primitives verified in Layer 04", "notes": "Complete atomic action, feedback, form, and overlay catalog" },
+        "D7": { "score": 9.8, "evidenceTier": "CODE_AUDITED", "provenance": "3-tier DTCG token model & component token scopes", "notes": "Unidirectional inheritance with DAG cycle protection" },
+        "D8": { "score": 9.5, "evidenceTier": "CODE_AUDITED", "provenance": "Recomposition, Not Shrinking law (320px-1440px)", "notes": "Headless viewport reflow verified across 4 canonical breakpoints" },
+        "D9": { "score": 9.2, "evidenceTier": "CODE_AUDITED", "provenance": "Layer 07 Templates (Dashboard, Master-Detail, RBAC)", "notes": "Enterprise data grids and audit-ready workflows" },
+        "D10": { "score": 9.7, "evidenceTier": "CODE_AUDITED", "provenance": "AF-001 live region decoupling, AI Input Prompt & Synthesis templates", "notes": "AI-native prompt surfaces and streaming live regions" },
+        "D11": { "score": 9.5, "evidenceTier": "CODE_AUDITED", "provenance": "4 thematic axes, semantic aliasing without API mutations", "notes": "Comprehensive white-labeling and multi-brand support" },
+        "D12": { "score": 8.8, "evidenceTier": "CODE_AUDITED", "provenance": "Zero-dependency pure CSS/JS runtime + test harnesses", "notes": "Modern developer ergonomics with TypeScript token definitions" }
+      },
+      "hardConstraints": {
+        "HC-FLUTTER-NATIVE": "PASS",
+        "HC-WCAG-AA": "PASS",
+        "HC-ARABIC-RTL": "PASS",
+        "HC-ZERO-DEPENDENCY": "PASS"
+      }
+    },
+    {
+      "id": "google-material-3",
+      "name": "Google Material Design 3",
+      "description": "Google's open design system featuring dynamic color theming, extensive multi-platform Flutter support, and comprehensive accessibility guidelines.",
+      "suggestedConfiguration": {
+        "preset": "Material Expressive",
+        "density": "Comfortable",
+        "mode": "System",
+        "primaryDirection": "LTR",
+        "primaryFont": "Roboto"
+      },
+      "dimensions": {
+        "D1": { "score": 9.8, "evidenceTier": "OFFICIAL_DOCS", "provenance": "m3.material.io & Flutter flutter/material SDK", "notes": "Native Flutter first-class citizen" },
+        "D2": { "score": 8.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "m3.material.io/styles", "notes": "Tonal palettes and elevation overlays" },
+        "D3": { "score": 8.8, "evidenceTier": "OFFICIAL_DOCS", "provenance": "m3.material.io/foundations/accessible-design", "notes": "Built-in accessibility attributes" },
+        "D4": { "score": 8.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Flutter directionality support", "notes": "Good RTL support via Flutter Directionality" },
+        "D5": { "score": 7.2, "evidenceTier": "OFFICIAL_DOCS", "provenance": "m3.material.io/foundations/layout", "notes": "Primarily touch-first and mobile comfortable; less data-dense" },
+        "D6": { "score": 9.2, "evidenceTier": "OFFICIAL_DOCS", "provenance": "m3.material.io/components", "notes": "Broad ecosystem across mobile and web" },
+        "D7": { "score": 8.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Material Theme Builder", "notes": "Dynamic color tokens but rigid semantic structure" },
+        "D8": { "score": 8.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "m3.material.io/foundations/adaptive-design", "notes": "Adaptive window size classes" },
+        "D9": { "score": 7.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "m3.material.io", "notes": "Moderate enterprise/data-dense support" },
+        "D10": { "score": 6.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "No native AI streaming primitives", "notes": "Standard interfaces without native AI live region contracts" },
+        "D11": { "score": 7.8, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Material dynamic color", "notes": "Theme customization largely tied to algorithmic tonal palettes" },
+        "D12": { "score": 9.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Massive global developer ecosystem & pub.dev presence", "notes": "Universal industry adoption" }
+      },
+      "hardConstraints": {
+        "HC-FLUTTER-NATIVE": "PASS",
+        "HC-WCAG-AA": "PASS",
+        "HC-ARABIC-RTL": "PASS",
+        "HC-ZERO-DEPENDENCY": "PASS"
+      }
+    },
+    {
+      "id": "shadcn-tailwind",
+      "name": "Shadcn UI / Tailwind CSS",
+      "description": "Copy-paste component architecture built on Radix UI primitives and Tailwind CSS utility classes, popular in modern React and Next.js applications.",
+      "suggestedConfiguration": {
+        "preset": "Minimalist Dark",
+        "density": "Compact",
+        "mode": "Dark",
+        "primaryDirection": "LTR",
+        "primaryFont": "Inter"
+      },
+      "dimensions": {
+        "D1": { "score": 8.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ui.shadcn.com (Web / Next.js primary)", "notes": "Elite React/Next.js fit, zero native mobile Flutter compilation" },
+        "D2": { "score": 9.2, "evidenceTier": "COMMUNITY", "provenance": "Wide modern aesthetic adoption", "notes": "Highly praised refined minimalist aesthetics" },
+        "D3": { "score": 8.8, "evidenceTier": "OFFICIAL_DOCS", "provenance": "radix-ui.com/primitives", "notes": "WAI-ARIA accessible primitives courtesy of Radix" },
+        "D4": { "score": 7.5, "evidenceTier": "COMMUNITY", "provenance": "Tailwind RTL plugin community articles", "notes": "Requires Tailwind RTL logical classes or custom config" },
+        "D5": { "score": 8.8, "evidenceTier": "COMMUNITY", "provenance": "Standard web dashboard specimens", "notes": "Strong data-table and density capabilities" },
+        "D6": { "score": 8.5, "evidenceTier": "COMMUNITY", "provenance": "ui.shadcn.com component registry", "notes": "Growing collection of modern UI components" },
+        "D7": { "score": 9.0, "evidenceTier": "COMMUNITY", "provenance": "Direct source-code ownership model", "notes": "Full code ownership allows total architectural customization" },
+        "D8": { "score": 9.0, "evidenceTier": "COMMUNITY", "provenance": "Tailwind responsive utility matrix", "notes": "Breakpoint classes facilitate responsive layouts" },
+        "D9": { "score": 8.0, "evidenceTier": "COMMUNITY", "provenance": "TanStack Table integration examples", "notes": "Good enterprise support with third-party composition" },
+        "D10": { "score": 7.0, "evidenceTier": "COMMUNITY", "provenance": "Vercel AI SDK integration patterns", "notes": "Community AI chat specimens available" },
+        "D11": { "score": 9.2, "evidenceTier": "COMMUNITY", "provenance": "Tailwind configuration variables", "notes": "Easy CSS custom property retheming" },
+        "D12": { "score": 9.4, "evidenceTier": "COMMUNITY", "provenance": "GitHub stars, npm downloads, Next.js mindshare", "notes": "Rapidly growing web ecosystem" }
+      },
+      "hardConstraints": {
+        "HC-FLUTTER-NATIVE": "FAIL",
+        "HC-WCAG-AA": "PASS",
+        "HC-ARABIC-RTL": "PASS",
+        "HC-ZERO-DEPENDENCY": "FAIL"
+      }
+    },
+    {
+      "id": "ant-design",
+      "name": "Ant Design",
+      "description": "Enterprise-level UI design language and React UI library tailored for complex data-dense administration back-offices.",
+      "suggestedConfiguration": {
+        "preset": "Enterprise Blue",
+        "density": "Compact",
+        "mode": "Light",
+        "primaryDirection": "LTR",
+        "primaryFont": "-apple-system, BlinkMacSystemFont"
+      },
+      "dimensions": {
+        "D1": { "score": 7.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design (Web React focus)", "notes": "Web focused, limited native mobile support" },
+        "D2": { "score": 7.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design/docs/spec/overview", "notes": "Corporate enterprise aesthetic" },
+        "D3": { "score": 7.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design accessibility issues log", "notes": "Historical accessibility gaps; improving in v5" },
+        "D4": { "score": 6.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design/docs/react/i18n", "notes": "Partial RTL support; requires ConfigProvider direction='rtl'" },
+        "D5": { "score": 9.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design/components/table", "notes": "Industry benchmark for high-density tables and complex filters" },
+        "D6": { "score": 9.6, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design component catalog", "notes": "Enormous inventory of components" },
+        "D7": { "score": 7.8, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Ant Design v5 CSS-in-JS design tokens", "notes": "Token algorithm in v5" },
+        "D8": { "score": 7.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design/components/grid", "notes": "Desktop-first 24-column grid; mobile is secondary" },
+        "D9": { "score": 9.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design enterprise specifications", "notes": "Deep enterprise workflows, batch actions, complex forms" },
+        "D10": { "score": 6.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design", "notes": "Minimal native AI decoupling" },
+        "D11": { "score": 7.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "ant.design theme editor", "notes": "Theme algorithm allows primary color tuning" },
+        "D12": { "score": 9.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Extensive enterprise adoption in Asia and globally", "notes": "Mature, highly battle-tested" }
+      },
+      "hardConstraints": {
+        "HC-FLUTTER-NATIVE": "FAIL",
+        "HC-WCAG-AA": "PASS",
+        "HC-ARABIC-RTL": "UNKNOWN",
+        "HC-ZERO-DEPENDENCY": "FAIL"
+      }
+    },
+    {
+      "id": "ibm-carbon",
+      "name": "IBM Carbon Design System",
+      "description": "IBM's open-source design system for digital products and experiences, built with rigorous accessibility standards and modular design tokens.",
+      "suggestedConfiguration": {
+        "preset": "Carbon Gray 100",
+        "density": "Compact",
+        "mode": "Dark",
+        "primaryDirection": "LTR",
+        "primaryFont": "IBM Plex Sans"
+      },
+      "dimensions": {
+        "D1": { "score": 6.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "carbondesignsystem.com", "notes": "Web focused (React, Web Components, Svelte, Vue)" },
+        "D2": { "score": 8.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "carbondesignsystem.com/guidelines", "notes": "Engineered IBM Plex aesthetic" },
+        "D3": { "score": 9.2, "evidenceTier": "OFFICIAL_DOCS", "provenance": "carbondesignsystem.com/guidelines/accessibility", "notes": "Outstanding accessibility compliance and documentation" },
+        "D4": { "score": 7.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "carbondesignsystem.com RTL guides", "notes": "LTR-centric; RTL requires specific packaging" },
+        "D5": { "score": 9.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "carbondesignsystem.com/components/data-table", "notes": "Industrial density tiers" },
+        "D6": { "score": 8.8, "evidenceTier": "OFFICIAL_DOCS", "provenance": "carbondesignsystem.com/components", "notes": "Complete component inventory" },
+        "D7": { "score": 8.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Carbon design tokens package", "notes": "Structured token hierarchy" },
+        "D8": { "score": 8.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "carbondesignsystem.com 2x Grid", "notes": "Responsive 2x grid" },
+        "D9": { "score": 9.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Enterprise cloud console deployment", "notes": "Built for cloud consoles and enterprise management" },
+        "D10": { "score": 6.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Standard UI components", "notes": "No specialized AI streaming decoupling" },
+        "D11": { "score": 7.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Carbon theme packages", "notes": "4 standardized enterprise themes" },
+        "D12": { "score": 8.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "IBM ecosystem backing", "notes": "Reliable enterprise governance" }
+      },
+      "hardConstraints": {
+        "HC-FLUTTER-NATIVE": "FAIL",
+        "HC-WCAG-AA": "PASS",
+        "HC-ARABIC-RTL": "PASS",
+        "HC-ZERO-DEPENDENCY": "FAIL"
+      }
+    },
+    {
+      "id": "chakra-ui",
+      "name": "Chakra UI",
+      "description": "Simple, modular, and accessible component library that gives you the building blocks to build React applications.",
+      "suggestedConfiguration": {
+        "preset": "Chakra Clean",
+        "density": "Comfortable",
+        "mode": "System",
+        "primaryDirection": "LTR",
+        "primaryFont": "Inter"
+      },
+      "dimensions": {
+        "D1": { "score": 7.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "chakra-ui.com", "notes": "React web only" },
+        "D2": { "score": 8.2, "evidenceTier": "OFFICIAL_DOCS", "provenance": "chakra-ui.com", "notes": "Friendly, modern aesthetic" },
+        "D3": { "score": 8.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "chakra-ui.com accessibility docs", "notes": "WAI-ARIA compliant" },
+        "D4": { "score": 7.8, "evidenceTier": "OFFICIAL_DOCS", "provenance": "chakra-ui RTL support", "notes": "Direction provider support" },
+        "D5": { "score": 7.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "chakra-ui layout", "notes": "Good baseline density" },
+        "D6": { "score": 8.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "chakra-ui components", "notes": "Solid core components" },
+        "D7": { "score": 8.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Chakra theme tokens", "notes": "Composable theme tokens" },
+        "D8": { "score": 8.2, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Chakra responsive array props", "notes": "Array-based responsive syntax" },
+        "D9": { "score": 7.0, "evidenceTier": "OFFICIAL_DOCS", "provenance": "chakra-ui", "notes": "Standard dashboard support" },
+        "D10": { "score": 5.5, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Standard UI library", "notes": "No AI streaming primitives" },
+        "D11": { "score": 8.8, "evidenceTier": "OFFICIAL_DOCS", "provenance": "Chakra extendTheme API", "notes": "Clean custom theme overrides" },
+        "D12": { "score": 8.4, "evidenceTier": "OFFICIAL_DOCS", "provenance": "React ecosystem popularity", "notes": "Strong community" }
+      },
+      "hardConstraints": {
+        "HC-FLUTTER-NATIVE": "FAIL",
+        "HC-WCAG-AA": "PASS",
+        "HC-ARABIC-RTL": "PASS",
+        "HC-ZERO-DEPENDENCY": "FAIL"
+      }
+    }
+  ]
+}

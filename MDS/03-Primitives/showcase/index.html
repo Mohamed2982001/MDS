@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" data-theme="light" data-density="comfortable">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MDS Phase 4 — Core Primitives Showcase & Validation Testbed</title>
+  <!-- Google Fonts: Cairo & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="primitives.css">
+  <style>
+    /* Showcase-specific helper chrome (not part of primitive CSS) */
+    .showcase-header {
+      position: sticky;
+      top: 0;
+      z-index: 500;
+      background: var(--mds-color-surface-default);
+      border-bottom: 1px solid var(--mds-color-border-subtle);
+      padding: var(--mds-space-3) var(--mds-space-4);
+      box-shadow: var(--mds-elevation-level1);
+    }
+    .showcase-control-btn {
+      font-family: var(--mds-font-family-primary);
+      font-size: var(--mds-font-size-xs);
+      font-weight: var(--mds-font-weight-medium);
+      padding: 6px 12px;
+      border-radius: var(--mds-radius-sm);
+      border: 1px solid var(--mds-color-border-default);
+      background: var(--mds-color-surface-default);
+      color: var(--mds-color-text-primary);
+      cursor: pointer;
+      transition: all var(--mds-motion-fast) var(--mds-ease-standard);
+    }
+    .showcase-control-btn:hover {
+      background: var(--mds-color-neutral-100);
+      border-color: var(--mds-color-brand-600);
+    }
+    .showcase-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: var(--mds-radius-full);
+      font-size: var(--mds-font-size-xs);
+      font-weight: var(--mds-font-weight-medium);
+      background: var(--mds-color-brand-50);
+      color: var(--mds-color-brand-700);
+      border: 1px solid var(--mds-color-brand-200);
+    }
+    .showcase-grid-cell {
+      padding: var(--mds-space-4);
+      background: var(--mds-color-surface-raised);
+      border: 1px dashed var(--mds-color-border-default);
+      border-radius: var(--mds-radius-sm);
+      text-align: center;
+    }
+    .hit-box-visualizer {
+      border: 1px dashed var(--mds-color-danger);
+      background: var(--mds-color-danger-bg);
+      position: relative;
+    }
+  </style>
+</head>
+<body class="mds-canvas">
+
+  <!-- Interactive Controls Toolbar -->
+  <header class="showcase-header">
+    <div class="mds-container mds-container--wide">
+      <div class="mds-inline mds-inline--justify-between mds-inline--collapse-sm">
+        <div class="mds-inline mds-inline--gap-sm">
+          <span class="showcase-badge">MDS Layer 03</span>
+          <h1 class="mds-text mds-text--weight-bold" style="font-size: 16px;">Core Primitives Validation Testbed</h1>
+        </div>
+        <div class="mds-inline mds-inline--gap-xs" style="flex-wrap: wrap;">
+          <button class="showcase-control-btn mds-focus-ring" onclick="toggleDir()">🌐 Toggle RTL / LTR</button>
+          <button class="showcase-control-btn mds-focus-ring" onclick="setTheme('light')">☀️ Light</button>
+          <button class="showcase-control-btn mds-focus-ring" onclick="setTheme('dark')">🌙 Dark</button>
+          <button class="showcase-control-btn mds-focus-ring" onclick="setTheme('high-contrast')">👁️ High Contrast</button>
+          <button class="showcase-control-btn mds-focus-ring" onclick="toggleDensity()">⚡ Density: <span id="densityLabel">Comfortable</span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main style="padding-block: var(--mds-space-8);">
+    <div class="mds-container mds-container--standard">
+      <div class="mds-stack mds-stack--gap-xl">
+
+        <!-- 1. INTRO & VALIDATION NOTICE -->
+        <section class="mds-surface mds-surface--raised">
+          <div class="mds-stack mds-stack--gap-sm">
+            <div class="mds-inline mds-inline--gap-xs">
+              <span class="showcase-badge" style="background: var(--mds-color-brand-100); color: var(--mds-color-brand-800);">Internal Validation Sandbox</span>
+              <h2 class="mds-heading mds-heading--3">Phase 4 — Core Primitives Architecture</h2>
+            </div>
+            <p class="mds-text mds-text--color-secondary">
+              هذا المعمل التفاعلي مخصص كـ <strong>Validation Testbed / Sandbox</strong> داخلي لاختبار تكامل الـ Core Primitives بدون أي مكونات بصرية مسبقة الصنع (Zero Components). ملف <code>tokens.css</code> مشتق بصرياً من المصدر المعتمد الوحيد للحقيقة <code>MDS/02-Tokens/</code>، وليس مصدراً موازياً للتوكنز أو مكتبة واجهات مستقلة.
+            </p>
+          </div>
+        </section>
+
+        <!-- 2. LAYOUT PRIMITIVES SECTION -->
+        <section class="mds-surface">
+          <div class="mds-stack mds-stack--gap-lg">
+            <div>
+              <h3 class="mds-heading mds-heading--4">1. Layout Primitives (تخطيط العناصر)</h3>
+              <p class="mds-caption">Parent-Owned Spacing Invariant: الفواصل ممسوكة كلياً بواسطة الـ Primitives دون هوامش خارجية (Margins) للأبناء.</p>
+            </div>
+
+            <!-- Stack Demo -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Stack Primitive (gap="md" with dividers):</span>
+              <div class="mds-stack mds-stack--gap-md mds-stack--dividers" style="background: var(--mds-color-surface-raised); padding: 16px; border-radius: var(--mds-radius-md);">
+                <div class="mds-text">عنصر رأسي أول (Stack Child 1)</div>
+                <div class="mds-text">عنصر رأسي ثانٍ مع فاصل تلقائي (Stack Child 2)</div>
+                <div class="mds-text">عنصر رأسي ثالث (Stack Child 3)</div>
+              </div>
+            </div>
+
+            <!-- Inline Demo -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Inline Primitive (Horizontal 1D with align="center"):</span>
+              <div class="mds-inline mds-inline--gap-md mds-inline--justify-between" style="background: var(--mds-color-surface-raised); padding: 16px; border-radius: var(--mds-radius-md);">
+                <div class="mds-inline mds-inline--gap-xs">
+                  <span class="mds-icon mds-icon--size-md">📁</span>
+                  <span class="mds-text mds-text--weight-medium">مستندات المشروع</span>
+                </div>
+                <div class="mds-inline mds-inline--gap-sm">
+                  <span class="showcase-badge">نشط</span>
+                  <span class="mds-caption">تم التحديث منذ دقيقتين</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Cluster Demo -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Cluster Primitive (Wrapping Tags with 2D 8px gap):</span>
+              <div class="mds-cluster mds-cluster--gap-sm" style="background: var(--mds-color-surface-raised); padding: 16px; border-radius: var(--mds-radius-md);">
+                <span class="showcase-badge">Flutter</span>
+                <span class="showcase-badge">Next.js App Router</span>
+                <span class="showcase-badge">Clean Architecture</span>
+                <span class="showcase-badge">Cairo Font</span>
+                <span class="showcase-badge">W3C DTCG Tokens</span>
+                <span class="showcase-badge">WCAG 2.1 AA</span>
+                <span class="showcase-badge">RTL-First</span>
+                <span class="showcase-badge">44px Touch Target</span>
+                <span class="showcase-badge">12-Column Responsive Grid</span>
+              </div>
+            </div>
+
+            <!-- 12-Column Grid Demo -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">12-Column Responsive Fluid Grid (Auto-Fit Tiles):</span>
+              <div class="mds-grid mds-grid--auto-tiles">
+                <div class="showcase-grid-cell">
+                  <div class="mds-text mds-text--weight-semibold">بطاقة شبكة 1</div>
+                  <div class="mds-caption">تتكيف تلقائياً حسب العرض</div>
+                </div>
+                <div class="showcase-grid-cell">
+                  <div class="mds-text mds-text--weight-semibold">بطاقة شبكة 2</div>
+                  <div class="mds-caption">Gutter = 16/24/32px</div>
+                </div>
+                <div class="showcase-grid-cell">
+                  <div class="mds-text mds-text--weight-semibold">بطاقة شبكة 3</div>
+                  <div class="mds-caption">Zero Hardcoded Widths</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 3. TYPOGRAPHY PRIMITIVES SECTION -->
+        <section class="mds-surface">
+          <div class="mds-stack mds-stack--gap-lg">
+            <div>
+              <h3 class="mds-heading mds-heading--4">2. Typography Suite (الطباعة والخطوط)</h3>
+              <p class="mds-caption">Unified Cairo Bilingual Typography with +0.15 Contextual Leading & Tabular Numerals.</p>
+            </div>
+
+            <div class="mds-stack mds-stack--gap-sm">
+              <h1 class="mds-heading mds-heading--1">عنوان رئيسي H1 (48px Hero Display)</h1>
+              <h2 class="mds-heading mds-heading--2">عنوان فرعي H2 (36px View Title)</h2>
+              <h3 class="mds-heading mds-heading--3">عنوان قسم H3 (30px Section Title)</h3>
+              <h4 class="mds-heading mds-heading--4">عنوان نافذة H4 (24px Dialog Header)</h4>
+              <h5 class="mds-heading mds-heading--5">عنوان بطاقة H5 (20px Card Header)</h5>
+              <h6 class="mds-heading mds-heading--6">عنوان مجموعة H6 (16px Group Subhead)</h6>
+            </div>
+
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Arabic Text with Harakat (Leading Protection):</span>
+              <p class="mds-text mds-text--color-primary" style="background: var(--mds-color-surface-raised); padding: 12px; border-radius: var(--mds-radius-sm);">
+                النِّظَامُ التَّصْمِيمِيُّ المَوْحَّدُ يَدْعَمُ التَّشْكِيلَ الكَامِلَ وَعَلَامَاتِ الإِعْرَابِ دُونَ أَيِّ تَصَادُمٍ مَعَ الأَسْطُرِ المُجَاوِرَةِ، بِفَضْلِ مُعَامِلِ التَّبَاعُدِ الرَّأْسِيِّ الإِضَافِيِّ (+0.15 Leading Boost).
+              </p>
+            </div>
+
+            <!-- Tabular Numerals Demo -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Numeric Primitive with Tabular Numerals (tnum):</span>
+              <div class="mds-surface mds-surface--raised" style="padding: 12px;">
+                <div class="mds-stack mds-stack--gap-xs">
+                  <div class="mds-inline mds-inline--justify-between">
+                    <span class="mds-text">مؤشر البورصة الرئيسي:</span>
+                    <span class="mds-numeric mds-text mds-text--weight-bold" id="counter1">31,482.50 EGP</span>
+                  </div>
+                  <div class="mds-inline mds-inline--justify-between">
+                    <span class="mds-text">مؤشر التداول اللحظي:</span>
+                    <span class="mds-numeric mds-text mds-text--weight-bold" id="counter2">11,111.11 USD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Monospace Code Demo -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Code Primitive (JetBrains Mono):</span>
+              <div class="mds-code">const layout = { container: '1152px', gutter: '24px', touchTarget: '44px' };</div>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- 4. SURFACES & DEPTH TRIAD SECTION -->
+        <section class="mds-surface">
+          <div class="mds-stack mds-stack--gap-lg">
+            <div>
+              <h3 class="mds-heading mds-heading--4">3. Surface Primitives & Depth Triad (مستويات السطوح والعمق)</h3>
+              <p class="mds-caption">Surface Luminance Stepping > 1px Subtle Border > Soft Ambient Shadows.</p>
+            </div>
+
+            <div class="mds-grid mds-grid--auto-tiles">
+              <div class="mds-surface">
+                <div class="mds-text mds-text--weight-semibold">Surface (Default)</div>
+                <div class="mds-caption">Level 0: Resting Container Plane</div>
+              </div>
+              <div class="mds-surface mds-surface--raised">
+                <div class="mds-text mds-text--weight-semibold">Raised Surface</div>
+                <div class="mds-caption">Level 1: Ambient Shadow (1px/3px)</div>
+              </div>
+              <div class="mds-surface mds-surface--floating">
+                <div class="mds-text mds-text--weight-semibold">Floating Surface</div>
+                <div class="mds-caption">Level 2: Popovers & Menus (4px/6px)</div>
+              </div>
+              <div class="mds-surface mds-surface--overlay">
+                <div class="mds-text mds-text--weight-semibold">Overlay Surface</div>
+                <div class="mds-caption">Level 3: Modals & Drawers (12px/16px)</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. INTERACTION & ACCESSIBILITY SECTION -->
+        <section class="mds-surface">
+          <div class="mds-stack mds-stack--gap-lg">
+            <div>
+              <h3 class="mds-heading mds-heading--4">4. Interaction & Accessibility Primitives</h3>
+              <p class="mds-caption">44×44px PressTarget Expansion & Visible FocusRing (:focus-visible only).</p>
+            </div>
+
+            <div class="mds-inline mds-inline--gap-lg mds-inline--collapse-sm">
+              
+              <!-- Touch Target Demo -->
+              <div class="mds-stack mds-stack--gap-xs" style="flex: 1;">
+                <span class="mds-label">PressTarget (Compact 32px visual with 44px hit-box):</span>
+                <div class="hit-box-visualizer" style="display: inline-flex; padding: 6px; border-radius: var(--mds-radius-md); width: fit-content;">
+                  <button class="mds-interactive mds-focus-ring mds-press-target" style="height: 32px; padding: 0 12px; border-radius: var(--mds-radius-sm); background: var(--mds-color-action-primary); color: var(--mds-color-text-inverse); border: none;">
+                    Compact 32px Control
+                  </button>
+                </div>
+                <span class="mds-caption" style="color: var(--mds-color-danger-text);">الإطار المتقطع يوضح الـ 44×44px Touch Target الممتد غير المرئي للمستخدم على الشاشات اللمسية.</span>
+              </div>
+
+              <!-- Focus Ring Demo -->
+              <div class="mds-stack mds-stack--gap-xs" style="flex: 1;">
+                <span class="mds-label">FocusRing (اضغط Tab للتركيز بلوحة المفاتيح):</span>
+                <div class="mds-inline mds-inline--gap-sm">
+                  <button class="mds-interactive mds-focus-ring" style="height: 40px; padding: 0 16px; border-radius: var(--mds-radius-md); background: var(--mds-color-surface-raised); border: 1px solid var(--mds-color-border-default); color: var(--mds-color-text-primary);">
+                    Focusable Element 1
+                  </button>
+                  <button class="mds-interactive mds-focus-ring" style="height: 40px; padding: 0 16px; border-radius: var(--mds-radius-md); background: var(--mds-color-surface-raised); border: 1px solid var(--mds-color-border-default); color: var(--mds-color-text-primary);">
+                    Focusable Element 2
+                  </button>
+                </div>
+                <span class="mds-caption">2px brand-600 focus ring مع 2px offset ولا يظهر عند النقر بالماوس.</span>
+              </div>
+
+            </div>
+
+            <!-- Icon Primitive RTL Mirroring Demo -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Icon Contract & RTL Mirroring Taxonomy:</span>
+              <div class="mds-inline mds-inline--gap-lg" style="background: var(--mds-color-surface-raised); padding: 16px; border-radius: var(--mds-radius-md);">
+                <div class="mds-inline mds-inline--gap-xs">
+                  <span class="mds-icon mds-icon--size-md mds-icon--mirror-rtl">➡️</span>
+                  <span class="mds-text mds-text--size-sm">Tier 1: سهم اتجاهي (ينعكس تلقائياً في RTL)</span>
+                </div>
+                <div class="mds-inline mds-inline--gap-xs">
+                  <span class="mds-icon mds-icon--size-md">🔍</span>
+                  <span class="mds-text mds-text--size-sm">Tier 3: عدسة بحث (لا تنعكس أبداً)</span>
+                </div>
+                <div class="mds-inline mds-inline--gap-xs">
+                  <span class="mds-icon mds-icon--size-md">🕒</span>
+                  <span class="mds-text mds-text--size-sm">Tier 4: ساعة عقارب (لا تنعكس)</span>
+                </div>
+              </div>
+            </div>
+
+        <!-- 5. CORE COMPONENTS SUITE (LAYER 04) -->
+        <section class="mds-surface">
+          <div class="mds-stack mds-stack--gap-lg">
+            <div>
+              <div class="mds-inline mds-inline--gap-xs">
+                <span class="showcase-badge" style="background: var(--mds-badge-brand-bg); color: var(--mds-badge-brand-text); border-color: var(--mds-badge-brand-border);">Layer 04 Delivery</span>
+                <h3 class="mds-heading mds-heading--4">5. Core Components (المكونات الأساسية)</h3>
+              </div>
+              <p class="mds-caption">مكونات واجهة المستخدم الأساسية المبنية على الـ Primitives والـ Tokens بدون أي قيم عشوائية.</p>
+            </div>
+
+            <!-- 5.1 Buttons & Sizing -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Button Intents & Sizes (32px sm / 40px md / 48px lg):</span>
+              <div class="mds-inline mds-inline--gap-sm" style="flex-wrap: wrap; background: var(--mds-color-surface-raised); padding: var(--mds-space-4); border-radius: var(--mds-radius-md);">
+                <button class="mds-button mds-button--primary mds-button--sm mds-focus-ring mds-press-target">
+                  <span>Primary Sm (32px)</span>
+                </button>
+                <button class="mds-button mds-button--primary mds-button--md mds-focus-ring mds-press-target">
+                  <span>Primary Md (40px)</span>
+                </button>
+                <button class="mds-button mds-button--primary mds-button--lg mds-focus-ring">
+                  <span>Primary Lg (48px)</span>
+                </button>
+                <button class="mds-button mds-button--secondary mds-button--md mds-focus-ring mds-press-target">
+                  <span>Secondary Outlined</span>
+                </button>
+                <button class="mds-button mds-button--ghost mds-button--md mds-focus-ring mds-press-target">
+                  <span>Ghost Action</span>
+                </button>
+                <button class="mds-button mds-button--destructive mds-button--md mds-focus-ring mds-press-target">
+                  <span>Destructive Action</span>
+                </button>
+                <button class="mds-button mds-button--primary mds-button--md mds-focus-ring" disabled>
+                  <span>Disabled State</span>
+                </button>
+                <button class="mds-icon-button mds-icon-button--md mds-focus-ring mds-press-target" aria-label="Settings action">
+                  <span class="mds-icon mds-icon--size-md">⚙️</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 5.2 Centralized Form Field -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Centralized Form Field Architecture (Label + Control + Helper / Error):</span>
+              <div class="mds-grid mds-grid--auto-tiles">
+                
+                <!-- Normal Field -->
+                <div class="mds-surface mds-surface--raised" style="padding: var(--mds-space-4); border-radius: var(--mds-radius-md);">
+                  <div class="mds-stack mds-stack--gap-xs">
+                    <label class="mds-label" for="demo-email">البريد الإلكتروني <span style="color: var(--mds-color-danger);" aria-hidden="true">*</span></label>
+                    <input id="demo-email" class="mds-input mds-input--md mds-focus-ring" type="email" placeholder="name@company.com">
+                    <span class="mds-caption" style="color: var(--mds-color-text-secondary);">سنرسل رابط التفعيل إلى هذا العنوان.</span>
+                  </div>
+                </div>
+
+                <!-- Invalid Error Field -->
+                <div class="mds-surface mds-surface--raised" style="padding: var(--mds-space-4); border-radius: var(--mds-radius-md);">
+                  <div class="mds-stack mds-stack--gap-xs">
+                    <label class="mds-label" for="demo-pass">كلمة المرور <span style="color: var(--mds-color-danger);" aria-hidden="true">*</span></label>
+                    <input id="demo-pass" class="mds-input mds-input--md mds-focus-ring" type="password" value="123" aria-invalid="true">
+                    <span class="mds-caption" style="color: var(--mds-color-danger);" role="alert">⚠️ كلمة المرور قصيرة جداً (8 أحرف على الأقل).</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- 5.3 Badges, Toggles & Checkbox -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Badges, Switch & Selection Controls:</span>
+              <div class="mds-inline mds-inline--justify-between mds-inline--collapse-sm" style="background: var(--mds-color-surface-raised); padding: var(--mds-space-4); border-radius: var(--mds-radius-md);">
+                <div class="mds-cluster mds-cluster--gap-xs">
+                  <span class="mds-badge mds-badge--neutral">مسودة</span>
+                  <span class="mds-badge mds-badge--brand">قيد التنفيذ</span>
+                  <span class="mds-badge mds-badge--success">مكتمل ومفعل</span>
+                  <span class="mds-badge mds-badge--danger">ملغي أو مرفوض</span>
+                </div>
+                <div class="mds-inline mds-inline--gap-md">
+                  <label class="mds-inline mds-inline--gap-xs mds-interactive" style="cursor: pointer;">
+                    <input type="checkbox" checked class="mds-focus-ring" style="accent-color: var(--mds-color-brand-600); width: 18px; height: 18px;">
+                    <span class="mds-text mds-text--size-sm">خيار متعدد</span>
+                  </label>
+                  <label class="mds-inline mds-inline--gap-xs mds-interactive" style="cursor: pointer;">
+                    <input type="radio" checked class="mds-focus-ring" style="accent-color: var(--mds-color-brand-600); width: 18px; height: 18px;">
+                    <span class="mds-text mds-text--size-sm">خيار أحادي</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.4 Feedback Alerts -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Alert Banners:</span>
+              <div class="mds-stack mds-stack--gap-xs">
+                <div class="mds-alert mds-alert--info">
+                  <span class="mds-icon mds-icon--size-md">ℹ️</span>
+                  <div class="mds-text mds-text--size-sm">تم تحديث مواصفات Phase 5 وتوثيق الـ 19 مكوناً أساسياً بنجاح.</div>
+                </div>
+                <div class="mds-alert mds-alert--success">
+                  <span class="mds-icon mds-icon--size-md">✓</span>
+                  <div class="mds-text mds-text--size-sm">تم تأكيد سلامة التوكنز: 188 توكن مسجلين بدون أي مراجع مكسورة (0 Broken Aliases).</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.5 Async Loaders (Spinner & Skeleton) -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Loaders (Spinner & Skeleton Shimmer):</span>
+              <div class="mds-inline mds-inline--gap-lg mds-inline--collapse-sm" style="background: var(--mds-color-surface-raised); padding: var(--mds-space-4); border-radius: var(--mds-radius-md);">
+                <div class="mds-inline mds-inline--gap-sm">
+                  <span class="mds-spinner mds-spinner--md" style="color: var(--mds-color-brand-600);"></span>
+                  <span class="mds-caption">جارٍ معالجة البيانات...</span>
+                </div>
+                <div class="mds-stack mds-stack--gap-xs" style="flex: 1;">
+                  <div class="mds-skeleton" style="height: 14px; width: 60%;"></div>
+                  <div class="mds-skeleton" style="height: 14px; width: 90%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5.6 Navigation Tabs -->
+            <div class="mds-stack mds-stack--gap-xs">
+              <span class="mds-label">Tabs Component (WAI-ARIA Pattern with Line Indicator):</span>
+              <div class="mds-tablist" role="tablist">
+                <button class="mds-tab mds-focus-ring" role="tab" aria-selected="true" onclick="selectTab(this)">نظرة عامة (Overview)</button>
+                <button class="mds-tab mds-focus-ring" role="tab" aria-selected="false" onclick="selectTab(this)">المواصفات الفنية</button>
+                <button class="mds-tab mds-focus-ring" role="tab" aria-selected="false" onclick="selectTab(this)">إعدادات الأمان</button>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function toggleDir() {
+      const html = document.documentElement;
+      const current = html.getAttribute('dir');
+      const next = current === 'rtl' ? 'ltr' : 'rtl';
+      html.setAttribute('dir', next);
+      html.setAttribute('lang', next === 'rtl' ? 'ar' : 'en');
+    }
+
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+    }
+
+    function toggleDensity() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-density') || 'comfortable';
+      const next = current === 'comfortable' ? 'compact' : 'comfortable';
+      html.setAttribute('data-density', next);
+      document.getElementById('densityLabel').textContent = next.charAt(0).toUpperCase() + next.slice(1);
+    }
+
+    function selectTab(btn) {
+      const tablist = btn.closest('.mds-tablist');
+      tablist.querySelectorAll('.mds-tab').forEach(t => t.setAttribute('aria-selected', 'false'));
+      btn.setAttribute('aria-selected', 'true');
+    }
+
+    // Tabular number jitter simulation (numbers update dynamically without layout shift)
+    setInterval(() => {
+      const n1 = (30000 + Math.random() * 5000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      const n2 = (10000 + Math.random() * 2000).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+      document.getElementById('counter1').textContent = n1 + ' EGP';
+      document.getElementById('counter2').textContent = n2 + ' USD';
+    }, 1500);
+  </script>
+</body>
+</html>

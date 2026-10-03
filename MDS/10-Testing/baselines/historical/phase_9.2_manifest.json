@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "guard_version": "1.0.0",
+  "phase_id": "Phase-9.2",
+  "phase_name": "Token Runtime Engine Implementation",
+  "locked_at": "2026-09-20T21:50:00.000Z",
+  "authorized_by": "Mohamed Khalid",
+  "authorizing_adr": "IDR-003",
+  "prev_manifest_digest": "04869936c9afbd26fa39e3b3e3dc8baafa0a42f7e98d80199a21630f45161733",
+  "manifest_digest": "faef21e54cb6e89195cecad752e313066fe12be9416c0d8a83c4bcdea2eb143f",
+  "total_documents": 0,
+  "documents": [],
+  "history_blocks": [
+    {
+      "block_id": "BLOCK:2026-09-20:phase-9.2-token-runtime-engine-implementation",
+      "date": "2026-09-20",
+      "phase_slug": "phase-9.2-token-runtime-engine-implementation",
+      "title": "Phase 9.2: Token Runtime Engine Implementation",
+      "canonical_sha256": "d24fef144ae3d741b4056de94be4f7cf050906fbca6afb530dd557efeff9e283",
+      "byte_size": 3632,
+      "line_count": 32
+    }
+  ]
+}

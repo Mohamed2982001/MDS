@@ -1,0 +1,76 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "name": "mds-elevation",
+  "version": "1.0.0",
+  "levels": {
+    "level0": {
+      "elevation": 0.0,
+      "shadows": [
+        {
+          "offsetX": 0.0,
+          "offsetY": 0.0,
+          "blur": 0.0,
+          "spread": 0.0,
+          "color": "rgba(0, 0, 0, 0)"
+        }
+      ]
+    },
+    "level1": {
+      "elevation": 1.0,
+      "shadows": [
+        {
+          "offsetX": 0.0,
+          "offsetY": 1.0,
+          "blur": 3.0,
+          "spread": 0.0,
+          "color": "rgba(15, 23, 42, 0.06)"
+        },
+        {
+          "offsetX": 0.0,
+          "offsetY": 1.0,
+          "blur": 2.0,
+          "spread": -1.0,
+          "color": "rgba(15, 23, 42, 0.04)"
+        }
+      ]
+    },
+    "level2": {
+      "elevation": 3.0,
+      "shadows": [
+        {
+          "offsetX": 0.0,
+          "offsetY": 4.0,
+          "blur": 6.0,
+          "spread": -1.0,
+          "color": "rgba(15, 23, 42, 0.08)"
+        },
+        {
+          "offsetX": 0.0,
+          "offsetY": 2.0,
+          "blur": 4.0,
+          "spread": -2.0,
+          "color": "rgba(15, 23, 42, 0.04)"
+        }
+      ]
+    },
+    "level3": {
+      "elevation": 6.0,
+      "shadows": [
+        {
+          "offsetX": 0.0,
+          "offsetY": 12.0,
+          "blur": 16.0,
+          "spread": -4.0,
+          "color": "rgba(15, 23, 42, 0.12)"
+        },
+        {
+          "offsetX": 0.0,
+          "offsetY": 4.0,
+          "blur": 6.0,
+          "spread": -2.0,
+          "color": "rgba(15, 23, 42, 0.05)"
+        }
+      ]
+    }
+  }
+}

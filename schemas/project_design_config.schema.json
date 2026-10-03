@@ -1,0 +1,226 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://masterdesignsystem.com/schemas/project_design_config.schema.json",
+  "title": "MDS Project Design Configuration",
+  "description": "Canonical schema for downstream project design identity, DSSE selection consumption, and governance lock",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_name",
+    "selected_design_system",
+    "dsse_decision",
+    "visual_personality",
+    "theme_mode",
+    "density_mode",
+    "platform_targets",
+    "directionality",
+    "accessibility_profile",
+    "approved_deviations",
+    "governance_lock"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "project_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "selected_design_system": {
+      "type": "string",
+      "enum": [
+        "MDS",
+        "Google Material 3",
+        "Shadcn UI / Tailwind CSS",
+        "Ant Design",
+        "IBM Carbon",
+        "Chakra UI"
+      ]
+    },
+    "dsse_decision": {
+      "type": "object",
+      "required": [
+        "candidate_id",
+        "selection_score",
+        "confidence_tier",
+        "decision_margin_delta",
+        "margin_classification",
+        "human_review_required",
+        "reproducibility_digest"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "candidate_id": {
+          "type": "string"
+        },
+        "selection_score": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 100.0
+        },
+        "confidence_tier": {
+          "type": "string",
+          "enum": ["HIGH", "MEDIUM", "LOW"]
+        },
+        "decision_margin_delta": {
+          "type": "number",
+          "minimum": 0.0
+        },
+        "margin_classification": {
+          "type": "string",
+          "enum": ["Decisive Lead", "Tie-Break Zone", "Virtual Tie"]
+        },
+        "human_review_required": {
+          "type": "boolean"
+        },
+        "human_review_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reproducibility_digest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "visual_personality": {
+      "type": "string",
+      "enum": [
+        "calm_editorial",
+        "expressive_brand",
+        "dense_data",
+        "system_minimal"
+      ]
+    },
+    "theme_mode": {
+      "type": "string",
+      "enum": [
+        "light",
+        "dark",
+        "system_adaptive"
+      ]
+    },
+    "density_mode": {
+      "type": "string",
+      "enum": [
+        "compact",
+        "regular",
+        "spacious"
+      ]
+    },
+    "platform_targets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "web",
+          "flutter_mobile",
+          "flutter_desktop",
+          "react_native",
+          "nextjs"
+        ]
+      }
+    },
+    "directionality": {
+      "type": "string",
+      "enum": [
+        "ltr_only",
+        "rtl_only",
+        "bidirectional_adaptive"
+      ]
+    },
+    "accessibility_profile": {
+      "type": "object",
+      "required": [
+        "target_level",
+        "min_touch_target_px",
+        "enforce_focus_rings",
+        "support_reduced_motion"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "target_level": {
+          "type": "string",
+          "enum": ["WCAG_2.1_AA", "WCAG_2.2_AA", "WCAG_2.2_AAA"]
+        },
+        "min_touch_target_px": {
+          "type": "integer",
+          "enum": [44]
+        },
+        "enforce_focus_rings": {
+          "type": "boolean"
+        },
+        "support_reduced_motion": {
+          "type": "boolean"
+        }
+      }
+    },
+    "approved_deviations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "deviation_id",
+          "affected_rule",
+          "rationale",
+          "approved_by",
+          "timestamp"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "deviation_id": {
+            "type": "string",
+            "pattern": "^DEV-PROJ-[0-9]{3,}$"
+          },
+          "affected_rule": {
+            "type": "string"
+          },
+          "rationale": {
+            "type": "string"
+          },
+          "approved_by": {
+            "type": "string"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      }
+    },
+    "governance_lock": {
+      "type": "object",
+      "required": [
+        "locked",
+        "locked_by",
+        "lock_timestamp",
+        "config_hash"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "locked": {
+          "type": "boolean"
+        },
+        "locked_by": {
+          "type": "string"
+        },
+        "lock_timestamp": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "review_resolution": {
+          "type": "string"
+        },
+        "config_hash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    }
+  }
+}

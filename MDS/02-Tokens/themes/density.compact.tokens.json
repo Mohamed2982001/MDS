@@ -1,0 +1,27 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Compact Density token overrides (Scaffolded set). Demonstrates density-driven spatial and dimension reduction for high-throughput screens while strictly maintaining touch/click target accessibility.",
+  "space": {
+    "block": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "{space.scale.1}",
+        "$description": "Compact vertical control padding modifier"
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "{space.scale.3}",
+        "$description": "Compact vertical spacing between stacked containers"
+      }
+    }
+  },
+  "size": {
+    "control": {
+      "md": {
+        "$type": "dimension",
+        "$value": "{size.control.sm}",
+        "$description": "Compact density reduction of standard interactive control height"
+      }
+    }
+  }
+}

@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0.0",
+  "orchestrator_version": "1.0.0",
+  "phase": "9.7.10",
+  "overall_status": "FAIL",
+  "exit_code": 1,
+  "duration_ms": 755.18,
+  "profile": "fast",
+  "active_phase": "Phase-10.2",
+  "performance_contracts": {
+    "global_layer_m": {
+      "contract": "ADR-100",
+      "warm_ms": 500.0,
+      "cold_ms": 1200.0,
+      "status": "Target Met"
+    },
+    "local_historical_guard": {
+      "contract": "ADR-113",
+      "warm_ms": 100.0,
+      "cold_ms": 300.0
+    }
+  },
+  "protected_core": {
+    "clean": true,
+    "pre_snapshot_files": 94,
+    "post_snapshot_files": 94
+  },
+  "subsystems": [
+    {
+      "subsystem_id": "SUB-01",
+      "subsystem_name": "Historical Phase Guard",
+      "status": "FAIL",
+      "duration_ms": 66.99,
+      "findings": [
+        {
+          "severity": "CRITICAL",
+          "target": "MDS/13-Implementation/Phase-10.3-Compilation-Architecture.md",
+          "code": "ADDED",
+          "message": "Unrecognized historical document 'MDS/13-Implementation/Phase-10.3-Compilation-Architecture.md' (HISTORICAL_PHASE_RECORD) added without baseline manifest",
+          "line": null,
+          "col": null
+        },
+        {
+          "severity": "CRITICAL",
+          "target": "MDS/13-Implementation/Phase-10.3-Decision-Log.md",
+          "code": "ADDED",
+          "message": "Unrecognized historical document 'MDS/13-Implementation/Phase-10.3-Decision-Log.md' (HISTORICAL_DECISION_LOG) added without baseline manifest",
+          "line": null,
+          "col": null
+        }
+      ],
+      "metrics": {
+        "total_documents": 53,
+        "duration_ms": 48.08
+      },
+      "assertions_run": 53,
+      "assertions_cached": 0
+    },
+    {
+      "subsystem_id": "SUB-02",
+      "subsystem_name": "Governance Invariants Engine",
+      "status": "PASS",
+      "duration_ms": 299.04,
+      "findings": [
+        {
+          "severity": "WARN",
+          "target": "MDS/Runtime/primitives/README.md",
+          "code": "INV-012",
+          "message": "Broken Intra-Repository Link: Link '[`MDS/13-Implementation/Phase-9.1-Implementation-Architecture.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/13-Implementation/Phase-9.1-Implementation-Architecture.md)' does not resolve to a file on disk. [Classification: Tier 2 Realization (Runtime Spec Pointer)] [Validation Mode: Strict Structural] [Reason: Reference to historical/legacy phase filename (MDS/13-Implementation/Phase-9.1-Implementation-Architecture.md) rather than canonical architecture spec (MDS-Implementation-Architecture.md)]",
+          "line": 7,
+          "col": null
+        }
+      ],
+      "metrics": {
+        "wall_clock_ms": 270.8903000020655,
+        "files_scanned": 228,
+        "nodes_count": 376
+      },
+      "assertions_run": 376,
+      "assertions_cached": 0
+    },
+    {
+      "subsystem_id": "SUB-03",
+      "subsystem_name": "Capability Registry Validator",
+      "status": "PASS",
+      "duration_ms": 4.43,
+      "findings": [],
+      "metrics": {
+        "total_capabilities": 170,
+        "unique_defined_ids": 170,
+        "active_executable_assertions": 170,
+        "deferred_capabilities": 0,
+        "quarantined_capabilities": 0,
+        "disabled_capabilities": 0,
+        "wrapped_assertions": 37
+      },
+      "assertions_run": 170,
+      "assertions_cached": 0
+    },
+    {
+      "subsystem_id": "SUB-04",
+      "subsystem_name": "Repository Structure Validator",
+      "status": "PASS",
+      "duration_ms": 83.56,
+      "findings": [
+        {
+          "severity": "WARN",
+          "target": "repository",
+          "code": "REPO_WARNING",
+          "message": "[WARN-A03-DOC-LINKS] Found 6 unresolvable historical markdown links across docs/research (Advisory/Non-blocking under Section 5 Severity Matrix).",
+          "line": null,
+          "col": null
+        }
+      ],
+      "metrics": {
+        "total_canonical_dirs": 20,
+        "missing_canonical_dirs": [],
+        "stray_files_found": [],
+        "npm_violations": [],
+        "markdown_files_scanned": 188,
+        "intra_doc_links_checked": 127,
+        "broken_links_count": 6,
+        "broken_links_sample": [
+          "MDS\\13-Implementation\\Phase-9.7.8-Decision-Log.md -> url",
+          "MDS\\13-Implementation\\Phase-9.7.8-Gaps.md -> url",
+          "MDS\\13-Implementation\\Phase-9.7.8-Governance-Architecture.md -> path/to/file.md",
+          "MDS\\13-Implementation\\Phase-9.7.8-Governance-Architecture.md -> url",
+          "MDS\\13-Implementation\\Phase-9.7.8-Governance-Architecture.md -> url"
+        ]
+      },
+      "assertions_run": 4,
+      "assertions_cached": 0
+    },
+    {
+      "subsystem_id": "SUB-05",
+      "subsystem_name": "Token DTCG Parser & Schema",
+      "status": "PASS",
+      "duration_ms": 4.35,
+      "findings": [],
+      "metrics": {
+        "total_tokens": 188,
+        "files_count": 18
+      },
+      "assertions_run": 188,
+      "assertions_cached": 0
+    },
+    {
+      "subsystem_id": "SUB-06",
+      "subsystem_name": "Semantic CSS Scanner",
+      "status": "PASS",
+      "duration_ms": 103.64,
+      "findings": [],
+      "metrics": {
+        "total_files_scanned": 39,
+        "total_violations": 0
+      },
+      "assertions_run": 39,
+      "assertions_cached": 0
+    },
+    {
+      "subsystem_id": "SUB-07",
+      "subsystem_name": "DSSE Mathematical Harness",
+      "status": "PASS",
+      "duration_ms": 1.32,
+      "findings": [],
+      "metrics": {
+        "passed": 37,
+        "failed": 0
+      },
+      "assertions_run": 37,
+      "assertions_cached": 0
+    }
+  ],
+  "findings": [
+    {
+      "severity": "CRITICAL",
+      "target": "MDS/13-Implementation/Phase-10.3-Compilation-Architecture.md",
+      "code": "ADDED",
+      "message": "Unrecognized historical document 'MDS/13-Implementation/Phase-10.3-Compilation-Architecture.md' (HISTORICAL_PHASE_RECORD) added without baseline manifest",
+      "line": null,
+      "col": null
+    },
+    {
+      "severity": "CRITICAL",
+      "target": "MDS/13-Implementation/Phase-10.3-Decision-Log.md",
+      "code": "ADDED",
+      "message": "Unrecognized historical document 'MDS/13-Implementation/Phase-10.3-Decision-Log.md' (HISTORICAL_DECISION_LOG) added without baseline manifest",
+      "line": null,
+      "col": null
+    },
+    {
+      "severity": "WARN",
+      "target": "MDS/Runtime/primitives/README.md",
+      "code": "INV-012",
+      "message": "Broken Intra-Repository Link: Link '[`MDS/13-Implementation/Phase-9.1-Implementation-Architecture.md`](file:///d:/Work/Dev/Master%20Design%20System/MDS/13-Implementation/Phase-9.1-Implementation-Architecture.md)' does not resolve to a file on disk. [Classification: Tier 2 Realization (Runtime Spec Pointer)] [Validation Mode: Strict Structural] [Reason: Reference to historical/legacy phase filename (MDS/13-Implementation/Phase-9.1-Implementation-Architecture.md) rather than canonical architecture spec (MDS-Implementation-Architecture.md)]",
+      "line": 7,
+      "col": null
+    },
+    {
+      "severity": "WARN",
+      "target": "repository",
+      "code": "REPO_WARNING",
+      "message": "[WARN-A03-DOC-LINKS] Found 6 unresolvable historical markdown links across docs/research (Advisory/Non-blocking under Section 5 Severity Matrix).",
+      "line": null,
+      "col": null
+    }
+  ]
+}

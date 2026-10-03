@@ -1,0 +1,57 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Dark Mode semantic token overrides. Implements intentional layered luminance stepping (not raw mathematical color inversion) to guarantee surface depth, border definition, and WCAG AA/AAA text contrast.",
+  "color": {
+    "surface": {
+      "canvas": {
+        "$type": "color",
+        "$value": "{color.neutral.950}",
+        "$description": "Deepest dark canvas base background (#090D16)"
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.900}",
+        "$description": "Standard dark surface card/view background (#0F172A)"
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{color.neutral.800}",
+        "$description": "Elevated dark container and floating card background (#1E293B)"
+      },
+      "overlay": {
+        "$type": "color",
+        "$value": "{color.neutral.700}",
+        "$description": "Modal dialog, popover, and drawer surface in dark mode (#334155)"
+      }
+    },
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.neutral.0}",
+        "$description": "High-contrast text on dark surfaces (#FFFFFF, 14.5:1 against neutral.900)"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.neutral.400}",
+        "$description": "Secondary muted text on dark surfaces (#94A3B8, 5.2:1 against neutral.900)"
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.900}",
+        "$description": "Inverted dark text on bright brand accent buttons (#0F172A)"
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.neutral.800}",
+        "$description": "Subtle border and divider in dark mode (#1E293B)"
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.700}",
+        "$description": "Standard border for dark mode interactive controls (#334155)"
+      }
+    }
+  }
+}

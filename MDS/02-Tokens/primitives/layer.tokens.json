@@ -1,0 +1,36 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Primitive layer / z-index stacking tokens. Defines standardized stacking planes across all views and platforms.",
+  "layer": {
+    "base": {
+      "$type": "number",
+      "$value": 0,
+      "$description": "Default base stacking plane for canvas surfaces and standard document flow",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "raised": {
+      "$type": "number",
+      "$value": 10,
+      "$description": "Elevated plane for sticky navigation bars, table headers, and elevated cards",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "dropdown": {
+      "$type": "number",
+      "$value": 100,
+      "$description": "Floating plane for dropdown menus, select listboxes, popovers, and tooltips",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "overlay": {
+      "$type": "number",
+      "$value": 1000,
+      "$description": "Overlay plane for modal dialogs, full-screen backdrops, and side drawers",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    },
+    "toast": {
+      "$type": "number",
+      "$value": 2000,
+      "$description": "Top-level plane for global notification toasts, alerts, and critical system dialogs",
+      "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+    }
+  }
+}

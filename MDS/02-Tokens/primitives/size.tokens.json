@@ -1,0 +1,58 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "$description": "Primitive size tokens. Defines baseline physical dimensions for interactive controls and vector icons.",
+  "size": {
+    "control": {
+      "sm": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "32px compact control height for dense desktop data grids and secondary utility buttons",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "40px",
+        "$description": "40px standard baseline control height for default buttons, inputs, and selects",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "48px",
+        "$description": "48px touch-first control height for mobile interfaces and hero call-to-actions",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    },
+    "icon": {
+      "xs": {
+        "$type": "dimension",
+        "$value": "14px",
+        "$description": "14px extra-small icon for inline metadata tags and compact indicators",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "sm": {
+        "$type": "dimension",
+        "$value": "16px",
+        "$description": "16px small icon for dense table rows and compact buttons",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "md": {
+        "$type": "dimension",
+        "$value": "20px",
+        "$description": "20px medium icon for standard button icon-text pairings and form validation marks",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "lg": {
+        "$type": "dimension",
+        "$value": "24px",
+        "$description": "24px primary navigation icon and toolbar action button",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      },
+      "xl": {
+        "$type": "dimension",
+        "$value": "32px",
+        "$description": "32px prominent icon for feature callouts, stat banners, and empty state illustrations",
+        "$extensions": { "mds": { "layer": "primitive", "status": "approved" } }
+      }
+    }
+  }
+}

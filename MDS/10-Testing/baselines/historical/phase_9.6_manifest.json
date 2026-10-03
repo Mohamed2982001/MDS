@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "guard_version": "1.0.0",
+  "phase_id": "Phase-9.6",
+  "phase_name": "Reference Application (MDS Workspace) Implementation",
+  "locked_at": "2026-09-22T16:20:00.000Z",
+  "authorized_by": "Mohamed Khalid",
+  "authorizing_adr": "IDR-008",
+  "prev_manifest_digest": "9dea67e3eb91bee84393b9f5155ddf957b7d60c2ce8d045276c9dbd93713084f",
+  "manifest_digest": "ab089a5a768afdf6d8e72ca3aa8f19b42c6ada0a3b714e21d834db0289f7bee8",
+  "total_documents": 9,
+  "documents": [
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.6-Architecture-Gaps.md",
+      "canonical_sha256": "05ed14970b0df04760d9dc8e22ec7d7f126f3e459fe4e9eaee85870dcd77df0d",
+      "byte_size": 7213,
+      "line_count": 69,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.6"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.6-Decision-Log.md",
+      "canonical_sha256": "1dc7005f7a1a602538523bd83199918c4c98f33d672a33a1d6c52255d16d242b",
+      "byte_size": 9267,
+      "line_count": 151,
+      "classification": "HISTORICAL_DECISION_LOG",
+      "provenance": "Ratified in Phase-9.6"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.6-Final-Audit.md",
+      "canonical_sha256": "a297e63aa9785859b7192352b884f8d07fd5af8f0f3a7be1990257389562131a",
+      "byte_size": 38512,
+      "line_count": 639,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.6"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.6-Final-Reaudit.md",
+      "canonical_sha256": "6cac77ef7ae0dc2e3f342af31131db7a73ce177105b087470d7ae45e215ae053",
+      "byte_size": 26791,
+      "line_count": 395,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.6"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.6-Reaudit-Evidence.md",
+      "canonical_sha256": "7db20b94b03d88155019a99e1312fb01a709601224ccde94f393b7e397564c36",
+      "byte_size": 9673,
+      "line_count": 192,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.6"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.6-Reconciliation.md",
+      "canonical_sha256": "2ab24be1d74e8f28c192897e8633a65e10206b9ecb511fe3bb50843bd73d62d2",
+      "byte_size": 21304,
+      "line_count": 342,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.6"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.6-Reference-Application-Architecture.md",
+      "canonical_sha256": "fbe2be9a75e66210f2dc4712e9ceb09a54ffc0ec09ac5a7c46667a2777612cf9",
+      "byte_size": 30950,
+      "line_count": 458,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.6"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.6-Reference-Application-Execution-Report.md",
+      "canonical_sha256": "bb2d689069e327b7b540d0873e5f186770dac2fd7fae592b681ac249c01ec255",
+      "byte_size": 11472,
+      "line_count": 142,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.6"
+    },
+    {
+      "normalized_path": "MDS/13-Implementation/Phase-9.6-Remediation-Report.md",
+      "canonical_sha256": "63d2251cbbd4436046236b7cc1f770f2f14be157fcd59ddb6f050eb64ce3a39e",
+      "byte_size": 15655,
+      "line_count": 208,
+      "classification": "HISTORICAL_PHASE_RECORD",
+      "provenance": "Ratified in Phase-9.6"
+    }
+  ],
+  "history_blocks": [
+    {
+      "block_id": "BLOCK:2026-09-21:phase-9.6-reference-application-mds-workspace-implementation",
+      "date": "2026-09-21",
+      "phase_slug": "phase-9.6-reference-application-mds-workspace-implementation",
+      "title": "Phase 9.6: Reference Application (MDS Workspace) Implementation",
+      "canonical_sha256": "ef26d36993ff54e89066ac340692d48e1982fbcc30602a4e43c31814750a27b1",
+      "byte_size": 6484,
+      "line_count": 56
+    }
+  ]
+}

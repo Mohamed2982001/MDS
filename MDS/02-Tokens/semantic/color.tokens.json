@@ -1,0 +1,149 @@
+{
+  "$schema": "https://design-tokens.github.io/community-group/format/",
+  "color": {
+    "text": {
+      "primary": {
+        "$type": "color",
+        "$value": "{color.neutral.900}",
+        "$description": "Primary high-contrast text for body copy and headings (WCAG AAA 17.85:1 on #FFF)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{color.neutral.500}",
+        "$description": "Secondary text for labels, captions, and supporting metadata (WCAG AA 4.76:1 on #FFF)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "inverse": {
+        "$type": "color",
+        "$value": "{color.neutral.0}",
+        "$description": "High-contrast text on inverted, brand, or dark action surfaces",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      }
+    },
+    "surface": {
+      "canvas": {
+        "$type": "color",
+        "$value": "{color.neutral.50}",
+        "$description": "Base canvas background of the viewport/application",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.0}",
+        "$description": "Standard surface background for cards, tables, and views",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "raised": {
+        "$type": "color",
+        "$value": "{color.neutral.100}",
+        "$description": "Elevated surface container background",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "overlay": {
+        "$type": "color",
+        "$value": "{color.neutral.0}",
+        "$description": "Modal dialog and drawer surface background",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      }
+    },
+    "border": {
+      "subtle": {
+        "$type": "color",
+        "$value": "{color.neutral.200}",
+        "$description": "Subtle border for dividers and table rows (interior non-text boundary)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "default": {
+        "$type": "color",
+        "$value": "{color.neutral.300}",
+        "$description": "Standard border for form fields, cards, and resting containers",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      }
+    },
+    "action": {
+      "primary": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.brand.600}",
+          "$description": "Primary action button resting background (#2563EB, WCAG AA 5.17:1 against #FFF)",
+          "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.brand.700}",
+          "$description": "Primary action button hover state background (#1D4ED8, WCAG AA 6.70:1 against #FFF)",
+          "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+        },
+        "pressed": {
+          "$type": "color",
+          "$value": "{color.brand.800}",
+          "$description": "Primary action button pressed state background (#1E40AF, WCAG AAA 8.72:1 against #FFF)",
+          "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+        }
+      },
+      "destructive": {
+        "default": {
+          "$type": "color",
+          "$value": "{color.palette.red.600}",
+          "$description": "Destructive action resting background (#DC2626, WCAG AA 4.83:1 against #FFF)",
+          "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+        },
+        "hover": {
+          "$type": "color",
+          "$value": "{color.palette.red.700}",
+          "$description": "Destructive action hover background (#B91C1C, WCAG AA 6.47:1 against #FFF)",
+          "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+        }
+      },
+      "disabled": {
+        "background": {
+          "$type": "color",
+          "$value": "{color.neutral.100}",
+          "$description": "Disabled action button non-interactive background fill",
+          "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+        },
+        "foreground": {
+          "$type": "color",
+          "$value": "{color.neutral.400}",
+          "$description": "Disabled action button text and icon non-interactive foreground",
+          "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+        }
+      }
+    },
+    "feedback": {
+      "success": {
+        "$type": "color",
+        "$value": "{color.palette.green.600}",
+        "$description": "Success accent icon and boundary indicator color (#059669)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{color.palette.amber.600}",
+        "$description": "Warning accent icon and boundary indicator color (#D97706)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "danger": {
+        "$type": "color",
+        "$value": "{color.palette.red.600}",
+        "$description": "Critical failure and error indicator color (#DC2626)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{color.palette.blue.600}",
+        "$description": "Informational prompt and notification accent color (#0284C7)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      }
+    },
+    "focus": {
+      "ring": {
+        "$type": "color",
+        "$value": "{color.brand.600}",
+        "$description": "High-visibility keyboard navigation focus ring (#2563EB, 5.17:1 on white canvas)",
+        "$extensions": { "mds": { "layer": "semantic", "status": "approved", "themeable": true } }
+      }
+    }
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "artifacts": {
+    "archives/mds-v1.0.0-dist.tar.gz": {
+      "byte_size": 62222,
+      "content_type": "application/gzip",
+      "role": "distribution_archive",
+      "sha256": "f01009093c162eea772cc1218a9db159858e2637563d3ab50c07c602814e57aa",
+      "tier": "archive"
+    },
+    "archives/mds-v1.0.0-dist.zip": {
+      "byte_size": 431225,
+      "content_type": "application/zip",
+      "role": "distribution_archive",
+      "sha256": "99efe99e4ca77d29f57f01890b2e1a582133817c4114239059ed61033cb27e39",
+      "tier": "archive"
+    },
+    "bundles/mds.all.css": {
+      "byte_size": 100489,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "c3aaa81caf4a48fa3a4b0d1ca7e543c1617d5761db7015618399e8bfbd363628",
+      "tier": "bundle"
+    },
+    "bundles/mds.all.esm.js": {
+      "byte_size": 25520,
+      "content_type": "application/javascript; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "c8ad4dd08922fe5ad7773b26d16f846ab507968311f47e81cafba4ce4dfaa6f9",
+      "tier": "bundle"
+    },
+    "bundles/mds.all.js": {
+      "byte_size": 26121,
+      "content_type": "application/javascript; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "8381d511b302bf76fc259165d77c55fff70f968284496e0f7e6a166f3249aa35",
+      "tier": "bundle"
+    },
+    "css/components/alert.css": {
+      "byte_size": 3623,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "d1df7c4562b1134d9d063fba0f73fd1c29ba4f2abdfea18324ba807df5577692",
+      "tier": "modular_css"
+    },
+    "css/components/badge.css": {
+      "byte_size": 3518,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "876cd0e22ee947db0e9b53da8c5d50e04c28e7fc316add6ff7eca95050ce87f8",
+      "tier": "modular_css"
+    },
+    "css/components/button.css": {
+      "byte_size": 7969,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "7d48eb77e3a1eae39f4fa577bc5de9f1d6eb505ed0e26047bc72c5facd8c8a51",
+      "tier": "modular_css"
+    },
+    "css/components/card.css": {
+      "byte_size": 3714,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "94bf6b022f1a03cc43a78b62cd56fafa65c11b6d4c55a957234a24f44ca73e51",
+      "tier": "modular_css"
+    },
+    "css/components/checkbox.css": {
+      "byte_size": 5159,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "fbb195e3ed61df32a7fb89480fce50041c8afcbb18a149b733dd365e0d5a381e",
+      "tier": "modular_css"
+    },
+    "css/components/dialog.css": {
+      "byte_size": 5067,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "0aca3663bdbbb496130d2e932f852564eccc7e3eaf2af75c03c0812abec4b3e9",
+      "tier": "modular_css"
+    },
+    "css/components/field.css": {
+      "byte_size": 3746,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "ee30c087aaad7990252770df457b3c65d377dce1f51d7d12ed83ce70b7cbb98c",
+      "tier": "modular_css"
+    },
+    "css/components/icon-button.css": {
+      "byte_size": 6575,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "c2ce0ddf909502ac6a50bba4a9aef18b5bf9448b86d14c0180376b90a473be9d",
+      "tier": "modular_css"
+    },
+    "css/components/input.css": {
+      "byte_size": 5387,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "eb16a7aaf07c25a83662b5bc2d7081a1afe0319f0f1e117272fe0810374c0427",
+      "tier": "modular_css"
+    },
+    "css/components/link.css": {
+      "byte_size": 2771,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "cfbd077d2dffd6ae2057511a225c13bf38c163cc6b90982aff3d833dd0611c00",
+      "tier": "modular_css"
+    },
+    "css/components/radio.css": {
+      "byte_size": 4976,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "c517e62e201432376145efd24d0c02bda4b0269f6141e9254a89a22c90606c15",
+      "tier": "modular_css"
+    },
+    "css/components/select.css": {
+      "byte_size": 5831,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "35092f6d8ed1727cc90cd0f52384cf721183e1e47cc7fd86d232d92f146fb78f",
+      "tier": "modular_css"
+    },
+    "css/components/skeleton.css": {
+      "byte_size": 2494,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "49ad07d6d5ca316a9e6582f1260bdf030dff45343c52d34d3aeedd65b3c21878",
+      "tier": "modular_css"
+    },
+    "css/components/spinner.css": {
+      "byte_size": 3480,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "8f1fd532e0cf8409acfd6b16dfd6b2ad1dbfc9c09a245fca1c89ba1cee01df01",
+      "tier": "modular_css"
+    },
+    "css/components/switch.css": {
+      "byte_size": 5559,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "206a8b37ab78dcf3b2deb6e81d34a92c63a26becd5acb240ebf6a237d28f302a",
+      "tier": "modular_css"
+    },
+    "css/components/table.css": {
+      "byte_size": 4240,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "091754b4b777590d9769bd55f84e45f7eb1a390aed9f5f2fd70f31bea49fff78",
+      "tier": "modular_css"
+    },
+    "css/components/tabs.css": {
+      "byte_size": 4488,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "6ff2a6ed3bf8b8fb5456f47fe668dcc82f6eb6a8968ed0e829500bb4d89acbbd",
+      "tier": "modular_css"
+    },
+    "css/components/textarea.css": {
+      "byte_size": 4237,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "fcf41d97a61247306e23302d4a2eb6df135a14b9c4e32cd7e419ea1a8f93878f",
+      "tier": "modular_css"
+    },
+    "css/components/tooltip.css": {
+      "byte_size": 4475,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "7ae369bfd5fe3fd776c9123469394139617369fa73911924018a47f28e7bbcaa",
+      "tier": "modular_css"
+    },
+    "css/mds.components.css": {
+      "byte_size": 55654,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "c6dfc92a7b76adc6ac737e2fbe06d2956e09c4d118c8792cac015dc11c2ce902",
+      "tier": "modular_css"
+    },
+    "css/mds.primitives.css": {
+      "byte_size": 35743,
+      "content_type": "text/css; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "f361675021b15cb8661c1ec25773a7c133276199b76dbcf7d359f22ce7c0ce2d",
+      "tier": "modular_css"
+    },
+    "css/mds.tokens.css": {
+      "byte_size": 9252,
+      "content_type": "text/css; charset=utf-8",
+      "role": "theme_override",
+      "sha256": "067267029613689fa2f86c35e0f2d94c27697457c690f963fab17feda6afe74e",
+      "tier": "modular_css"
+    },
+    "js/mds.components.js": {
+      "byte_size": 20526,
+      "content_type": "application/javascript; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "8f8b06820d4727fdf30ac5729d8e0f79787bcba770a3f1f3d4b7497e15c1334a",
+      "tier": "modular_js"
+    },
+    "js/mds.primitives.js": {
+      "byte_size": 9871,
+      "content_type": "application/javascript; charset=utf-8",
+      "role": "monolithic_bundle",
+      "sha256": "88bae82732541994a8aaebf90c74dcd9bef35c648a7e3d5bf8e6daaca1a940cc",
+      "tier": "modular_js"
+    },
+    "tokens/tokens.css": {
+      "byte_size": 9130,
+      "content_type": "text/css; charset=utf-8",
+      "role": "theme_override",
+      "sha256": "b137ee356d4d2792bb52a45f1dff1861fc54a74729f257b2d45679d1bb4cd221",
+      "tier": "tokens"
+    },
+    "tokens/tokens.d.ts": {
+      "byte_size": 595,
+      "content_type": "text/typescript; charset=utf-8",
+      "role": "type_definition",
+      "sha256": "fc699f72b51c9bb3a3581493297a375b4f096abfa45eae5ceffca761a1ed99b2",
+      "tier": "declarations"
+    },
+    "tokens/tokens.json": {
+      "byte_size": 46049,
+      "content_type": "application/json; charset=utf-8",
+      "role": "token_dictionary",
+      "sha256": "7ca7588a9e1ff73eaeb0a3c06889751237b93e17d45d71aaa13975925cf545f2",
+      "tier": "tokens"
+    },
+    "types/components.d.ts": {
+      "byte_size": 1166,
+      "content_type": "text/typescript; charset=utf-8",
+      "role": "type_definition",
+      "sha256": "710e3e92f33af91adec9c2760962f24af341958d66a0e7941e25bd48eaa5a539",
+      "tier": "declarations"
+    }
+  },
+  "build_config_identity": {
+    "config_hash": "9dd135071c1f155d23abab9ba3492756dd2f3fec1d68b989952d3c44749a7d43"
+  },
+  "build_env_identity": {
+    "env_hash": "7a9f36217a4cebd17653687cd392ed3af35448029da1a7da6c62734d032f51de"
+  },
+  "build_epoch": "2026-10-01T00:00:00+00:00",
+  "build_id": "426b8bf473112cf5a46f7535e85d821efab7a5b2b6603b39ec7f52840fb9f526",
+  "compiler_identity": {
+    "compiler_hash": "1.0.0:3290cc589386c2afa5ac7dc48439dacdc2275cd9fbf96f2c7ecabaea703e013d"
+  },
+  "compiler_version": "1.0.0",
+  "mds_version": "1.0.0",
+  "package_name": "master-design-system",
+  "reproducible": true,
+  "schema_version": "1.0.0",
+  "source_identity": {
+    "source_file_count": 61,
+    "source_hash": "34cd5128a6258cdfb09bed3f0002eaf9910610bc8ebf3fda16034cef6a815a73",
+    "source_revision": "canonical-phase-10.3"
+  },
+  "zero_npm": {
+    "consumption": true,
+    "runtime": true,
+    "tooling": true
+  }
+}

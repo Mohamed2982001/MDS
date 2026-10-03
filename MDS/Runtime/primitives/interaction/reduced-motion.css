@@ -1,0 +1,21 @@
+/**
+ * MDS (Master Design System) — ReducedMotion Primitive & Utilities
+ * Architecture Layer: Layer 03 (Primitives / Accessibility)
+ * Cascade Layer: @layer mds.primitives
+ * Rule: Motion explains change; never decorates. Instant collapse under prefers-reduced-motion.
+ */
+
+/* 1. Explicit Instant Transition Utility */
+.mds-motion--instant {
+  transition-duration: var(--mds-motion-duration-instant) !important;
+  animation-duration: var(--mds-motion-duration-instant) !important;
+}
+
+/* 2. Canonical Reduced-Motion Collapse Utility */
+@media (prefers-reduced-motion: reduce) {
+  .mds-motion--collapse {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}

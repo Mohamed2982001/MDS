@@ -96,9 +96,11 @@ class MdsSwitch extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(vertical: 4.0),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Expanded(
+            Flexible(
+              fit: FlexFit.loose,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,

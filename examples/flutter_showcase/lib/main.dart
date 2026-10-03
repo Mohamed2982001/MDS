@@ -139,16 +139,19 @@ class _ShowcaseHomeScreenState extends State<ShowcaseHomeScreen> with SingleTick
           ],
         ),
       ),
-      body: TabBarView(
-        controller: _tabController,
-        children: [
-          _buildButtonsTab(context, isRtl),
-          _buildInputsTab(context, isRtl),
-          _buildCardsAlertsTab(context, isRtl),
-          _buildFeedbackTab(context, isRtl),
-          _buildDataNavigationTab(context, isRtl),
-          _buildLoadersShimmerTab(context, isRtl),
-        ],
+      body: AnimatedBuilder(
+        animation: _tabController,
+        builder: (context, _) {
+          return switch (_tabController.index) {
+            0 => _buildButtonsTab(context, isRtl),
+            1 => _buildInputsTab(context, isRtl),
+            2 => _buildCardsAlertsTab(context, isRtl),
+            3 => _buildFeedbackTab(context, isRtl),
+            4 => _buildDataNavigationTab(context, isRtl),
+            5 => _buildLoadersShimmerTab(context, isRtl),
+            _ => const SizedBox.shrink(),
+          };
+        },
       ),
     );
   }
@@ -258,7 +261,9 @@ class _ShowcaseHomeScreenState extends State<ShowcaseHomeScreen> with SingleTick
           onChanged: (val) => setState(() => _checkboxVal = val ?? false),
         ),
         const SizedBox(height: 12),
-        Row(
+        Wrap(
+          spacing: 24,
+          runSpacing: 8,
           children: [
             MdsRadio<String>(
               value: 'opt1',
@@ -266,7 +271,6 @@ class _ShowcaseHomeScreenState extends State<ShowcaseHomeScreen> with SingleTick
               label: isRtl ? 'الخيار الأول' : 'Option 1',
               onChanged: (val) => setState(() => _radioVal = val!),
             ),
-            const SizedBox(width: 24),
             MdsRadio<String>(
               value: 'opt2',
               groupValue: _radioVal,

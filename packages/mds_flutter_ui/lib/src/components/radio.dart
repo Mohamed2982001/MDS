@@ -94,13 +94,15 @@ class MdsRadio<T> extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsetsDirectional.symmetric(vertical: 4.0),
         child: Row(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
               padding: const EdgeInsetsDirectional.only(top: 2.0, end: MdsSpacing.inlineSm),
               child: radioCircle,
             ),
-            Expanded(
+            Flexible(
+              fit: FlexFit.loose,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,

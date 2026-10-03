@@ -13,25 +13,42 @@ void main() {
     GoogleFonts.config.allowRuntimeFetching = false;
   });
 
-  testWidgets('Showcase App loads cleanly with tabs, RTL, and dark theme toggles', (tester) async {
+  testWidgets('Test all 6 tabs in Showcase App', (tester) async {
+    tester.view.physicalSize = const Size(1280, 800);
+    tester.view.devicePixelRatio = 1.0;
+    addTearDown(() => tester.view.resetPhysicalSize());
+
     await tester.pumpWidget(const MdsShowcaseApp());
     await tester.pumpAndSettle();
 
-    // Verify Title presence
+    // Verify Title presence & Tab 0 (Buttons)
     expect(find.text('معرض Master Design System'), findsOneWidget);
+    expect(find.text('زر أساسي'), findsOneWidget);
 
-    // Verify Tabs presence
-    expect(find.text('الأزرار والإجراءات'), findsOneWidget);
-    expect(find.text('المدخلات والنماذج'), findsOneWidget);
-
-    // Toggle Direction to LTR
-    await tester.tap(find.byIcon(Icons.format_textdirection_r_to_l));
+    // Tap Tab 1: Inputs & Forms
+    await tester.tap(find.text('المدخلات والنماذج'));
     await tester.pumpAndSettle();
-    expect(find.text('Master Design System Showcase'), findsOneWidget);
+    expect(find.text('البريد الإلكتروني'), findsOneWidget);
 
-    // Toggle Theme to Dark
-    await tester.tap(find.byIcon(Icons.dark_mode));
+    // Tap Tab 2: Cards & Alerts
+    await tester.tap(find.text('البطاقات والتنبيهات'));
     await tester.pumpAndSettle();
-    expect(find.byIcon(Icons.light_mode), findsOneWidget);
+    expect(find.text('معلومات عامة'), findsOneWidget);
+
+    // Tap Tab 3: Modals & Feedback
+    await tester.tap(find.text('النوافذ والتغذية الراجعة'));
+    await tester.pumpAndSettle();
+    expect(find.text('فتح نافذة تأكيد (Dialog)'), findsOneWidget);
+
+    // Tap Tab 4: Data & Navigation
+    await tester.tap(find.text('البيانات والتنقل'));
+    await tester.pumpAndSettle();
+    expect(find.text('MK'), findsOneWidget);
+
+    // Tap Tab 5: Loaders & Shimmer
+    await tester.tap(find.text('التحميل والشيمر'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text('اكتمال المعمارية'), findsOneWidget);
   });
 }

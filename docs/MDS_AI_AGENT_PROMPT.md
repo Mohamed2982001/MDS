@@ -864,3 +864,93 @@ Before writing any widget or HTML element, ask yourself:
 10. ✅ Did I determine the project archetype (A/B/C/D) and apply the correct design tone?
 
 **If any answer is NO → fix it before proceeding.**
+
+---
+
+## 📌 SECTION 12 — BROWNFIELD INJECTION: WORKING WITH EXISTING PROJECTS
+
+> **CRITICAL PROTOCOL:** When injected into an existing codebase (e.g. refactoring an existing screen in `Azhal`, migrating `FairDevPrice`, or upgrading any live production app to MDS):
+
+### 12.1 The 5 Cardinal Rules of Brownfield Injection
+1. **TOUCH ONLY THE PRESENTATION LAYER:** Never modify Cubit/Bloc states, events, domain models, entity definitions, API services, local storage (Hive/SQLite/SharedPreferences), or routing logic unless explicitly asked. Your mission is strictly visual elevation and UI modernization.
+2. **ZERO REGRESSION POLICY:** Every callback (`onPressed`, `onChanged`, `onTap`, `onSubmitted`), `TextEditingController`, `FocusNode`, `GlobalKey<FormState>`, and form validation logic MUST remain functionally identical and intact.
+3. **INCREMENTAL MIGRATION (SCREEN-BY-SCREEN):** Never attempt to refactor the entire app in one giant PR or response. Refactor **one component, one card, or one screen at a time**. Validate each step before proceeding.
+4. **SAFE THEME BRIDGING (DUAL-THEME COEXISTENCE):** 
+   - If the existing app already has a custom `ThemeData`, do NOT aggressively wipe it.
+   - Bridge MDS by injecting the `MdsSemanticColors` extension into the existing theme:
+     ```dart
+     ThemeData(
+       // ... existing theme properties ...
+       extensions: [
+         theme.brightness == Brightness.dark
+             ? MdsSemanticColors.dark()
+             : MdsSemanticColors.light(),
+       ],
+     )
+     ```
+   - Or, if doing a full UI overhaul, adopt `MdsThemeData.light()` / `MdsThemeData.dark()`.
+5. **MANDATORY PRE/POST TESTING:**
+   - **Pre-Test:** Inspect the existing screen and verify its current state and controllers before touching any code.
+   - **Post-Test:** Run `dart analyze` to ensure zero compilation or lint errors, and verify all interactions still work.
+
+---
+
+### 12.2 Direct 1-to-1 Component Replacement Dictionary
+
+Use this exact mapping table to swap legacy Flutter widgets with MDS canonical components:
+
+| Legacy Flutter Widget | MDS Replacement | How to Map Properties |
+|---|---|---|
+| `ElevatedButton` / `FilledButton` | `MdsButton(variant: .primary)` | `onPressed: onPressed`, `text: 'Label'` or `child: child`, `isLoading: state.isLoading` |
+| `OutlinedButton` | `MdsButton(variant: .outline)` | Same as above |
+| `TextButton` | `MdsButton(variant: .ghost)` | Same as above |
+| Danger / Delete Button | `MdsButton(variant: .danger)` | Use for destructive actions |
+| `TextFormField` / `TextField` | `MdsTextField` | Map `controller`, `label: decoration.labelText`, `hintText: decoration.hintText`, `errorText: errorText`, `obscureText`, `prefixIcon`, `suffixIcon`, `onChanged` |
+| `Card` / `Container(BoxDecoration)` | `MdsCard(variant: .elevated / .outlined / .filled)` | Move padding to `padding: MdsSpacing.paddingCardMd`, keep `child` or use `title`/`subtitle`/`leading`/`trailing` slots |
+| `ScaffoldMessenger.showSnackBar` | `MdsToast.show(...)` / `MdsToast.showSuccess/Error` | Replace bulky SnackBar with floating MDS Toast |
+| `AlertDialog` / `showDialog` | `MdsDialog.show(...)` | Pass `title`, `content`, `actions: [MdsButton(...)]` |
+| `CircularProgressIndicator` (inline) | `MdsProgressIndicator.circular()` | `size: 24`, `strokeWidth: 2.5` |
+| `CircularProgressIndicator` (fullscreen/loading) | `MdsSkeleton` shimmer cards/lines | Replace full-screen blockers with sleek shimmer placeholders |
+| `ExpansionTile` | `MdsAccordion` / `MdsAccordionGroup` | `title: ...`, `child: ...`, `isExpanded: ...` |
+| `Chip` / `ActionChip` / Status Container | `MdsBadge` | `label: ...`, `variant: .brand/.success/.warning/.error`, `style: .subtle/.filled/.outline` |
+| `Checkbox` / `CheckboxListTile` | `MdsCheckbox` | `value: ...`, `onChanged: ...`, `label: ...`, `description: ...` |
+| `Radio` / `RadioListTile` | `MdsRadio<T>` | `value: ...`, `groupValue: ...`, `onChanged: ...`, `label: ...` |
+| `Switch` / `SwitchListTile` | `MdsSwitch` | `value: ...`, `onChanged: ...`, `label: ...` |
+| `Divider` | `MdsDivider` / `MdsDivider.vertical` | Optional middle text label: `MdsDivider(text: 'OR')` |
+| `CircleAvatar` | `MdsAvatar` / `MdsAvatarGroup` | `name: user.name` (auto initials), `imageUrl: ...`, `status: .online` |
+| `Tooltip` | `MdsTooltip` | `message: ...`, `child: ...`, `variant: .dark` |
+| `DataTable` | `MdsTable` | Map columns to `MdsTableColumn` and rows to `MdsTableRow` |
+| `TabBar` | `MdsTabs` | Map tabs to `MdsTabItem`, variant: `.underline` or `.pill` |
+| `Padding(EdgeInsets.all(16))` | `Padding(MdsSpacing.paddingCardMd)` | Standardize to 4px/8px MDS spacing grid |
+| `SizedBox(height: 16)` | `MdsSpacing.gapVerticalMd` | Standardize vertical gaps |
+| `SizedBox(width: 8)` | `MdsSpacing.gapHorizontalSm` | Standardize horizontal gaps |
+| `BorderRadius.circular(10)` | `MdsRadius.borderMd` | Standardize radii |
+| `Color(0xFF...)` / `Colors.blue` | `context.mdsColors.actionPrimaryDefault` | Eliminate raw hex/Material colors |
+
+---
+
+### 12.3 Step-by-Step Injection Recipe for Existing Screens
+
+When migrating an existing screen (e.g. `LoginView.dart` or `CartView.dart`):
+
+1. **Step 1: Check `pubspec.yaml`:**
+   Ensure `mds_flutter_ui` is added. If not, add:
+   ```yaml
+   dependencies:
+     mds_flutter_ui:
+       path: d:/Work/Dev/Master Design System/packages/mds_flutter_ui
+   ```
+2. **Step 2: Add Single Import:**
+   In the target screen file, add:
+   ```dart
+   import 'package:mds_flutter_ui/mds_flutter_ui.dart';
+   ```
+3. **Step 3: Keep State & Logic Untouched:**
+   Preserve all `BlocBuilder`, `BlocConsumer`, `Provider`, `setState`, controllers, and validators.
+4. **Step 4: Swap UI Elements via the Replacement Dictionary:**
+   - Replace `ElevatedButton` with `MdsButton`.
+   - Replace `TextFormField` with `MdsTextField`.
+   - Replace `Card` with `MdsCard`.
+   - Replace raw padding with `MdsSpacing.paddingCardMd` and `MdsSpacing.gapVertical*`.
+5. **Step 5: Verify With Zero Warnings:**
+   Run `dart analyze` to ensure zero compilation or lint issues before moving to the next screen.

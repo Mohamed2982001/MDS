@@ -44,9 +44,11 @@ abstract final class MdsTypography {
   static const double lineHeightRelaxed = 1.75;
 
   // ---------------------------------------------------------------------------
-  // Cairo TextStyle Factory
+  // Dynamic Font TextStyle Factory
   // ---------------------------------------------------------------------------
-  static TextStyle cairo({
+  /// Universal dynamic TextStyle factory supporting any Google Font or system font.
+  static TextStyle font(
+    String fontFamily, {
     double? fontSize,
     FontWeight? fontWeight,
     Color? color,
@@ -56,7 +58,29 @@ abstract final class MdsTypography {
   }) {
     if (!GoogleFonts.config.allowRuntimeFetching) {
       return TextStyle(
-        fontFamily: primaryFontFamily,
+        fontFamily: fontFamily,
+        fontFamilyFallback: <String>[fontFamily, primaryFontFamily, 'sans-serif'],
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color,
+        height: height,
+        letterSpacing: letterSpacing,
+        decoration: decoration,
+      );
+    }
+    try {
+      return GoogleFonts.getFont(
+        fontFamily,
+        fontSize: fontSize,
+        fontWeight: fontWeight,
+        color: color,
+        height: height,
+        letterSpacing: letterSpacing,
+        decoration: decoration,
+      );
+    } catch (_) {
+      return TextStyle(
+        fontFamily: fontFamily,
         fontFamilyFallback: const <String>[primaryFontFamily, 'sans-serif'],
         fontSize: fontSize,
         fontWeight: fontWeight,
@@ -66,7 +90,19 @@ abstract final class MdsTypography {
         decoration: decoration,
       );
     }
-    return GoogleFonts.cairo(
+  }
+
+  /// Backward-compatible Cairo TextStyle Factory.
+  static TextStyle cairo({
+    double? fontSize,
+    FontWeight? fontWeight,
+    Color? color,
+    double? height,
+    double? letterSpacing,
+    TextDecoration? decoration,
+  }) {
+    return font(
+      primaryFontFamily,
       fontSize: fontSize,
       fontWeight: fontWeight,
       color: color,
@@ -77,28 +113,50 @@ abstract final class MdsTypography {
   }
 
   // ---------------------------------------------------------------------------
-  // Material 3 Cairo TextTheme Factory
+  // Material 3 Dynamic TextTheme Factory
   // ---------------------------------------------------------------------------
+  /// Builds complete Material 3 TextTheme dynamically for any specified font family.
   static TextTheme createTextTheme({
+    String fontFamily = primaryFontFamily,
     Color primaryColor = MdsColors.textPrimaryLight,
     Color secondaryColor = MdsColors.textSecondaryLight,
   }) {
     return TextTheme(
-      displayLarge: cairo(fontSize: size4xl, fontWeight: bold, height: lineHeightTight, color: primaryColor, letterSpacing: -0.5),
-      displayMedium: cairo(fontSize: size3xl, fontWeight: bold, height: lineHeightTight, color: primaryColor, letterSpacing: -0.25),
-      displaySmall: cairo(fontSize: size2xl, fontWeight: semibold, height: lineHeightTight, color: primaryColor),
-      headlineLarge: cairo(fontSize: size2xl, fontWeight: semibold, height: lineHeightTight, color: primaryColor),
-      headlineMedium: cairo(fontSize: sizeXl, fontWeight: semibold, height: lineHeightTight, color: primaryColor),
-      headlineSmall: cairo(fontSize: sizeLg, fontWeight: semibold, height: lineHeightNormal, color: primaryColor),
-      titleLarge: cairo(fontSize: sizeLg, fontWeight: semibold, height: lineHeightNormal, color: primaryColor),
-      titleMedium: cairo(fontSize: sizeBase, fontWeight: semibold, height: lineHeightNormal, color: primaryColor, letterSpacing: 0.15),
-      titleSmall: cairo(fontSize: sizeSm, fontWeight: semibold, height: lineHeightNormal, color: primaryColor, letterSpacing: 0.1),
-      bodyLarge: cairo(fontSize: sizeBase, fontWeight: regular, height: lineHeightNormal, color: primaryColor, letterSpacing: 0.5),
-      bodyMedium: cairo(fontSize: sizeSm, fontWeight: regular, height: lineHeightNormal, color: primaryColor, letterSpacing: 0.25),
-      bodySmall: cairo(fontSize: sizeXs, fontWeight: regular, height: lineHeightNormal, color: secondaryColor, letterSpacing: 0.4),
-      labelLarge: cairo(fontSize: sizeSm, fontWeight: medium, height: lineHeightTight, color: primaryColor, letterSpacing: 0.1),
-      labelMedium: cairo(fontSize: sizeXs, fontWeight: medium, height: lineHeightTight, color: secondaryColor, letterSpacing: 0.5),
-      labelSmall: cairo(fontSize: 10.0, fontWeight: medium, height: lineHeightTight, color: secondaryColor, letterSpacing: 0.5),
+      displayLarge: font(fontFamily, fontSize: size4xl, fontWeight: bold, height: lineHeightTight, color: primaryColor, letterSpacing: -0.5),
+      displayMedium: font(fontFamily, fontSize: size3xl, fontWeight: bold, height: lineHeightTight, color: primaryColor, letterSpacing: -0.25),
+      displaySmall: font(fontFamily, fontSize: size2xl, fontWeight: semibold, height: lineHeightTight, color: primaryColor),
+      headlineLarge: font(fontFamily, fontSize: size2xl, fontWeight: semibold, height: lineHeightTight, color: primaryColor),
+      headlineMedium: font(fontFamily, fontSize: sizeXl, fontWeight: semibold, height: lineHeightTight, color: primaryColor),
+      headlineSmall: font(fontFamily, fontSize: sizeLg, fontWeight: semibold, height: lineHeightNormal, color: primaryColor),
+      titleLarge: font(fontFamily, fontSize: sizeLg, fontWeight: semibold, height: lineHeightNormal, color: primaryColor),
+      titleMedium: font(fontFamily, fontSize: sizeBase, fontWeight: semibold, height: lineHeightNormal, color: primaryColor, letterSpacing: 0.15),
+      titleSmall: font(fontFamily, fontSize: sizeSm, fontWeight: semibold, height: lineHeightNormal, color: primaryColor, letterSpacing: 0.1),
+      bodyLarge: font(fontFamily, fontSize: sizeBase, fontWeight: regular, height: lineHeightNormal, color: primaryColor, letterSpacing: 0.5),
+      bodyMedium: font(fontFamily, fontSize: sizeSm, fontWeight: regular, height: lineHeightNormal, color: primaryColor, letterSpacing: 0.25),
+      bodySmall: font(fontFamily, fontSize: sizeXs, fontWeight: regular, height: lineHeightNormal, color: secondaryColor, letterSpacing: 0.4),
+      labelLarge: font(fontFamily, fontSize: sizeSm, fontWeight: medium, height: lineHeightTight, color: primaryColor, letterSpacing: 0.1),
+      labelMedium: font(fontFamily, fontSize: sizeXs, fontWeight: medium, height: lineHeightTight, color: secondaryColor, letterSpacing: 0.5),
+      labelSmall: font(fontFamily, fontSize: 10.0, fontWeight: medium, height: lineHeightTight, color: secondaryColor, letterSpacing: 0.5),
     );
+  }
+
+  // ---------------------------------------------------------------------------
+  // Intelligent Font Archetype Recommendations Matrix
+  // ---------------------------------------------------------------------------
+  /// Recommended font families curated by project archetype/domain.
+  static const Map<String, List<String>> fontArchetypes = <String, List<String>>{
+    'e_commerce': <String>['Tajawal', 'Readex Pro', 'Almarai'],
+    'delivery_services': <String>['Tajawal', 'Readex Pro', 'Cairo'],
+    'fintech_luxury': <String>['Alexandria', 'Cairo', 'IBM Plex Sans Arabic'],
+    'dashboard_saas': <String>['Inter', 'Rubik', 'Noto Sans Arabic'],
+    'social_consumer': <String>['Cairo', 'Tajawal', 'Readex Pro'],
+    'editorial_content': <String>['Amiri', 'Changa', 'Cairo'],
+  };
+
+  /// Resolves the recommended font family for a given project category.
+  static String resolveFontForArchetype(String archetype, {String fallback = primaryFontFamily}) {
+    final fonts = fontArchetypes[archetype];
+    if (fonts != null && fonts.isNotEmpty) return fonts.first;
+    return fallback;
   }
 }

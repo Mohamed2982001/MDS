@@ -86,18 +86,21 @@ dependencies:
 > import 'package:mds_flutter_ui/mds_flutter_ui.dart';
 > ```
 
-### Step 2: Wire MDS Theme in `MaterialApp`
+### Step 2: Wire MDS Theme in `MaterialApp` with Dynamic Font
 
 ```dart
+// Auto-resolve font or pass custom font (e.g. 'Tajawal', 'Inter', 'Alexandria', or default 'Cairo')
+final appFont = MdsTypography.resolveFontForArchetype('e_commerce'); // or 'dashboard_saas', etc.
+
 MaterialApp(
-  theme: MdsThemeData.light(),
-  darkTheme: MdsThemeData.dark(),
-  themeMode: ThemeMode.system, // or your Cubit-driven mode
+  theme: MdsThemeData.light(fontFamily: appFont),
+  darkTheme: MdsThemeData.dark(fontFamily: appFont),
+  themeMode: ThemeMode.system, // or your Cubit/Riverpod-driven mode
   // ...
 );
 ```
 
-This single call configures: `ColorScheme`, `TextTheme` (Cairo font), `AppBarTheme`, `CardTheme`, `ElevatedButtonTheme`, `OutlinedButtonTheme`, `InputDecorationTheme`, and registers `MdsSemanticColors` as a `ThemeExtension`.
+This single call configures: `ColorScheme`, dynamic `TextTheme` with the selected font, `AppBarTheme`, `CardTheme`, `ElevatedButtonTheme`, `OutlinedButtonTheme`, `InputDecorationTheme`, and registers `MdsSemanticColors` as a `ThemeExtension`.
 
 ### Step 3: Access MDS tokens anywhere in the widget tree
 
@@ -175,14 +178,30 @@ This is the **primary way** components resolve colors. All 21 fields:
 **Helpers:** `directionalStartOnly([radius])`, `directionalEndOnly([radius])`, `directionalTopOnly([radius])`, `directionalBottomOnly([radius])`
 **Border Widths:** `borderWidthThin` (1.0), `borderWidthRegular` (1.5), `borderWidthThick` (2.0)
 
-### 4.5 Typography (`MdsTypography` — abstract final class)
+### 4.5 Typography (`MdsTypography` — Dynamic Multi-Font Engine)
 
-**Font Families:** `primaryFontFamily` = `'Cairo'`, `monoFontFamily` = `'JetBrains Mono'`
+**Dynamic Multi-Font Architecture:**
+MDS is completely font-agnostic. Cairo remains available as a reliable default fallback, but each project dynamically searches and resolves its ideal font family based on its domain.
+
+**Font Families:** `defaultFontFamily` = `'Cairo'`, `primaryFontFamily` = `'Cairo'`, `monoFontFamily` = `'JetBrains Mono'`
 **Font Weights:** `regular` (w400), `medium` (w500), `semibold` (w600), `bold` (w700)
 **Font Sizes:** `sizeXs` (12), `sizeSm` (14), `sizeBase` (16), `sizeLg` (20), `sizeXl` (24), `size2xl` (30), `size3xl` (36), `size4xl` (48)
 **Line Heights:** `lineHeightTight` (1.25), `lineHeightNormal` (1.5), `lineHeightRelaxed` (1.75)
-**Factory:** `MdsTypography.cairo(fontSize: ..., fontWeight: ..., color: ..., height: ..., letterSpacing: ..., decoration: ...)`
-**TextTheme Factory:** `MdsTypography.createTextTheme(primaryColor: ..., secondaryColor: ...)` — returns a full M3 `TextTheme` mapped to Cairo.
+**Universal Factory:** `MdsTypography.font(fontFamily, fontSize: ..., fontWeight: ..., color: ..., height: ..., letterSpacing: ...)`
+**TextTheme Factory:** `MdsTypography.createTextTheme(fontFamily: fontFamily, primaryColor: ..., secondaryColor: ...)` — builds a full M3 `TextTheme` for any Google Font or system font.
+
+**Intelligent Font Archetype Matrix:**
+- `e_commerce` & `delivery_services`: `['Tajawal', 'Readex Pro', 'Almarai']` (high legibility for item catalogs & pricing)
+- `fintech_luxury`: `['Alexandria', 'Cairo', 'IBM Plex Sans Arabic']` (prestigious, crisp, corporate tone)
+- `dashboard_saas`: `['Inter', 'Rubik', 'Noto Sans Arabic']` (compact data density, tabular figures)
+- `social_consumer`: `['Cairo', 'Tajawal', 'Readex Pro']`
+- `editorial_content`: `['Amiri', 'Changa', 'Cairo']`
+
+**Automatic Resolver:**
+```dart
+final font = MdsTypography.resolveFontForArchetype('e_commerce'); // → 'Tajawal'
+final theme = MdsThemeData.light(fontFamily: font);
+```
 
 ### 4.6 Elevation (`MdsElevation` — abstract final class)
 

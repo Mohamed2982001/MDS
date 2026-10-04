@@ -172,5 +172,17 @@ void main() {
       expect(ext, isNotNull);
       expect(ext?.surfaceCanvas, equals(MdsColors.surfaceCanvasDark));
     });
+
+    test('ThemeData dynamically supports custom font family', () {
+      final customLight = MdsThemeData.light(fontFamily: 'Tajawal');
+      expect(customLight.textTheme.bodyLarge?.fontFamily, equals('Tajawal'));
+      expect(customLight.appBarTheme.titleTextStyle?.fontFamily, equals('Tajawal'));
+    });
+
+    test('Font archetype recommendations return expected families', () {
+      expect(MdsTypography.resolveFontForArchetype('e_commerce'), equals('Tajawal'));
+      expect(MdsTypography.resolveFontForArchetype('dashboard_saas'), equals('Inter'));
+      expect(MdsTypography.resolveFontForArchetype('unknown'), equals('Cairo'));
+    });
   });
 }

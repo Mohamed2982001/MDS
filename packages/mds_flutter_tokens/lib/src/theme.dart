@@ -12,9 +12,13 @@ import 'typography.dart';
 /// Production-grade Material 3 ThemeData Factory for Light & Dark modes.
 abstract final class MdsThemeData {
   /// Builds complete Material 3 Light ThemeData derived directly from MDS tokens.
-  static ThemeData light() {
+  static ThemeData light({
+    String fontFamily = MdsTypography.primaryFontFamily,
+    TextTheme? customTextTheme,
+  }) {
     final colorScheme = MdsColorScheme.light();
-    final textTheme = MdsTypography.createTextTheme(
+    final textTheme = customTextTheme ?? MdsTypography.createTextTheme(
+      fontFamily: fontFamily,
       primaryColor: MdsColors.textPrimaryLight,
       secondaryColor: MdsColors.textSecondaryLight,
     );
@@ -24,7 +28,7 @@ abstract final class MdsThemeData {
       brightness: Brightness.light,
       colorScheme: colorScheme,
       textTheme: textTheme,
-      fontFamily: MdsTypography.primaryFontFamily,
+      fontFamily: fontFamily,
       scaffoldBackgroundColor: MdsColors.surfaceCanvasLight,
       cardTheme: const CardThemeData(
         elevation: 0,
@@ -41,7 +45,8 @@ abstract final class MdsThemeData {
         backgroundColor: MdsColors.surfaceDefaultLight,
         foregroundColor: MdsColors.textPrimaryLight,
         centerTitle: false,
-        titleTextStyle: MdsTypography.cairo(
+        titleTextStyle: MdsTypography.font(
+          fontFamily,
           fontSize: MdsTypography.sizeLg,
           fontWeight: MdsTypography.semibold,
           color: MdsColors.textPrimaryLight,
@@ -54,7 +59,8 @@ abstract final class MdsThemeData {
           foregroundColor: MdsColors.textInverseLight,
           shape: const RoundedRectangleBorder(borderRadius: MdsRadius.borderMd),
           padding: MdsSpacing.paddingButtonMd,
-          textStyle: MdsTypography.cairo(
+          textStyle: MdsTypography.font(
+            fontFamily,
             fontSize: MdsTypography.sizeSm,
             fontWeight: MdsTypography.medium,
           ),
@@ -66,7 +72,8 @@ abstract final class MdsThemeData {
           side: const BorderSide(color: MdsColors.borderDefaultLight, width: MdsRadius.borderWidthThin),
           shape: const RoundedRectangleBorder(borderRadius: MdsRadius.borderMd),
           padding: MdsSpacing.paddingButtonMd,
-          textStyle: MdsTypography.cairo(
+          textStyle: MdsTypography.font(
+            fontFamily,
             fontSize: MdsTypography.sizeSm,
             fontWeight: MdsTypography.medium,
           ),
@@ -96,9 +103,13 @@ abstract final class MdsThemeData {
   }
 
   /// Builds complete Material 3 Dark ThemeData derived directly from MDS tokens.
-  static ThemeData dark() {
+  static ThemeData dark({
+    String fontFamily = MdsTypography.primaryFontFamily,
+    TextTheme? customTextTheme,
+  }) {
     final colorScheme = MdsColorScheme.dark();
-    final textTheme = MdsTypography.createTextTheme(
+    final textTheme = customTextTheme ?? MdsTypography.createTextTheme(
+      fontFamily: fontFamily,
       primaryColor: MdsColors.textPrimaryDark,
       secondaryColor: MdsColors.textSecondaryDark,
     );
@@ -108,7 +119,7 @@ abstract final class MdsThemeData {
       brightness: Brightness.dark,
       colorScheme: colorScheme,
       textTheme: textTheme,
-      fontFamily: MdsTypography.primaryFontFamily,
+      fontFamily: fontFamily,
       scaffoldBackgroundColor: MdsColors.surfaceCanvasDark,
       cardTheme: const CardThemeData(
         elevation: 0,
@@ -125,7 +136,8 @@ abstract final class MdsThemeData {
         backgroundColor: MdsColors.surfaceDefaultDark,
         foregroundColor: MdsColors.textPrimaryDark,
         centerTitle: false,
-        titleTextStyle: MdsTypography.cairo(
+        titleTextStyle: MdsTypography.font(
+          fontFamily,
           fontSize: MdsTypography.sizeLg,
           fontWeight: MdsTypography.semibold,
           color: MdsColors.textPrimaryDark,
@@ -138,7 +150,8 @@ abstract final class MdsThemeData {
           foregroundColor: MdsColors.neutral900,
           shape: const RoundedRectangleBorder(borderRadius: MdsRadius.borderMd),
           padding: MdsSpacing.paddingButtonMd,
-          textStyle: MdsTypography.cairo(
+          textStyle: MdsTypography.font(
+            fontFamily,
             fontSize: MdsTypography.sizeSm,
             fontWeight: MdsTypography.medium,
           ),
@@ -150,7 +163,8 @@ abstract final class MdsThemeData {
           side: const BorderSide(color: MdsColors.borderDefaultDark, width: MdsRadius.borderWidthThin),
           shape: const RoundedRectangleBorder(borderRadius: MdsRadius.borderMd),
           padding: MdsSpacing.paddingButtonMd,
-          textStyle: MdsTypography.cairo(
+          textStyle: MdsTypography.font(
+            fontFamily,
             fontSize: MdsTypography.sizeSm,
             fontWeight: MdsTypography.medium,
           ),
